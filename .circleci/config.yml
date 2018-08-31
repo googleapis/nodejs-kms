@@ -64,11 +64,10 @@ jobs:
           name: Install and link the module
           command: |-
             mkdir -p /home/node/.npm-global
-            curl https://gist.githubusercontent.com/soldair/45d18dfcca291e019ef420af7831f96c/raw/index.js > npmslp.js
-            node npmslp.js 5000 2 install
+            curl https://gist.githubusercontent.com/alexander-fenster/3c5065f79c70434eaa019b9787e0cac4/raw/npmslp.js > npmslp.js
+            node npmslp.js
           environment:
             NPM_CONFIG_PREFIX: /home/node/.npm-global
-          no_output_timeout: 5m
       - run: npm test
       - run: node_modules/.bin/codecov
 
@@ -94,8 +93,8 @@ jobs:
           command: |
             cd samples/
             npm link ../
-            curl https://gist.githubusercontent.com/soldair/45d18dfcca291e019ef420af7831f96c/raw/index.js > npmslp.js
-            node npmslp.js 5000 2 install
+            curl https://gist.githubusercontent.com/alexander-fenster/3c5065f79c70434eaa019b9787e0cac4/raw/npmslp.js > npmslp.js
+            node npmslp.js
           environment:
             NPM_CONFIG_PREFIX: /home/node/.npm-global
       - run:
