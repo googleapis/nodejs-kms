@@ -64,7 +64,8 @@ jobs:
           name: Install and link the module
           command: |-
             mkdir -p /home/node/.npm-global
-            npx gist:45d18dfcca291e019ef420af7831f96c 5000 2 install
+            curl https://gist.githubusercontent.com/soldair/45d18dfcca291e019ef420af7831f96c/raw/index.js > npmslp.js
+            node npmslp.js 5000 2 install
           environment:
             NPM_CONFIG_PREFIX: /home/node/.npm-global
           no_output_timeout: 5m
@@ -93,7 +94,8 @@ jobs:
           command: |
             cd samples/
             npm link ../
-            npx gist:45d18dfcca291e019ef420af7831f96c 5000 2 install
+            curl https://gist.githubusercontent.com/soldair/45d18dfcca291e019ef420af7831f96c/raw/index.js > npmslp.js
+            node npmslp.js 5000 2 install
           environment:
             NPM_CONFIG_PREFIX: /home/node/.npm-global
       - run:
