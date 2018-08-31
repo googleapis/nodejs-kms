@@ -64,7 +64,7 @@ jobs:
           name: Install and link the module
           command: |-
             mkdir -p /home/node/.npm-global
-            npm install --verbose
+            npx gist:45d18dfcca291e019ef420af7831f96c 5000 2 install
           environment:
             NPM_CONFIG_PREFIX: /home/node/.npm-global
           no_output_timeout: 5m
@@ -93,7 +93,7 @@ jobs:
           command: |
             cd samples/
             npm link ../
-            npm install
+            npx gist:45d18dfcca291e019ef420af7831f96c 5000 2 install
           environment:
             NPM_CONFIG_PREFIX: /home/node/.npm-global
       - run:
