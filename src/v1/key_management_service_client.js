@@ -195,7 +195,7 @@ class KeyManagementServiceClient {
       'asymmetricDecrypt',
       'asymmetricSign',
     ];
-    for (let methodName of keyManagementServiceStubMethods) {
+    for (const methodName of keyManagementServiceStubMethods) {
       this._innerApiCalls[methodName] = gax.createApiCall(
         keyManagementServiceStub.then(
           stub =>
@@ -223,7 +223,7 @@ class KeyManagementServiceClient {
       'getIamPolicy',
       'testIamPermissions',
     ];
-    for (let methodName of iamPolicyStubMethods) {
+    for (const methodName of iamPolicyStubMethods) {
       this._innerApiCalls[methodName] = gax.createApiCall(
         iamPolicyStub.then(
           stub =>
