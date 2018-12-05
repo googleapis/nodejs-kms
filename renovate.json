@@ -1,8 +1,7 @@
 {
   "extends": [
     "config:base",
-    "docker:disable",
-    "group:linters"
+    "docker:disable"
   ],
   "pinVersions": false,
   "rebaseStalePrs": true,
