@@ -17,13 +17,22 @@
 const fs = require(`fs`);
 const path = require(`path`);
 const {assert} = require('chai');
+<<<<<<< HEAD
 const cp = require('child_process');
+=======
+const cp = require('child_process');
+>>>>>>> master
 const uuid = require(`uuid`);
 const {promisify} = require('util');
 const unlink = promisify(fs.unlink);
 
 const execSync = (cmd) => cp.execSync(cmd, {encoding: 'utf-8'});
 
+<<<<<<< HEAD
+const execSync = (cmd) => cp.execSync(cmd, {encoding: 'utf-8'});
+
+=======
+>>>>>>> master
 const keyRingName = `test-ring-${uuid.v4()}`;
 const keyNameOne = `test-key-${uuid.v4()}`;
 const member = `allAuthenticatedUsers`;
