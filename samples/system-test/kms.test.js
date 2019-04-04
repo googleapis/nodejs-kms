@@ -80,7 +80,7 @@ describe('kms sample tests', () => {
   it(`should get a key ring`, async () => {
     const output = execSync(`node getKeyring ${projectId} ${keyRingName}`);
     assert.match(output, new RegExp(`Name: ${formattedKeyRingName}`));
-    assert.ok(output.match(new RegExp(`Created: `)));
+    assert.match(output, /Created: /);
   });
 
   it(`should get a key ring's empty IAM policy`, async () => {
