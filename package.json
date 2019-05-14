@@ -30,7 +30,7 @@
   ],
   "scripts": {
     "samples-test": "cd samples/ && npm link ../ && npm test && cd ../",
-    "test": "mocha",
+    "test": "nyc mocha",
     "lint": "eslint '**/*.js'",
     "docs": "jsdoc -c .jsdoc.js",
     "system-test": "mocha system-test/ smoke-test/ --timeout 600000",
