@@ -4,6 +4,13 @@
 
 [1]: https://www.npmjs.com/package/@google-cloud/kms?activeTab=versions
 
+### [1.3.2](https://www.github.com/googleapis/nodejs-kms/compare/v1.3.1...v1.3.2) (2019-08-25)
+
+
+### Bug Fixes
+
+* update retry code settings per API call ([#196](https://www.github.com/googleapis/nodejs-kms/issues/196)) ([3ce2076](https://www.github.com/googleapis/nodejs-kms/commit/3ce2076))
+
 ### [1.3.1](https://www.github.com/googleapis/nodejs-kms/compare/v1.3.0...v1.3.1) (2019-08-05)
 
 
