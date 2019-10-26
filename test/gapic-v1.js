@@ -45,9 +45,7 @@ describe('KeyManagementServiceClient', () => {
   });
 
   it('should create a client with gRPC fallback', () => {
-    const client = new kmsModule.v1.KeyManagementServiceClient({
-      fallback: true,
-    });
+    const client = new kmsModule.v1.KeyManagementServiceClient({fallback: true});
     assert(client);
   });
 
@@ -76,11 +74,7 @@ describe('KeyManagementServiceClient', () => {
       };
 
       // Mock Grpc layer
-      client._innerApiCalls.listKeyRings = (
-        actualRequest,
-        options,
-        callback
-      ) => {
+      client._innerApiCalls.listKeyRings = (actualRequest, options, callback) => {
         assert.deepStrictEqual(actualRequest, request);
         callback(null, expectedResponse.keyRings);
       };
@@ -128,11 +122,7 @@ describe('KeyManagementServiceClient', () => {
       });
 
       // Mock request
-      const formattedParent = client.keyRingPath(
-        '[PROJECT]',
-        '[LOCATION]',
-        '[KEY_RING]'
-      );
+      const formattedParent = client.keyRingPath('[PROJECT]', '[LOCATION]', '[KEY_RING]');
       const request = {
         parent: formattedParent,
       };
@@ -149,11 +139,7 @@ describe('KeyManagementServiceClient', () => {
       };
 
       // Mock Grpc layer
-      client._innerApiCalls.listImportJobs = (
-        actualRequest,
-        options,
-        callback
-      ) => {
+      client._innerApiCalls.listImportJobs = (actualRequest, options, callback) => {
         assert.deepStrictEqual(actualRequest, request);
         callback(null, expectedResponse.importJobs);
       };
@@ -172,11 +158,7 @@ describe('KeyManagementServiceClient', () => {
       });
 
       // Mock request
-      const formattedParent = client.keyRingPath(
-        '[PROJECT]',
-        '[LOCATION]',
-        '[KEY_RING]'
-      );
+      const formattedParent = client.keyRingPath('[PROJECT]', '[LOCATION]', '[KEY_RING]');
       const request = {
         parent: formattedParent,
       };
@@ -205,11 +187,7 @@ describe('KeyManagementServiceClient', () => {
       });
 
       // Mock request
-      const formattedParent = client.keyRingPath(
-        '[PROJECT]',
-        '[LOCATION]',
-        '[KEY_RING]'
-      );
+      const formattedParent = client.keyRingPath('[PROJECT]', '[LOCATION]', '[KEY_RING]');
       const request = {
         parent: formattedParent,
       };
@@ -226,11 +204,7 @@ describe('KeyManagementServiceClient', () => {
       };
 
       // Mock Grpc layer
-      client._innerApiCalls.listCryptoKeys = (
-        actualRequest,
-        options,
-        callback
-      ) => {
+      client._innerApiCalls.listCryptoKeys = (actualRequest, options, callback) => {
         assert.deepStrictEqual(actualRequest, request);
         callback(null, expectedResponse.cryptoKeys);
       };
@@ -249,11 +223,7 @@ describe('KeyManagementServiceClient', () => {
       });
 
       // Mock request
-      const formattedParent = client.keyRingPath(
-        '[PROJECT]',
-        '[LOCATION]',
-        '[KEY_RING]'
-      );
+      const formattedParent = client.keyRingPath('[PROJECT]', '[LOCATION]', '[KEY_RING]');
       const request = {
         parent: formattedParent,
       };
@@ -282,12 +252,7 @@ describe('KeyManagementServiceClient', () => {
       });
 
       // Mock request
-      const formattedParent = client.cryptoKeyPath(
-        '[PROJECT]',
-        '[LOCATION]',
-        '[KEY_RING]',
-        '[CRYPTO_KEY]'
-      );
+      const formattedParent = client.cryptoKeyPath('[PROJECT]', '[LOCATION]', '[KEY_RING]', '[CRYPTO_KEY]');
       const request = {
         parent: formattedParent,
       };
@@ -304,11 +269,7 @@ describe('KeyManagementServiceClient', () => {
       };
 
       // Mock Grpc layer
-      client._innerApiCalls.listCryptoKeyVersions = (
-        actualRequest,
-        options,
-        callback
-      ) => {
+      client._innerApiCalls.listCryptoKeyVersions = (actualRequest, options, callback) => {
         assert.deepStrictEqual(actualRequest, request);
         callback(null, expectedResponse.cryptoKeyVersions);
       };
@@ -327,12 +288,7 @@ describe('KeyManagementServiceClient', () => {
       });
 
       // Mock request
-      const formattedParent = client.cryptoKeyPath(
-        '[PROJECT]',
-        '[LOCATION]',
-        '[KEY_RING]',
-        '[CRYPTO_KEY]'
-      );
+      const formattedParent = client.cryptoKeyPath('[PROJECT]', '[LOCATION]', '[KEY_RING]', '[CRYPTO_KEY]');
       const request = {
         parent: formattedParent,
       };
@@ -361,11 +317,7 @@ describe('KeyManagementServiceClient', () => {
       });
 
       // Mock request
-      const formattedName = client.keyRingPath(
-        '[PROJECT]',
-        '[LOCATION]',
-        '[KEY_RING]'
-      );
+      const formattedName = client.keyRingPath('[PROJECT]', '[LOCATION]', '[KEY_RING]');
       const request = {
         name: formattedName,
       };
@@ -396,11 +348,7 @@ describe('KeyManagementServiceClient', () => {
       });
 
       // Mock request
-      const formattedName = client.keyRingPath(
-        '[PROJECT]',
-        '[LOCATION]',
-        '[KEY_RING]'
-      );
+      const formattedName = client.keyRingPath('[PROJECT]', '[LOCATION]', '[KEY_RING]');
       const request = {
         name: formattedName,
       };
@@ -429,12 +377,7 @@ describe('KeyManagementServiceClient', () => {
       });
 
       // Mock request
-      const formattedName = client.importJobPath(
-        '[PROJECT]',
-        '[LOCATION]',
-        '[KEY_RING]',
-        '[IMPORT_JOB]'
-      );
+      const formattedName = client.importJobPath('[PROJECT]', '[LOCATION]', '[KEY_RING]', '[IMPORT_JOB]');
       const request = {
         name: formattedName,
       };
@@ -465,12 +408,7 @@ describe('KeyManagementServiceClient', () => {
       });
 
       // Mock request
-      const formattedName = client.importJobPath(
-        '[PROJECT]',
-        '[LOCATION]',
-        '[KEY_RING]',
-        '[IMPORT_JOB]'
-      );
+      const formattedName = client.importJobPath('[PROJECT]', '[LOCATION]', '[KEY_RING]', '[IMPORT_JOB]');
       const request = {
         name: formattedName,
       };
@@ -499,12 +437,7 @@ describe('KeyManagementServiceClient', () => {
       });
 
       // Mock request
-      const formattedName = client.cryptoKeyPath(
-        '[PROJECT]',
-        '[LOCATION]',
-        '[KEY_RING]',
-        '[CRYPTO_KEY]'
-      );
+      const formattedName = client.cryptoKeyPath('[PROJECT]', '[LOCATION]', '[KEY_RING]', '[CRYPTO_KEY]');
       const request = {
         name: formattedName,
       };
@@ -535,12 +468,7 @@ describe('KeyManagementServiceClient', () => {
       });
 
       // Mock request
-      const formattedName = client.cryptoKeyPath(
-        '[PROJECT]',
-        '[LOCATION]',
-        '[KEY_RING]',
-        '[CRYPTO_KEY]'
-      );
+      const formattedName = client.cryptoKeyPath('[PROJECT]', '[LOCATION]', '[KEY_RING]', '[CRYPTO_KEY]');
       const request = {
         name: formattedName,
       };
@@ -569,13 +497,7 @@ describe('KeyManagementServiceClient', () => {
       });
 
       // Mock request
-      const formattedName = client.cryptoKeyVersionPath(
-        '[PROJECT]',
-        '[LOCATION]',
-        '[KEY_RING]',
-        '[CRYPTO_KEY]',
-        '[CRYPTO_KEY_VERSION]'
-      );
+      const formattedName = client.cryptoKeyVersionPath('[PROJECT]', '[LOCATION]', '[KEY_RING]', '[CRYPTO_KEY]', '[CRYPTO_KEY_VERSION]');
       const request = {
         name: formattedName,
       };
@@ -610,13 +532,7 @@ describe('KeyManagementServiceClient', () => {
       });
 
       // Mock request
-      const formattedName = client.cryptoKeyVersionPath(
-        '[PROJECT]',
-        '[LOCATION]',
-        '[KEY_RING]',
-        '[CRYPTO_KEY]',
-        '[CRYPTO_KEY_VERSION]'
-      );
+      const formattedName = client.cryptoKeyVersionPath('[PROJECT]', '[LOCATION]', '[KEY_RING]', '[CRYPTO_KEY]', '[CRYPTO_KEY_VERSION]');
       const request = {
         name: formattedName,
       };
@@ -713,11 +629,7 @@ describe('KeyManagementServiceClient', () => {
       });
 
       // Mock request
-      const formattedParent = client.keyRingPath(
-        '[PROJECT]',
-        '[LOCATION]',
-        '[KEY_RING]'
-      );
+      const formattedParent = client.keyRingPath('[PROJECT]', '[LOCATION]', '[KEY_RING]');
       const importJobId = 'my-import-job';
       const importMethod = 'RSA_OAEP_3072_SHA1_AES_256';
       const protectionLevel = 'HSM';
@@ -757,11 +669,7 @@ describe('KeyManagementServiceClient', () => {
       });
 
       // Mock request
-      const formattedParent = client.keyRingPath(
-        '[PROJECT]',
-        '[LOCATION]',
-        '[KEY_RING]'
-      );
+      const formattedParent = client.keyRingPath('[PROJECT]', '[LOCATION]', '[KEY_RING]');
       const importJobId = 'my-import-job';
       const importMethod = 'RSA_OAEP_3072_SHA1_AES_256';
       const protectionLevel = 'HSM';
@@ -799,11 +707,7 @@ describe('KeyManagementServiceClient', () => {
       });
 
       // Mock request
-      const formattedParent = client.keyRingPath(
-        '[PROJECT]',
-        '[LOCATION]',
-        '[KEY_RING]'
-      );
+      const formattedParent = client.keyRingPath('[PROJECT]', '[LOCATION]', '[KEY_RING]');
       const cryptoKeyId = 'my-app-key';
       const purpose = 'ENCRYPT_DECRYPT';
       const seconds = 2147483647;
@@ -851,11 +755,7 @@ describe('KeyManagementServiceClient', () => {
       });
 
       // Mock request
-      const formattedParent = client.keyRingPath(
-        '[PROJECT]',
-        '[LOCATION]',
-        '[KEY_RING]'
-      );
+      const formattedParent = client.keyRingPath('[PROJECT]', '[LOCATION]', '[KEY_RING]');
       const cryptoKeyId = 'my-app-key';
       const purpose = 'ENCRYPT_DECRYPT';
       const seconds = 2147483647;
@@ -901,12 +801,7 @@ describe('KeyManagementServiceClient', () => {
       });
 
       // Mock request
-      const formattedParent = client.cryptoKeyPath(
-        '[PROJECT]',
-        '[LOCATION]',
-        '[KEY_RING]',
-        '[CRYPTO_KEY]'
-      );
+      const formattedParent = client.cryptoKeyPath('[PROJECT]', '[LOCATION]', '[KEY_RING]', '[CRYPTO_KEY]');
       const cryptoKeyVersion = {};
       const request = {
         parent: formattedParent,
@@ -943,12 +838,7 @@ describe('KeyManagementServiceClient', () => {
       });
 
       // Mock request
-      const formattedParent = client.cryptoKeyPath(
-        '[PROJECT]',
-        '[LOCATION]',
-        '[KEY_RING]',
-        '[CRYPTO_KEY]'
-      );
+      const formattedParent = client.cryptoKeyPath('[PROJECT]', '[LOCATION]', '[KEY_RING]', '[CRYPTO_KEY]');
       const cryptoKeyVersion = {};
       const request = {
         parent: formattedParent,
@@ -979,12 +869,7 @@ describe('KeyManagementServiceClient', () => {
       });
 
       // Mock request
-      const formattedParent = client.cryptoKeyPath(
-        '[PROJECT]',
-        '[LOCATION]',
-        '[KEY_RING]',
-        '[CRYPTO_KEY]'
-      );
+      const formattedParent = client.cryptoKeyPath('[PROJECT]', '[LOCATION]', '[KEY_RING]', '[CRYPTO_KEY]');
       const algorithm = 'CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED';
       const importJob = 'importJob2125587491';
       const request = {
@@ -1023,12 +908,7 @@ describe('KeyManagementServiceClient', () => {
       });
 
       // Mock request
-      const formattedParent = client.cryptoKeyPath(
-        '[PROJECT]',
-        '[LOCATION]',
-        '[KEY_RING]',
-        '[CRYPTO_KEY]'
-      );
+      const formattedParent = client.cryptoKeyPath('[PROJECT]', '[LOCATION]', '[KEY_RING]', '[CRYPTO_KEY]');
       const algorithm = 'CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED';
       const importJob = 'importJob2125587491';
       const request = {
@@ -1193,12 +1073,7 @@ describe('KeyManagementServiceClient', () => {
       });
 
       // Mock request
-      const formattedName = client.cryptoKeyPathPath(
-        '[PROJECT]',
-        '[LOCATION]',
-        '[KEY_RING]',
-        '[CRYPTO_KEY_PATH]'
-      );
+      const formattedName = client.cryptoKeyPathPath('[PROJECT]', '[LOCATION]', '[KEY_RING]', '[CRYPTO_KEY_PATH]');
       const plaintext = '-9';
       const request = {
         name: formattedName,
@@ -1233,12 +1108,7 @@ describe('KeyManagementServiceClient', () => {
       });
 
       // Mock request
-      const formattedName = client.cryptoKeyPathPath(
-        '[PROJECT]',
-        '[LOCATION]',
-        '[KEY_RING]',
-        '[CRYPTO_KEY_PATH]'
-      );
+      const formattedName = client.cryptoKeyPathPath('[PROJECT]', '[LOCATION]', '[KEY_RING]', '[CRYPTO_KEY_PATH]');
       const plaintext = '-9';
       const request = {
         name: formattedName,
@@ -1269,12 +1139,7 @@ describe('KeyManagementServiceClient', () => {
       });
 
       // Mock request
-      const formattedName = client.cryptoKeyPath(
-        '[PROJECT]',
-        '[LOCATION]',
-        '[KEY_RING]',
-        '[CRYPTO_KEY]'
-      );
+      const formattedName = client.cryptoKeyPath('[PROJECT]', '[LOCATION]', '[KEY_RING]', '[CRYPTO_KEY]');
       const ciphertext = '-72';
       const request = {
         name: formattedName,
@@ -1307,12 +1172,7 @@ describe('KeyManagementServiceClient', () => {
       });
 
       // Mock request
-      const formattedName = client.cryptoKeyPath(
-        '[PROJECT]',
-        '[LOCATION]',
-        '[KEY_RING]',
-        '[CRYPTO_KEY]'
-      );
+      const formattedName = client.cryptoKeyPath('[PROJECT]', '[LOCATION]', '[KEY_RING]', '[CRYPTO_KEY]');
       const ciphertext = '-72';
       const request = {
         name: formattedName,
@@ -1343,12 +1203,7 @@ describe('KeyManagementServiceClient', () => {
       });
 
       // Mock request
-      const formattedName = client.cryptoKeyPath(
-        '[PROJECT]',
-        '[LOCATION]',
-        '[KEY_RING]',
-        '[CRYPTO_KEY]'
-      );
+      const formattedName = client.cryptoKeyPath('[PROJECT]', '[LOCATION]', '[KEY_RING]', '[CRYPTO_KEY]');
       const cryptoKeyVersionId = 'cryptoKeyVersionId729489152';
       const request = {
         name: formattedName,
@@ -1381,12 +1236,7 @@ describe('KeyManagementServiceClient', () => {
       });
 
       // Mock request
-      const formattedName = client.cryptoKeyPath(
-        '[PROJECT]',
-        '[LOCATION]',
-        '[KEY_RING]',
-        '[CRYPTO_KEY]'
-      );
+      const formattedName = client.cryptoKeyPath('[PROJECT]', '[LOCATION]', '[KEY_RING]', '[CRYPTO_KEY]');
       const cryptoKeyVersionId = 'cryptoKeyVersionId729489152';
       const request = {
         name: formattedName,
@@ -1417,13 +1267,7 @@ describe('KeyManagementServiceClient', () => {
       });
 
       // Mock request
-      const formattedName = client.cryptoKeyVersionPath(
-        '[PROJECT]',
-        '[LOCATION]',
-        '[KEY_RING]',
-        '[CRYPTO_KEY]',
-        '[CRYPTO_KEY_VERSION]'
-      );
+      const formattedName = client.cryptoKeyVersionPath('[PROJECT]', '[LOCATION]', '[KEY_RING]', '[CRYPTO_KEY]', '[CRYPTO_KEY_VERSION]');
       const request = {
         name: formattedName,
       };
@@ -1458,13 +1302,7 @@ describe('KeyManagementServiceClient', () => {
       });
 
       // Mock request
-      const formattedName = client.cryptoKeyVersionPath(
-        '[PROJECT]',
-        '[LOCATION]',
-        '[KEY_RING]',
-        '[CRYPTO_KEY]',
-        '[CRYPTO_KEY_VERSION]'
-      );
+      const formattedName = client.cryptoKeyVersionPath('[PROJECT]', '[LOCATION]', '[KEY_RING]', '[CRYPTO_KEY]', '[CRYPTO_KEY_VERSION]');
       const request = {
         name: formattedName,
       };
@@ -1493,13 +1331,7 @@ describe('KeyManagementServiceClient', () => {
       });
 
       // Mock request
-      const formattedName = client.cryptoKeyVersionPath(
-        '[PROJECT]',
-        '[LOCATION]',
-        '[KEY_RING]',
-        '[CRYPTO_KEY]',
-        '[CRYPTO_KEY_VERSION]'
-      );
+      const formattedName = client.cryptoKeyVersionPath('[PROJECT]', '[LOCATION]', '[KEY_RING]', '[CRYPTO_KEY]', '[CRYPTO_KEY_VERSION]');
       const request = {
         name: formattedName,
       };
@@ -1534,13 +1366,7 @@ describe('KeyManagementServiceClient', () => {
       });
 
       // Mock request
-      const formattedName = client.cryptoKeyVersionPath(
-        '[PROJECT]',
-        '[LOCATION]',
-        '[KEY_RING]',
-        '[CRYPTO_KEY]',
-        '[CRYPTO_KEY_VERSION]'
-      );
+      const formattedName = client.cryptoKeyVersionPath('[PROJECT]', '[LOCATION]', '[KEY_RING]', '[CRYPTO_KEY]', '[CRYPTO_KEY_VERSION]');
       const request = {
         name: formattedName,
       };
@@ -1569,13 +1395,7 @@ describe('KeyManagementServiceClient', () => {
       });
 
       // Mock request
-      const formattedName = client.cryptoKeyVersionPath(
-        '[PROJECT]',
-        '[LOCATION]',
-        '[KEY_RING]',
-        '[CRYPTO_KEY]',
-        '[CRYPTO_KEY_VERSION]'
-      );
+      const formattedName = client.cryptoKeyVersionPath('[PROJECT]', '[LOCATION]', '[KEY_RING]', '[CRYPTO_KEY]', '[CRYPTO_KEY_VERSION]');
       const request = {
         name: formattedName,
       };
@@ -1606,13 +1426,7 @@ describe('KeyManagementServiceClient', () => {
       });
 
       // Mock request
-      const formattedName = client.cryptoKeyVersionPath(
-        '[PROJECT]',
-        '[LOCATION]',
-        '[KEY_RING]',
-        '[CRYPTO_KEY]',
-        '[CRYPTO_KEY_VERSION]'
-      );
+      const formattedName = client.cryptoKeyVersionPath('[PROJECT]', '[LOCATION]', '[KEY_RING]', '[CRYPTO_KEY]', '[CRYPTO_KEY_VERSION]');
       const request = {
         name: formattedName,
       };
@@ -1641,13 +1455,7 @@ describe('KeyManagementServiceClient', () => {
       });
 
       // Mock request
-      const formattedName = client.cryptoKeyVersionPath(
-        '[PROJECT]',
-        '[LOCATION]',
-        '[KEY_RING]',
-        '[CRYPTO_KEY]',
-        '[CRYPTO_KEY_VERSION]'
-      );
+      const formattedName = client.cryptoKeyVersionPath('[PROJECT]', '[LOCATION]', '[KEY_RING]', '[CRYPTO_KEY]', '[CRYPTO_KEY_VERSION]');
       const ciphertext = '-72';
       const request = {
         name: formattedName,
@@ -1680,13 +1488,7 @@ describe('KeyManagementServiceClient', () => {
       });
 
       // Mock request
-      const formattedName = client.cryptoKeyVersionPath(
-        '[PROJECT]',
-        '[LOCATION]',
-        '[KEY_RING]',
-        '[CRYPTO_KEY]',
-        '[CRYPTO_KEY_VERSION]'
-      );
+      const formattedName = client.cryptoKeyVersionPath('[PROJECT]', '[LOCATION]', '[KEY_RING]', '[CRYPTO_KEY]', '[CRYPTO_KEY_VERSION]');
       const ciphertext = '-72';
       const request = {
         name: formattedName,
@@ -1717,13 +1519,7 @@ describe('KeyManagementServiceClient', () => {
       });
 
       // Mock request
-      const formattedName = client.cryptoKeyVersionPath(
-        '[PROJECT]',
-        '[LOCATION]',
-        '[KEY_RING]',
-        '[CRYPTO_KEY]',
-        '[CRYPTO_KEY_VERSION]'
-      );
+      const formattedName = client.cryptoKeyVersionPath('[PROJECT]', '[LOCATION]', '[KEY_RING]', '[CRYPTO_KEY]', '[CRYPTO_KEY_VERSION]');
       const digest = {};
       const request = {
         name: formattedName,
@@ -1756,13 +1552,7 @@ describe('KeyManagementServiceClient', () => {
       });
 
       // Mock request
-      const formattedName = client.cryptoKeyVersionPath(
-        '[PROJECT]',
-        '[LOCATION]',
-        '[KEY_RING]',
-        '[CRYPTO_KEY]',
-        '[CRYPTO_KEY_VERSION]'
-      );
+      const formattedName = client.cryptoKeyVersionPath('[PROJECT]', '[LOCATION]', '[KEY_RING]', '[CRYPTO_KEY]', '[CRYPTO_KEY_VERSION]');
       const digest = {};
       const request = {
         name: formattedName,
@@ -1793,11 +1583,7 @@ describe('KeyManagementServiceClient', () => {
       });
 
       // Mock request
-      const formattedResource = client.keyRingPath(
-        '[PROJECT]',
-        '[LOCATION]',
-        '[KEY_RING]'
-      );
+      const formattedResource = client.keyRingPath('[PROJECT]', '[LOCATION]', '[KEY_RING]');
       const policy = {};
       const request = {
         resource: formattedResource,
@@ -1832,11 +1618,7 @@ describe('KeyManagementServiceClient', () => {
       });
 
       // Mock request
-      const formattedResource = client.keyRingPath(
-        '[PROJECT]',
-        '[LOCATION]',
-        '[KEY_RING]'
-      );
+      const formattedResource = client.keyRingPath('[PROJECT]', '[LOCATION]', '[KEY_RING]');
       const policy = {};
       const request = {
         resource: formattedResource,
@@ -1867,11 +1649,7 @@ describe('KeyManagementServiceClient', () => {
       });
 
       // Mock request
-      const formattedResource = client.keyRingPath(
-        '[PROJECT]',
-        '[LOCATION]',
-        '[KEY_RING]'
-      );
+      const formattedResource = client.keyRingPath('[PROJECT]', '[LOCATION]', '[KEY_RING]');
       const request = {
         resource: formattedResource,
       };
@@ -1904,11 +1682,7 @@ describe('KeyManagementServiceClient', () => {
       });
 
       // Mock request
-      const formattedResource = client.keyRingPath(
-        '[PROJECT]',
-        '[LOCATION]',
-        '[KEY_RING]'
-      );
+      const formattedResource = client.keyRingPath('[PROJECT]', '[LOCATION]', '[KEY_RING]');
       const request = {
         resource: formattedResource,
       };
@@ -1937,11 +1711,7 @@ describe('KeyManagementServiceClient', () => {
       });
 
       // Mock request
-      const formattedResource = client.keyRingPath(
-        '[PROJECT]',
-        '[LOCATION]',
-        '[KEY_RING]'
-      );
+      const formattedResource = client.keyRingPath('[PROJECT]', '[LOCATION]', '[KEY_RING]');
       const permissions = [];
       const request = {
         resource: formattedResource,
@@ -1971,11 +1741,7 @@ describe('KeyManagementServiceClient', () => {
       });
 
       // Mock request
-      const formattedResource = client.keyRingPath(
-        '[PROJECT]',
-        '[LOCATION]',
-        '[KEY_RING]'
-      );
+      const formattedResource = client.keyRingPath('[PROJECT]', '[LOCATION]', '[KEY_RING]');
       const permissions = [];
       const request = {
         resource: formattedResource,
@@ -1997,6 +1763,7 @@ describe('KeyManagementServiceClient', () => {
       });
     });
   });
+
 });
 
 function mockSimpleGrpcMethod(expectedRequest, response, error) {
