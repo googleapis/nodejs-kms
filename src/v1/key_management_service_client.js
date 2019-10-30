@@ -79,7 +79,9 @@ class KeyManagementServiceClient {
     const gaxModule = !global.isBrowser && opts.fallback ? gax.fallback : gax;
 
     const servicePath =
-      opts.servicePath || opts.apiEndpoint || this.constructor.servicePath;
+      opts.servicePath ||
+      opts.apiEndpoint ||
+      this.constructor.servicePath;
 
     // Ensure that options include the service address and port.
     opts = Object.assign(
@@ -120,15 +122,11 @@ class KeyManagementServiceClient {
     // For Node.js, pass the path to JSON proto file.
     // For browsers, pass the JSON content.
 
-    const nodejsProtoPath = path.join(
-      __dirname,
-      '..',
-      '..',
-      'protos',
-      'protos.json'
-    );
+    const nodejsProtoPath = path.join(__dirname, '..', '..', 'protos', 'protos.json');
     const protos = gaxGrpc.loadProto(
-      opts.fallback ? require('../../protos/protos.json') : nodejsProtoPath
+      opts.fallback ?
+        require("../../protos/protos.json") :
+        nodejsProtoPath
     );
 
     // This API contains "path templates"; forward-slash-separated
@@ -197,9 +195,9 @@ class KeyManagementServiceClient {
     // Put together the "service stub" for
     // google.cloud.kms.v1.KeyManagementService.
     const keyManagementServiceStub = gaxGrpc.createStub(
-      opts.fallback
-        ? protos.lookupService('google.cloud.kms.v1.KeyManagementService')
-        : protos.google.cloud.kms.v1.KeyManagementService,
+      opts.fallback ?
+        protos.lookupService('google.cloud.kms.v1.KeyManagementService') :
+        protos.google.cloud.kms.v1.KeyManagementService,
       opts
     );
 
@@ -249,9 +247,9 @@ class KeyManagementServiceClient {
     // Put together the "service stub" for
     // google.iam.v1.IAMPolicy.
     const iamPolicyStub = gaxGrpc.createStub(
-      opts.fallback
-        ? protos.lookupService('google.iam.v1.IAMPolicy')
-        : protos.google.iam.v1.IAMPolicy,
+      opts.fallback ?
+        protos.lookupService('google.iam.v1.IAMPolicy') :
+        protos.google.iam.v1.IAMPolicy,
       opts
     );
 
@@ -424,11 +422,10 @@ class KeyManagementServiceClient {
     options = options || {};
     options.otherArgs = options.otherArgs || {};
     options.otherArgs.headers = options.otherArgs.headers || {};
-    options.otherArgs.headers[
-      'x-goog-request-params'
-    ] = gax.routingHeader.fromParams({
-      parent: request.parent,
-    });
+    options.otherArgs.headers['x-goog-request-params'] =
+      gax.routingHeader.fromParams({
+        'parent': request.parent
+      });
 
     return this._innerApiCalls.listKeyRings(request, options, callback);
   }
@@ -492,7 +489,7 @@ class KeyManagementServiceClient {
       request,
       options
     );
-  }
+  };
 
   /**
    * Lists ImportJobs.
@@ -593,11 +590,10 @@ class KeyManagementServiceClient {
     options = options || {};
     options.otherArgs = options.otherArgs || {};
     options.otherArgs.headers = options.otherArgs.headers || {};
-    options.otherArgs.headers[
-      'x-goog-request-params'
-    ] = gax.routingHeader.fromParams({
-      parent: request.parent,
-    });
+    options.otherArgs.headers['x-goog-request-params'] =
+      gax.routingHeader.fromParams({
+        'parent': request.parent
+      });
 
     return this._innerApiCalls.listImportJobs(request, options, callback);
   }
@@ -661,7 +657,7 @@ class KeyManagementServiceClient {
       request,
       options
     );
-  }
+  };
 
   /**
    * Lists CryptoKeys.
@@ -766,11 +762,10 @@ class KeyManagementServiceClient {
     options = options || {};
     options.otherArgs = options.otherArgs || {};
     options.otherArgs.headers = options.otherArgs.headers || {};
-    options.otherArgs.headers[
-      'x-goog-request-params'
-    ] = gax.routingHeader.fromParams({
-      parent: request.parent,
-    });
+    options.otherArgs.headers['x-goog-request-params'] =
+      gax.routingHeader.fromParams({
+        'parent': request.parent
+      });
 
     return this._innerApiCalls.listCryptoKeys(request, options, callback);
   }
@@ -838,7 +833,7 @@ class KeyManagementServiceClient {
       request,
       options
     );
-  }
+  };
 
   /**
    * Lists CryptoKeyVersions.
@@ -943,17 +938,12 @@ class KeyManagementServiceClient {
     options = options || {};
     options.otherArgs = options.otherArgs || {};
     options.otherArgs.headers = options.otherArgs.headers || {};
-    options.otherArgs.headers[
-      'x-goog-request-params'
-    ] = gax.routingHeader.fromParams({
-      parent: request.parent,
-    });
+    options.otherArgs.headers['x-goog-request-params'] =
+      gax.routingHeader.fromParams({
+        'parent': request.parent
+      });
 
-    return this._innerApiCalls.listCryptoKeyVersions(
-      request,
-      options,
-      callback
-    );
+    return this._innerApiCalls.listCryptoKeyVersions(request, options, callback);
   }
 
   /**
@@ -1019,7 +1009,7 @@ class KeyManagementServiceClient {
       request,
       options
     );
-  }
+  };
 
   /**
    * Returns metadata for a given KeyRing.
@@ -1066,11 +1056,10 @@ class KeyManagementServiceClient {
     options = options || {};
     options.otherArgs = options.otherArgs || {};
     options.otherArgs.headers = options.otherArgs.headers || {};
-    options.otherArgs.headers[
-      'x-goog-request-params'
-    ] = gax.routingHeader.fromParams({
-      name: request.name,
-    });
+    options.otherArgs.headers['x-goog-request-params'] =
+      gax.routingHeader.fromParams({
+        'name': request.name
+      });
 
     return this._innerApiCalls.getKeyRing(request, options, callback);
   }
@@ -1120,11 +1109,10 @@ class KeyManagementServiceClient {
     options = options || {};
     options.otherArgs = options.otherArgs || {};
     options.otherArgs.headers = options.otherArgs.headers || {};
-    options.otherArgs.headers[
-      'x-goog-request-params'
-    ] = gax.routingHeader.fromParams({
-      name: request.name,
-    });
+    options.otherArgs.headers['x-goog-request-params'] =
+      gax.routingHeader.fromParams({
+        'name': request.name
+      });
 
     return this._innerApiCalls.getImportJob(request, options, callback);
   }
@@ -1175,11 +1163,10 @@ class KeyManagementServiceClient {
     options = options || {};
     options.otherArgs = options.otherArgs || {};
     options.otherArgs.headers = options.otherArgs.headers || {};
-    options.otherArgs.headers[
-      'x-goog-request-params'
-    ] = gax.routingHeader.fromParams({
-      name: request.name,
-    });
+    options.otherArgs.headers['x-goog-request-params'] =
+      gax.routingHeader.fromParams({
+        'name': request.name
+      });
 
     return this._innerApiCalls.getCryptoKey(request, options, callback);
   }
@@ -1229,11 +1216,10 @@ class KeyManagementServiceClient {
     options = options || {};
     options.otherArgs = options.otherArgs || {};
     options.otherArgs.headers = options.otherArgs.headers || {};
-    options.otherArgs.headers[
-      'x-goog-request-params'
-    ] = gax.routingHeader.fromParams({
-      name: request.name,
-    });
+    options.otherArgs.headers['x-goog-request-params'] =
+      gax.routingHeader.fromParams({
+        'name': request.name
+      });
 
     return this._innerApiCalls.getCryptoKeyVersion(request, options, callback);
   }
@@ -1298,11 +1284,10 @@ class KeyManagementServiceClient {
     options = options || {};
     options.otherArgs = options.otherArgs || {};
     options.otherArgs.headers = options.otherArgs.headers || {};
-    options.otherArgs.headers[
-      'x-goog-request-params'
-    ] = gax.routingHeader.fromParams({
-      parent: request.parent,
-    });
+    options.otherArgs.headers['x-goog-request-params'] =
+      gax.routingHeader.fromParams({
+        'parent': request.parent
+      });
 
     return this._innerApiCalls.createKeyRing(request, options, callback);
   }
@@ -1374,11 +1359,10 @@ class KeyManagementServiceClient {
     options = options || {};
     options.otherArgs = options.otherArgs || {};
     options.otherArgs.headers = options.otherArgs.headers || {};
-    options.otherArgs.headers[
-      'x-goog-request-params'
-    ] = gax.routingHeader.fromParams({
-      parent: request.parent,
-    });
+    options.otherArgs.headers['x-goog-request-params'] =
+      gax.routingHeader.fromParams({
+        'parent': request.parent
+      });
 
     return this._innerApiCalls.createImportJob(request, options, callback);
   }
@@ -1466,11 +1450,10 @@ class KeyManagementServiceClient {
     options = options || {};
     options.otherArgs = options.otherArgs || {};
     options.otherArgs.headers = options.otherArgs.headers || {};
-    options.otherArgs.headers[
-      'x-goog-request-params'
-    ] = gax.routingHeader.fromParams({
-      parent: request.parent,
-    });
+    options.otherArgs.headers['x-goog-request-params'] =
+      gax.routingHeader.fromParams({
+        'parent': request.parent
+      });
 
     return this._innerApiCalls.createCryptoKey(request, options, callback);
   }
@@ -1534,17 +1517,12 @@ class KeyManagementServiceClient {
     options = options || {};
     options.otherArgs = options.otherArgs || {};
     options.otherArgs.headers = options.otherArgs.headers || {};
-    options.otherArgs.headers[
-      'x-goog-request-params'
-    ] = gax.routingHeader.fromParams({
-      parent: request.parent,
-    });
+    options.otherArgs.headers['x-goog-request-params'] =
+      gax.routingHeader.fromParams({
+        'parent': request.parent
+      });
 
-    return this._innerApiCalls.createCryptoKeyVersion(
-      request,
-      options,
-      callback
-    );
+    return this._innerApiCalls.createCryptoKeyVersion(request, options, callback);
   }
 
   /**
@@ -1633,17 +1611,12 @@ class KeyManagementServiceClient {
     options = options || {};
     options.otherArgs = options.otherArgs || {};
     options.otherArgs.headers = options.otherArgs.headers || {};
-    options.otherArgs.headers[
-      'x-goog-request-params'
-    ] = gax.routingHeader.fromParams({
-      parent: request.parent,
-    });
+    options.otherArgs.headers['x-goog-request-params'] =
+      gax.routingHeader.fromParams({
+        'parent': request.parent
+      });
 
-    return this._innerApiCalls.importCryptoKeyVersion(
-      request,
-      options,
-      callback
-    );
+    return this._innerApiCalls.importCryptoKeyVersion(request, options, callback);
   }
 
   /**
@@ -1702,11 +1675,10 @@ class KeyManagementServiceClient {
     options = options || {};
     options.otherArgs = options.otherArgs || {};
     options.otherArgs.headers = options.otherArgs.headers || {};
-    options.otherArgs.headers[
-      'x-goog-request-params'
-    ] = gax.routingHeader.fromParams({
-      'crypto_key.name': request.cryptoKey.name,
-    });
+    options.otherArgs.headers['x-goog-request-params'] =
+      gax.routingHeader.fromParams({
+        'crypto_key.name': request.cryptoKey.name
+      });
 
     return this._innerApiCalls.updateCryptoKey(request, options, callback);
   }
@@ -1773,17 +1745,12 @@ class KeyManagementServiceClient {
     options = options || {};
     options.otherArgs = options.otherArgs || {};
     options.otherArgs.headers = options.otherArgs.headers || {};
-    options.otherArgs.headers[
-      'x-goog-request-params'
-    ] = gax.routingHeader.fromParams({
-      'crypto_key_version.name': request.cryptoKeyVersion.name,
-    });
+    options.otherArgs.headers['x-goog-request-params'] =
+      gax.routingHeader.fromParams({
+        'crypto_key_version.name': request.cryptoKeyVersion.name
+      });
 
-    return this._innerApiCalls.updateCryptoKeyVersion(
-      request,
-      options,
-      callback
-    );
+    return this._innerApiCalls.updateCryptoKeyVersion(request, options, callback);
   }
 
   /**
@@ -1861,11 +1828,10 @@ class KeyManagementServiceClient {
     options = options || {};
     options.otherArgs = options.otherArgs || {};
     options.otherArgs.headers = options.otherArgs.headers || {};
-    options.otherArgs.headers[
-      'x-goog-request-params'
-    ] = gax.routingHeader.fromParams({
-      name: request.name,
-    });
+    options.otherArgs.headers['x-goog-request-params'] =
+      gax.routingHeader.fromParams({
+        'name': request.name
+      });
 
     return this._innerApiCalls.encrypt(request, options, callback);
   }
@@ -1928,11 +1894,10 @@ class KeyManagementServiceClient {
     options = options || {};
     options.otherArgs = options.otherArgs || {};
     options.otherArgs.headers = options.otherArgs.headers || {};
-    options.otherArgs.headers[
-      'x-goog-request-params'
-    ] = gax.routingHeader.fromParams({
-      name: request.name,
-    });
+    options.otherArgs.headers['x-goog-request-params'] =
+      gax.routingHeader.fromParams({
+        'name': request.name
+      });
 
     return this._innerApiCalls.decrypt(request, options, callback);
   }
@@ -1991,17 +1956,12 @@ class KeyManagementServiceClient {
     options = options || {};
     options.otherArgs = options.otherArgs || {};
     options.otherArgs.headers = options.otherArgs.headers || {};
-    options.otherArgs.headers[
-      'x-goog-request-params'
-    ] = gax.routingHeader.fromParams({
-      name: request.name,
-    });
+    options.otherArgs.headers['x-goog-request-params'] =
+      gax.routingHeader.fromParams({
+        'name': request.name
+      });
 
-    return this._innerApiCalls.updateCryptoKeyPrimaryVersion(
-      request,
-      options,
-      callback
-    );
+    return this._innerApiCalls.updateCryptoKeyPrimaryVersion(request, options, callback);
   }
 
   /**
@@ -2060,17 +2020,12 @@ class KeyManagementServiceClient {
     options = options || {};
     options.otherArgs = options.otherArgs || {};
     options.otherArgs.headers = options.otherArgs.headers || {};
-    options.otherArgs.headers[
-      'x-goog-request-params'
-    ] = gax.routingHeader.fromParams({
-      name: request.name,
-    });
+    options.otherArgs.headers['x-goog-request-params'] =
+      gax.routingHeader.fromParams({
+        'name': request.name
+      });
 
-    return this._innerApiCalls.destroyCryptoKeyVersion(
-      request,
-      options,
-      callback
-    );
+    return this._innerApiCalls.destroyCryptoKeyVersion(request, options, callback);
   }
 
   /**
@@ -2124,17 +2079,12 @@ class KeyManagementServiceClient {
     options = options || {};
     options.otherArgs = options.otherArgs || {};
     options.otherArgs.headers = options.otherArgs.headers || {};
-    options.otherArgs.headers[
-      'x-goog-request-params'
-    ] = gax.routingHeader.fromParams({
-      name: request.name,
-    });
+    options.otherArgs.headers['x-goog-request-params'] =
+      gax.routingHeader.fromParams({
+        'name': request.name
+      });
 
-    return this._innerApiCalls.restoreCryptoKeyVersion(
-      request,
-      options,
-      callback
-    );
+    return this._innerApiCalls.restoreCryptoKeyVersion(request, options, callback);
   }
 
   /**
@@ -2186,11 +2136,10 @@ class KeyManagementServiceClient {
     options = options || {};
     options.otherArgs = options.otherArgs || {};
     options.otherArgs.headers = options.otherArgs.headers || {};
-    options.otherArgs.headers[
-      'x-goog-request-params'
-    ] = gax.routingHeader.fromParams({
-      name: request.name,
-    });
+    options.otherArgs.headers['x-goog-request-params'] =
+      gax.routingHeader.fromParams({
+        'name': request.name
+      });
 
     return this._innerApiCalls.getPublicKey(request, options, callback);
   }
@@ -2251,11 +2200,10 @@ class KeyManagementServiceClient {
     options = options || {};
     options.otherArgs = options.otherArgs || {};
     options.otherArgs.headers = options.otherArgs.headers || {};
-    options.otherArgs.headers[
-      'x-goog-request-params'
-    ] = gax.routingHeader.fromParams({
-      name: request.name,
-    });
+    options.otherArgs.headers['x-goog-request-params'] =
+      gax.routingHeader.fromParams({
+        'name': request.name
+      });
 
     return this._innerApiCalls.asymmetricDecrypt(request, options, callback);
   }
@@ -2318,11 +2266,10 @@ class KeyManagementServiceClient {
     options = options || {};
     options.otherArgs = options.otherArgs || {};
     options.otherArgs.headers = options.otherArgs.headers || {};
-    options.otherArgs.headers[
-      'x-goog-request-params'
-    ] = gax.routingHeader.fromParams({
-      name: request.name,
-    });
+    options.otherArgs.headers['x-goog-request-params'] =
+      gax.routingHeader.fromParams({
+        'name': request.name
+      });
 
     return this._innerApiCalls.asymmetricSign(request, options, callback);
   }
@@ -2386,11 +2333,10 @@ class KeyManagementServiceClient {
     options = options || {};
     options.otherArgs = options.otherArgs || {};
     options.otherArgs.headers = options.otherArgs.headers || {};
-    options.otherArgs.headers[
-      'x-goog-request-params'
-    ] = gax.routingHeader.fromParams({
-      resource: request.resource,
-    });
+    options.otherArgs.headers['x-goog-request-params'] =
+      gax.routingHeader.fromParams({
+        'resource': request.resource
+      });
 
     return this._innerApiCalls.setIamPolicy(request, options, callback);
   }
@@ -2447,11 +2393,10 @@ class KeyManagementServiceClient {
     options = options || {};
     options.otherArgs = options.otherArgs || {};
     options.otherArgs.headers = options.otherArgs.headers || {};
-    options.otherArgs.headers[
-      'x-goog-request-params'
-    ] = gax.routingHeader.fromParams({
-      resource: request.resource,
-    });
+    options.otherArgs.headers['x-goog-request-params'] =
+      gax.routingHeader.fromParams({
+        'resource': request.resource
+      });
 
     return this._innerApiCalls.getIamPolicy(request, options, callback);
   }
@@ -2518,11 +2463,10 @@ class KeyManagementServiceClient {
     options = options || {};
     options.otherArgs = options.otherArgs || {};
     options.otherArgs.headers = options.otherArgs.headers || {};
-    options.otherArgs.headers[
-      'x-goog-request-params'
-    ] = gax.routingHeader.fromParams({
-      resource: request.resource,
-    });
+    options.otherArgs.headers['x-goog-request-params'] =
+      gax.routingHeader.fromParams({
+        'resource': request.resource
+      });
 
     return this._innerApiCalls.testIamPermissions(request, options, callback);
   }
@@ -2577,13 +2521,7 @@ class KeyManagementServiceClient {
    * @param {String} cryptoKeyVersion
    * @returns {String}
    */
-  cryptoKeyVersionPath(
-    project,
-    location,
-    keyRing,
-    cryptoKey,
-    cryptoKeyVersion
-  ) {
+  cryptoKeyVersionPath(project, location, keyRing, cryptoKey, cryptoKeyVersion) {
     return this._pathTemplates.cryptoKeyVersionPathTemplate.render({
       project: project,
       location: location,
@@ -2649,7 +2587,8 @@ class KeyManagementServiceClient {
    * @returns {String} - A string representing the project.
    */
   matchProjectFromCryptoKeyName(cryptoKeyName) {
-    return this._pathTemplates.cryptoKeyPathTemplate.match(cryptoKeyName)
+    return this._pathTemplates.cryptoKeyPathTemplate
+      .match(cryptoKeyName)
       .project;
   }
 
@@ -2661,7 +2600,8 @@ class KeyManagementServiceClient {
    * @returns {String} - A string representing the location.
    */
   matchLocationFromCryptoKeyName(cryptoKeyName) {
-    return this._pathTemplates.cryptoKeyPathTemplate.match(cryptoKeyName)
+    return this._pathTemplates.cryptoKeyPathTemplate
+      .match(cryptoKeyName)
       .location;
   }
 
@@ -2673,7 +2613,8 @@ class KeyManagementServiceClient {
    * @returns {String} - A string representing the key_ring.
    */
   matchKeyRingFromCryptoKeyName(cryptoKeyName) {
-    return this._pathTemplates.cryptoKeyPathTemplate.match(cryptoKeyName)
+    return this._pathTemplates.cryptoKeyPathTemplate
+      .match(cryptoKeyName)
       .key_ring;
   }
 
@@ -2685,7 +2626,8 @@ class KeyManagementServiceClient {
    * @returns {String} - A string representing the crypto_key.
    */
   matchCryptoKeyFromCryptoKeyName(cryptoKeyName) {
-    return this._pathTemplates.cryptoKeyPathTemplate.match(cryptoKeyName)
+    return this._pathTemplates.cryptoKeyPathTemplate
+      .match(cryptoKeyName)
       .crypto_key;
   }
 
@@ -2697,9 +2639,9 @@ class KeyManagementServiceClient {
    * @returns {String} - A string representing the project.
    */
   matchProjectFromCryptoKeyPathName(cryptoKeyPathName) {
-    return this._pathTemplates.cryptoKeyPathPathTemplate.match(
-      cryptoKeyPathName
-    ).project;
+    return this._pathTemplates.cryptoKeyPathPathTemplate
+      .match(cryptoKeyPathName)
+      .project;
   }
 
   /**
@@ -2710,9 +2652,9 @@ class KeyManagementServiceClient {
    * @returns {String} - A string representing the location.
    */
   matchLocationFromCryptoKeyPathName(cryptoKeyPathName) {
-    return this._pathTemplates.cryptoKeyPathPathTemplate.match(
-      cryptoKeyPathName
-    ).location;
+    return this._pathTemplates.cryptoKeyPathPathTemplate
+      .match(cryptoKeyPathName)
+      .location;
   }
 
   /**
@@ -2723,9 +2665,9 @@ class KeyManagementServiceClient {
    * @returns {String} - A string representing the key_ring.
    */
   matchKeyRingFromCryptoKeyPathName(cryptoKeyPathName) {
-    return this._pathTemplates.cryptoKeyPathPathTemplate.match(
-      cryptoKeyPathName
-    ).key_ring;
+    return this._pathTemplates.cryptoKeyPathPathTemplate
+      .match(cryptoKeyPathName)
+      .key_ring;
   }
 
   /**
@@ -2736,9 +2678,9 @@ class KeyManagementServiceClient {
    * @returns {String} - A string representing the crypto_key_path.
    */
   matchCryptoKeyPathFromCryptoKeyPathName(cryptoKeyPathName) {
-    return this._pathTemplates.cryptoKeyPathPathTemplate.match(
-      cryptoKeyPathName
-    ).crypto_key_path;
+    return this._pathTemplates.cryptoKeyPathPathTemplate
+      .match(cryptoKeyPathName)
+      .crypto_key_path;
   }
 
   /**
@@ -2749,9 +2691,9 @@ class KeyManagementServiceClient {
    * @returns {String} - A string representing the project.
    */
   matchProjectFromCryptoKeyVersionName(cryptoKeyVersionName) {
-    return this._pathTemplates.cryptoKeyVersionPathTemplate.match(
-      cryptoKeyVersionName
-    ).project;
+    return this._pathTemplates.cryptoKeyVersionPathTemplate
+      .match(cryptoKeyVersionName)
+      .project;
   }
 
   /**
@@ -2762,9 +2704,9 @@ class KeyManagementServiceClient {
    * @returns {String} - A string representing the location.
    */
   matchLocationFromCryptoKeyVersionName(cryptoKeyVersionName) {
-    return this._pathTemplates.cryptoKeyVersionPathTemplate.match(
-      cryptoKeyVersionName
-    ).location;
+    return this._pathTemplates.cryptoKeyVersionPathTemplate
+      .match(cryptoKeyVersionName)
+      .location;
   }
 
   /**
@@ -2775,9 +2717,9 @@ class KeyManagementServiceClient {
    * @returns {String} - A string representing the key_ring.
    */
   matchKeyRingFromCryptoKeyVersionName(cryptoKeyVersionName) {
-    return this._pathTemplates.cryptoKeyVersionPathTemplate.match(
-      cryptoKeyVersionName
-    ).key_ring;
+    return this._pathTemplates.cryptoKeyVersionPathTemplate
+      .match(cryptoKeyVersionName)
+      .key_ring;
   }
 
   /**
@@ -2788,9 +2730,9 @@ class KeyManagementServiceClient {
    * @returns {String} - A string representing the crypto_key.
    */
   matchCryptoKeyFromCryptoKeyVersionName(cryptoKeyVersionName) {
-    return this._pathTemplates.cryptoKeyVersionPathTemplate.match(
-      cryptoKeyVersionName
-    ).crypto_key;
+    return this._pathTemplates.cryptoKeyVersionPathTemplate
+      .match(cryptoKeyVersionName)
+      .crypto_key;
   }
 
   /**
@@ -2801,9 +2743,9 @@ class KeyManagementServiceClient {
    * @returns {String} - A string representing the crypto_key_version.
    */
   matchCryptoKeyVersionFromCryptoKeyVersionName(cryptoKeyVersionName) {
-    return this._pathTemplates.cryptoKeyVersionPathTemplate.match(
-      cryptoKeyVersionName
-    ).crypto_key_version;
+    return this._pathTemplates.cryptoKeyVersionPathTemplate
+      .match(cryptoKeyVersionName)
+      .crypto_key_version;
   }
 
   /**
@@ -2814,7 +2756,8 @@ class KeyManagementServiceClient {
    * @returns {String} - A string representing the project.
    */
   matchProjectFromImportJobName(importJobName) {
-    return this._pathTemplates.importJobPathTemplate.match(importJobName)
+    return this._pathTemplates.importJobPathTemplate
+      .match(importJobName)
       .project;
   }
 
@@ -2826,7 +2769,8 @@ class KeyManagementServiceClient {
    * @returns {String} - A string representing the location.
    */
   matchLocationFromImportJobName(importJobName) {
-    return this._pathTemplates.importJobPathTemplate.match(importJobName)
+    return this._pathTemplates.importJobPathTemplate
+      .match(importJobName)
       .location;
   }
 
@@ -2838,7 +2782,8 @@ class KeyManagementServiceClient {
    * @returns {String} - A string representing the key_ring.
    */
   matchKeyRingFromImportJobName(importJobName) {
-    return this._pathTemplates.importJobPathTemplate.match(importJobName)
+    return this._pathTemplates.importJobPathTemplate
+      .match(importJobName)
       .key_ring;
   }
 
@@ -2850,7 +2795,8 @@ class KeyManagementServiceClient {
    * @returns {String} - A string representing the import_job.
    */
   matchImportJobFromImportJobName(importJobName) {
-    return this._pathTemplates.importJobPathTemplate.match(importJobName)
+    return this._pathTemplates.importJobPathTemplate
+      .match(importJobName)
       .import_job;
   }
 
@@ -2862,7 +2808,9 @@ class KeyManagementServiceClient {
    * @returns {String} - A string representing the project.
    */
   matchProjectFromKeyRingName(keyRingName) {
-    return this._pathTemplates.keyRingPathTemplate.match(keyRingName).project;
+    return this._pathTemplates.keyRingPathTemplate
+      .match(keyRingName)
+      .project;
   }
 
   /**
@@ -2873,7 +2821,9 @@ class KeyManagementServiceClient {
    * @returns {String} - A string representing the location.
    */
   matchLocationFromKeyRingName(keyRingName) {
-    return this._pathTemplates.keyRingPathTemplate.match(keyRingName).location;
+    return this._pathTemplates.keyRingPathTemplate
+      .match(keyRingName)
+      .location;
   }
 
   /**
@@ -2884,7 +2834,9 @@ class KeyManagementServiceClient {
    * @returns {String} - A string representing the key_ring.
    */
   matchKeyRingFromKeyRingName(keyRingName) {
-    return this._pathTemplates.keyRingPathTemplate.match(keyRingName).key_ring;
+    return this._pathTemplates.keyRingPathTemplate
+      .match(keyRingName)
+      .key_ring;
   }
 
   /**
@@ -2895,7 +2847,9 @@ class KeyManagementServiceClient {
    * @returns {String} - A string representing the project.
    */
   matchProjectFromLocationName(locationName) {
-    return this._pathTemplates.locationPathTemplate.match(locationName).project;
+    return this._pathTemplates.locationPathTemplate
+      .match(locationName)
+      .project;
   }
 
   /**
@@ -2906,9 +2860,11 @@ class KeyManagementServiceClient {
    * @returns {String} - A string representing the location.
    */
   matchLocationFromLocationName(locationName) {
-    return this._pathTemplates.locationPathTemplate.match(locationName)
+    return this._pathTemplates.locationPathTemplate
+      .match(locationName)
       .location;
   }
 }
+
 
 module.exports = KeyManagementServiceClient;
