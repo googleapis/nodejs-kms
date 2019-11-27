@@ -4,6 +4,13 @@
 
 [1]: https://www.npmjs.com/package/@google-cloud/kms?activeTab=versions
 
+### [1.5.4](https://www.github.com/googleapis/nodejs-kms/compare/v1.5.3...v1.5.4) (2019-11-27)
+
+
+### Bug Fixes
+
+* remove superfluous base64-encoding/decoding ([#242](https://www.github.com/googleapis/nodejs-kms/issues/242)) ([aad6cc4](https://www.github.com/googleapis/nodejs-kms/commit/aad6cc451952f42b96d752f31399a2c364f07610))
+
 ### [1.5.3](https://www.github.com/googleapis/nodejs-kms/compare/v1.5.2...v1.5.3) (2019-11-18)
 
 
