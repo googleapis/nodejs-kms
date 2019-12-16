@@ -21,20 +21,24 @@ import subprocess
 
 logging.basicConfig(level=logging.DEBUG)
 
-gapic = gcp.GAPICGenerator()
+gapic = gcp.GAPICMicrogenerator()
 version = 'v1'
 library = gapic.node_library(
         'kms', version,
+        generator_args={
+            "grpc-service-config": f"google/cloud/kms/{version}/cloudkms_grpc_service_config.json"
+        },
+        proto_path=f'/google/cloud/kms/{version}',
         config_path='artman_cloudkms.yaml')
 # skip index, package.json, and README.md
 s.copy(
     library,
-    excludes=['package.json', 'README.md', 'src/index.js'],
+    excludes=['package.json', 'README.md', 'src/index.ts'],
 )
 
 # Copy common templates
 common_templates = gcp.CommonTemplates()
-templates = common_templates.node_library()
+templates = common_templates.node_library(source_location='build/src')
 s.copy(templates)
 
 # Node.js specific cleanup
