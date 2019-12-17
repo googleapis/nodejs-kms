@@ -23,13 +23,13 @@ logging.basicConfig(level=logging.DEBUG)
 
 gapic = gcp.GAPICMicrogenerator()
 version = 'v1'
-library = gapic.node_library(
+library = gapic.typescript_library(
         'kms', version,
         generator_args={
-            "grpc-service-config": f"google/cloud/kms/{version}/cloudkms_grpc_service_config.json"
+            "grpc-service-config": f"google/cloud/kms/{version}/cloudkms_grpc_service_config.json",
+            "package-name":f"@google-cloud/kms"
         },
-        proto_path=f'/google/cloud/kms/{version}',
-        config_path='artman_cloudkms.yaml')
+        proto_path=f'/google/cloud/kms/{version}')
 # skip index, package.json, and README.md
 s.copy(
     library,

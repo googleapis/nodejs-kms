@@ -66,6 +66,2926 @@
                      */
                     var v1 = {};
     
+                    v1.KeyRing = (function() {
+    
+                        /**
+                         * Properties of a KeyRing.
+                         * @memberof google.cloud.kms.v1
+                         * @interface IKeyRing
+                         * @property {string|null} [name] KeyRing name
+                         * @property {google.protobuf.ITimestamp|null} [createTime] KeyRing createTime
+                         */
+    
+                        /**
+                         * Constructs a new KeyRing.
+                         * @memberof google.cloud.kms.v1
+                         * @classdesc Represents a KeyRing.
+                         * @implements IKeyRing
+                         * @constructor
+                         * @param {google.cloud.kms.v1.IKeyRing=} [properties] Properties to set
+                         */
+                        function KeyRing(properties) {
+                            if (properties)
+                                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                    if (properties[keys[i]] != null)
+                                        this[keys[i]] = properties[keys[i]];
+                        }
+    
+                        /**
+                         * KeyRing name.
+                         * @member {string} name
+                         * @memberof google.cloud.kms.v1.KeyRing
+                         * @instance
+                         */
+                        KeyRing.prototype.name = "";
+    
+                        /**
+                         * KeyRing createTime.
+                         * @member {google.protobuf.ITimestamp|null|undefined} createTime
+                         * @memberof google.cloud.kms.v1.KeyRing
+                         * @instance
+                         */
+                        KeyRing.prototype.createTime = null;
+    
+                        /**
+                         * Creates a new KeyRing instance using the specified properties.
+                         * @function create
+                         * @memberof google.cloud.kms.v1.KeyRing
+                         * @static
+                         * @param {google.cloud.kms.v1.IKeyRing=} [properties] Properties to set
+                         * @returns {google.cloud.kms.v1.KeyRing} KeyRing instance
+                         */
+                        KeyRing.create = function create(properties) {
+                            return new KeyRing(properties);
+                        };
+    
+                        /**
+                         * Encodes the specified KeyRing message. Does not implicitly {@link google.cloud.kms.v1.KeyRing.verify|verify} messages.
+                         * @function encode
+                         * @memberof google.cloud.kms.v1.KeyRing
+                         * @static
+                         * @param {google.cloud.kms.v1.IKeyRing} message KeyRing message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        KeyRing.encode = function encode(message, writer) {
+                            if (!writer)
+                                writer = $Writer.create();
+                            if (message.name != null && message.hasOwnProperty("name"))
+                                writer.uint32(/* id 1, wireType 2 =*/10).string(message.name);
+                            if (message.createTime != null && message.hasOwnProperty("createTime"))
+                                $root.google.protobuf.Timestamp.encode(message.createTime, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                            return writer;
+                        };
+    
+                        /**
+                         * Encodes the specified KeyRing message, length delimited. Does not implicitly {@link google.cloud.kms.v1.KeyRing.verify|verify} messages.
+                         * @function encodeDelimited
+                         * @memberof google.cloud.kms.v1.KeyRing
+                         * @static
+                         * @param {google.cloud.kms.v1.IKeyRing} message KeyRing message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        KeyRing.encodeDelimited = function encodeDelimited(message, writer) {
+                            return this.encode(message, writer).ldelim();
+                        };
+    
+                        /**
+                         * Decodes a KeyRing message from the specified reader or buffer.
+                         * @function decode
+                         * @memberof google.cloud.kms.v1.KeyRing
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @param {number} [length] Message length if known beforehand
+                         * @returns {google.cloud.kms.v1.KeyRing} KeyRing
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        KeyRing.decode = function decode(reader, length) {
+                            if (!(reader instanceof $Reader))
+                                reader = $Reader.create(reader);
+                            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.cloud.kms.v1.KeyRing();
+                            while (reader.pos < end) {
+                                var tag = reader.uint32();
+                                switch (tag >>> 3) {
+                                case 1:
+                                    message.name = reader.string();
+                                    break;
+                                case 2:
+                                    message.createTime = $root.google.protobuf.Timestamp.decode(reader, reader.uint32());
+                                    break;
+                                default:
+                                    reader.skipType(tag & 7);
+                                    break;
+                                }
+                            }
+                            return message;
+                        };
+    
+                        /**
+                         * Decodes a KeyRing message from the specified reader or buffer, length delimited.
+                         * @function decodeDelimited
+                         * @memberof google.cloud.kms.v1.KeyRing
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @returns {google.cloud.kms.v1.KeyRing} KeyRing
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        KeyRing.decodeDelimited = function decodeDelimited(reader) {
+                            if (!(reader instanceof $Reader))
+                                reader = new $Reader(reader);
+                            return this.decode(reader, reader.uint32());
+                        };
+    
+                        /**
+                         * Verifies a KeyRing message.
+                         * @function verify
+                         * @memberof google.cloud.kms.v1.KeyRing
+                         * @static
+                         * @param {Object.<string,*>} message Plain object to verify
+                         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                         */
+                        KeyRing.verify = function verify(message) {
+                            if (typeof message !== "object" || message === null)
+                                return "object expected";
+                            if (message.name != null && message.hasOwnProperty("name"))
+                                if (!$util.isString(message.name))
+                                    return "name: string expected";
+                            if (message.createTime != null && message.hasOwnProperty("createTime")) {
+                                var error = $root.google.protobuf.Timestamp.verify(message.createTime);
+                                if (error)
+                                    return "createTime." + error;
+                            }
+                            return null;
+                        };
+    
+                        /**
+                         * Creates a KeyRing message from a plain object. Also converts values to their respective internal types.
+                         * @function fromObject
+                         * @memberof google.cloud.kms.v1.KeyRing
+                         * @static
+                         * @param {Object.<string,*>} object Plain object
+                         * @returns {google.cloud.kms.v1.KeyRing} KeyRing
+                         */
+                        KeyRing.fromObject = function fromObject(object) {
+                            if (object instanceof $root.google.cloud.kms.v1.KeyRing)
+                                return object;
+                            var message = new $root.google.cloud.kms.v1.KeyRing();
+                            if (object.name != null)
+                                message.name = String(object.name);
+                            if (object.createTime != null) {
+                                if (typeof object.createTime !== "object")
+                                    throw TypeError(".google.cloud.kms.v1.KeyRing.createTime: object expected");
+                                message.createTime = $root.google.protobuf.Timestamp.fromObject(object.createTime);
+                            }
+                            return message;
+                        };
+    
+                        /**
+                         * Creates a plain object from a KeyRing message. Also converts values to other types if specified.
+                         * @function toObject
+                         * @memberof google.cloud.kms.v1.KeyRing
+                         * @static
+                         * @param {google.cloud.kms.v1.KeyRing} message KeyRing
+                         * @param {$protobuf.IConversionOptions} [options] Conversion options
+                         * @returns {Object.<string,*>} Plain object
+                         */
+                        KeyRing.toObject = function toObject(message, options) {
+                            if (!options)
+                                options = {};
+                            var object = {};
+                            if (options.defaults) {
+                                object.name = "";
+                                object.createTime = null;
+                            }
+                            if (message.name != null && message.hasOwnProperty("name"))
+                                object.name = message.name;
+                            if (message.createTime != null && message.hasOwnProperty("createTime"))
+                                object.createTime = $root.google.protobuf.Timestamp.toObject(message.createTime, options);
+                            return object;
+                        };
+    
+                        /**
+                         * Converts this KeyRing to JSON.
+                         * @function toJSON
+                         * @memberof google.cloud.kms.v1.KeyRing
+                         * @instance
+                         * @returns {Object.<string,*>} JSON object
+                         */
+                        KeyRing.prototype.toJSON = function toJSON() {
+                            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                        };
+    
+                        return KeyRing;
+                    })();
+    
+                    v1.CryptoKey = (function() {
+    
+                        /**
+                         * Properties of a CryptoKey.
+                         * @memberof google.cloud.kms.v1
+                         * @interface ICryptoKey
+                         * @property {string|null} [name] CryptoKey name
+                         * @property {google.cloud.kms.v1.ICryptoKeyVersion|null} [primary] CryptoKey primary
+                         * @property {google.cloud.kms.v1.CryptoKey.CryptoKeyPurpose|null} [purpose] CryptoKey purpose
+                         * @property {google.protobuf.ITimestamp|null} [createTime] CryptoKey createTime
+                         * @property {google.protobuf.ITimestamp|null} [nextRotationTime] CryptoKey nextRotationTime
+                         * @property {google.protobuf.IDuration|null} [rotationPeriod] CryptoKey rotationPeriod
+                         * @property {google.cloud.kms.v1.ICryptoKeyVersionTemplate|null} [versionTemplate] CryptoKey versionTemplate
+                         * @property {Object.<string,string>|null} [labels] CryptoKey labels
+                         */
+    
+                        /**
+                         * Constructs a new CryptoKey.
+                         * @memberof google.cloud.kms.v1
+                         * @classdesc Represents a CryptoKey.
+                         * @implements ICryptoKey
+                         * @constructor
+                         * @param {google.cloud.kms.v1.ICryptoKey=} [properties] Properties to set
+                         */
+                        function CryptoKey(properties) {
+                            this.labels = {};
+                            if (properties)
+                                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                    if (properties[keys[i]] != null)
+                                        this[keys[i]] = properties[keys[i]];
+                        }
+    
+                        /**
+                         * CryptoKey name.
+                         * @member {string} name
+                         * @memberof google.cloud.kms.v1.CryptoKey
+                         * @instance
+                         */
+                        CryptoKey.prototype.name = "";
+    
+                        /**
+                         * CryptoKey primary.
+                         * @member {google.cloud.kms.v1.ICryptoKeyVersion|null|undefined} primary
+                         * @memberof google.cloud.kms.v1.CryptoKey
+                         * @instance
+                         */
+                        CryptoKey.prototype.primary = null;
+    
+                        /**
+                         * CryptoKey purpose.
+                         * @member {google.cloud.kms.v1.CryptoKey.CryptoKeyPurpose} purpose
+                         * @memberof google.cloud.kms.v1.CryptoKey
+                         * @instance
+                         */
+                        CryptoKey.prototype.purpose = 0;
+    
+                        /**
+                         * CryptoKey createTime.
+                         * @member {google.protobuf.ITimestamp|null|undefined} createTime
+                         * @memberof google.cloud.kms.v1.CryptoKey
+                         * @instance
+                         */
+                        CryptoKey.prototype.createTime = null;
+    
+                        /**
+                         * CryptoKey nextRotationTime.
+                         * @member {google.protobuf.ITimestamp|null|undefined} nextRotationTime
+                         * @memberof google.cloud.kms.v1.CryptoKey
+                         * @instance
+                         */
+                        CryptoKey.prototype.nextRotationTime = null;
+    
+                        /**
+                         * CryptoKey rotationPeriod.
+                         * @member {google.protobuf.IDuration|null|undefined} rotationPeriod
+                         * @memberof google.cloud.kms.v1.CryptoKey
+                         * @instance
+                         */
+                        CryptoKey.prototype.rotationPeriod = null;
+    
+                        /**
+                         * CryptoKey versionTemplate.
+                         * @member {google.cloud.kms.v1.ICryptoKeyVersionTemplate|null|undefined} versionTemplate
+                         * @memberof google.cloud.kms.v1.CryptoKey
+                         * @instance
+                         */
+                        CryptoKey.prototype.versionTemplate = null;
+    
+                        /**
+                         * CryptoKey labels.
+                         * @member {Object.<string,string>} labels
+                         * @memberof google.cloud.kms.v1.CryptoKey
+                         * @instance
+                         */
+                        CryptoKey.prototype.labels = $util.emptyObject;
+    
+                        // OneOf field names bound to virtual getters and setters
+                        var $oneOfFields;
+    
+                        /**
+                         * CryptoKey rotationSchedule.
+                         * @member {"rotationPeriod"|undefined} rotationSchedule
+                         * @memberof google.cloud.kms.v1.CryptoKey
+                         * @instance
+                         */
+                        Object.defineProperty(CryptoKey.prototype, "rotationSchedule", {
+                            get: $util.oneOfGetter($oneOfFields = ["rotationPeriod"]),
+                            set: $util.oneOfSetter($oneOfFields)
+                        });
+    
+                        /**
+                         * Creates a new CryptoKey instance using the specified properties.
+                         * @function create
+                         * @memberof google.cloud.kms.v1.CryptoKey
+                         * @static
+                         * @param {google.cloud.kms.v1.ICryptoKey=} [properties] Properties to set
+                         * @returns {google.cloud.kms.v1.CryptoKey} CryptoKey instance
+                         */
+                        CryptoKey.create = function create(properties) {
+                            return new CryptoKey(properties);
+                        };
+    
+                        /**
+                         * Encodes the specified CryptoKey message. Does not implicitly {@link google.cloud.kms.v1.CryptoKey.verify|verify} messages.
+                         * @function encode
+                         * @memberof google.cloud.kms.v1.CryptoKey
+                         * @static
+                         * @param {google.cloud.kms.v1.ICryptoKey} message CryptoKey message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        CryptoKey.encode = function encode(message, writer) {
+                            if (!writer)
+                                writer = $Writer.create();
+                            if (message.name != null && message.hasOwnProperty("name"))
+                                writer.uint32(/* id 1, wireType 2 =*/10).string(message.name);
+                            if (message.primary != null && message.hasOwnProperty("primary"))
+                                $root.google.cloud.kms.v1.CryptoKeyVersion.encode(message.primary, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                            if (message.purpose != null && message.hasOwnProperty("purpose"))
+                                writer.uint32(/* id 3, wireType 0 =*/24).int32(message.purpose);
+                            if (message.createTime != null && message.hasOwnProperty("createTime"))
+                                $root.google.protobuf.Timestamp.encode(message.createTime, writer.uint32(/* id 5, wireType 2 =*/42).fork()).ldelim();
+                            if (message.nextRotationTime != null && message.hasOwnProperty("nextRotationTime"))
+                                $root.google.protobuf.Timestamp.encode(message.nextRotationTime, writer.uint32(/* id 7, wireType 2 =*/58).fork()).ldelim();
+                            if (message.rotationPeriod != null && message.hasOwnProperty("rotationPeriod"))
+                                $root.google.protobuf.Duration.encode(message.rotationPeriod, writer.uint32(/* id 8, wireType 2 =*/66).fork()).ldelim();
+                            if (message.labels != null && message.hasOwnProperty("labels"))
+                                for (var keys = Object.keys(message.labels), i = 0; i < keys.length; ++i)
+                                    writer.uint32(/* id 10, wireType 2 =*/82).fork().uint32(/* id 1, wireType 2 =*/10).string(keys[i]).uint32(/* id 2, wireType 2 =*/18).string(message.labels[keys[i]]).ldelim();
+                            if (message.versionTemplate != null && message.hasOwnProperty("versionTemplate"))
+                                $root.google.cloud.kms.v1.CryptoKeyVersionTemplate.encode(message.versionTemplate, writer.uint32(/* id 11, wireType 2 =*/90).fork()).ldelim();
+                            return writer;
+                        };
+    
+                        /**
+                         * Encodes the specified CryptoKey message, length delimited. Does not implicitly {@link google.cloud.kms.v1.CryptoKey.verify|verify} messages.
+                         * @function encodeDelimited
+                         * @memberof google.cloud.kms.v1.CryptoKey
+                         * @static
+                         * @param {google.cloud.kms.v1.ICryptoKey} message CryptoKey message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        CryptoKey.encodeDelimited = function encodeDelimited(message, writer) {
+                            return this.encode(message, writer).ldelim();
+                        };
+    
+                        /**
+                         * Decodes a CryptoKey message from the specified reader or buffer.
+                         * @function decode
+                         * @memberof google.cloud.kms.v1.CryptoKey
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @param {number} [length] Message length if known beforehand
+                         * @returns {google.cloud.kms.v1.CryptoKey} CryptoKey
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        CryptoKey.decode = function decode(reader, length) {
+                            if (!(reader instanceof $Reader))
+                                reader = $Reader.create(reader);
+                            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.cloud.kms.v1.CryptoKey(), key;
+                            while (reader.pos < end) {
+                                var tag = reader.uint32();
+                                switch (tag >>> 3) {
+                                case 1:
+                                    message.name = reader.string();
+                                    break;
+                                case 2:
+                                    message.primary = $root.google.cloud.kms.v1.CryptoKeyVersion.decode(reader, reader.uint32());
+                                    break;
+                                case 3:
+                                    message.purpose = reader.int32();
+                                    break;
+                                case 5:
+                                    message.createTime = $root.google.protobuf.Timestamp.decode(reader, reader.uint32());
+                                    break;
+                                case 7:
+                                    message.nextRotationTime = $root.google.protobuf.Timestamp.decode(reader, reader.uint32());
+                                    break;
+                                case 8:
+                                    message.rotationPeriod = $root.google.protobuf.Duration.decode(reader, reader.uint32());
+                                    break;
+                                case 11:
+                                    message.versionTemplate = $root.google.cloud.kms.v1.CryptoKeyVersionTemplate.decode(reader, reader.uint32());
+                                    break;
+                                case 10:
+                                    reader.skip().pos++;
+                                    if (message.labels === $util.emptyObject)
+                                        message.labels = {};
+                                    key = reader.string();
+                                    reader.pos++;
+                                    message.labels[key] = reader.string();
+                                    break;
+                                default:
+                                    reader.skipType(tag & 7);
+                                    break;
+                                }
+                            }
+                            return message;
+                        };
+    
+                        /**
+                         * Decodes a CryptoKey message from the specified reader or buffer, length delimited.
+                         * @function decodeDelimited
+                         * @memberof google.cloud.kms.v1.CryptoKey
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @returns {google.cloud.kms.v1.CryptoKey} CryptoKey
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        CryptoKey.decodeDelimited = function decodeDelimited(reader) {
+                            if (!(reader instanceof $Reader))
+                                reader = new $Reader(reader);
+                            return this.decode(reader, reader.uint32());
+                        };
+    
+                        /**
+                         * Verifies a CryptoKey message.
+                         * @function verify
+                         * @memberof google.cloud.kms.v1.CryptoKey
+                         * @static
+                         * @param {Object.<string,*>} message Plain object to verify
+                         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                         */
+                        CryptoKey.verify = function verify(message) {
+                            if (typeof message !== "object" || message === null)
+                                return "object expected";
+                            var properties = {};
+                            if (message.name != null && message.hasOwnProperty("name"))
+                                if (!$util.isString(message.name))
+                                    return "name: string expected";
+                            if (message.primary != null && message.hasOwnProperty("primary")) {
+                                var error = $root.google.cloud.kms.v1.CryptoKeyVersion.verify(message.primary);
+                                if (error)
+                                    return "primary." + error;
+                            }
+                            if (message.purpose != null && message.hasOwnProperty("purpose"))
+                                switch (message.purpose) {
+                                default:
+                                    return "purpose: enum value expected";
+                                case 0:
+                                case 1:
+                                case 5:
+                                case 6:
+                                    break;
+                                }
+                            if (message.createTime != null && message.hasOwnProperty("createTime")) {
+                                var error = $root.google.protobuf.Timestamp.verify(message.createTime);
+                                if (error)
+                                    return "createTime." + error;
+                            }
+                            if (message.nextRotationTime != null && message.hasOwnProperty("nextRotationTime")) {
+                                var error = $root.google.protobuf.Timestamp.verify(message.nextRotationTime);
+                                if (error)
+                                    return "nextRotationTime." + error;
+                            }
+                            if (message.rotationPeriod != null && message.hasOwnProperty("rotationPeriod")) {
+                                properties.rotationSchedule = 1;
+                                {
+                                    var error = $root.google.protobuf.Duration.verify(message.rotationPeriod);
+                                    if (error)
+                                        return "rotationPeriod." + error;
+                                }
+                            }
+                            if (message.versionTemplate != null && message.hasOwnProperty("versionTemplate")) {
+                                var error = $root.google.cloud.kms.v1.CryptoKeyVersionTemplate.verify(message.versionTemplate);
+                                if (error)
+                                    return "versionTemplate." + error;
+                            }
+                            if (message.labels != null && message.hasOwnProperty("labels")) {
+                                if (!$util.isObject(message.labels))
+                                    return "labels: object expected";
+                                var key = Object.keys(message.labels);
+                                for (var i = 0; i < key.length; ++i)
+                                    if (!$util.isString(message.labels[key[i]]))
+                                        return "labels: string{k:string} expected";
+                            }
+                            return null;
+                        };
+    
+                        /**
+                         * Creates a CryptoKey message from a plain object. Also converts values to their respective internal types.
+                         * @function fromObject
+                         * @memberof google.cloud.kms.v1.CryptoKey
+                         * @static
+                         * @param {Object.<string,*>} object Plain object
+                         * @returns {google.cloud.kms.v1.CryptoKey} CryptoKey
+                         */
+                        CryptoKey.fromObject = function fromObject(object) {
+                            if (object instanceof $root.google.cloud.kms.v1.CryptoKey)
+                                return object;
+                            var message = new $root.google.cloud.kms.v1.CryptoKey();
+                            if (object.name != null)
+                                message.name = String(object.name);
+                            if (object.primary != null) {
+                                if (typeof object.primary !== "object")
+                                    throw TypeError(".google.cloud.kms.v1.CryptoKey.primary: object expected");
+                                message.primary = $root.google.cloud.kms.v1.CryptoKeyVersion.fromObject(object.primary);
+                            }
+                            switch (object.purpose) {
+                            case "CRYPTO_KEY_PURPOSE_UNSPECIFIED":
+                            case 0:
+                                message.purpose = 0;
+                                break;
+                            case "ENCRYPT_DECRYPT":
+                            case 1:
+                                message.purpose = 1;
+                                break;
+                            case "ASYMMETRIC_SIGN":
+                            case 5:
+                                message.purpose = 5;
+                                break;
+                            case "ASYMMETRIC_DECRYPT":
+                            case 6:
+                                message.purpose = 6;
+                                break;
+                            }
+                            if (object.createTime != null) {
+                                if (typeof object.createTime !== "object")
+                                    throw TypeError(".google.cloud.kms.v1.CryptoKey.createTime: object expected");
+                                message.createTime = $root.google.protobuf.Timestamp.fromObject(object.createTime);
+                            }
+                            if (object.nextRotationTime != null) {
+                                if (typeof object.nextRotationTime !== "object")
+                                    throw TypeError(".google.cloud.kms.v1.CryptoKey.nextRotationTime: object expected");
+                                message.nextRotationTime = $root.google.protobuf.Timestamp.fromObject(object.nextRotationTime);
+                            }
+                            if (object.rotationPeriod != null) {
+                                if (typeof object.rotationPeriod !== "object")
+                                    throw TypeError(".google.cloud.kms.v1.CryptoKey.rotationPeriod: object expected");
+                                message.rotationPeriod = $root.google.protobuf.Duration.fromObject(object.rotationPeriod);
+                            }
+                            if (object.versionTemplate != null) {
+                                if (typeof object.versionTemplate !== "object")
+                                    throw TypeError(".google.cloud.kms.v1.CryptoKey.versionTemplate: object expected");
+                                message.versionTemplate = $root.google.cloud.kms.v1.CryptoKeyVersionTemplate.fromObject(object.versionTemplate);
+                            }
+                            if (object.labels) {
+                                if (typeof object.labels !== "object")
+                                    throw TypeError(".google.cloud.kms.v1.CryptoKey.labels: object expected");
+                                message.labels = {};
+                                for (var keys = Object.keys(object.labels), i = 0; i < keys.length; ++i)
+                                    message.labels[keys[i]] = String(object.labels[keys[i]]);
+                            }
+                            return message;
+                        };
+    
+                        /**
+                         * Creates a plain object from a CryptoKey message. Also converts values to other types if specified.
+                         * @function toObject
+                         * @memberof google.cloud.kms.v1.CryptoKey
+                         * @static
+                         * @param {google.cloud.kms.v1.CryptoKey} message CryptoKey
+                         * @param {$protobuf.IConversionOptions} [options] Conversion options
+                         * @returns {Object.<string,*>} Plain object
+                         */
+                        CryptoKey.toObject = function toObject(message, options) {
+                            if (!options)
+                                options = {};
+                            var object = {};
+                            if (options.objects || options.defaults)
+                                object.labels = {};
+                            if (options.defaults) {
+                                object.name = "";
+                                object.primary = null;
+                                object.purpose = options.enums === String ? "CRYPTO_KEY_PURPOSE_UNSPECIFIED" : 0;
+                                object.createTime = null;
+                                object.nextRotationTime = null;
+                                object.versionTemplate = null;
+                            }
+                            if (message.name != null && message.hasOwnProperty("name"))
+                                object.name = message.name;
+                            if (message.primary != null && message.hasOwnProperty("primary"))
+                                object.primary = $root.google.cloud.kms.v1.CryptoKeyVersion.toObject(message.primary, options);
+                            if (message.purpose != null && message.hasOwnProperty("purpose"))
+                                object.purpose = options.enums === String ? $root.google.cloud.kms.v1.CryptoKey.CryptoKeyPurpose[message.purpose] : message.purpose;
+                            if (message.createTime != null && message.hasOwnProperty("createTime"))
+                                object.createTime = $root.google.protobuf.Timestamp.toObject(message.createTime, options);
+                            if (message.nextRotationTime != null && message.hasOwnProperty("nextRotationTime"))
+                                object.nextRotationTime = $root.google.protobuf.Timestamp.toObject(message.nextRotationTime, options);
+                            if (message.rotationPeriod != null && message.hasOwnProperty("rotationPeriod")) {
+                                object.rotationPeriod = $root.google.protobuf.Duration.toObject(message.rotationPeriod, options);
+                                if (options.oneofs)
+                                    object.rotationSchedule = "rotationPeriod";
+                            }
+                            var keys2;
+                            if (message.labels && (keys2 = Object.keys(message.labels)).length) {
+                                object.labels = {};
+                                for (var j = 0; j < keys2.length; ++j)
+                                    object.labels[keys2[j]] = message.labels[keys2[j]];
+                            }
+                            if (message.versionTemplate != null && message.hasOwnProperty("versionTemplate"))
+                                object.versionTemplate = $root.google.cloud.kms.v1.CryptoKeyVersionTemplate.toObject(message.versionTemplate, options);
+                            return object;
+                        };
+    
+                        /**
+                         * Converts this CryptoKey to JSON.
+                         * @function toJSON
+                         * @memberof google.cloud.kms.v1.CryptoKey
+                         * @instance
+                         * @returns {Object.<string,*>} JSON object
+                         */
+                        CryptoKey.prototype.toJSON = function toJSON() {
+                            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                        };
+    
+                        /**
+                         * CryptoKeyPurpose enum.
+                         * @name google.cloud.kms.v1.CryptoKey.CryptoKeyPurpose
+                         * @enum {string}
+                         * @property {number} CRYPTO_KEY_PURPOSE_UNSPECIFIED=0 CRYPTO_KEY_PURPOSE_UNSPECIFIED value
+                         * @property {number} ENCRYPT_DECRYPT=1 ENCRYPT_DECRYPT value
+                         * @property {number} ASYMMETRIC_SIGN=5 ASYMMETRIC_SIGN value
+                         * @property {number} ASYMMETRIC_DECRYPT=6 ASYMMETRIC_DECRYPT value
+                         */
+                        CryptoKey.CryptoKeyPurpose = (function() {
+                            var valuesById = {}, values = Object.create(valuesById);
+                            values[valuesById[0] = "CRYPTO_KEY_PURPOSE_UNSPECIFIED"] = 0;
+                            values[valuesById[1] = "ENCRYPT_DECRYPT"] = 1;
+                            values[valuesById[5] = "ASYMMETRIC_SIGN"] = 5;
+                            values[valuesById[6] = "ASYMMETRIC_DECRYPT"] = 6;
+                            return values;
+                        })();
+    
+                        return CryptoKey;
+                    })();
+    
+                    v1.CryptoKeyVersionTemplate = (function() {
+    
+                        /**
+                         * Properties of a CryptoKeyVersionTemplate.
+                         * @memberof google.cloud.kms.v1
+                         * @interface ICryptoKeyVersionTemplate
+                         * @property {google.cloud.kms.v1.ProtectionLevel|null} [protectionLevel] CryptoKeyVersionTemplate protectionLevel
+                         * @property {google.cloud.kms.v1.CryptoKeyVersion.CryptoKeyVersionAlgorithm|null} [algorithm] CryptoKeyVersionTemplate algorithm
+                         */
+    
+                        /**
+                         * Constructs a new CryptoKeyVersionTemplate.
+                         * @memberof google.cloud.kms.v1
+                         * @classdesc Represents a CryptoKeyVersionTemplate.
+                         * @implements ICryptoKeyVersionTemplate
+                         * @constructor
+                         * @param {google.cloud.kms.v1.ICryptoKeyVersionTemplate=} [properties] Properties to set
+                         */
+                        function CryptoKeyVersionTemplate(properties) {
+                            if (properties)
+                                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                    if (properties[keys[i]] != null)
+                                        this[keys[i]] = properties[keys[i]];
+                        }
+    
+                        /**
+                         * CryptoKeyVersionTemplate protectionLevel.
+                         * @member {google.cloud.kms.v1.ProtectionLevel} protectionLevel
+                         * @memberof google.cloud.kms.v1.CryptoKeyVersionTemplate
+                         * @instance
+                         */
+                        CryptoKeyVersionTemplate.prototype.protectionLevel = 0;
+    
+                        /**
+                         * CryptoKeyVersionTemplate algorithm.
+                         * @member {google.cloud.kms.v1.CryptoKeyVersion.CryptoKeyVersionAlgorithm} algorithm
+                         * @memberof google.cloud.kms.v1.CryptoKeyVersionTemplate
+                         * @instance
+                         */
+                        CryptoKeyVersionTemplate.prototype.algorithm = 0;
+    
+                        /**
+                         * Creates a new CryptoKeyVersionTemplate instance using the specified properties.
+                         * @function create
+                         * @memberof google.cloud.kms.v1.CryptoKeyVersionTemplate
+                         * @static
+                         * @param {google.cloud.kms.v1.ICryptoKeyVersionTemplate=} [properties] Properties to set
+                         * @returns {google.cloud.kms.v1.CryptoKeyVersionTemplate} CryptoKeyVersionTemplate instance
+                         */
+                        CryptoKeyVersionTemplate.create = function create(properties) {
+                            return new CryptoKeyVersionTemplate(properties);
+                        };
+    
+                        /**
+                         * Encodes the specified CryptoKeyVersionTemplate message. Does not implicitly {@link google.cloud.kms.v1.CryptoKeyVersionTemplate.verify|verify} messages.
+                         * @function encode
+                         * @memberof google.cloud.kms.v1.CryptoKeyVersionTemplate
+                         * @static
+                         * @param {google.cloud.kms.v1.ICryptoKeyVersionTemplate} message CryptoKeyVersionTemplate message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        CryptoKeyVersionTemplate.encode = function encode(message, writer) {
+                            if (!writer)
+                                writer = $Writer.create();
+                            if (message.protectionLevel != null && message.hasOwnProperty("protectionLevel"))
+                                writer.uint32(/* id 1, wireType 0 =*/8).int32(message.protectionLevel);
+                            if (message.algorithm != null && message.hasOwnProperty("algorithm"))
+                                writer.uint32(/* id 3, wireType 0 =*/24).int32(message.algorithm);
+                            return writer;
+                        };
+    
+                        /**
+                         * Encodes the specified CryptoKeyVersionTemplate message, length delimited. Does not implicitly {@link google.cloud.kms.v1.CryptoKeyVersionTemplate.verify|verify} messages.
+                         * @function encodeDelimited
+                         * @memberof google.cloud.kms.v1.CryptoKeyVersionTemplate
+                         * @static
+                         * @param {google.cloud.kms.v1.ICryptoKeyVersionTemplate} message CryptoKeyVersionTemplate message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        CryptoKeyVersionTemplate.encodeDelimited = function encodeDelimited(message, writer) {
+                            return this.encode(message, writer).ldelim();
+                        };
+    
+                        /**
+                         * Decodes a CryptoKeyVersionTemplate message from the specified reader or buffer.
+                         * @function decode
+                         * @memberof google.cloud.kms.v1.CryptoKeyVersionTemplate
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @param {number} [length] Message length if known beforehand
+                         * @returns {google.cloud.kms.v1.CryptoKeyVersionTemplate} CryptoKeyVersionTemplate
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        CryptoKeyVersionTemplate.decode = function decode(reader, length) {
+                            if (!(reader instanceof $Reader))
+                                reader = $Reader.create(reader);
+                            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.cloud.kms.v1.CryptoKeyVersionTemplate();
+                            while (reader.pos < end) {
+                                var tag = reader.uint32();
+                                switch (tag >>> 3) {
+                                case 1:
+                                    message.protectionLevel = reader.int32();
+                                    break;
+                                case 3:
+                                    message.algorithm = reader.int32();
+                                    break;
+                                default:
+                                    reader.skipType(tag & 7);
+                                    break;
+                                }
+                            }
+                            return message;
+                        };
+    
+                        /**
+                         * Decodes a CryptoKeyVersionTemplate message from the specified reader or buffer, length delimited.
+                         * @function decodeDelimited
+                         * @memberof google.cloud.kms.v1.CryptoKeyVersionTemplate
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @returns {google.cloud.kms.v1.CryptoKeyVersionTemplate} CryptoKeyVersionTemplate
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        CryptoKeyVersionTemplate.decodeDelimited = function decodeDelimited(reader) {
+                            if (!(reader instanceof $Reader))
+                                reader = new $Reader(reader);
+                            return this.decode(reader, reader.uint32());
+                        };
+    
+                        /**
+                         * Verifies a CryptoKeyVersionTemplate message.
+                         * @function verify
+                         * @memberof google.cloud.kms.v1.CryptoKeyVersionTemplate
+                         * @static
+                         * @param {Object.<string,*>} message Plain object to verify
+                         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                         */
+                        CryptoKeyVersionTemplate.verify = function verify(message) {
+                            if (typeof message !== "object" || message === null)
+                                return "object expected";
+                            if (message.protectionLevel != null && message.hasOwnProperty("protectionLevel"))
+                                switch (message.protectionLevel) {
+                                default:
+                                    return "protectionLevel: enum value expected";
+                                case 0:
+                                case 1:
+                                case 2:
+                                    break;
+                                }
+                            if (message.algorithm != null && message.hasOwnProperty("algorithm"))
+                                switch (message.algorithm) {
+                                default:
+                                    return "algorithm: enum value expected";
+                                case 0:
+                                case 1:
+                                case 2:
+                                case 3:
+                                case 4:
+                                case 15:
+                                case 5:
+                                case 6:
+                                case 7:
+                                case 16:
+                                case 8:
+                                case 9:
+                                case 10:
+                                case 17:
+                                case 12:
+                                case 13:
+                                    break;
+                                }
+                            return null;
+                        };
+    
+                        /**
+                         * Creates a CryptoKeyVersionTemplate message from a plain object. Also converts values to their respective internal types.
+                         * @function fromObject
+                         * @memberof google.cloud.kms.v1.CryptoKeyVersionTemplate
+                         * @static
+                         * @param {Object.<string,*>} object Plain object
+                         * @returns {google.cloud.kms.v1.CryptoKeyVersionTemplate} CryptoKeyVersionTemplate
+                         */
+                        CryptoKeyVersionTemplate.fromObject = function fromObject(object) {
+                            if (object instanceof $root.google.cloud.kms.v1.CryptoKeyVersionTemplate)
+                                return object;
+                            var message = new $root.google.cloud.kms.v1.CryptoKeyVersionTemplate();
+                            switch (object.protectionLevel) {
+                            case "PROTECTION_LEVEL_UNSPECIFIED":
+                            case 0:
+                                message.protectionLevel = 0;
+                                break;
+                            case "SOFTWARE":
+                            case 1:
+                                message.protectionLevel = 1;
+                                break;
+                            case "HSM":
+                            case 2:
+                                message.protectionLevel = 2;
+                                break;
+                            }
+                            switch (object.algorithm) {
+                            case "CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED":
+                            case 0:
+                                message.algorithm = 0;
+                                break;
+                            case "GOOGLE_SYMMETRIC_ENCRYPTION":
+                            case 1:
+                                message.algorithm = 1;
+                                break;
+                            case "RSA_SIGN_PSS_2048_SHA256":
+                            case 2:
+                                message.algorithm = 2;
+                                break;
+                            case "RSA_SIGN_PSS_3072_SHA256":
+                            case 3:
+                                message.algorithm = 3;
+                                break;
+                            case "RSA_SIGN_PSS_4096_SHA256":
+                            case 4:
+                                message.algorithm = 4;
+                                break;
+                            case "RSA_SIGN_PSS_4096_SHA512":
+                            case 15:
+                                message.algorithm = 15;
+                                break;
+                            case "RSA_SIGN_PKCS1_2048_SHA256":
+                            case 5:
+                                message.algorithm = 5;
+                                break;
+                            case "RSA_SIGN_PKCS1_3072_SHA256":
+                            case 6:
+                                message.algorithm = 6;
+                                break;
+                            case "RSA_SIGN_PKCS1_4096_SHA256":
+                            case 7:
+                                message.algorithm = 7;
+                                break;
+                            case "RSA_SIGN_PKCS1_4096_SHA512":
+                            case 16:
+                                message.algorithm = 16;
+                                break;
+                            case "RSA_DECRYPT_OAEP_2048_SHA256":
+                            case 8:
+                                message.algorithm = 8;
+                                break;
+                            case "RSA_DECRYPT_OAEP_3072_SHA256":
+                            case 9:
+                                message.algorithm = 9;
+                                break;
+                            case "RSA_DECRYPT_OAEP_4096_SHA256":
+                            case 10:
+                                message.algorithm = 10;
+                                break;
+                            case "RSA_DECRYPT_OAEP_4096_SHA512":
+                            case 17:
+                                message.algorithm = 17;
+                                break;
+                            case "EC_SIGN_P256_SHA256":
+                            case 12:
+                                message.algorithm = 12;
+                                break;
+                            case "EC_SIGN_P384_SHA384":
+                            case 13:
+                                message.algorithm = 13;
+                                break;
+                            }
+                            return message;
+                        };
+    
+                        /**
+                         * Creates a plain object from a CryptoKeyVersionTemplate message. Also converts values to other types if specified.
+                         * @function toObject
+                         * @memberof google.cloud.kms.v1.CryptoKeyVersionTemplate
+                         * @static
+                         * @param {google.cloud.kms.v1.CryptoKeyVersionTemplate} message CryptoKeyVersionTemplate
+                         * @param {$protobuf.IConversionOptions} [options] Conversion options
+                         * @returns {Object.<string,*>} Plain object
+                         */
+                        CryptoKeyVersionTemplate.toObject = function toObject(message, options) {
+                            if (!options)
+                                options = {};
+                            var object = {};
+                            if (options.defaults) {
+                                object.protectionLevel = options.enums === String ? "PROTECTION_LEVEL_UNSPECIFIED" : 0;
+                                object.algorithm = options.enums === String ? "CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED" : 0;
+                            }
+                            if (message.protectionLevel != null && message.hasOwnProperty("protectionLevel"))
+                                object.protectionLevel = options.enums === String ? $root.google.cloud.kms.v1.ProtectionLevel[message.protectionLevel] : message.protectionLevel;
+                            if (message.algorithm != null && message.hasOwnProperty("algorithm"))
+                                object.algorithm = options.enums === String ? $root.google.cloud.kms.v1.CryptoKeyVersion.CryptoKeyVersionAlgorithm[message.algorithm] : message.algorithm;
+                            return object;
+                        };
+    
+                        /**
+                         * Converts this CryptoKeyVersionTemplate to JSON.
+                         * @function toJSON
+                         * @memberof google.cloud.kms.v1.CryptoKeyVersionTemplate
+                         * @instance
+                         * @returns {Object.<string,*>} JSON object
+                         */
+                        CryptoKeyVersionTemplate.prototype.toJSON = function toJSON() {
+                            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                        };
+    
+                        return CryptoKeyVersionTemplate;
+                    })();
+    
+                    v1.KeyOperationAttestation = (function() {
+    
+                        /**
+                         * Properties of a KeyOperationAttestation.
+                         * @memberof google.cloud.kms.v1
+                         * @interface IKeyOperationAttestation
+                         * @property {google.cloud.kms.v1.KeyOperationAttestation.AttestationFormat|null} [format] KeyOperationAttestation format
+                         * @property {Uint8Array|null} [content] KeyOperationAttestation content
+                         */
+    
+                        /**
+                         * Constructs a new KeyOperationAttestation.
+                         * @memberof google.cloud.kms.v1
+                         * @classdesc Represents a KeyOperationAttestation.
+                         * @implements IKeyOperationAttestation
+                         * @constructor
+                         * @param {google.cloud.kms.v1.IKeyOperationAttestation=} [properties] Properties to set
+                         */
+                        function KeyOperationAttestation(properties) {
+                            if (properties)
+                                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                    if (properties[keys[i]] != null)
+                                        this[keys[i]] = properties[keys[i]];
+                        }
+    
+                        /**
+                         * KeyOperationAttestation format.
+                         * @member {google.cloud.kms.v1.KeyOperationAttestation.AttestationFormat} format
+                         * @memberof google.cloud.kms.v1.KeyOperationAttestation
+                         * @instance
+                         */
+                        KeyOperationAttestation.prototype.format = 0;
+    
+                        /**
+                         * KeyOperationAttestation content.
+                         * @member {Uint8Array} content
+                         * @memberof google.cloud.kms.v1.KeyOperationAttestation
+                         * @instance
+                         */
+                        KeyOperationAttestation.prototype.content = $util.newBuffer([]);
+    
+                        /**
+                         * Creates a new KeyOperationAttestation instance using the specified properties.
+                         * @function create
+                         * @memberof google.cloud.kms.v1.KeyOperationAttestation
+                         * @static
+                         * @param {google.cloud.kms.v1.IKeyOperationAttestation=} [properties] Properties to set
+                         * @returns {google.cloud.kms.v1.KeyOperationAttestation} KeyOperationAttestation instance
+                         */
+                        KeyOperationAttestation.create = function create(properties) {
+                            return new KeyOperationAttestation(properties);
+                        };
+    
+                        /**
+                         * Encodes the specified KeyOperationAttestation message. Does not implicitly {@link google.cloud.kms.v1.KeyOperationAttestation.verify|verify} messages.
+                         * @function encode
+                         * @memberof google.cloud.kms.v1.KeyOperationAttestation
+                         * @static
+                         * @param {google.cloud.kms.v1.IKeyOperationAttestation} message KeyOperationAttestation message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        KeyOperationAttestation.encode = function encode(message, writer) {
+                            if (!writer)
+                                writer = $Writer.create();
+                            if (message.format != null && message.hasOwnProperty("format"))
+                                writer.uint32(/* id 4, wireType 0 =*/32).int32(message.format);
+                            if (message.content != null && message.hasOwnProperty("content"))
+                                writer.uint32(/* id 5, wireType 2 =*/42).bytes(message.content);
+                            return writer;
+                        };
+    
+                        /**
+                         * Encodes the specified KeyOperationAttestation message, length delimited. Does not implicitly {@link google.cloud.kms.v1.KeyOperationAttestation.verify|verify} messages.
+                         * @function encodeDelimited
+                         * @memberof google.cloud.kms.v1.KeyOperationAttestation
+                         * @static
+                         * @param {google.cloud.kms.v1.IKeyOperationAttestation} message KeyOperationAttestation message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        KeyOperationAttestation.encodeDelimited = function encodeDelimited(message, writer) {
+                            return this.encode(message, writer).ldelim();
+                        };
+    
+                        /**
+                         * Decodes a KeyOperationAttestation message from the specified reader or buffer.
+                         * @function decode
+                         * @memberof google.cloud.kms.v1.KeyOperationAttestation
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @param {number} [length] Message length if known beforehand
+                         * @returns {google.cloud.kms.v1.KeyOperationAttestation} KeyOperationAttestation
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        KeyOperationAttestation.decode = function decode(reader, length) {
+                            if (!(reader instanceof $Reader))
+                                reader = $Reader.create(reader);
+                            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.cloud.kms.v1.KeyOperationAttestation();
+                            while (reader.pos < end) {
+                                var tag = reader.uint32();
+                                switch (tag >>> 3) {
+                                case 4:
+                                    message.format = reader.int32();
+                                    break;
+                                case 5:
+                                    message.content = reader.bytes();
+                                    break;
+                                default:
+                                    reader.skipType(tag & 7);
+                                    break;
+                                }
+                            }
+                            return message;
+                        };
+    
+                        /**
+                         * Decodes a KeyOperationAttestation message from the specified reader or buffer, length delimited.
+                         * @function decodeDelimited
+                         * @memberof google.cloud.kms.v1.KeyOperationAttestation
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @returns {google.cloud.kms.v1.KeyOperationAttestation} KeyOperationAttestation
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        KeyOperationAttestation.decodeDelimited = function decodeDelimited(reader) {
+                            if (!(reader instanceof $Reader))
+                                reader = new $Reader(reader);
+                            return this.decode(reader, reader.uint32());
+                        };
+    
+                        /**
+                         * Verifies a KeyOperationAttestation message.
+                         * @function verify
+                         * @memberof google.cloud.kms.v1.KeyOperationAttestation
+                         * @static
+                         * @param {Object.<string,*>} message Plain object to verify
+                         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                         */
+                        KeyOperationAttestation.verify = function verify(message) {
+                            if (typeof message !== "object" || message === null)
+                                return "object expected";
+                            if (message.format != null && message.hasOwnProperty("format"))
+                                switch (message.format) {
+                                default:
+                                    return "format: enum value expected";
+                                case 0:
+                                case 3:
+                                case 4:
+                                    break;
+                                }
+                            if (message.content != null && message.hasOwnProperty("content"))
+                                if (!(message.content && typeof message.content.length === "number" || $util.isString(message.content)))
+                                    return "content: buffer expected";
+                            return null;
+                        };
+    
+                        /**
+                         * Creates a KeyOperationAttestation message from a plain object. Also converts values to their respective internal types.
+                         * @function fromObject
+                         * @memberof google.cloud.kms.v1.KeyOperationAttestation
+                         * @static
+                         * @param {Object.<string,*>} object Plain object
+                         * @returns {google.cloud.kms.v1.KeyOperationAttestation} KeyOperationAttestation
+                         */
+                        KeyOperationAttestation.fromObject = function fromObject(object) {
+                            if (object instanceof $root.google.cloud.kms.v1.KeyOperationAttestation)
+                                return object;
+                            var message = new $root.google.cloud.kms.v1.KeyOperationAttestation();
+                            switch (object.format) {
+                            case "ATTESTATION_FORMAT_UNSPECIFIED":
+                            case 0:
+                                message.format = 0;
+                                break;
+                            case "CAVIUM_V1_COMPRESSED":
+                            case 3:
+                                message.format = 3;
+                                break;
+                            case "CAVIUM_V2_COMPRESSED":
+                            case 4:
+                                message.format = 4;
+                                break;
+                            }
+                            if (object.content != null)
+                                if (typeof object.content === "string")
+                                    $util.base64.decode(object.content, message.content = $util.newBuffer($util.base64.length(object.content)), 0);
+                                else if (object.content.length)
+                                    message.content = object.content;
+                            return message;
+                        };
+    
+                        /**
+                         * Creates a plain object from a KeyOperationAttestation message. Also converts values to other types if specified.
+                         * @function toObject
+                         * @memberof google.cloud.kms.v1.KeyOperationAttestation
+                         * @static
+                         * @param {google.cloud.kms.v1.KeyOperationAttestation} message KeyOperationAttestation
+                         * @param {$protobuf.IConversionOptions} [options] Conversion options
+                         * @returns {Object.<string,*>} Plain object
+                         */
+                        KeyOperationAttestation.toObject = function toObject(message, options) {
+                            if (!options)
+                                options = {};
+                            var object = {};
+                            if (options.defaults) {
+                                object.format = options.enums === String ? "ATTESTATION_FORMAT_UNSPECIFIED" : 0;
+                                if (options.bytes === String)
+                                    object.content = "";
+                                else {
+                                    object.content = [];
+                                    if (options.bytes !== Array)
+                                        object.content = $util.newBuffer(object.content);
+                                }
+                            }
+                            if (message.format != null && message.hasOwnProperty("format"))
+                                object.format = options.enums === String ? $root.google.cloud.kms.v1.KeyOperationAttestation.AttestationFormat[message.format] : message.format;
+                            if (message.content != null && message.hasOwnProperty("content"))
+                                object.content = options.bytes === String ? $util.base64.encode(message.content, 0, message.content.length) : options.bytes === Array ? Array.prototype.slice.call(message.content) : message.content;
+                            return object;
+                        };
+    
+                        /**
+                         * Converts this KeyOperationAttestation to JSON.
+                         * @function toJSON
+                         * @memberof google.cloud.kms.v1.KeyOperationAttestation
+                         * @instance
+                         * @returns {Object.<string,*>} JSON object
+                         */
+                        KeyOperationAttestation.prototype.toJSON = function toJSON() {
+                            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                        };
+    
+                        /**
+                         * AttestationFormat enum.
+                         * @name google.cloud.kms.v1.KeyOperationAttestation.AttestationFormat
+                         * @enum {string}
+                         * @property {number} ATTESTATION_FORMAT_UNSPECIFIED=0 ATTESTATION_FORMAT_UNSPECIFIED value
+                         * @property {number} CAVIUM_V1_COMPRESSED=3 CAVIUM_V1_COMPRESSED value
+                         * @property {number} CAVIUM_V2_COMPRESSED=4 CAVIUM_V2_COMPRESSED value
+                         */
+                        KeyOperationAttestation.AttestationFormat = (function() {
+                            var valuesById = {}, values = Object.create(valuesById);
+                            values[valuesById[0] = "ATTESTATION_FORMAT_UNSPECIFIED"] = 0;
+                            values[valuesById[3] = "CAVIUM_V1_COMPRESSED"] = 3;
+                            values[valuesById[4] = "CAVIUM_V2_COMPRESSED"] = 4;
+                            return values;
+                        })();
+    
+                        return KeyOperationAttestation;
+                    })();
+    
+                    v1.CryptoKeyVersion = (function() {
+    
+                        /**
+                         * Properties of a CryptoKeyVersion.
+                         * @memberof google.cloud.kms.v1
+                         * @interface ICryptoKeyVersion
+                         * @property {string|null} [name] CryptoKeyVersion name
+                         * @property {google.cloud.kms.v1.CryptoKeyVersion.CryptoKeyVersionState|null} [state] CryptoKeyVersion state
+                         * @property {google.cloud.kms.v1.ProtectionLevel|null} [protectionLevel] CryptoKeyVersion protectionLevel
+                         * @property {google.cloud.kms.v1.CryptoKeyVersion.CryptoKeyVersionAlgorithm|null} [algorithm] CryptoKeyVersion algorithm
+                         * @property {google.cloud.kms.v1.IKeyOperationAttestation|null} [attestation] CryptoKeyVersion attestation
+                         * @property {google.protobuf.ITimestamp|null} [createTime] CryptoKeyVersion createTime
+                         * @property {google.protobuf.ITimestamp|null} [generateTime] CryptoKeyVersion generateTime
+                         * @property {google.protobuf.ITimestamp|null} [destroyTime] CryptoKeyVersion destroyTime
+                         * @property {google.protobuf.ITimestamp|null} [destroyEventTime] CryptoKeyVersion destroyEventTime
+                         * @property {string|null} [importJob] CryptoKeyVersion importJob
+                         * @property {google.protobuf.ITimestamp|null} [importTime] CryptoKeyVersion importTime
+                         * @property {string|null} [importFailureReason] CryptoKeyVersion importFailureReason
+                         */
+    
+                        /**
+                         * Constructs a new CryptoKeyVersion.
+                         * @memberof google.cloud.kms.v1
+                         * @classdesc Represents a CryptoKeyVersion.
+                         * @implements ICryptoKeyVersion
+                         * @constructor
+                         * @param {google.cloud.kms.v1.ICryptoKeyVersion=} [properties] Properties to set
+                         */
+                        function CryptoKeyVersion(properties) {
+                            if (properties)
+                                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                    if (properties[keys[i]] != null)
+                                        this[keys[i]] = properties[keys[i]];
+                        }
+    
+                        /**
+                         * CryptoKeyVersion name.
+                         * @member {string} name
+                         * @memberof google.cloud.kms.v1.CryptoKeyVersion
+                         * @instance
+                         */
+                        CryptoKeyVersion.prototype.name = "";
+    
+                        /**
+                         * CryptoKeyVersion state.
+                         * @member {google.cloud.kms.v1.CryptoKeyVersion.CryptoKeyVersionState} state
+                         * @memberof google.cloud.kms.v1.CryptoKeyVersion
+                         * @instance
+                         */
+                        CryptoKeyVersion.prototype.state = 0;
+    
+                        /**
+                         * CryptoKeyVersion protectionLevel.
+                         * @member {google.cloud.kms.v1.ProtectionLevel} protectionLevel
+                         * @memberof google.cloud.kms.v1.CryptoKeyVersion
+                         * @instance
+                         */
+                        CryptoKeyVersion.prototype.protectionLevel = 0;
+    
+                        /**
+                         * CryptoKeyVersion algorithm.
+                         * @member {google.cloud.kms.v1.CryptoKeyVersion.CryptoKeyVersionAlgorithm} algorithm
+                         * @memberof google.cloud.kms.v1.CryptoKeyVersion
+                         * @instance
+                         */
+                        CryptoKeyVersion.prototype.algorithm = 0;
+    
+                        /**
+                         * CryptoKeyVersion attestation.
+                         * @member {google.cloud.kms.v1.IKeyOperationAttestation|null|undefined} attestation
+                         * @memberof google.cloud.kms.v1.CryptoKeyVersion
+                         * @instance
+                         */
+                        CryptoKeyVersion.prototype.attestation = null;
+    
+                        /**
+                         * CryptoKeyVersion createTime.
+                         * @member {google.protobuf.ITimestamp|null|undefined} createTime
+                         * @memberof google.cloud.kms.v1.CryptoKeyVersion
+                         * @instance
+                         */
+                        CryptoKeyVersion.prototype.createTime = null;
+    
+                        /**
+                         * CryptoKeyVersion generateTime.
+                         * @member {google.protobuf.ITimestamp|null|undefined} generateTime
+                         * @memberof google.cloud.kms.v1.CryptoKeyVersion
+                         * @instance
+                         */
+                        CryptoKeyVersion.prototype.generateTime = null;
+    
+                        /**
+                         * CryptoKeyVersion destroyTime.
+                         * @member {google.protobuf.ITimestamp|null|undefined} destroyTime
+                         * @memberof google.cloud.kms.v1.CryptoKeyVersion
+                         * @instance
+                         */
+                        CryptoKeyVersion.prototype.destroyTime = null;
+    
+                        /**
+                         * CryptoKeyVersion destroyEventTime.
+                         * @member {google.protobuf.ITimestamp|null|undefined} destroyEventTime
+                         * @memberof google.cloud.kms.v1.CryptoKeyVersion
+                         * @instance
+                         */
+                        CryptoKeyVersion.prototype.destroyEventTime = null;
+    
+                        /**
+                         * CryptoKeyVersion importJob.
+                         * @member {string} importJob
+                         * @memberof google.cloud.kms.v1.CryptoKeyVersion
+                         * @instance
+                         */
+                        CryptoKeyVersion.prototype.importJob = "";
+    
+                        /**
+                         * CryptoKeyVersion importTime.
+                         * @member {google.protobuf.ITimestamp|null|undefined} importTime
+                         * @memberof google.cloud.kms.v1.CryptoKeyVersion
+                         * @instance
+                         */
+                        CryptoKeyVersion.prototype.importTime = null;
+    
+                        /**
+                         * CryptoKeyVersion importFailureReason.
+                         * @member {string} importFailureReason
+                         * @memberof google.cloud.kms.v1.CryptoKeyVersion
+                         * @instance
+                         */
+                        CryptoKeyVersion.prototype.importFailureReason = "";
+    
+                        /**
+                         * Creates a new CryptoKeyVersion instance using the specified properties.
+                         * @function create
+                         * @memberof google.cloud.kms.v1.CryptoKeyVersion
+                         * @static
+                         * @param {google.cloud.kms.v1.ICryptoKeyVersion=} [properties] Properties to set
+                         * @returns {google.cloud.kms.v1.CryptoKeyVersion} CryptoKeyVersion instance
+                         */
+                        CryptoKeyVersion.create = function create(properties) {
+                            return new CryptoKeyVersion(properties);
+                        };
+    
+                        /**
+                         * Encodes the specified CryptoKeyVersion message. Does not implicitly {@link google.cloud.kms.v1.CryptoKeyVersion.verify|verify} messages.
+                         * @function encode
+                         * @memberof google.cloud.kms.v1.CryptoKeyVersion
+                         * @static
+                         * @param {google.cloud.kms.v1.ICryptoKeyVersion} message CryptoKeyVersion message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        CryptoKeyVersion.encode = function encode(message, writer) {
+                            if (!writer)
+                                writer = $Writer.create();
+                            if (message.name != null && message.hasOwnProperty("name"))
+                                writer.uint32(/* id 1, wireType 2 =*/10).string(message.name);
+                            if (message.state != null && message.hasOwnProperty("state"))
+                                writer.uint32(/* id 3, wireType 0 =*/24).int32(message.state);
+                            if (message.createTime != null && message.hasOwnProperty("createTime"))
+                                $root.google.protobuf.Timestamp.encode(message.createTime, writer.uint32(/* id 4, wireType 2 =*/34).fork()).ldelim();
+                            if (message.destroyTime != null && message.hasOwnProperty("destroyTime"))
+                                $root.google.protobuf.Timestamp.encode(message.destroyTime, writer.uint32(/* id 5, wireType 2 =*/42).fork()).ldelim();
+                            if (message.destroyEventTime != null && message.hasOwnProperty("destroyEventTime"))
+                                $root.google.protobuf.Timestamp.encode(message.destroyEventTime, writer.uint32(/* id 6, wireType 2 =*/50).fork()).ldelim();
+                            if (message.protectionLevel != null && message.hasOwnProperty("protectionLevel"))
+                                writer.uint32(/* id 7, wireType 0 =*/56).int32(message.protectionLevel);
+                            if (message.attestation != null && message.hasOwnProperty("attestation"))
+                                $root.google.cloud.kms.v1.KeyOperationAttestation.encode(message.attestation, writer.uint32(/* id 8, wireType 2 =*/66).fork()).ldelim();
+                            if (message.algorithm != null && message.hasOwnProperty("algorithm"))
+                                writer.uint32(/* id 10, wireType 0 =*/80).int32(message.algorithm);
+                            if (message.generateTime != null && message.hasOwnProperty("generateTime"))
+                                $root.google.protobuf.Timestamp.encode(message.generateTime, writer.uint32(/* id 11, wireType 2 =*/90).fork()).ldelim();
+                            if (message.importJob != null && message.hasOwnProperty("importJob"))
+                                writer.uint32(/* id 14, wireType 2 =*/114).string(message.importJob);
+                            if (message.importTime != null && message.hasOwnProperty("importTime"))
+                                $root.google.protobuf.Timestamp.encode(message.importTime, writer.uint32(/* id 15, wireType 2 =*/122).fork()).ldelim();
+                            if (message.importFailureReason != null && message.hasOwnProperty("importFailureReason"))
+                                writer.uint32(/* id 16, wireType 2 =*/130).string(message.importFailureReason);
+                            return writer;
+                        };
+    
+                        /**
+                         * Encodes the specified CryptoKeyVersion message, length delimited. Does not implicitly {@link google.cloud.kms.v1.CryptoKeyVersion.verify|verify} messages.
+                         * @function encodeDelimited
+                         * @memberof google.cloud.kms.v1.CryptoKeyVersion
+                         * @static
+                         * @param {google.cloud.kms.v1.ICryptoKeyVersion} message CryptoKeyVersion message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        CryptoKeyVersion.encodeDelimited = function encodeDelimited(message, writer) {
+                            return this.encode(message, writer).ldelim();
+                        };
+    
+                        /**
+                         * Decodes a CryptoKeyVersion message from the specified reader or buffer.
+                         * @function decode
+                         * @memberof google.cloud.kms.v1.CryptoKeyVersion
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @param {number} [length] Message length if known beforehand
+                         * @returns {google.cloud.kms.v1.CryptoKeyVersion} CryptoKeyVersion
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        CryptoKeyVersion.decode = function decode(reader, length) {
+                            if (!(reader instanceof $Reader))
+                                reader = $Reader.create(reader);
+                            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.cloud.kms.v1.CryptoKeyVersion();
+                            while (reader.pos < end) {
+                                var tag = reader.uint32();
+                                switch (tag >>> 3) {
+                                case 1:
+                                    message.name = reader.string();
+                                    break;
+                                case 3:
+                                    message.state = reader.int32();
+                                    break;
+                                case 7:
+                                    message.protectionLevel = reader.int32();
+                                    break;
+                                case 10:
+                                    message.algorithm = reader.int32();
+                                    break;
+                                case 8:
+                                    message.attestation = $root.google.cloud.kms.v1.KeyOperationAttestation.decode(reader, reader.uint32());
+                                    break;
+                                case 4:
+                                    message.createTime = $root.google.protobuf.Timestamp.decode(reader, reader.uint32());
+                                    break;
+                                case 11:
+                                    message.generateTime = $root.google.protobuf.Timestamp.decode(reader, reader.uint32());
+                                    break;
+                                case 5:
+                                    message.destroyTime = $root.google.protobuf.Timestamp.decode(reader, reader.uint32());
+                                    break;
+                                case 6:
+                                    message.destroyEventTime = $root.google.protobuf.Timestamp.decode(reader, reader.uint32());
+                                    break;
+                                case 14:
+                                    message.importJob = reader.string();
+                                    break;
+                                case 15:
+                                    message.importTime = $root.google.protobuf.Timestamp.decode(reader, reader.uint32());
+                                    break;
+                                case 16:
+                                    message.importFailureReason = reader.string();
+                                    break;
+                                default:
+                                    reader.skipType(tag & 7);
+                                    break;
+                                }
+                            }
+                            return message;
+                        };
+    
+                        /**
+                         * Decodes a CryptoKeyVersion message from the specified reader or buffer, length delimited.
+                         * @function decodeDelimited
+                         * @memberof google.cloud.kms.v1.CryptoKeyVersion
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @returns {google.cloud.kms.v1.CryptoKeyVersion} CryptoKeyVersion
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        CryptoKeyVersion.decodeDelimited = function decodeDelimited(reader) {
+                            if (!(reader instanceof $Reader))
+                                reader = new $Reader(reader);
+                            return this.decode(reader, reader.uint32());
+                        };
+    
+                        /**
+                         * Verifies a CryptoKeyVersion message.
+                         * @function verify
+                         * @memberof google.cloud.kms.v1.CryptoKeyVersion
+                         * @static
+                         * @param {Object.<string,*>} message Plain object to verify
+                         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                         */
+                        CryptoKeyVersion.verify = function verify(message) {
+                            if (typeof message !== "object" || message === null)
+                                return "object expected";
+                            if (message.name != null && message.hasOwnProperty("name"))
+                                if (!$util.isString(message.name))
+                                    return "name: string expected";
+                            if (message.state != null && message.hasOwnProperty("state"))
+                                switch (message.state) {
+                                default:
+                                    return "state: enum value expected";
+                                case 0:
+                                case 5:
+                                case 1:
+                                case 2:
+                                case 3:
+                                case 4:
+                                case 6:
+                                case 7:
+                                    break;
+                                }
+                            if (message.protectionLevel != null && message.hasOwnProperty("protectionLevel"))
+                                switch (message.protectionLevel) {
+                                default:
+                                    return "protectionLevel: enum value expected";
+                                case 0:
+                                case 1:
+                                case 2:
+                                    break;
+                                }
+                            if (message.algorithm != null && message.hasOwnProperty("algorithm"))
+                                switch (message.algorithm) {
+                                default:
+                                    return "algorithm: enum value expected";
+                                case 0:
+                                case 1:
+                                case 2:
+                                case 3:
+                                case 4:
+                                case 15:
+                                case 5:
+                                case 6:
+                                case 7:
+                                case 16:
+                                case 8:
+                                case 9:
+                                case 10:
+                                case 17:
+                                case 12:
+                                case 13:
+                                    break;
+                                }
+                            if (message.attestation != null && message.hasOwnProperty("attestation")) {
+                                var error = $root.google.cloud.kms.v1.KeyOperationAttestation.verify(message.attestation);
+                                if (error)
+                                    return "attestation." + error;
+                            }
+                            if (message.createTime != null && message.hasOwnProperty("createTime")) {
+                                var error = $root.google.protobuf.Timestamp.verify(message.createTime);
+                                if (error)
+                                    return "createTime." + error;
+                            }
+                            if (message.generateTime != null && message.hasOwnProperty("generateTime")) {
+                                var error = $root.google.protobuf.Timestamp.verify(message.generateTime);
+                                if (error)
+                                    return "generateTime." + error;
+                            }
+                            if (message.destroyTime != null && message.hasOwnProperty("destroyTime")) {
+                                var error = $root.google.protobuf.Timestamp.verify(message.destroyTime);
+                                if (error)
+                                    return "destroyTime." + error;
+                            }
+                            if (message.destroyEventTime != null && message.hasOwnProperty("destroyEventTime")) {
+                                var error = $root.google.protobuf.Timestamp.verify(message.destroyEventTime);
+                                if (error)
+                                    return "destroyEventTime." + error;
+                            }
+                            if (message.importJob != null && message.hasOwnProperty("importJob"))
+                                if (!$util.isString(message.importJob))
+                                    return "importJob: string expected";
+                            if (message.importTime != null && message.hasOwnProperty("importTime")) {
+                                var error = $root.google.protobuf.Timestamp.verify(message.importTime);
+                                if (error)
+                                    return "importTime." + error;
+                            }
+                            if (message.importFailureReason != null && message.hasOwnProperty("importFailureReason"))
+                                if (!$util.isString(message.importFailureReason))
+                                    return "importFailureReason: string expected";
+                            return null;
+                        };
+    
+                        /**
+                         * Creates a CryptoKeyVersion message from a plain object. Also converts values to their respective internal types.
+                         * @function fromObject
+                         * @memberof google.cloud.kms.v1.CryptoKeyVersion
+                         * @static
+                         * @param {Object.<string,*>} object Plain object
+                         * @returns {google.cloud.kms.v1.CryptoKeyVersion} CryptoKeyVersion
+                         */
+                        CryptoKeyVersion.fromObject = function fromObject(object) {
+                            if (object instanceof $root.google.cloud.kms.v1.CryptoKeyVersion)
+                                return object;
+                            var message = new $root.google.cloud.kms.v1.CryptoKeyVersion();
+                            if (object.name != null)
+                                message.name = String(object.name);
+                            switch (object.state) {
+                            case "CRYPTO_KEY_VERSION_STATE_UNSPECIFIED":
+                            case 0:
+                                message.state = 0;
+                                break;
+                            case "PENDING_GENERATION":
+                            case 5:
+                                message.state = 5;
+                                break;
+                            case "ENABLED":
+                            case 1:
+                                message.state = 1;
+                                break;
+                            case "DISABLED":
+                            case 2:
+                                message.state = 2;
+                                break;
+                            case "DESTROYED":
+                            case 3:
+                                message.state = 3;
+                                break;
+                            case "DESTROY_SCHEDULED":
+                            case 4:
+                                message.state = 4;
+                                break;
+                            case "PENDING_IMPORT":
+                            case 6:
+                                message.state = 6;
+                                break;
+                            case "IMPORT_FAILED":
+                            case 7:
+                                message.state = 7;
+                                break;
+                            }
+                            switch (object.protectionLevel) {
+                            case "PROTECTION_LEVEL_UNSPECIFIED":
+                            case 0:
+                                message.protectionLevel = 0;
+                                break;
+                            case "SOFTWARE":
+                            case 1:
+                                message.protectionLevel = 1;
+                                break;
+                            case "HSM":
+                            case 2:
+                                message.protectionLevel = 2;
+                                break;
+                            }
+                            switch (object.algorithm) {
+                            case "CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED":
+                            case 0:
+                                message.algorithm = 0;
+                                break;
+                            case "GOOGLE_SYMMETRIC_ENCRYPTION":
+                            case 1:
+                                message.algorithm = 1;
+                                break;
+                            case "RSA_SIGN_PSS_2048_SHA256":
+                            case 2:
+                                message.algorithm = 2;
+                                break;
+                            case "RSA_SIGN_PSS_3072_SHA256":
+                            case 3:
+                                message.algorithm = 3;
+                                break;
+                            case "RSA_SIGN_PSS_4096_SHA256":
+                            case 4:
+                                message.algorithm = 4;
+                                break;
+                            case "RSA_SIGN_PSS_4096_SHA512":
+                            case 15:
+                                message.algorithm = 15;
+                                break;
+                            case "RSA_SIGN_PKCS1_2048_SHA256":
+                            case 5:
+                                message.algorithm = 5;
+                                break;
+                            case "RSA_SIGN_PKCS1_3072_SHA256":
+                            case 6:
+                                message.algorithm = 6;
+                                break;
+                            case "RSA_SIGN_PKCS1_4096_SHA256":
+                            case 7:
+                                message.algorithm = 7;
+                                break;
+                            case "RSA_SIGN_PKCS1_4096_SHA512":
+                            case 16:
+                                message.algorithm = 16;
+                                break;
+                            case "RSA_DECRYPT_OAEP_2048_SHA256":
+                            case 8:
+                                message.algorithm = 8;
+                                break;
+                            case "RSA_DECRYPT_OAEP_3072_SHA256":
+                            case 9:
+                                message.algorithm = 9;
+                                break;
+                            case "RSA_DECRYPT_OAEP_4096_SHA256":
+                            case 10:
+                                message.algorithm = 10;
+                                break;
+                            case "RSA_DECRYPT_OAEP_4096_SHA512":
+                            case 17:
+                                message.algorithm = 17;
+                                break;
+                            case "EC_SIGN_P256_SHA256":
+                            case 12:
+                                message.algorithm = 12;
+                                break;
+                            case "EC_SIGN_P384_SHA384":
+                            case 13:
+                                message.algorithm = 13;
+                                break;
+                            }
+                            if (object.attestation != null) {
+                                if (typeof object.attestation !== "object")
+                                    throw TypeError(".google.cloud.kms.v1.CryptoKeyVersion.attestation: object expected");
+                                message.attestation = $root.google.cloud.kms.v1.KeyOperationAttestation.fromObject(object.attestation);
+                            }
+                            if (object.createTime != null) {
+                                if (typeof object.createTime !== "object")
+                                    throw TypeError(".google.cloud.kms.v1.CryptoKeyVersion.createTime: object expected");
+                                message.createTime = $root.google.protobuf.Timestamp.fromObject(object.createTime);
+                            }
+                            if (object.generateTime != null) {
+                                if (typeof object.generateTime !== "object")
+                                    throw TypeError(".google.cloud.kms.v1.CryptoKeyVersion.generateTime: object expected");
+                                message.generateTime = $root.google.protobuf.Timestamp.fromObject(object.generateTime);
+                            }
+                            if (object.destroyTime != null) {
+                                if (typeof object.destroyTime !== "object")
+                                    throw TypeError(".google.cloud.kms.v1.CryptoKeyVersion.destroyTime: object expected");
+                                message.destroyTime = $root.google.protobuf.Timestamp.fromObject(object.destroyTime);
+                            }
+                            if (object.destroyEventTime != null) {
+                                if (typeof object.destroyEventTime !== "object")
+                                    throw TypeError(".google.cloud.kms.v1.CryptoKeyVersion.destroyEventTime: object expected");
+                                message.destroyEventTime = $root.google.protobuf.Timestamp.fromObject(object.destroyEventTime);
+                            }
+                            if (object.importJob != null)
+                                message.importJob = String(object.importJob);
+                            if (object.importTime != null) {
+                                if (typeof object.importTime !== "object")
+                                    throw TypeError(".google.cloud.kms.v1.CryptoKeyVersion.importTime: object expected");
+                                message.importTime = $root.google.protobuf.Timestamp.fromObject(object.importTime);
+                            }
+                            if (object.importFailureReason != null)
+                                message.importFailureReason = String(object.importFailureReason);
+                            return message;
+                        };
+    
+                        /**
+                         * Creates a plain object from a CryptoKeyVersion message. Also converts values to other types if specified.
+                         * @function toObject
+                         * @memberof google.cloud.kms.v1.CryptoKeyVersion
+                         * @static
+                         * @param {google.cloud.kms.v1.CryptoKeyVersion} message CryptoKeyVersion
+                         * @param {$protobuf.IConversionOptions} [options] Conversion options
+                         * @returns {Object.<string,*>} Plain object
+                         */
+                        CryptoKeyVersion.toObject = function toObject(message, options) {
+                            if (!options)
+                                options = {};
+                            var object = {};
+                            if (options.defaults) {
+                                object.name = "";
+                                object.state = options.enums === String ? "CRYPTO_KEY_VERSION_STATE_UNSPECIFIED" : 0;
+                                object.createTime = null;
+                                object.destroyTime = null;
+                                object.destroyEventTime = null;
+                                object.protectionLevel = options.enums === String ? "PROTECTION_LEVEL_UNSPECIFIED" : 0;
+                                object.attestation = null;
+                                object.algorithm = options.enums === String ? "CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED" : 0;
+                                object.generateTime = null;
+                                object.importJob = "";
+                                object.importTime = null;
+                                object.importFailureReason = "";
+                            }
+                            if (message.name != null && message.hasOwnProperty("name"))
+                                object.name = message.name;
+                            if (message.state != null && message.hasOwnProperty("state"))
+                                object.state = options.enums === String ? $root.google.cloud.kms.v1.CryptoKeyVersion.CryptoKeyVersionState[message.state] : message.state;
+                            if (message.createTime != null && message.hasOwnProperty("createTime"))
+                                object.createTime = $root.google.protobuf.Timestamp.toObject(message.createTime, options);
+                            if (message.destroyTime != null && message.hasOwnProperty("destroyTime"))
+                                object.destroyTime = $root.google.protobuf.Timestamp.toObject(message.destroyTime, options);
+                            if (message.destroyEventTime != null && message.hasOwnProperty("destroyEventTime"))
+                                object.destroyEventTime = $root.google.protobuf.Timestamp.toObject(message.destroyEventTime, options);
+                            if (message.protectionLevel != null && message.hasOwnProperty("protectionLevel"))
+                                object.protectionLevel = options.enums === String ? $root.google.cloud.kms.v1.ProtectionLevel[message.protectionLevel] : message.protectionLevel;
+                            if (message.attestation != null && message.hasOwnProperty("attestation"))
+                                object.attestation = $root.google.cloud.kms.v1.KeyOperationAttestation.toObject(message.attestation, options);
+                            if (message.algorithm != null && message.hasOwnProperty("algorithm"))
+                                object.algorithm = options.enums === String ? $root.google.cloud.kms.v1.CryptoKeyVersion.CryptoKeyVersionAlgorithm[message.algorithm] : message.algorithm;
+                            if (message.generateTime != null && message.hasOwnProperty("generateTime"))
+                                object.generateTime = $root.google.protobuf.Timestamp.toObject(message.generateTime, options);
+                            if (message.importJob != null && message.hasOwnProperty("importJob"))
+                                object.importJob = message.importJob;
+                            if (message.importTime != null && message.hasOwnProperty("importTime"))
+                                object.importTime = $root.google.protobuf.Timestamp.toObject(message.importTime, options);
+                            if (message.importFailureReason != null && message.hasOwnProperty("importFailureReason"))
+                                object.importFailureReason = message.importFailureReason;
+                            return object;
+                        };
+    
+                        /**
+                         * Converts this CryptoKeyVersion to JSON.
+                         * @function toJSON
+                         * @memberof google.cloud.kms.v1.CryptoKeyVersion
+                         * @instance
+                         * @returns {Object.<string,*>} JSON object
+                         */
+                        CryptoKeyVersion.prototype.toJSON = function toJSON() {
+                            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                        };
+    
+                        /**
+                         * CryptoKeyVersionAlgorithm enum.
+                         * @name google.cloud.kms.v1.CryptoKeyVersion.CryptoKeyVersionAlgorithm
+                         * @enum {string}
+                         * @property {number} CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED=0 CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED value
+                         * @property {number} GOOGLE_SYMMETRIC_ENCRYPTION=1 GOOGLE_SYMMETRIC_ENCRYPTION value
+                         * @property {number} RSA_SIGN_PSS_2048_SHA256=2 RSA_SIGN_PSS_2048_SHA256 value
+                         * @property {number} RSA_SIGN_PSS_3072_SHA256=3 RSA_SIGN_PSS_3072_SHA256 value
+                         * @property {number} RSA_SIGN_PSS_4096_SHA256=4 RSA_SIGN_PSS_4096_SHA256 value
+                         * @property {number} RSA_SIGN_PSS_4096_SHA512=15 RSA_SIGN_PSS_4096_SHA512 value
+                         * @property {number} RSA_SIGN_PKCS1_2048_SHA256=5 RSA_SIGN_PKCS1_2048_SHA256 value
+                         * @property {number} RSA_SIGN_PKCS1_3072_SHA256=6 RSA_SIGN_PKCS1_3072_SHA256 value
+                         * @property {number} RSA_SIGN_PKCS1_4096_SHA256=7 RSA_SIGN_PKCS1_4096_SHA256 value
+                         * @property {number} RSA_SIGN_PKCS1_4096_SHA512=16 RSA_SIGN_PKCS1_4096_SHA512 value
+                         * @property {number} RSA_DECRYPT_OAEP_2048_SHA256=8 RSA_DECRYPT_OAEP_2048_SHA256 value
+                         * @property {number} RSA_DECRYPT_OAEP_3072_SHA256=9 RSA_DECRYPT_OAEP_3072_SHA256 value
+                         * @property {number} RSA_DECRYPT_OAEP_4096_SHA256=10 RSA_DECRYPT_OAEP_4096_SHA256 value
+                         * @property {number} RSA_DECRYPT_OAEP_4096_SHA512=17 RSA_DECRYPT_OAEP_4096_SHA512 value
+                         * @property {number} EC_SIGN_P256_SHA256=12 EC_SIGN_P256_SHA256 value
+                         * @property {number} EC_SIGN_P384_SHA384=13 EC_SIGN_P384_SHA384 value
+                         */
+                        CryptoKeyVersion.CryptoKeyVersionAlgorithm = (function() {
+                            var valuesById = {}, values = Object.create(valuesById);
+                            values[valuesById[0] = "CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED"] = 0;
+                            values[valuesById[1] = "GOOGLE_SYMMETRIC_ENCRYPTION"] = 1;
+                            values[valuesById[2] = "RSA_SIGN_PSS_2048_SHA256"] = 2;
+                            values[valuesById[3] = "RSA_SIGN_PSS_3072_SHA256"] = 3;
+                            values[valuesById[4] = "RSA_SIGN_PSS_4096_SHA256"] = 4;
+                            values[valuesById[15] = "RSA_SIGN_PSS_4096_SHA512"] = 15;
+                            values[valuesById[5] = "RSA_SIGN_PKCS1_2048_SHA256"] = 5;
+                            values[valuesById[6] = "RSA_SIGN_PKCS1_3072_SHA256"] = 6;
+                            values[valuesById[7] = "RSA_SIGN_PKCS1_4096_SHA256"] = 7;
+                            values[valuesById[16] = "RSA_SIGN_PKCS1_4096_SHA512"] = 16;
+                            values[valuesById[8] = "RSA_DECRYPT_OAEP_2048_SHA256"] = 8;
+                            values[valuesById[9] = "RSA_DECRYPT_OAEP_3072_SHA256"] = 9;
+                            values[valuesById[10] = "RSA_DECRYPT_OAEP_4096_SHA256"] = 10;
+                            values[valuesById[17] = "RSA_DECRYPT_OAEP_4096_SHA512"] = 17;
+                            values[valuesById[12] = "EC_SIGN_P256_SHA256"] = 12;
+                            values[valuesById[13] = "EC_SIGN_P384_SHA384"] = 13;
+                            return values;
+                        })();
+    
+                        /**
+                         * CryptoKeyVersionState enum.
+                         * @name google.cloud.kms.v1.CryptoKeyVersion.CryptoKeyVersionState
+                         * @enum {string}
+                         * @property {number} CRYPTO_KEY_VERSION_STATE_UNSPECIFIED=0 CRYPTO_KEY_VERSION_STATE_UNSPECIFIED value
+                         * @property {number} PENDING_GENERATION=5 PENDING_GENERATION value
+                         * @property {number} ENABLED=1 ENABLED value
+                         * @property {number} DISABLED=2 DISABLED value
+                         * @property {number} DESTROYED=3 DESTROYED value
+                         * @property {number} DESTROY_SCHEDULED=4 DESTROY_SCHEDULED value
+                         * @property {number} PENDING_IMPORT=6 PENDING_IMPORT value
+                         * @property {number} IMPORT_FAILED=7 IMPORT_FAILED value
+                         */
+                        CryptoKeyVersion.CryptoKeyVersionState = (function() {
+                            var valuesById = {}, values = Object.create(valuesById);
+                            values[valuesById[0] = "CRYPTO_KEY_VERSION_STATE_UNSPECIFIED"] = 0;
+                            values[valuesById[5] = "PENDING_GENERATION"] = 5;
+                            values[valuesById[1] = "ENABLED"] = 1;
+                            values[valuesById[2] = "DISABLED"] = 2;
+                            values[valuesById[3] = "DESTROYED"] = 3;
+                            values[valuesById[4] = "DESTROY_SCHEDULED"] = 4;
+                            values[valuesById[6] = "PENDING_IMPORT"] = 6;
+                            values[valuesById[7] = "IMPORT_FAILED"] = 7;
+                            return values;
+                        })();
+    
+                        /**
+                         * CryptoKeyVersionView enum.
+                         * @name google.cloud.kms.v1.CryptoKeyVersion.CryptoKeyVersionView
+                         * @enum {string}
+                         * @property {number} CRYPTO_KEY_VERSION_VIEW_UNSPECIFIED=0 CRYPTO_KEY_VERSION_VIEW_UNSPECIFIED value
+                         * @property {number} FULL=1 FULL value
+                         */
+                        CryptoKeyVersion.CryptoKeyVersionView = (function() {
+                            var valuesById = {}, values = Object.create(valuesById);
+                            values[valuesById[0] = "CRYPTO_KEY_VERSION_VIEW_UNSPECIFIED"] = 0;
+                            values[valuesById[1] = "FULL"] = 1;
+                            return values;
+                        })();
+    
+                        return CryptoKeyVersion;
+                    })();
+    
+                    v1.PublicKey = (function() {
+    
+                        /**
+                         * Properties of a PublicKey.
+                         * @memberof google.cloud.kms.v1
+                         * @interface IPublicKey
+                         * @property {string|null} [pem] PublicKey pem
+                         * @property {google.cloud.kms.v1.CryptoKeyVersion.CryptoKeyVersionAlgorithm|null} [algorithm] PublicKey algorithm
+                         */
+    
+                        /**
+                         * Constructs a new PublicKey.
+                         * @memberof google.cloud.kms.v1
+                         * @classdesc Represents a PublicKey.
+                         * @implements IPublicKey
+                         * @constructor
+                         * @param {google.cloud.kms.v1.IPublicKey=} [properties] Properties to set
+                         */
+                        function PublicKey(properties) {
+                            if (properties)
+                                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                    if (properties[keys[i]] != null)
+                                        this[keys[i]] = properties[keys[i]];
+                        }
+    
+                        /**
+                         * PublicKey pem.
+                         * @member {string} pem
+                         * @memberof google.cloud.kms.v1.PublicKey
+                         * @instance
+                         */
+                        PublicKey.prototype.pem = "";
+    
+                        /**
+                         * PublicKey algorithm.
+                         * @member {google.cloud.kms.v1.CryptoKeyVersion.CryptoKeyVersionAlgorithm} algorithm
+                         * @memberof google.cloud.kms.v1.PublicKey
+                         * @instance
+                         */
+                        PublicKey.prototype.algorithm = 0;
+    
+                        /**
+                         * Creates a new PublicKey instance using the specified properties.
+                         * @function create
+                         * @memberof google.cloud.kms.v1.PublicKey
+                         * @static
+                         * @param {google.cloud.kms.v1.IPublicKey=} [properties] Properties to set
+                         * @returns {google.cloud.kms.v1.PublicKey} PublicKey instance
+                         */
+                        PublicKey.create = function create(properties) {
+                            return new PublicKey(properties);
+                        };
+    
+                        /**
+                         * Encodes the specified PublicKey message. Does not implicitly {@link google.cloud.kms.v1.PublicKey.verify|verify} messages.
+                         * @function encode
+                         * @memberof google.cloud.kms.v1.PublicKey
+                         * @static
+                         * @param {google.cloud.kms.v1.IPublicKey} message PublicKey message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        PublicKey.encode = function encode(message, writer) {
+                            if (!writer)
+                                writer = $Writer.create();
+                            if (message.pem != null && message.hasOwnProperty("pem"))
+                                writer.uint32(/* id 1, wireType 2 =*/10).string(message.pem);
+                            if (message.algorithm != null && message.hasOwnProperty("algorithm"))
+                                writer.uint32(/* id 2, wireType 0 =*/16).int32(message.algorithm);
+                            return writer;
+                        };
+    
+                        /**
+                         * Encodes the specified PublicKey message, length delimited. Does not implicitly {@link google.cloud.kms.v1.PublicKey.verify|verify} messages.
+                         * @function encodeDelimited
+                         * @memberof google.cloud.kms.v1.PublicKey
+                         * @static
+                         * @param {google.cloud.kms.v1.IPublicKey} message PublicKey message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        PublicKey.encodeDelimited = function encodeDelimited(message, writer) {
+                            return this.encode(message, writer).ldelim();
+                        };
+    
+                        /**
+                         * Decodes a PublicKey message from the specified reader or buffer.
+                         * @function decode
+                         * @memberof google.cloud.kms.v1.PublicKey
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @param {number} [length] Message length if known beforehand
+                         * @returns {google.cloud.kms.v1.PublicKey} PublicKey
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        PublicKey.decode = function decode(reader, length) {
+                            if (!(reader instanceof $Reader))
+                                reader = $Reader.create(reader);
+                            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.cloud.kms.v1.PublicKey();
+                            while (reader.pos < end) {
+                                var tag = reader.uint32();
+                                switch (tag >>> 3) {
+                                case 1:
+                                    message.pem = reader.string();
+                                    break;
+                                case 2:
+                                    message.algorithm = reader.int32();
+                                    break;
+                                default:
+                                    reader.skipType(tag & 7);
+                                    break;
+                                }
+                            }
+                            return message;
+                        };
+    
+                        /**
+                         * Decodes a PublicKey message from the specified reader or buffer, length delimited.
+                         * @function decodeDelimited
+                         * @memberof google.cloud.kms.v1.PublicKey
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @returns {google.cloud.kms.v1.PublicKey} PublicKey
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        PublicKey.decodeDelimited = function decodeDelimited(reader) {
+                            if (!(reader instanceof $Reader))
+                                reader = new $Reader(reader);
+                            return this.decode(reader, reader.uint32());
+                        };
+    
+                        /**
+                         * Verifies a PublicKey message.
+                         * @function verify
+                         * @memberof google.cloud.kms.v1.PublicKey
+                         * @static
+                         * @param {Object.<string,*>} message Plain object to verify
+                         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                         */
+                        PublicKey.verify = function verify(message) {
+                            if (typeof message !== "object" || message === null)
+                                return "object expected";
+                            if (message.pem != null && message.hasOwnProperty("pem"))
+                                if (!$util.isString(message.pem))
+                                    return "pem: string expected";
+                            if (message.algorithm != null && message.hasOwnProperty("algorithm"))
+                                switch (message.algorithm) {
+                                default:
+                                    return "algorithm: enum value expected";
+                                case 0:
+                                case 1:
+                                case 2:
+                                case 3:
+                                case 4:
+                                case 15:
+                                case 5:
+                                case 6:
+                                case 7:
+                                case 16:
+                                case 8:
+                                case 9:
+                                case 10:
+                                case 17:
+                                case 12:
+                                case 13:
+                                    break;
+                                }
+                            return null;
+                        };
+    
+                        /**
+                         * Creates a PublicKey message from a plain object. Also converts values to their respective internal types.
+                         * @function fromObject
+                         * @memberof google.cloud.kms.v1.PublicKey
+                         * @static
+                         * @param {Object.<string,*>} object Plain object
+                         * @returns {google.cloud.kms.v1.PublicKey} PublicKey
+                         */
+                        PublicKey.fromObject = function fromObject(object) {
+                            if (object instanceof $root.google.cloud.kms.v1.PublicKey)
+                                return object;
+                            var message = new $root.google.cloud.kms.v1.PublicKey();
+                            if (object.pem != null)
+                                message.pem = String(object.pem);
+                            switch (object.algorithm) {
+                            case "CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED":
+                            case 0:
+                                message.algorithm = 0;
+                                break;
+                            case "GOOGLE_SYMMETRIC_ENCRYPTION":
+                            case 1:
+                                message.algorithm = 1;
+                                break;
+                            case "RSA_SIGN_PSS_2048_SHA256":
+                            case 2:
+                                message.algorithm = 2;
+                                break;
+                            case "RSA_SIGN_PSS_3072_SHA256":
+                            case 3:
+                                message.algorithm = 3;
+                                break;
+                            case "RSA_SIGN_PSS_4096_SHA256":
+                            case 4:
+                                message.algorithm = 4;
+                                break;
+                            case "RSA_SIGN_PSS_4096_SHA512":
+                            case 15:
+                                message.algorithm = 15;
+                                break;
+                            case "RSA_SIGN_PKCS1_2048_SHA256":
+                            case 5:
+                                message.algorithm = 5;
+                                break;
+                            case "RSA_SIGN_PKCS1_3072_SHA256":
+                            case 6:
+                                message.algorithm = 6;
+                                break;
+                            case "RSA_SIGN_PKCS1_4096_SHA256":
+                            case 7:
+                                message.algorithm = 7;
+                                break;
+                            case "RSA_SIGN_PKCS1_4096_SHA512":
+                            case 16:
+                                message.algorithm = 16;
+                                break;
+                            case "RSA_DECRYPT_OAEP_2048_SHA256":
+                            case 8:
+                                message.algorithm = 8;
+                                break;
+                            case "RSA_DECRYPT_OAEP_3072_SHA256":
+                            case 9:
+                                message.algorithm = 9;
+                                break;
+                            case "RSA_DECRYPT_OAEP_4096_SHA256":
+                            case 10:
+                                message.algorithm = 10;
+                                break;
+                            case "RSA_DECRYPT_OAEP_4096_SHA512":
+                            case 17:
+                                message.algorithm = 17;
+                                break;
+                            case "EC_SIGN_P256_SHA256":
+                            case 12:
+                                message.algorithm = 12;
+                                break;
+                            case "EC_SIGN_P384_SHA384":
+                            case 13:
+                                message.algorithm = 13;
+                                break;
+                            }
+                            return message;
+                        };
+    
+                        /**
+                         * Creates a plain object from a PublicKey message. Also converts values to other types if specified.
+                         * @function toObject
+                         * @memberof google.cloud.kms.v1.PublicKey
+                         * @static
+                         * @param {google.cloud.kms.v1.PublicKey} message PublicKey
+                         * @param {$protobuf.IConversionOptions} [options] Conversion options
+                         * @returns {Object.<string,*>} Plain object
+                         */
+                        PublicKey.toObject = function toObject(message, options) {
+                            if (!options)
+                                options = {};
+                            var object = {};
+                            if (options.defaults) {
+                                object.pem = "";
+                                object.algorithm = options.enums === String ? "CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED" : 0;
+                            }
+                            if (message.pem != null && message.hasOwnProperty("pem"))
+                                object.pem = message.pem;
+                            if (message.algorithm != null && message.hasOwnProperty("algorithm"))
+                                object.algorithm = options.enums === String ? $root.google.cloud.kms.v1.CryptoKeyVersion.CryptoKeyVersionAlgorithm[message.algorithm] : message.algorithm;
+                            return object;
+                        };
+    
+                        /**
+                         * Converts this PublicKey to JSON.
+                         * @function toJSON
+                         * @memberof google.cloud.kms.v1.PublicKey
+                         * @instance
+                         * @returns {Object.<string,*>} JSON object
+                         */
+                        PublicKey.prototype.toJSON = function toJSON() {
+                            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                        };
+    
+                        return PublicKey;
+                    })();
+    
+                    /**
+                     * ProtectionLevel enum.
+                     * @name google.cloud.kms.v1.ProtectionLevel
+                     * @enum {string}
+                     * @property {number} PROTECTION_LEVEL_UNSPECIFIED=0 PROTECTION_LEVEL_UNSPECIFIED value
+                     * @property {number} SOFTWARE=1 SOFTWARE value
+                     * @property {number} HSM=2 HSM value
+                     */
+                    v1.ProtectionLevel = (function() {
+                        var valuesById = {}, values = Object.create(valuesById);
+                        values[valuesById[0] = "PROTECTION_LEVEL_UNSPECIFIED"] = 0;
+                        values[valuesById[1] = "SOFTWARE"] = 1;
+                        values[valuesById[2] = "HSM"] = 2;
+                        return values;
+                    })();
+    
+                    v1.ImportJob = (function() {
+    
+                        /**
+                         * Properties of an ImportJob.
+                         * @memberof google.cloud.kms.v1
+                         * @interface IImportJob
+                         * @property {string|null} [name] ImportJob name
+                         * @property {google.cloud.kms.v1.ImportJob.ImportMethod|null} [importMethod] ImportJob importMethod
+                         * @property {google.cloud.kms.v1.ProtectionLevel|null} [protectionLevel] ImportJob protectionLevel
+                         * @property {google.protobuf.ITimestamp|null} [createTime] ImportJob createTime
+                         * @property {google.protobuf.ITimestamp|null} [generateTime] ImportJob generateTime
+                         * @property {google.protobuf.ITimestamp|null} [expireTime] ImportJob expireTime
+                         * @property {google.protobuf.ITimestamp|null} [expireEventTime] ImportJob expireEventTime
+                         * @property {google.cloud.kms.v1.ImportJob.ImportJobState|null} [state] ImportJob state
+                         * @property {google.cloud.kms.v1.ImportJob.IWrappingPublicKey|null} [publicKey] ImportJob publicKey
+                         * @property {google.cloud.kms.v1.IKeyOperationAttestation|null} [attestation] ImportJob attestation
+                         */
+    
+                        /**
+                         * Constructs a new ImportJob.
+                         * @memberof google.cloud.kms.v1
+                         * @classdesc Represents an ImportJob.
+                         * @implements IImportJob
+                         * @constructor
+                         * @param {google.cloud.kms.v1.IImportJob=} [properties] Properties to set
+                         */
+                        function ImportJob(properties) {
+                            if (properties)
+                                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                    if (properties[keys[i]] != null)
+                                        this[keys[i]] = properties[keys[i]];
+                        }
+    
+                        /**
+                         * ImportJob name.
+                         * @member {string} name
+                         * @memberof google.cloud.kms.v1.ImportJob
+                         * @instance
+                         */
+                        ImportJob.prototype.name = "";
+    
+                        /**
+                         * ImportJob importMethod.
+                         * @member {google.cloud.kms.v1.ImportJob.ImportMethod} importMethod
+                         * @memberof google.cloud.kms.v1.ImportJob
+                         * @instance
+                         */
+                        ImportJob.prototype.importMethod = 0;
+    
+                        /**
+                         * ImportJob protectionLevel.
+                         * @member {google.cloud.kms.v1.ProtectionLevel} protectionLevel
+                         * @memberof google.cloud.kms.v1.ImportJob
+                         * @instance
+                         */
+                        ImportJob.prototype.protectionLevel = 0;
+    
+                        /**
+                         * ImportJob createTime.
+                         * @member {google.protobuf.ITimestamp|null|undefined} createTime
+                         * @memberof google.cloud.kms.v1.ImportJob
+                         * @instance
+                         */
+                        ImportJob.prototype.createTime = null;
+    
+                        /**
+                         * ImportJob generateTime.
+                         * @member {google.protobuf.ITimestamp|null|undefined} generateTime
+                         * @memberof google.cloud.kms.v1.ImportJob
+                         * @instance
+                         */
+                        ImportJob.prototype.generateTime = null;
+    
+                        /**
+                         * ImportJob expireTime.
+                         * @member {google.protobuf.ITimestamp|null|undefined} expireTime
+                         * @memberof google.cloud.kms.v1.ImportJob
+                         * @instance
+                         */
+                        ImportJob.prototype.expireTime = null;
+    
+                        /**
+                         * ImportJob expireEventTime.
+                         * @member {google.protobuf.ITimestamp|null|undefined} expireEventTime
+                         * @memberof google.cloud.kms.v1.ImportJob
+                         * @instance
+                         */
+                        ImportJob.prototype.expireEventTime = null;
+    
+                        /**
+                         * ImportJob state.
+                         * @member {google.cloud.kms.v1.ImportJob.ImportJobState} state
+                         * @memberof google.cloud.kms.v1.ImportJob
+                         * @instance
+                         */
+                        ImportJob.prototype.state = 0;
+    
+                        /**
+                         * ImportJob publicKey.
+                         * @member {google.cloud.kms.v1.ImportJob.IWrappingPublicKey|null|undefined} publicKey
+                         * @memberof google.cloud.kms.v1.ImportJob
+                         * @instance
+                         */
+                        ImportJob.prototype.publicKey = null;
+    
+                        /**
+                         * ImportJob attestation.
+                         * @member {google.cloud.kms.v1.IKeyOperationAttestation|null|undefined} attestation
+                         * @memberof google.cloud.kms.v1.ImportJob
+                         * @instance
+                         */
+                        ImportJob.prototype.attestation = null;
+    
+                        /**
+                         * Creates a new ImportJob instance using the specified properties.
+                         * @function create
+                         * @memberof google.cloud.kms.v1.ImportJob
+                         * @static
+                         * @param {google.cloud.kms.v1.IImportJob=} [properties] Properties to set
+                         * @returns {google.cloud.kms.v1.ImportJob} ImportJob instance
+                         */
+                        ImportJob.create = function create(properties) {
+                            return new ImportJob(properties);
+                        };
+    
+                        /**
+                         * Encodes the specified ImportJob message. Does not implicitly {@link google.cloud.kms.v1.ImportJob.verify|verify} messages.
+                         * @function encode
+                         * @memberof google.cloud.kms.v1.ImportJob
+                         * @static
+                         * @param {google.cloud.kms.v1.IImportJob} message ImportJob message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        ImportJob.encode = function encode(message, writer) {
+                            if (!writer)
+                                writer = $Writer.create();
+                            if (message.name != null && message.hasOwnProperty("name"))
+                                writer.uint32(/* id 1, wireType 2 =*/10).string(message.name);
+                            if (message.importMethod != null && message.hasOwnProperty("importMethod"))
+                                writer.uint32(/* id 2, wireType 0 =*/16).int32(message.importMethod);
+                            if (message.createTime != null && message.hasOwnProperty("createTime"))
+                                $root.google.protobuf.Timestamp.encode(message.createTime, writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
+                            if (message.generateTime != null && message.hasOwnProperty("generateTime"))
+                                $root.google.protobuf.Timestamp.encode(message.generateTime, writer.uint32(/* id 4, wireType 2 =*/34).fork()).ldelim();
+                            if (message.expireTime != null && message.hasOwnProperty("expireTime"))
+                                $root.google.protobuf.Timestamp.encode(message.expireTime, writer.uint32(/* id 5, wireType 2 =*/42).fork()).ldelim();
+                            if (message.state != null && message.hasOwnProperty("state"))
+                                writer.uint32(/* id 6, wireType 0 =*/48).int32(message.state);
+                            if (message.publicKey != null && message.hasOwnProperty("publicKey"))
+                                $root.google.cloud.kms.v1.ImportJob.WrappingPublicKey.encode(message.publicKey, writer.uint32(/* id 7, wireType 2 =*/58).fork()).ldelim();
+                            if (message.attestation != null && message.hasOwnProperty("attestation"))
+                                $root.google.cloud.kms.v1.KeyOperationAttestation.encode(message.attestation, writer.uint32(/* id 8, wireType 2 =*/66).fork()).ldelim();
+                            if (message.protectionLevel != null && message.hasOwnProperty("protectionLevel"))
+                                writer.uint32(/* id 9, wireType 0 =*/72).int32(message.protectionLevel);
+                            if (message.expireEventTime != null && message.hasOwnProperty("expireEventTime"))
+                                $root.google.protobuf.Timestamp.encode(message.expireEventTime, writer.uint32(/* id 10, wireType 2 =*/82).fork()).ldelim();
+                            return writer;
+                        };
+    
+                        /**
+                         * Encodes the specified ImportJob message, length delimited. Does not implicitly {@link google.cloud.kms.v1.ImportJob.verify|verify} messages.
+                         * @function encodeDelimited
+                         * @memberof google.cloud.kms.v1.ImportJob
+                         * @static
+                         * @param {google.cloud.kms.v1.IImportJob} message ImportJob message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        ImportJob.encodeDelimited = function encodeDelimited(message, writer) {
+                            return this.encode(message, writer).ldelim();
+                        };
+    
+                        /**
+                         * Decodes an ImportJob message from the specified reader or buffer.
+                         * @function decode
+                         * @memberof google.cloud.kms.v1.ImportJob
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @param {number} [length] Message length if known beforehand
+                         * @returns {google.cloud.kms.v1.ImportJob} ImportJob
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        ImportJob.decode = function decode(reader, length) {
+                            if (!(reader instanceof $Reader))
+                                reader = $Reader.create(reader);
+                            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.cloud.kms.v1.ImportJob();
+                            while (reader.pos < end) {
+                                var tag = reader.uint32();
+                                switch (tag >>> 3) {
+                                case 1:
+                                    message.name = reader.string();
+                                    break;
+                                case 2:
+                                    message.importMethod = reader.int32();
+                                    break;
+                                case 9:
+                                    message.protectionLevel = reader.int32();
+                                    break;
+                                case 3:
+                                    message.createTime = $root.google.protobuf.Timestamp.decode(reader, reader.uint32());
+                                    break;
+                                case 4:
+                                    message.generateTime = $root.google.protobuf.Timestamp.decode(reader, reader.uint32());
+                                    break;
+                                case 5:
+                                    message.expireTime = $root.google.protobuf.Timestamp.decode(reader, reader.uint32());
+                                    break;
+                                case 10:
+                                    message.expireEventTime = $root.google.protobuf.Timestamp.decode(reader, reader.uint32());
+                                    break;
+                                case 6:
+                                    message.state = reader.int32();
+                                    break;
+                                case 7:
+                                    message.publicKey = $root.google.cloud.kms.v1.ImportJob.WrappingPublicKey.decode(reader, reader.uint32());
+                                    break;
+                                case 8:
+                                    message.attestation = $root.google.cloud.kms.v1.KeyOperationAttestation.decode(reader, reader.uint32());
+                                    break;
+                                default:
+                                    reader.skipType(tag & 7);
+                                    break;
+                                }
+                            }
+                            return message;
+                        };
+    
+                        /**
+                         * Decodes an ImportJob message from the specified reader or buffer, length delimited.
+                         * @function decodeDelimited
+                         * @memberof google.cloud.kms.v1.ImportJob
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @returns {google.cloud.kms.v1.ImportJob} ImportJob
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        ImportJob.decodeDelimited = function decodeDelimited(reader) {
+                            if (!(reader instanceof $Reader))
+                                reader = new $Reader(reader);
+                            return this.decode(reader, reader.uint32());
+                        };
+    
+                        /**
+                         * Verifies an ImportJob message.
+                         * @function verify
+                         * @memberof google.cloud.kms.v1.ImportJob
+                         * @static
+                         * @param {Object.<string,*>} message Plain object to verify
+                         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                         */
+                        ImportJob.verify = function verify(message) {
+                            if (typeof message !== "object" || message === null)
+                                return "object expected";
+                            if (message.name != null && message.hasOwnProperty("name"))
+                                if (!$util.isString(message.name))
+                                    return "name: string expected";
+                            if (message.importMethod != null && message.hasOwnProperty("importMethod"))
+                                switch (message.importMethod) {
+                                default:
+                                    return "importMethod: enum value expected";
+                                case 0:
+                                case 1:
+                                case 2:
+                                    break;
+                                }
+                            if (message.protectionLevel != null && message.hasOwnProperty("protectionLevel"))
+                                switch (message.protectionLevel) {
+                                default:
+                                    return "protectionLevel: enum value expected";
+                                case 0:
+                                case 1:
+                                case 2:
+                                    break;
+                                }
+                            if (message.createTime != null && message.hasOwnProperty("createTime")) {
+                                var error = $root.google.protobuf.Timestamp.verify(message.createTime);
+                                if (error)
+                                    return "createTime." + error;
+                            }
+                            if (message.generateTime != null && message.hasOwnProperty("generateTime")) {
+                                var error = $root.google.protobuf.Timestamp.verify(message.generateTime);
+                                if (error)
+                                    return "generateTime." + error;
+                            }
+                            if (message.expireTime != null && message.hasOwnProperty("expireTime")) {
+                                var error = $root.google.protobuf.Timestamp.verify(message.expireTime);
+                                if (error)
+                                    return "expireTime." + error;
+                            }
+                            if (message.expireEventTime != null && message.hasOwnProperty("expireEventTime")) {
+                                var error = $root.google.protobuf.Timestamp.verify(message.expireEventTime);
+                                if (error)
+                                    return "expireEventTime." + error;
+                            }
+                            if (message.state != null && message.hasOwnProperty("state"))
+                                switch (message.state) {
+                                default:
+                                    return "state: enum value expected";
+                                case 0:
+                                case 1:
+                                case 2:
+                                case 3:
+                                    break;
+                                }
+                            if (message.publicKey != null && message.hasOwnProperty("publicKey")) {
+                                var error = $root.google.cloud.kms.v1.ImportJob.WrappingPublicKey.verify(message.publicKey);
+                                if (error)
+                                    return "publicKey." + error;
+                            }
+                            if (message.attestation != null && message.hasOwnProperty("attestation")) {
+                                var error = $root.google.cloud.kms.v1.KeyOperationAttestation.verify(message.attestation);
+                                if (error)
+                                    return "attestation." + error;
+                            }
+                            return null;
+                        };
+    
+                        /**
+                         * Creates an ImportJob message from a plain object. Also converts values to their respective internal types.
+                         * @function fromObject
+                         * @memberof google.cloud.kms.v1.ImportJob
+                         * @static
+                         * @param {Object.<string,*>} object Plain object
+                         * @returns {google.cloud.kms.v1.ImportJob} ImportJob
+                         */
+                        ImportJob.fromObject = function fromObject(object) {
+                            if (object instanceof $root.google.cloud.kms.v1.ImportJob)
+                                return object;
+                            var message = new $root.google.cloud.kms.v1.ImportJob();
+                            if (object.name != null)
+                                message.name = String(object.name);
+                            switch (object.importMethod) {
+                            case "IMPORT_METHOD_UNSPECIFIED":
+                            case 0:
+                                message.importMethod = 0;
+                                break;
+                            case "RSA_OAEP_3072_SHA1_AES_256":
+                            case 1:
+                                message.importMethod = 1;
+                                break;
+                            case "RSA_OAEP_4096_SHA1_AES_256":
+                            case 2:
+                                message.importMethod = 2;
+                                break;
+                            }
+                            switch (object.protectionLevel) {
+                            case "PROTECTION_LEVEL_UNSPECIFIED":
+                            case 0:
+                                message.protectionLevel = 0;
+                                break;
+                            case "SOFTWARE":
+                            case 1:
+                                message.protectionLevel = 1;
+                                break;
+                            case "HSM":
+                            case 2:
+                                message.protectionLevel = 2;
+                                break;
+                            }
+                            if (object.createTime != null) {
+                                if (typeof object.createTime !== "object")
+                                    throw TypeError(".google.cloud.kms.v1.ImportJob.createTime: object expected");
+                                message.createTime = $root.google.protobuf.Timestamp.fromObject(object.createTime);
+                            }
+                            if (object.generateTime != null) {
+                                if (typeof object.generateTime !== "object")
+                                    throw TypeError(".google.cloud.kms.v1.ImportJob.generateTime: object expected");
+                                message.generateTime = $root.google.protobuf.Timestamp.fromObject(object.generateTime);
+                            }
+                            if (object.expireTime != null) {
+                                if (typeof object.expireTime !== "object")
+                                    throw TypeError(".google.cloud.kms.v1.ImportJob.expireTime: object expected");
+                                message.expireTime = $root.google.protobuf.Timestamp.fromObject(object.expireTime);
+                            }
+                            if (object.expireEventTime != null) {
+                                if (typeof object.expireEventTime !== "object")
+                                    throw TypeError(".google.cloud.kms.v1.ImportJob.expireEventTime: object expected");
+                                message.expireEventTime = $root.google.protobuf.Timestamp.fromObject(object.expireEventTime);
+                            }
+                            switch (object.state) {
+                            case "IMPORT_JOB_STATE_UNSPECIFIED":
+                            case 0:
+                                message.state = 0;
+                                break;
+                            case "PENDING_GENERATION":
+                            case 1:
+                                message.state = 1;
+                                break;
+                            case "ACTIVE":
+                            case 2:
+                                message.state = 2;
+                                break;
+                            case "EXPIRED":
+                            case 3:
+                                message.state = 3;
+                                break;
+                            }
+                            if (object.publicKey != null) {
+                                if (typeof object.publicKey !== "object")
+                                    throw TypeError(".google.cloud.kms.v1.ImportJob.publicKey: object expected");
+                                message.publicKey = $root.google.cloud.kms.v1.ImportJob.WrappingPublicKey.fromObject(object.publicKey);
+                            }
+                            if (object.attestation != null) {
+                                if (typeof object.attestation !== "object")
+                                    throw TypeError(".google.cloud.kms.v1.ImportJob.attestation: object expected");
+                                message.attestation = $root.google.cloud.kms.v1.KeyOperationAttestation.fromObject(object.attestation);
+                            }
+                            return message;
+                        };
+    
+                        /**
+                         * Creates a plain object from an ImportJob message. Also converts values to other types if specified.
+                         * @function toObject
+                         * @memberof google.cloud.kms.v1.ImportJob
+                         * @static
+                         * @param {google.cloud.kms.v1.ImportJob} message ImportJob
+                         * @param {$protobuf.IConversionOptions} [options] Conversion options
+                         * @returns {Object.<string,*>} Plain object
+                         */
+                        ImportJob.toObject = function toObject(message, options) {
+                            if (!options)
+                                options = {};
+                            var object = {};
+                            if (options.defaults) {
+                                object.name = "";
+                                object.importMethod = options.enums === String ? "IMPORT_METHOD_UNSPECIFIED" : 0;
+                                object.createTime = null;
+                                object.generateTime = null;
+                                object.expireTime = null;
+                                object.state = options.enums === String ? "IMPORT_JOB_STATE_UNSPECIFIED" : 0;
+                                object.publicKey = null;
+                                object.attestation = null;
+                                object.protectionLevel = options.enums === String ? "PROTECTION_LEVEL_UNSPECIFIED" : 0;
+                                object.expireEventTime = null;
+                            }
+                            if (message.name != null && message.hasOwnProperty("name"))
+                                object.name = message.name;
+                            if (message.importMethod != null && message.hasOwnProperty("importMethod"))
+                                object.importMethod = options.enums === String ? $root.google.cloud.kms.v1.ImportJob.ImportMethod[message.importMethod] : message.importMethod;
+                            if (message.createTime != null && message.hasOwnProperty("createTime"))
+                                object.createTime = $root.google.protobuf.Timestamp.toObject(message.createTime, options);
+                            if (message.generateTime != null && message.hasOwnProperty("generateTime"))
+                                object.generateTime = $root.google.protobuf.Timestamp.toObject(message.generateTime, options);
+                            if (message.expireTime != null && message.hasOwnProperty("expireTime"))
+                                object.expireTime = $root.google.protobuf.Timestamp.toObject(message.expireTime, options);
+                            if (message.state != null && message.hasOwnProperty("state"))
+                                object.state = options.enums === String ? $root.google.cloud.kms.v1.ImportJob.ImportJobState[message.state] : message.state;
+                            if (message.publicKey != null && message.hasOwnProperty("publicKey"))
+                                object.publicKey = $root.google.cloud.kms.v1.ImportJob.WrappingPublicKey.toObject(message.publicKey, options);
+                            if (message.attestation != null && message.hasOwnProperty("attestation"))
+                                object.attestation = $root.google.cloud.kms.v1.KeyOperationAttestation.toObject(message.attestation, options);
+                            if (message.protectionLevel != null && message.hasOwnProperty("protectionLevel"))
+                                object.protectionLevel = options.enums === String ? $root.google.cloud.kms.v1.ProtectionLevel[message.protectionLevel] : message.protectionLevel;
+                            if (message.expireEventTime != null && message.hasOwnProperty("expireEventTime"))
+                                object.expireEventTime = $root.google.protobuf.Timestamp.toObject(message.expireEventTime, options);
+                            return object;
+                        };
+    
+                        /**
+                         * Converts this ImportJob to JSON.
+                         * @function toJSON
+                         * @memberof google.cloud.kms.v1.ImportJob
+                         * @instance
+                         * @returns {Object.<string,*>} JSON object
+                         */
+                        ImportJob.prototype.toJSON = function toJSON() {
+                            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                        };
+    
+                        ImportJob.WrappingPublicKey = (function() {
+    
+                            /**
+                             * Properties of a WrappingPublicKey.
+                             * @memberof google.cloud.kms.v1.ImportJob
+                             * @interface IWrappingPublicKey
+                             * @property {string|null} [pem] WrappingPublicKey pem
+                             */
+    
+                            /**
+                             * Constructs a new WrappingPublicKey.
+                             * @memberof google.cloud.kms.v1.ImportJob
+                             * @classdesc Represents a WrappingPublicKey.
+                             * @implements IWrappingPublicKey
+                             * @constructor
+                             * @param {google.cloud.kms.v1.ImportJob.IWrappingPublicKey=} [properties] Properties to set
+                             */
+                            function WrappingPublicKey(properties) {
+                                if (properties)
+                                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                        if (properties[keys[i]] != null)
+                                            this[keys[i]] = properties[keys[i]];
+                            }
+    
+                            /**
+                             * WrappingPublicKey pem.
+                             * @member {string} pem
+                             * @memberof google.cloud.kms.v1.ImportJob.WrappingPublicKey
+                             * @instance
+                             */
+                            WrappingPublicKey.prototype.pem = "";
+    
+                            /**
+                             * Creates a new WrappingPublicKey instance using the specified properties.
+                             * @function create
+                             * @memberof google.cloud.kms.v1.ImportJob.WrappingPublicKey
+                             * @static
+                             * @param {google.cloud.kms.v1.ImportJob.IWrappingPublicKey=} [properties] Properties to set
+                             * @returns {google.cloud.kms.v1.ImportJob.WrappingPublicKey} WrappingPublicKey instance
+                             */
+                            WrappingPublicKey.create = function create(properties) {
+                                return new WrappingPublicKey(properties);
+                            };
+    
+                            /**
+                             * Encodes the specified WrappingPublicKey message. Does not implicitly {@link google.cloud.kms.v1.ImportJob.WrappingPublicKey.verify|verify} messages.
+                             * @function encode
+                             * @memberof google.cloud.kms.v1.ImportJob.WrappingPublicKey
+                             * @static
+                             * @param {google.cloud.kms.v1.ImportJob.IWrappingPublicKey} message WrappingPublicKey message or plain object to encode
+                             * @param {$protobuf.Writer} [writer] Writer to encode to
+                             * @returns {$protobuf.Writer} Writer
+                             */
+                            WrappingPublicKey.encode = function encode(message, writer) {
+                                if (!writer)
+                                    writer = $Writer.create();
+                                if (message.pem != null && message.hasOwnProperty("pem"))
+                                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.pem);
+                                return writer;
+                            };
+    
+                            /**
+                             * Encodes the specified WrappingPublicKey message, length delimited. Does not implicitly {@link google.cloud.kms.v1.ImportJob.WrappingPublicKey.verify|verify} messages.
+                             * @function encodeDelimited
+                             * @memberof google.cloud.kms.v1.ImportJob.WrappingPublicKey
+                             * @static
+                             * @param {google.cloud.kms.v1.ImportJob.IWrappingPublicKey} message WrappingPublicKey message or plain object to encode
+                             * @param {$protobuf.Writer} [writer] Writer to encode to
+                             * @returns {$protobuf.Writer} Writer
+                             */
+                            WrappingPublicKey.encodeDelimited = function encodeDelimited(message, writer) {
+                                return this.encode(message, writer).ldelim();
+                            };
+    
+                            /**
+                             * Decodes a WrappingPublicKey message from the specified reader or buffer.
+                             * @function decode
+                             * @memberof google.cloud.kms.v1.ImportJob.WrappingPublicKey
+                             * @static
+                             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                             * @param {number} [length] Message length if known beforehand
+                             * @returns {google.cloud.kms.v1.ImportJob.WrappingPublicKey} WrappingPublicKey
+                             * @throws {Error} If the payload is not a reader or valid buffer
+                             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                             */
+                            WrappingPublicKey.decode = function decode(reader, length) {
+                                if (!(reader instanceof $Reader))
+                                    reader = $Reader.create(reader);
+                                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.cloud.kms.v1.ImportJob.WrappingPublicKey();
+                                while (reader.pos < end) {
+                                    var tag = reader.uint32();
+                                    switch (tag >>> 3) {
+                                    case 1:
+                                        message.pem = reader.string();
+                                        break;
+                                    default:
+                                        reader.skipType(tag & 7);
+                                        break;
+                                    }
+                                }
+                                return message;
+                            };
+    
+                            /**
+                             * Decodes a WrappingPublicKey message from the specified reader or buffer, length delimited.
+                             * @function decodeDelimited
+                             * @memberof google.cloud.kms.v1.ImportJob.WrappingPublicKey
+                             * @static
+                             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                             * @returns {google.cloud.kms.v1.ImportJob.WrappingPublicKey} WrappingPublicKey
+                             * @throws {Error} If the payload is not a reader or valid buffer
+                             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                             */
+                            WrappingPublicKey.decodeDelimited = function decodeDelimited(reader) {
+                                if (!(reader instanceof $Reader))
+                                    reader = new $Reader(reader);
+                                return this.decode(reader, reader.uint32());
+                            };
+    
+                            /**
+                             * Verifies a WrappingPublicKey message.
+                             * @function verify
+                             * @memberof google.cloud.kms.v1.ImportJob.WrappingPublicKey
+                             * @static
+                             * @param {Object.<string,*>} message Plain object to verify
+                             * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                             */
+                            WrappingPublicKey.verify = function verify(message) {
+                                if (typeof message !== "object" || message === null)
+                                    return "object expected";
+                                if (message.pem != null && message.hasOwnProperty("pem"))
+                                    if (!$util.isString(message.pem))
+                                        return "pem: string expected";
+                                return null;
+                            };
+    
+                            /**
+                             * Creates a WrappingPublicKey message from a plain object. Also converts values to their respective internal types.
+                             * @function fromObject
+                             * @memberof google.cloud.kms.v1.ImportJob.WrappingPublicKey
+                             * @static
+                             * @param {Object.<string,*>} object Plain object
+                             * @returns {google.cloud.kms.v1.ImportJob.WrappingPublicKey} WrappingPublicKey
+                             */
+                            WrappingPublicKey.fromObject = function fromObject(object) {
+                                if (object instanceof $root.google.cloud.kms.v1.ImportJob.WrappingPublicKey)
+                                    return object;
+                                var message = new $root.google.cloud.kms.v1.ImportJob.WrappingPublicKey();
+                                if (object.pem != null)
+                                    message.pem = String(object.pem);
+                                return message;
+                            };
+    
+                            /**
+                             * Creates a plain object from a WrappingPublicKey message. Also converts values to other types if specified.
+                             * @function toObject
+                             * @memberof google.cloud.kms.v1.ImportJob.WrappingPublicKey
+                             * @static
+                             * @param {google.cloud.kms.v1.ImportJob.WrappingPublicKey} message WrappingPublicKey
+                             * @param {$protobuf.IConversionOptions} [options] Conversion options
+                             * @returns {Object.<string,*>} Plain object
+                             */
+                            WrappingPublicKey.toObject = function toObject(message, options) {
+                                if (!options)
+                                    options = {};
+                                var object = {};
+                                if (options.defaults)
+                                    object.pem = "";
+                                if (message.pem != null && message.hasOwnProperty("pem"))
+                                    object.pem = message.pem;
+                                return object;
+                            };
+    
+                            /**
+                             * Converts this WrappingPublicKey to JSON.
+                             * @function toJSON
+                             * @memberof google.cloud.kms.v1.ImportJob.WrappingPublicKey
+                             * @instance
+                             * @returns {Object.<string,*>} JSON object
+                             */
+                            WrappingPublicKey.prototype.toJSON = function toJSON() {
+                                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                            };
+    
+                            return WrappingPublicKey;
+                        })();
+    
+                        /**
+                         * ImportMethod enum.
+                         * @name google.cloud.kms.v1.ImportJob.ImportMethod
+                         * @enum {string}
+                         * @property {number} IMPORT_METHOD_UNSPECIFIED=0 IMPORT_METHOD_UNSPECIFIED value
+                         * @property {number} RSA_OAEP_3072_SHA1_AES_256=1 RSA_OAEP_3072_SHA1_AES_256 value
+                         * @property {number} RSA_OAEP_4096_SHA1_AES_256=2 RSA_OAEP_4096_SHA1_AES_256 value
+                         */
+                        ImportJob.ImportMethod = (function() {
+                            var valuesById = {}, values = Object.create(valuesById);
+                            values[valuesById[0] = "IMPORT_METHOD_UNSPECIFIED"] = 0;
+                            values[valuesById[1] = "RSA_OAEP_3072_SHA1_AES_256"] = 1;
+                            values[valuesById[2] = "RSA_OAEP_4096_SHA1_AES_256"] = 2;
+                            return values;
+                        })();
+    
+                        /**
+                         * ImportJobState enum.
+                         * @name google.cloud.kms.v1.ImportJob.ImportJobState
+                         * @enum {string}
+                         * @property {number} IMPORT_JOB_STATE_UNSPECIFIED=0 IMPORT_JOB_STATE_UNSPECIFIED value
+                         * @property {number} PENDING_GENERATION=1 PENDING_GENERATION value
+                         * @property {number} ACTIVE=2 ACTIVE value
+                         * @property {number} EXPIRED=3 EXPIRED value
+                         */
+                        ImportJob.ImportJobState = (function() {
+                            var valuesById = {}, values = Object.create(valuesById);
+                            values[valuesById[0] = "IMPORT_JOB_STATE_UNSPECIFIED"] = 0;
+                            values[valuesById[1] = "PENDING_GENERATION"] = 1;
+                            values[valuesById[2] = "ACTIVE"] = 2;
+                            values[valuesById[3] = "EXPIRED"] = 3;
+                            return values;
+                        })();
+    
+                        return ImportJob;
+                    })();
+    
                     v1.KeyManagementService = (function() {
     
                         /**
@@ -8512,2926 +11432,6 @@
                         };
     
                         return LocationMetadata;
-                    })();
-    
-                    v1.KeyRing = (function() {
-    
-                        /**
-                         * Properties of a KeyRing.
-                         * @memberof google.cloud.kms.v1
-                         * @interface IKeyRing
-                         * @property {string|null} [name] KeyRing name
-                         * @property {google.protobuf.ITimestamp|null} [createTime] KeyRing createTime
-                         */
-    
-                        /**
-                         * Constructs a new KeyRing.
-                         * @memberof google.cloud.kms.v1
-                         * @classdesc Represents a KeyRing.
-                         * @implements IKeyRing
-                         * @constructor
-                         * @param {google.cloud.kms.v1.IKeyRing=} [properties] Properties to set
-                         */
-                        function KeyRing(properties) {
-                            if (properties)
-                                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                                    if (properties[keys[i]] != null)
-                                        this[keys[i]] = properties[keys[i]];
-                        }
-    
-                        /**
-                         * KeyRing name.
-                         * @member {string} name
-                         * @memberof google.cloud.kms.v1.KeyRing
-                         * @instance
-                         */
-                        KeyRing.prototype.name = "";
-    
-                        /**
-                         * KeyRing createTime.
-                         * @member {google.protobuf.ITimestamp|null|undefined} createTime
-                         * @memberof google.cloud.kms.v1.KeyRing
-                         * @instance
-                         */
-                        KeyRing.prototype.createTime = null;
-    
-                        /**
-                         * Creates a new KeyRing instance using the specified properties.
-                         * @function create
-                         * @memberof google.cloud.kms.v1.KeyRing
-                         * @static
-                         * @param {google.cloud.kms.v1.IKeyRing=} [properties] Properties to set
-                         * @returns {google.cloud.kms.v1.KeyRing} KeyRing instance
-                         */
-                        KeyRing.create = function create(properties) {
-                            return new KeyRing(properties);
-                        };
-    
-                        /**
-                         * Encodes the specified KeyRing message. Does not implicitly {@link google.cloud.kms.v1.KeyRing.verify|verify} messages.
-                         * @function encode
-                         * @memberof google.cloud.kms.v1.KeyRing
-                         * @static
-                         * @param {google.cloud.kms.v1.IKeyRing} message KeyRing message or plain object to encode
-                         * @param {$protobuf.Writer} [writer] Writer to encode to
-                         * @returns {$protobuf.Writer} Writer
-                         */
-                        KeyRing.encode = function encode(message, writer) {
-                            if (!writer)
-                                writer = $Writer.create();
-                            if (message.name != null && message.hasOwnProperty("name"))
-                                writer.uint32(/* id 1, wireType 2 =*/10).string(message.name);
-                            if (message.createTime != null && message.hasOwnProperty("createTime"))
-                                $root.google.protobuf.Timestamp.encode(message.createTime, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
-                            return writer;
-                        };
-    
-                        /**
-                         * Encodes the specified KeyRing message, length delimited. Does not implicitly {@link google.cloud.kms.v1.KeyRing.verify|verify} messages.
-                         * @function encodeDelimited
-                         * @memberof google.cloud.kms.v1.KeyRing
-                         * @static
-                         * @param {google.cloud.kms.v1.IKeyRing} message KeyRing message or plain object to encode
-                         * @param {$protobuf.Writer} [writer] Writer to encode to
-                         * @returns {$protobuf.Writer} Writer
-                         */
-                        KeyRing.encodeDelimited = function encodeDelimited(message, writer) {
-                            return this.encode(message, writer).ldelim();
-                        };
-    
-                        /**
-                         * Decodes a KeyRing message from the specified reader or buffer.
-                         * @function decode
-                         * @memberof google.cloud.kms.v1.KeyRing
-                         * @static
-                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                         * @param {number} [length] Message length if known beforehand
-                         * @returns {google.cloud.kms.v1.KeyRing} KeyRing
-                         * @throws {Error} If the payload is not a reader or valid buffer
-                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                         */
-                        KeyRing.decode = function decode(reader, length) {
-                            if (!(reader instanceof $Reader))
-                                reader = $Reader.create(reader);
-                            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.cloud.kms.v1.KeyRing();
-                            while (reader.pos < end) {
-                                var tag = reader.uint32();
-                                switch (tag >>> 3) {
-                                case 1:
-                                    message.name = reader.string();
-                                    break;
-                                case 2:
-                                    message.createTime = $root.google.protobuf.Timestamp.decode(reader, reader.uint32());
-                                    break;
-                                default:
-                                    reader.skipType(tag & 7);
-                                    break;
-                                }
-                            }
-                            return message;
-                        };
-    
-                        /**
-                         * Decodes a KeyRing message from the specified reader or buffer, length delimited.
-                         * @function decodeDelimited
-                         * @memberof google.cloud.kms.v1.KeyRing
-                         * @static
-                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                         * @returns {google.cloud.kms.v1.KeyRing} KeyRing
-                         * @throws {Error} If the payload is not a reader or valid buffer
-                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                         */
-                        KeyRing.decodeDelimited = function decodeDelimited(reader) {
-                            if (!(reader instanceof $Reader))
-                                reader = new $Reader(reader);
-                            return this.decode(reader, reader.uint32());
-                        };
-    
-                        /**
-                         * Verifies a KeyRing message.
-                         * @function verify
-                         * @memberof google.cloud.kms.v1.KeyRing
-                         * @static
-                         * @param {Object.<string,*>} message Plain object to verify
-                         * @returns {string|null} `null` if valid, otherwise the reason why it is not
-                         */
-                        KeyRing.verify = function verify(message) {
-                            if (typeof message !== "object" || message === null)
-                                return "object expected";
-                            if (message.name != null && message.hasOwnProperty("name"))
-                                if (!$util.isString(message.name))
-                                    return "name: string expected";
-                            if (message.createTime != null && message.hasOwnProperty("createTime")) {
-                                var error = $root.google.protobuf.Timestamp.verify(message.createTime);
-                                if (error)
-                                    return "createTime." + error;
-                            }
-                            return null;
-                        };
-    
-                        /**
-                         * Creates a KeyRing message from a plain object. Also converts values to their respective internal types.
-                         * @function fromObject
-                         * @memberof google.cloud.kms.v1.KeyRing
-                         * @static
-                         * @param {Object.<string,*>} object Plain object
-                         * @returns {google.cloud.kms.v1.KeyRing} KeyRing
-                         */
-                        KeyRing.fromObject = function fromObject(object) {
-                            if (object instanceof $root.google.cloud.kms.v1.KeyRing)
-                                return object;
-                            var message = new $root.google.cloud.kms.v1.KeyRing();
-                            if (object.name != null)
-                                message.name = String(object.name);
-                            if (object.createTime != null) {
-                                if (typeof object.createTime !== "object")
-                                    throw TypeError(".google.cloud.kms.v1.KeyRing.createTime: object expected");
-                                message.createTime = $root.google.protobuf.Timestamp.fromObject(object.createTime);
-                            }
-                            return message;
-                        };
-    
-                        /**
-                         * Creates a plain object from a KeyRing message. Also converts values to other types if specified.
-                         * @function toObject
-                         * @memberof google.cloud.kms.v1.KeyRing
-                         * @static
-                         * @param {google.cloud.kms.v1.KeyRing} message KeyRing
-                         * @param {$protobuf.IConversionOptions} [options] Conversion options
-                         * @returns {Object.<string,*>} Plain object
-                         */
-                        KeyRing.toObject = function toObject(message, options) {
-                            if (!options)
-                                options = {};
-                            var object = {};
-                            if (options.defaults) {
-                                object.name = "";
-                                object.createTime = null;
-                            }
-                            if (message.name != null && message.hasOwnProperty("name"))
-                                object.name = message.name;
-                            if (message.createTime != null && message.hasOwnProperty("createTime"))
-                                object.createTime = $root.google.protobuf.Timestamp.toObject(message.createTime, options);
-                            return object;
-                        };
-    
-                        /**
-                         * Converts this KeyRing to JSON.
-                         * @function toJSON
-                         * @memberof google.cloud.kms.v1.KeyRing
-                         * @instance
-                         * @returns {Object.<string,*>} JSON object
-                         */
-                        KeyRing.prototype.toJSON = function toJSON() {
-                            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-                        };
-    
-                        return KeyRing;
-                    })();
-    
-                    v1.CryptoKey = (function() {
-    
-                        /**
-                         * Properties of a CryptoKey.
-                         * @memberof google.cloud.kms.v1
-                         * @interface ICryptoKey
-                         * @property {string|null} [name] CryptoKey name
-                         * @property {google.cloud.kms.v1.ICryptoKeyVersion|null} [primary] CryptoKey primary
-                         * @property {google.cloud.kms.v1.CryptoKey.CryptoKeyPurpose|null} [purpose] CryptoKey purpose
-                         * @property {google.protobuf.ITimestamp|null} [createTime] CryptoKey createTime
-                         * @property {google.protobuf.ITimestamp|null} [nextRotationTime] CryptoKey nextRotationTime
-                         * @property {google.protobuf.IDuration|null} [rotationPeriod] CryptoKey rotationPeriod
-                         * @property {google.cloud.kms.v1.ICryptoKeyVersionTemplate|null} [versionTemplate] CryptoKey versionTemplate
-                         * @property {Object.<string,string>|null} [labels] CryptoKey labels
-                         */
-    
-                        /**
-                         * Constructs a new CryptoKey.
-                         * @memberof google.cloud.kms.v1
-                         * @classdesc Represents a CryptoKey.
-                         * @implements ICryptoKey
-                         * @constructor
-                         * @param {google.cloud.kms.v1.ICryptoKey=} [properties] Properties to set
-                         */
-                        function CryptoKey(properties) {
-                            this.labels = {};
-                            if (properties)
-                                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                                    if (properties[keys[i]] != null)
-                                        this[keys[i]] = properties[keys[i]];
-                        }
-    
-                        /**
-                         * CryptoKey name.
-                         * @member {string} name
-                         * @memberof google.cloud.kms.v1.CryptoKey
-                         * @instance
-                         */
-                        CryptoKey.prototype.name = "";
-    
-                        /**
-                         * CryptoKey primary.
-                         * @member {google.cloud.kms.v1.ICryptoKeyVersion|null|undefined} primary
-                         * @memberof google.cloud.kms.v1.CryptoKey
-                         * @instance
-                         */
-                        CryptoKey.prototype.primary = null;
-    
-                        /**
-                         * CryptoKey purpose.
-                         * @member {google.cloud.kms.v1.CryptoKey.CryptoKeyPurpose} purpose
-                         * @memberof google.cloud.kms.v1.CryptoKey
-                         * @instance
-                         */
-                        CryptoKey.prototype.purpose = 0;
-    
-                        /**
-                         * CryptoKey createTime.
-                         * @member {google.protobuf.ITimestamp|null|undefined} createTime
-                         * @memberof google.cloud.kms.v1.CryptoKey
-                         * @instance
-                         */
-                        CryptoKey.prototype.createTime = null;
-    
-                        /**
-                         * CryptoKey nextRotationTime.
-                         * @member {google.protobuf.ITimestamp|null|undefined} nextRotationTime
-                         * @memberof google.cloud.kms.v1.CryptoKey
-                         * @instance
-                         */
-                        CryptoKey.prototype.nextRotationTime = null;
-    
-                        /**
-                         * CryptoKey rotationPeriod.
-                         * @member {google.protobuf.IDuration|null|undefined} rotationPeriod
-                         * @memberof google.cloud.kms.v1.CryptoKey
-                         * @instance
-                         */
-                        CryptoKey.prototype.rotationPeriod = null;
-    
-                        /**
-                         * CryptoKey versionTemplate.
-                         * @member {google.cloud.kms.v1.ICryptoKeyVersionTemplate|null|undefined} versionTemplate
-                         * @memberof google.cloud.kms.v1.CryptoKey
-                         * @instance
-                         */
-                        CryptoKey.prototype.versionTemplate = null;
-    
-                        /**
-                         * CryptoKey labels.
-                         * @member {Object.<string,string>} labels
-                         * @memberof google.cloud.kms.v1.CryptoKey
-                         * @instance
-                         */
-                        CryptoKey.prototype.labels = $util.emptyObject;
-    
-                        // OneOf field names bound to virtual getters and setters
-                        var $oneOfFields;
-    
-                        /**
-                         * CryptoKey rotationSchedule.
-                         * @member {"rotationPeriod"|undefined} rotationSchedule
-                         * @memberof google.cloud.kms.v1.CryptoKey
-                         * @instance
-                         */
-                        Object.defineProperty(CryptoKey.prototype, "rotationSchedule", {
-                            get: $util.oneOfGetter($oneOfFields = ["rotationPeriod"]),
-                            set: $util.oneOfSetter($oneOfFields)
-                        });
-    
-                        /**
-                         * Creates a new CryptoKey instance using the specified properties.
-                         * @function create
-                         * @memberof google.cloud.kms.v1.CryptoKey
-                         * @static
-                         * @param {google.cloud.kms.v1.ICryptoKey=} [properties] Properties to set
-                         * @returns {google.cloud.kms.v1.CryptoKey} CryptoKey instance
-                         */
-                        CryptoKey.create = function create(properties) {
-                            return new CryptoKey(properties);
-                        };
-    
-                        /**
-                         * Encodes the specified CryptoKey message. Does not implicitly {@link google.cloud.kms.v1.CryptoKey.verify|verify} messages.
-                         * @function encode
-                         * @memberof google.cloud.kms.v1.CryptoKey
-                         * @static
-                         * @param {google.cloud.kms.v1.ICryptoKey} message CryptoKey message or plain object to encode
-                         * @param {$protobuf.Writer} [writer] Writer to encode to
-                         * @returns {$protobuf.Writer} Writer
-                         */
-                        CryptoKey.encode = function encode(message, writer) {
-                            if (!writer)
-                                writer = $Writer.create();
-                            if (message.name != null && message.hasOwnProperty("name"))
-                                writer.uint32(/* id 1, wireType 2 =*/10).string(message.name);
-                            if (message.primary != null && message.hasOwnProperty("primary"))
-                                $root.google.cloud.kms.v1.CryptoKeyVersion.encode(message.primary, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
-                            if (message.purpose != null && message.hasOwnProperty("purpose"))
-                                writer.uint32(/* id 3, wireType 0 =*/24).int32(message.purpose);
-                            if (message.createTime != null && message.hasOwnProperty("createTime"))
-                                $root.google.protobuf.Timestamp.encode(message.createTime, writer.uint32(/* id 5, wireType 2 =*/42).fork()).ldelim();
-                            if (message.nextRotationTime != null && message.hasOwnProperty("nextRotationTime"))
-                                $root.google.protobuf.Timestamp.encode(message.nextRotationTime, writer.uint32(/* id 7, wireType 2 =*/58).fork()).ldelim();
-                            if (message.rotationPeriod != null && message.hasOwnProperty("rotationPeriod"))
-                                $root.google.protobuf.Duration.encode(message.rotationPeriod, writer.uint32(/* id 8, wireType 2 =*/66).fork()).ldelim();
-                            if (message.labels != null && message.hasOwnProperty("labels"))
-                                for (var keys = Object.keys(message.labels), i = 0; i < keys.length; ++i)
-                                    writer.uint32(/* id 10, wireType 2 =*/82).fork().uint32(/* id 1, wireType 2 =*/10).string(keys[i]).uint32(/* id 2, wireType 2 =*/18).string(message.labels[keys[i]]).ldelim();
-                            if (message.versionTemplate != null && message.hasOwnProperty("versionTemplate"))
-                                $root.google.cloud.kms.v1.CryptoKeyVersionTemplate.encode(message.versionTemplate, writer.uint32(/* id 11, wireType 2 =*/90).fork()).ldelim();
-                            return writer;
-                        };
-    
-                        /**
-                         * Encodes the specified CryptoKey message, length delimited. Does not implicitly {@link google.cloud.kms.v1.CryptoKey.verify|verify} messages.
-                         * @function encodeDelimited
-                         * @memberof google.cloud.kms.v1.CryptoKey
-                         * @static
-                         * @param {google.cloud.kms.v1.ICryptoKey} message CryptoKey message or plain object to encode
-                         * @param {$protobuf.Writer} [writer] Writer to encode to
-                         * @returns {$protobuf.Writer} Writer
-                         */
-                        CryptoKey.encodeDelimited = function encodeDelimited(message, writer) {
-                            return this.encode(message, writer).ldelim();
-                        };
-    
-                        /**
-                         * Decodes a CryptoKey message from the specified reader or buffer.
-                         * @function decode
-                         * @memberof google.cloud.kms.v1.CryptoKey
-                         * @static
-                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                         * @param {number} [length] Message length if known beforehand
-                         * @returns {google.cloud.kms.v1.CryptoKey} CryptoKey
-                         * @throws {Error} If the payload is not a reader or valid buffer
-                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                         */
-                        CryptoKey.decode = function decode(reader, length) {
-                            if (!(reader instanceof $Reader))
-                                reader = $Reader.create(reader);
-                            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.cloud.kms.v1.CryptoKey(), key;
-                            while (reader.pos < end) {
-                                var tag = reader.uint32();
-                                switch (tag >>> 3) {
-                                case 1:
-                                    message.name = reader.string();
-                                    break;
-                                case 2:
-                                    message.primary = $root.google.cloud.kms.v1.CryptoKeyVersion.decode(reader, reader.uint32());
-                                    break;
-                                case 3:
-                                    message.purpose = reader.int32();
-                                    break;
-                                case 5:
-                                    message.createTime = $root.google.protobuf.Timestamp.decode(reader, reader.uint32());
-                                    break;
-                                case 7:
-                                    message.nextRotationTime = $root.google.protobuf.Timestamp.decode(reader, reader.uint32());
-                                    break;
-                                case 8:
-                                    message.rotationPeriod = $root.google.protobuf.Duration.decode(reader, reader.uint32());
-                                    break;
-                                case 11:
-                                    message.versionTemplate = $root.google.cloud.kms.v1.CryptoKeyVersionTemplate.decode(reader, reader.uint32());
-                                    break;
-                                case 10:
-                                    reader.skip().pos++;
-                                    if (message.labels === $util.emptyObject)
-                                        message.labels = {};
-                                    key = reader.string();
-                                    reader.pos++;
-                                    message.labels[key] = reader.string();
-                                    break;
-                                default:
-                                    reader.skipType(tag & 7);
-                                    break;
-                                }
-                            }
-                            return message;
-                        };
-    
-                        /**
-                         * Decodes a CryptoKey message from the specified reader or buffer, length delimited.
-                         * @function decodeDelimited
-                         * @memberof google.cloud.kms.v1.CryptoKey
-                         * @static
-                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                         * @returns {google.cloud.kms.v1.CryptoKey} CryptoKey
-                         * @throws {Error} If the payload is not a reader or valid buffer
-                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                         */
-                        CryptoKey.decodeDelimited = function decodeDelimited(reader) {
-                            if (!(reader instanceof $Reader))
-                                reader = new $Reader(reader);
-                            return this.decode(reader, reader.uint32());
-                        };
-    
-                        /**
-                         * Verifies a CryptoKey message.
-                         * @function verify
-                         * @memberof google.cloud.kms.v1.CryptoKey
-                         * @static
-                         * @param {Object.<string,*>} message Plain object to verify
-                         * @returns {string|null} `null` if valid, otherwise the reason why it is not
-                         */
-                        CryptoKey.verify = function verify(message) {
-                            if (typeof message !== "object" || message === null)
-                                return "object expected";
-                            var properties = {};
-                            if (message.name != null && message.hasOwnProperty("name"))
-                                if (!$util.isString(message.name))
-                                    return "name: string expected";
-                            if (message.primary != null && message.hasOwnProperty("primary")) {
-                                var error = $root.google.cloud.kms.v1.CryptoKeyVersion.verify(message.primary);
-                                if (error)
-                                    return "primary." + error;
-                            }
-                            if (message.purpose != null && message.hasOwnProperty("purpose"))
-                                switch (message.purpose) {
-                                default:
-                                    return "purpose: enum value expected";
-                                case 0:
-                                case 1:
-                                case 5:
-                                case 6:
-                                    break;
-                                }
-                            if (message.createTime != null && message.hasOwnProperty("createTime")) {
-                                var error = $root.google.protobuf.Timestamp.verify(message.createTime);
-                                if (error)
-                                    return "createTime." + error;
-                            }
-                            if (message.nextRotationTime != null && message.hasOwnProperty("nextRotationTime")) {
-                                var error = $root.google.protobuf.Timestamp.verify(message.nextRotationTime);
-                                if (error)
-                                    return "nextRotationTime." + error;
-                            }
-                            if (message.rotationPeriod != null && message.hasOwnProperty("rotationPeriod")) {
-                                properties.rotationSchedule = 1;
-                                {
-                                    var error = $root.google.protobuf.Duration.verify(message.rotationPeriod);
-                                    if (error)
-                                        return "rotationPeriod." + error;
-                                }
-                            }
-                            if (message.versionTemplate != null && message.hasOwnProperty("versionTemplate")) {
-                                var error = $root.google.cloud.kms.v1.CryptoKeyVersionTemplate.verify(message.versionTemplate);
-                                if (error)
-                                    return "versionTemplate." + error;
-                            }
-                            if (message.labels != null && message.hasOwnProperty("labels")) {
-                                if (!$util.isObject(message.labels))
-                                    return "labels: object expected";
-                                var key = Object.keys(message.labels);
-                                for (var i = 0; i < key.length; ++i)
-                                    if (!$util.isString(message.labels[key[i]]))
-                                        return "labels: string{k:string} expected";
-                            }
-                            return null;
-                        };
-    
-                        /**
-                         * Creates a CryptoKey message from a plain object. Also converts values to their respective internal types.
-                         * @function fromObject
-                         * @memberof google.cloud.kms.v1.CryptoKey
-                         * @static
-                         * @param {Object.<string,*>} object Plain object
-                         * @returns {google.cloud.kms.v1.CryptoKey} CryptoKey
-                         */
-                        CryptoKey.fromObject = function fromObject(object) {
-                            if (object instanceof $root.google.cloud.kms.v1.CryptoKey)
-                                return object;
-                            var message = new $root.google.cloud.kms.v1.CryptoKey();
-                            if (object.name != null)
-                                message.name = String(object.name);
-                            if (object.primary != null) {
-                                if (typeof object.primary !== "object")
-                                    throw TypeError(".google.cloud.kms.v1.CryptoKey.primary: object expected");
-                                message.primary = $root.google.cloud.kms.v1.CryptoKeyVersion.fromObject(object.primary);
-                            }
-                            switch (object.purpose) {
-                            case "CRYPTO_KEY_PURPOSE_UNSPECIFIED":
-                            case 0:
-                                message.purpose = 0;
-                                break;
-                            case "ENCRYPT_DECRYPT":
-                            case 1:
-                                message.purpose = 1;
-                                break;
-                            case "ASYMMETRIC_SIGN":
-                            case 5:
-                                message.purpose = 5;
-                                break;
-                            case "ASYMMETRIC_DECRYPT":
-                            case 6:
-                                message.purpose = 6;
-                                break;
-                            }
-                            if (object.createTime != null) {
-                                if (typeof object.createTime !== "object")
-                                    throw TypeError(".google.cloud.kms.v1.CryptoKey.createTime: object expected");
-                                message.createTime = $root.google.protobuf.Timestamp.fromObject(object.createTime);
-                            }
-                            if (object.nextRotationTime != null) {
-                                if (typeof object.nextRotationTime !== "object")
-                                    throw TypeError(".google.cloud.kms.v1.CryptoKey.nextRotationTime: object expected");
-                                message.nextRotationTime = $root.google.protobuf.Timestamp.fromObject(object.nextRotationTime);
-                            }
-                            if (object.rotationPeriod != null) {
-                                if (typeof object.rotationPeriod !== "object")
-                                    throw TypeError(".google.cloud.kms.v1.CryptoKey.rotationPeriod: object expected");
-                                message.rotationPeriod = $root.google.protobuf.Duration.fromObject(object.rotationPeriod);
-                            }
-                            if (object.versionTemplate != null) {
-                                if (typeof object.versionTemplate !== "object")
-                                    throw TypeError(".google.cloud.kms.v1.CryptoKey.versionTemplate: object expected");
-                                message.versionTemplate = $root.google.cloud.kms.v1.CryptoKeyVersionTemplate.fromObject(object.versionTemplate);
-                            }
-                            if (object.labels) {
-                                if (typeof object.labels !== "object")
-                                    throw TypeError(".google.cloud.kms.v1.CryptoKey.labels: object expected");
-                                message.labels = {};
-                                for (var keys = Object.keys(object.labels), i = 0; i < keys.length; ++i)
-                                    message.labels[keys[i]] = String(object.labels[keys[i]]);
-                            }
-                            return message;
-                        };
-    
-                        /**
-                         * Creates a plain object from a CryptoKey message. Also converts values to other types if specified.
-                         * @function toObject
-                         * @memberof google.cloud.kms.v1.CryptoKey
-                         * @static
-                         * @param {google.cloud.kms.v1.CryptoKey} message CryptoKey
-                         * @param {$protobuf.IConversionOptions} [options] Conversion options
-                         * @returns {Object.<string,*>} Plain object
-                         */
-                        CryptoKey.toObject = function toObject(message, options) {
-                            if (!options)
-                                options = {};
-                            var object = {};
-                            if (options.objects || options.defaults)
-                                object.labels = {};
-                            if (options.defaults) {
-                                object.name = "";
-                                object.primary = null;
-                                object.purpose = options.enums === String ? "CRYPTO_KEY_PURPOSE_UNSPECIFIED" : 0;
-                                object.createTime = null;
-                                object.nextRotationTime = null;
-                                object.versionTemplate = null;
-                            }
-                            if (message.name != null && message.hasOwnProperty("name"))
-                                object.name = message.name;
-                            if (message.primary != null && message.hasOwnProperty("primary"))
-                                object.primary = $root.google.cloud.kms.v1.CryptoKeyVersion.toObject(message.primary, options);
-                            if (message.purpose != null && message.hasOwnProperty("purpose"))
-                                object.purpose = options.enums === String ? $root.google.cloud.kms.v1.CryptoKey.CryptoKeyPurpose[message.purpose] : message.purpose;
-                            if (message.createTime != null && message.hasOwnProperty("createTime"))
-                                object.createTime = $root.google.protobuf.Timestamp.toObject(message.createTime, options);
-                            if (message.nextRotationTime != null && message.hasOwnProperty("nextRotationTime"))
-                                object.nextRotationTime = $root.google.protobuf.Timestamp.toObject(message.nextRotationTime, options);
-                            if (message.rotationPeriod != null && message.hasOwnProperty("rotationPeriod")) {
-                                object.rotationPeriod = $root.google.protobuf.Duration.toObject(message.rotationPeriod, options);
-                                if (options.oneofs)
-                                    object.rotationSchedule = "rotationPeriod";
-                            }
-                            var keys2;
-                            if (message.labels && (keys2 = Object.keys(message.labels)).length) {
-                                object.labels = {};
-                                for (var j = 0; j < keys2.length; ++j)
-                                    object.labels[keys2[j]] = message.labels[keys2[j]];
-                            }
-                            if (message.versionTemplate != null && message.hasOwnProperty("versionTemplate"))
-                                object.versionTemplate = $root.google.cloud.kms.v1.CryptoKeyVersionTemplate.toObject(message.versionTemplate, options);
-                            return object;
-                        };
-    
-                        /**
-                         * Converts this CryptoKey to JSON.
-                         * @function toJSON
-                         * @memberof google.cloud.kms.v1.CryptoKey
-                         * @instance
-                         * @returns {Object.<string,*>} JSON object
-                         */
-                        CryptoKey.prototype.toJSON = function toJSON() {
-                            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-                        };
-    
-                        /**
-                         * CryptoKeyPurpose enum.
-                         * @name google.cloud.kms.v1.CryptoKey.CryptoKeyPurpose
-                         * @enum {string}
-                         * @property {number} CRYPTO_KEY_PURPOSE_UNSPECIFIED=0 CRYPTO_KEY_PURPOSE_UNSPECIFIED value
-                         * @property {number} ENCRYPT_DECRYPT=1 ENCRYPT_DECRYPT value
-                         * @property {number} ASYMMETRIC_SIGN=5 ASYMMETRIC_SIGN value
-                         * @property {number} ASYMMETRIC_DECRYPT=6 ASYMMETRIC_DECRYPT value
-                         */
-                        CryptoKey.CryptoKeyPurpose = (function() {
-                            var valuesById = {}, values = Object.create(valuesById);
-                            values[valuesById[0] = "CRYPTO_KEY_PURPOSE_UNSPECIFIED"] = 0;
-                            values[valuesById[1] = "ENCRYPT_DECRYPT"] = 1;
-                            values[valuesById[5] = "ASYMMETRIC_SIGN"] = 5;
-                            values[valuesById[6] = "ASYMMETRIC_DECRYPT"] = 6;
-                            return values;
-                        })();
-    
-                        return CryptoKey;
-                    })();
-    
-                    v1.CryptoKeyVersionTemplate = (function() {
-    
-                        /**
-                         * Properties of a CryptoKeyVersionTemplate.
-                         * @memberof google.cloud.kms.v1
-                         * @interface ICryptoKeyVersionTemplate
-                         * @property {google.cloud.kms.v1.ProtectionLevel|null} [protectionLevel] CryptoKeyVersionTemplate protectionLevel
-                         * @property {google.cloud.kms.v1.CryptoKeyVersion.CryptoKeyVersionAlgorithm|null} [algorithm] CryptoKeyVersionTemplate algorithm
-                         */
-    
-                        /**
-                         * Constructs a new CryptoKeyVersionTemplate.
-                         * @memberof google.cloud.kms.v1
-                         * @classdesc Represents a CryptoKeyVersionTemplate.
-                         * @implements ICryptoKeyVersionTemplate
-                         * @constructor
-                         * @param {google.cloud.kms.v1.ICryptoKeyVersionTemplate=} [properties] Properties to set
-                         */
-                        function CryptoKeyVersionTemplate(properties) {
-                            if (properties)
-                                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                                    if (properties[keys[i]] != null)
-                                        this[keys[i]] = properties[keys[i]];
-                        }
-    
-                        /**
-                         * CryptoKeyVersionTemplate protectionLevel.
-                         * @member {google.cloud.kms.v1.ProtectionLevel} protectionLevel
-                         * @memberof google.cloud.kms.v1.CryptoKeyVersionTemplate
-                         * @instance
-                         */
-                        CryptoKeyVersionTemplate.prototype.protectionLevel = 0;
-    
-                        /**
-                         * CryptoKeyVersionTemplate algorithm.
-                         * @member {google.cloud.kms.v1.CryptoKeyVersion.CryptoKeyVersionAlgorithm} algorithm
-                         * @memberof google.cloud.kms.v1.CryptoKeyVersionTemplate
-                         * @instance
-                         */
-                        CryptoKeyVersionTemplate.prototype.algorithm = 0;
-    
-                        /**
-                         * Creates a new CryptoKeyVersionTemplate instance using the specified properties.
-                         * @function create
-                         * @memberof google.cloud.kms.v1.CryptoKeyVersionTemplate
-                         * @static
-                         * @param {google.cloud.kms.v1.ICryptoKeyVersionTemplate=} [properties] Properties to set
-                         * @returns {google.cloud.kms.v1.CryptoKeyVersionTemplate} CryptoKeyVersionTemplate instance
-                         */
-                        CryptoKeyVersionTemplate.create = function create(properties) {
-                            return new CryptoKeyVersionTemplate(properties);
-                        };
-    
-                        /**
-                         * Encodes the specified CryptoKeyVersionTemplate message. Does not implicitly {@link google.cloud.kms.v1.CryptoKeyVersionTemplate.verify|verify} messages.
-                         * @function encode
-                         * @memberof google.cloud.kms.v1.CryptoKeyVersionTemplate
-                         * @static
-                         * @param {google.cloud.kms.v1.ICryptoKeyVersionTemplate} message CryptoKeyVersionTemplate message or plain object to encode
-                         * @param {$protobuf.Writer} [writer] Writer to encode to
-                         * @returns {$protobuf.Writer} Writer
-                         */
-                        CryptoKeyVersionTemplate.encode = function encode(message, writer) {
-                            if (!writer)
-                                writer = $Writer.create();
-                            if (message.protectionLevel != null && message.hasOwnProperty("protectionLevel"))
-                                writer.uint32(/* id 1, wireType 0 =*/8).int32(message.protectionLevel);
-                            if (message.algorithm != null && message.hasOwnProperty("algorithm"))
-                                writer.uint32(/* id 3, wireType 0 =*/24).int32(message.algorithm);
-                            return writer;
-                        };
-    
-                        /**
-                         * Encodes the specified CryptoKeyVersionTemplate message, length delimited. Does not implicitly {@link google.cloud.kms.v1.CryptoKeyVersionTemplate.verify|verify} messages.
-                         * @function encodeDelimited
-                         * @memberof google.cloud.kms.v1.CryptoKeyVersionTemplate
-                         * @static
-                         * @param {google.cloud.kms.v1.ICryptoKeyVersionTemplate} message CryptoKeyVersionTemplate message or plain object to encode
-                         * @param {$protobuf.Writer} [writer] Writer to encode to
-                         * @returns {$protobuf.Writer} Writer
-                         */
-                        CryptoKeyVersionTemplate.encodeDelimited = function encodeDelimited(message, writer) {
-                            return this.encode(message, writer).ldelim();
-                        };
-    
-                        /**
-                         * Decodes a CryptoKeyVersionTemplate message from the specified reader or buffer.
-                         * @function decode
-                         * @memberof google.cloud.kms.v1.CryptoKeyVersionTemplate
-                         * @static
-                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                         * @param {number} [length] Message length if known beforehand
-                         * @returns {google.cloud.kms.v1.CryptoKeyVersionTemplate} CryptoKeyVersionTemplate
-                         * @throws {Error} If the payload is not a reader or valid buffer
-                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                         */
-                        CryptoKeyVersionTemplate.decode = function decode(reader, length) {
-                            if (!(reader instanceof $Reader))
-                                reader = $Reader.create(reader);
-                            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.cloud.kms.v1.CryptoKeyVersionTemplate();
-                            while (reader.pos < end) {
-                                var tag = reader.uint32();
-                                switch (tag >>> 3) {
-                                case 1:
-                                    message.protectionLevel = reader.int32();
-                                    break;
-                                case 3:
-                                    message.algorithm = reader.int32();
-                                    break;
-                                default:
-                                    reader.skipType(tag & 7);
-                                    break;
-                                }
-                            }
-                            return message;
-                        };
-    
-                        /**
-                         * Decodes a CryptoKeyVersionTemplate message from the specified reader or buffer, length delimited.
-                         * @function decodeDelimited
-                         * @memberof google.cloud.kms.v1.CryptoKeyVersionTemplate
-                         * @static
-                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                         * @returns {google.cloud.kms.v1.CryptoKeyVersionTemplate} CryptoKeyVersionTemplate
-                         * @throws {Error} If the payload is not a reader or valid buffer
-                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                         */
-                        CryptoKeyVersionTemplate.decodeDelimited = function decodeDelimited(reader) {
-                            if (!(reader instanceof $Reader))
-                                reader = new $Reader(reader);
-                            return this.decode(reader, reader.uint32());
-                        };
-    
-                        /**
-                         * Verifies a CryptoKeyVersionTemplate message.
-                         * @function verify
-                         * @memberof google.cloud.kms.v1.CryptoKeyVersionTemplate
-                         * @static
-                         * @param {Object.<string,*>} message Plain object to verify
-                         * @returns {string|null} `null` if valid, otherwise the reason why it is not
-                         */
-                        CryptoKeyVersionTemplate.verify = function verify(message) {
-                            if (typeof message !== "object" || message === null)
-                                return "object expected";
-                            if (message.protectionLevel != null && message.hasOwnProperty("protectionLevel"))
-                                switch (message.protectionLevel) {
-                                default:
-                                    return "protectionLevel: enum value expected";
-                                case 0:
-                                case 1:
-                                case 2:
-                                    break;
-                                }
-                            if (message.algorithm != null && message.hasOwnProperty("algorithm"))
-                                switch (message.algorithm) {
-                                default:
-                                    return "algorithm: enum value expected";
-                                case 0:
-                                case 1:
-                                case 2:
-                                case 3:
-                                case 4:
-                                case 15:
-                                case 5:
-                                case 6:
-                                case 7:
-                                case 16:
-                                case 8:
-                                case 9:
-                                case 10:
-                                case 17:
-                                case 12:
-                                case 13:
-                                    break;
-                                }
-                            return null;
-                        };
-    
-                        /**
-                         * Creates a CryptoKeyVersionTemplate message from a plain object. Also converts values to their respective internal types.
-                         * @function fromObject
-                         * @memberof google.cloud.kms.v1.CryptoKeyVersionTemplate
-                         * @static
-                         * @param {Object.<string,*>} object Plain object
-                         * @returns {google.cloud.kms.v1.CryptoKeyVersionTemplate} CryptoKeyVersionTemplate
-                         */
-                        CryptoKeyVersionTemplate.fromObject = function fromObject(object) {
-                            if (object instanceof $root.google.cloud.kms.v1.CryptoKeyVersionTemplate)
-                                return object;
-                            var message = new $root.google.cloud.kms.v1.CryptoKeyVersionTemplate();
-                            switch (object.protectionLevel) {
-                            case "PROTECTION_LEVEL_UNSPECIFIED":
-                            case 0:
-                                message.protectionLevel = 0;
-                                break;
-                            case "SOFTWARE":
-                            case 1:
-                                message.protectionLevel = 1;
-                                break;
-                            case "HSM":
-                            case 2:
-                                message.protectionLevel = 2;
-                                break;
-                            }
-                            switch (object.algorithm) {
-                            case "CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED":
-                            case 0:
-                                message.algorithm = 0;
-                                break;
-                            case "GOOGLE_SYMMETRIC_ENCRYPTION":
-                            case 1:
-                                message.algorithm = 1;
-                                break;
-                            case "RSA_SIGN_PSS_2048_SHA256":
-                            case 2:
-                                message.algorithm = 2;
-                                break;
-                            case "RSA_SIGN_PSS_3072_SHA256":
-                            case 3:
-                                message.algorithm = 3;
-                                break;
-                            case "RSA_SIGN_PSS_4096_SHA256":
-                            case 4:
-                                message.algorithm = 4;
-                                break;
-                            case "RSA_SIGN_PSS_4096_SHA512":
-                            case 15:
-                                message.algorithm = 15;
-                                break;
-                            case "RSA_SIGN_PKCS1_2048_SHA256":
-                            case 5:
-                                message.algorithm = 5;
-                                break;
-                            case "RSA_SIGN_PKCS1_3072_SHA256":
-                            case 6:
-                                message.algorithm = 6;
-                                break;
-                            case "RSA_SIGN_PKCS1_4096_SHA256":
-                            case 7:
-                                message.algorithm = 7;
-                                break;
-                            case "RSA_SIGN_PKCS1_4096_SHA512":
-                            case 16:
-                                message.algorithm = 16;
-                                break;
-                            case "RSA_DECRYPT_OAEP_2048_SHA256":
-                            case 8:
-                                message.algorithm = 8;
-                                break;
-                            case "RSA_DECRYPT_OAEP_3072_SHA256":
-                            case 9:
-                                message.algorithm = 9;
-                                break;
-                            case "RSA_DECRYPT_OAEP_4096_SHA256":
-                            case 10:
-                                message.algorithm = 10;
-                                break;
-                            case "RSA_DECRYPT_OAEP_4096_SHA512":
-                            case 17:
-                                message.algorithm = 17;
-                                break;
-                            case "EC_SIGN_P256_SHA256":
-                            case 12:
-                                message.algorithm = 12;
-                                break;
-                            case "EC_SIGN_P384_SHA384":
-                            case 13:
-                                message.algorithm = 13;
-                                break;
-                            }
-                            return message;
-                        };
-    
-                        /**
-                         * Creates a plain object from a CryptoKeyVersionTemplate message. Also converts values to other types if specified.
-                         * @function toObject
-                         * @memberof google.cloud.kms.v1.CryptoKeyVersionTemplate
-                         * @static
-                         * @param {google.cloud.kms.v1.CryptoKeyVersionTemplate} message CryptoKeyVersionTemplate
-                         * @param {$protobuf.IConversionOptions} [options] Conversion options
-                         * @returns {Object.<string,*>} Plain object
-                         */
-                        CryptoKeyVersionTemplate.toObject = function toObject(message, options) {
-                            if (!options)
-                                options = {};
-                            var object = {};
-                            if (options.defaults) {
-                                object.protectionLevel = options.enums === String ? "PROTECTION_LEVEL_UNSPECIFIED" : 0;
-                                object.algorithm = options.enums === String ? "CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED" : 0;
-                            }
-                            if (message.protectionLevel != null && message.hasOwnProperty("protectionLevel"))
-                                object.protectionLevel = options.enums === String ? $root.google.cloud.kms.v1.ProtectionLevel[message.protectionLevel] : message.protectionLevel;
-                            if (message.algorithm != null && message.hasOwnProperty("algorithm"))
-                                object.algorithm = options.enums === String ? $root.google.cloud.kms.v1.CryptoKeyVersion.CryptoKeyVersionAlgorithm[message.algorithm] : message.algorithm;
-                            return object;
-                        };
-    
-                        /**
-                         * Converts this CryptoKeyVersionTemplate to JSON.
-                         * @function toJSON
-                         * @memberof google.cloud.kms.v1.CryptoKeyVersionTemplate
-                         * @instance
-                         * @returns {Object.<string,*>} JSON object
-                         */
-                        CryptoKeyVersionTemplate.prototype.toJSON = function toJSON() {
-                            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-                        };
-    
-                        return CryptoKeyVersionTemplate;
-                    })();
-    
-                    v1.KeyOperationAttestation = (function() {
-    
-                        /**
-                         * Properties of a KeyOperationAttestation.
-                         * @memberof google.cloud.kms.v1
-                         * @interface IKeyOperationAttestation
-                         * @property {google.cloud.kms.v1.KeyOperationAttestation.AttestationFormat|null} [format] KeyOperationAttestation format
-                         * @property {Uint8Array|null} [content] KeyOperationAttestation content
-                         */
-    
-                        /**
-                         * Constructs a new KeyOperationAttestation.
-                         * @memberof google.cloud.kms.v1
-                         * @classdesc Represents a KeyOperationAttestation.
-                         * @implements IKeyOperationAttestation
-                         * @constructor
-                         * @param {google.cloud.kms.v1.IKeyOperationAttestation=} [properties] Properties to set
-                         */
-                        function KeyOperationAttestation(properties) {
-                            if (properties)
-                                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                                    if (properties[keys[i]] != null)
-                                        this[keys[i]] = properties[keys[i]];
-                        }
-    
-                        /**
-                         * KeyOperationAttestation format.
-                         * @member {google.cloud.kms.v1.KeyOperationAttestation.AttestationFormat} format
-                         * @memberof google.cloud.kms.v1.KeyOperationAttestation
-                         * @instance
-                         */
-                        KeyOperationAttestation.prototype.format = 0;
-    
-                        /**
-                         * KeyOperationAttestation content.
-                         * @member {Uint8Array} content
-                         * @memberof google.cloud.kms.v1.KeyOperationAttestation
-                         * @instance
-                         */
-                        KeyOperationAttestation.prototype.content = $util.newBuffer([]);
-    
-                        /**
-                         * Creates a new KeyOperationAttestation instance using the specified properties.
-                         * @function create
-                         * @memberof google.cloud.kms.v1.KeyOperationAttestation
-                         * @static
-                         * @param {google.cloud.kms.v1.IKeyOperationAttestation=} [properties] Properties to set
-                         * @returns {google.cloud.kms.v1.KeyOperationAttestation} KeyOperationAttestation instance
-                         */
-                        KeyOperationAttestation.create = function create(properties) {
-                            return new KeyOperationAttestation(properties);
-                        };
-    
-                        /**
-                         * Encodes the specified KeyOperationAttestation message. Does not implicitly {@link google.cloud.kms.v1.KeyOperationAttestation.verify|verify} messages.
-                         * @function encode
-                         * @memberof google.cloud.kms.v1.KeyOperationAttestation
-                         * @static
-                         * @param {google.cloud.kms.v1.IKeyOperationAttestation} message KeyOperationAttestation message or plain object to encode
-                         * @param {$protobuf.Writer} [writer] Writer to encode to
-                         * @returns {$protobuf.Writer} Writer
-                         */
-                        KeyOperationAttestation.encode = function encode(message, writer) {
-                            if (!writer)
-                                writer = $Writer.create();
-                            if (message.format != null && message.hasOwnProperty("format"))
-                                writer.uint32(/* id 4, wireType 0 =*/32).int32(message.format);
-                            if (message.content != null && message.hasOwnProperty("content"))
-                                writer.uint32(/* id 5, wireType 2 =*/42).bytes(message.content);
-                            return writer;
-                        };
-    
-                        /**
-                         * Encodes the specified KeyOperationAttestation message, length delimited. Does not implicitly {@link google.cloud.kms.v1.KeyOperationAttestation.verify|verify} messages.
-                         * @function encodeDelimited
-                         * @memberof google.cloud.kms.v1.KeyOperationAttestation
-                         * @static
-                         * @param {google.cloud.kms.v1.IKeyOperationAttestation} message KeyOperationAttestation message or plain object to encode
-                         * @param {$protobuf.Writer} [writer] Writer to encode to
-                         * @returns {$protobuf.Writer} Writer
-                         */
-                        KeyOperationAttestation.encodeDelimited = function encodeDelimited(message, writer) {
-                            return this.encode(message, writer).ldelim();
-                        };
-    
-                        /**
-                         * Decodes a KeyOperationAttestation message from the specified reader or buffer.
-                         * @function decode
-                         * @memberof google.cloud.kms.v1.KeyOperationAttestation
-                         * @static
-                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                         * @param {number} [length] Message length if known beforehand
-                         * @returns {google.cloud.kms.v1.KeyOperationAttestation} KeyOperationAttestation
-                         * @throws {Error} If the payload is not a reader or valid buffer
-                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                         */
-                        KeyOperationAttestation.decode = function decode(reader, length) {
-                            if (!(reader instanceof $Reader))
-                                reader = $Reader.create(reader);
-                            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.cloud.kms.v1.KeyOperationAttestation();
-                            while (reader.pos < end) {
-                                var tag = reader.uint32();
-                                switch (tag >>> 3) {
-                                case 4:
-                                    message.format = reader.int32();
-                                    break;
-                                case 5:
-                                    message.content = reader.bytes();
-                                    break;
-                                default:
-                                    reader.skipType(tag & 7);
-                                    break;
-                                }
-                            }
-                            return message;
-                        };
-    
-                        /**
-                         * Decodes a KeyOperationAttestation message from the specified reader or buffer, length delimited.
-                         * @function decodeDelimited
-                         * @memberof google.cloud.kms.v1.KeyOperationAttestation
-                         * @static
-                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                         * @returns {google.cloud.kms.v1.KeyOperationAttestation} KeyOperationAttestation
-                         * @throws {Error} If the payload is not a reader or valid buffer
-                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                         */
-                        KeyOperationAttestation.decodeDelimited = function decodeDelimited(reader) {
-                            if (!(reader instanceof $Reader))
-                                reader = new $Reader(reader);
-                            return this.decode(reader, reader.uint32());
-                        };
-    
-                        /**
-                         * Verifies a KeyOperationAttestation message.
-                         * @function verify
-                         * @memberof google.cloud.kms.v1.KeyOperationAttestation
-                         * @static
-                         * @param {Object.<string,*>} message Plain object to verify
-                         * @returns {string|null} `null` if valid, otherwise the reason why it is not
-                         */
-                        KeyOperationAttestation.verify = function verify(message) {
-                            if (typeof message !== "object" || message === null)
-                                return "object expected";
-                            if (message.format != null && message.hasOwnProperty("format"))
-                                switch (message.format) {
-                                default:
-                                    return "format: enum value expected";
-                                case 0:
-                                case 3:
-                                case 4:
-                                    break;
-                                }
-                            if (message.content != null && message.hasOwnProperty("content"))
-                                if (!(message.content && typeof message.content.length === "number" || $util.isString(message.content)))
-                                    return "content: buffer expected";
-                            return null;
-                        };
-    
-                        /**
-                         * Creates a KeyOperationAttestation message from a plain object. Also converts values to their respective internal types.
-                         * @function fromObject
-                         * @memberof google.cloud.kms.v1.KeyOperationAttestation
-                         * @static
-                         * @param {Object.<string,*>} object Plain object
-                         * @returns {google.cloud.kms.v1.KeyOperationAttestation} KeyOperationAttestation
-                         */
-                        KeyOperationAttestation.fromObject = function fromObject(object) {
-                            if (object instanceof $root.google.cloud.kms.v1.KeyOperationAttestation)
-                                return object;
-                            var message = new $root.google.cloud.kms.v1.KeyOperationAttestation();
-                            switch (object.format) {
-                            case "ATTESTATION_FORMAT_UNSPECIFIED":
-                            case 0:
-                                message.format = 0;
-                                break;
-                            case "CAVIUM_V1_COMPRESSED":
-                            case 3:
-                                message.format = 3;
-                                break;
-                            case "CAVIUM_V2_COMPRESSED":
-                            case 4:
-                                message.format = 4;
-                                break;
-                            }
-                            if (object.content != null)
-                                if (typeof object.content === "string")
-                                    $util.base64.decode(object.content, message.content = $util.newBuffer($util.base64.length(object.content)), 0);
-                                else if (object.content.length)
-                                    message.content = object.content;
-                            return message;
-                        };
-    
-                        /**
-                         * Creates a plain object from a KeyOperationAttestation message. Also converts values to other types if specified.
-                         * @function toObject
-                         * @memberof google.cloud.kms.v1.KeyOperationAttestation
-                         * @static
-                         * @param {google.cloud.kms.v1.KeyOperationAttestation} message KeyOperationAttestation
-                         * @param {$protobuf.IConversionOptions} [options] Conversion options
-                         * @returns {Object.<string,*>} Plain object
-                         */
-                        KeyOperationAttestation.toObject = function toObject(message, options) {
-                            if (!options)
-                                options = {};
-                            var object = {};
-                            if (options.defaults) {
-                                object.format = options.enums === String ? "ATTESTATION_FORMAT_UNSPECIFIED" : 0;
-                                if (options.bytes === String)
-                                    object.content = "";
-                                else {
-                                    object.content = [];
-                                    if (options.bytes !== Array)
-                                        object.content = $util.newBuffer(object.content);
-                                }
-                            }
-                            if (message.format != null && message.hasOwnProperty("format"))
-                                object.format = options.enums === String ? $root.google.cloud.kms.v1.KeyOperationAttestation.AttestationFormat[message.format] : message.format;
-                            if (message.content != null && message.hasOwnProperty("content"))
-                                object.content = options.bytes === String ? $util.base64.encode(message.content, 0, message.content.length) : options.bytes === Array ? Array.prototype.slice.call(message.content) : message.content;
-                            return object;
-                        };
-    
-                        /**
-                         * Converts this KeyOperationAttestation to JSON.
-                         * @function toJSON
-                         * @memberof google.cloud.kms.v1.KeyOperationAttestation
-                         * @instance
-                         * @returns {Object.<string,*>} JSON object
-                         */
-                        KeyOperationAttestation.prototype.toJSON = function toJSON() {
-                            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-                        };
-    
-                        /**
-                         * AttestationFormat enum.
-                         * @name google.cloud.kms.v1.KeyOperationAttestation.AttestationFormat
-                         * @enum {string}
-                         * @property {number} ATTESTATION_FORMAT_UNSPECIFIED=0 ATTESTATION_FORMAT_UNSPECIFIED value
-                         * @property {number} CAVIUM_V1_COMPRESSED=3 CAVIUM_V1_COMPRESSED value
-                         * @property {number} CAVIUM_V2_COMPRESSED=4 CAVIUM_V2_COMPRESSED value
-                         */
-                        KeyOperationAttestation.AttestationFormat = (function() {
-                            var valuesById = {}, values = Object.create(valuesById);
-                            values[valuesById[0] = "ATTESTATION_FORMAT_UNSPECIFIED"] = 0;
-                            values[valuesById[3] = "CAVIUM_V1_COMPRESSED"] = 3;
-                            values[valuesById[4] = "CAVIUM_V2_COMPRESSED"] = 4;
-                            return values;
-                        })();
-    
-                        return KeyOperationAttestation;
-                    })();
-    
-                    v1.CryptoKeyVersion = (function() {
-    
-                        /**
-                         * Properties of a CryptoKeyVersion.
-                         * @memberof google.cloud.kms.v1
-                         * @interface ICryptoKeyVersion
-                         * @property {string|null} [name] CryptoKeyVersion name
-                         * @property {google.cloud.kms.v1.CryptoKeyVersion.CryptoKeyVersionState|null} [state] CryptoKeyVersion state
-                         * @property {google.cloud.kms.v1.ProtectionLevel|null} [protectionLevel] CryptoKeyVersion protectionLevel
-                         * @property {google.cloud.kms.v1.CryptoKeyVersion.CryptoKeyVersionAlgorithm|null} [algorithm] CryptoKeyVersion algorithm
-                         * @property {google.cloud.kms.v1.IKeyOperationAttestation|null} [attestation] CryptoKeyVersion attestation
-                         * @property {google.protobuf.ITimestamp|null} [createTime] CryptoKeyVersion createTime
-                         * @property {google.protobuf.ITimestamp|null} [generateTime] CryptoKeyVersion generateTime
-                         * @property {google.protobuf.ITimestamp|null} [destroyTime] CryptoKeyVersion destroyTime
-                         * @property {google.protobuf.ITimestamp|null} [destroyEventTime] CryptoKeyVersion destroyEventTime
-                         * @property {string|null} [importJob] CryptoKeyVersion importJob
-                         * @property {google.protobuf.ITimestamp|null} [importTime] CryptoKeyVersion importTime
-                         * @property {string|null} [importFailureReason] CryptoKeyVersion importFailureReason
-                         */
-    
-                        /**
-                         * Constructs a new CryptoKeyVersion.
-                         * @memberof google.cloud.kms.v1
-                         * @classdesc Represents a CryptoKeyVersion.
-                         * @implements ICryptoKeyVersion
-                         * @constructor
-                         * @param {google.cloud.kms.v1.ICryptoKeyVersion=} [properties] Properties to set
-                         */
-                        function CryptoKeyVersion(properties) {
-                            if (properties)
-                                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                                    if (properties[keys[i]] != null)
-                                        this[keys[i]] = properties[keys[i]];
-                        }
-    
-                        /**
-                         * CryptoKeyVersion name.
-                         * @member {string} name
-                         * @memberof google.cloud.kms.v1.CryptoKeyVersion
-                         * @instance
-                         */
-                        CryptoKeyVersion.prototype.name = "";
-    
-                        /**
-                         * CryptoKeyVersion state.
-                         * @member {google.cloud.kms.v1.CryptoKeyVersion.CryptoKeyVersionState} state
-                         * @memberof google.cloud.kms.v1.CryptoKeyVersion
-                         * @instance
-                         */
-                        CryptoKeyVersion.prototype.state = 0;
-    
-                        /**
-                         * CryptoKeyVersion protectionLevel.
-                         * @member {google.cloud.kms.v1.ProtectionLevel} protectionLevel
-                         * @memberof google.cloud.kms.v1.CryptoKeyVersion
-                         * @instance
-                         */
-                        CryptoKeyVersion.prototype.protectionLevel = 0;
-    
-                        /**
-                         * CryptoKeyVersion algorithm.
-                         * @member {google.cloud.kms.v1.CryptoKeyVersion.CryptoKeyVersionAlgorithm} algorithm
-                         * @memberof google.cloud.kms.v1.CryptoKeyVersion
-                         * @instance
-                         */
-                        CryptoKeyVersion.prototype.algorithm = 0;
-    
-                        /**
-                         * CryptoKeyVersion attestation.
-                         * @member {google.cloud.kms.v1.IKeyOperationAttestation|null|undefined} attestation
-                         * @memberof google.cloud.kms.v1.CryptoKeyVersion
-                         * @instance
-                         */
-                        CryptoKeyVersion.prototype.attestation = null;
-    
-                        /**
-                         * CryptoKeyVersion createTime.
-                         * @member {google.protobuf.ITimestamp|null|undefined} createTime
-                         * @memberof google.cloud.kms.v1.CryptoKeyVersion
-                         * @instance
-                         */
-                        CryptoKeyVersion.prototype.createTime = null;
-    
-                        /**
-                         * CryptoKeyVersion generateTime.
-                         * @member {google.protobuf.ITimestamp|null|undefined} generateTime
-                         * @memberof google.cloud.kms.v1.CryptoKeyVersion
-                         * @instance
-                         */
-                        CryptoKeyVersion.prototype.generateTime = null;
-    
-                        /**
-                         * CryptoKeyVersion destroyTime.
-                         * @member {google.protobuf.ITimestamp|null|undefined} destroyTime
-                         * @memberof google.cloud.kms.v1.CryptoKeyVersion
-                         * @instance
-                         */
-                        CryptoKeyVersion.prototype.destroyTime = null;
-    
-                        /**
-                         * CryptoKeyVersion destroyEventTime.
-                         * @member {google.protobuf.ITimestamp|null|undefined} destroyEventTime
-                         * @memberof google.cloud.kms.v1.CryptoKeyVersion
-                         * @instance
-                         */
-                        CryptoKeyVersion.prototype.destroyEventTime = null;
-    
-                        /**
-                         * CryptoKeyVersion importJob.
-                         * @member {string} importJob
-                         * @memberof google.cloud.kms.v1.CryptoKeyVersion
-                         * @instance
-                         */
-                        CryptoKeyVersion.prototype.importJob = "";
-    
-                        /**
-                         * CryptoKeyVersion importTime.
-                         * @member {google.protobuf.ITimestamp|null|undefined} importTime
-                         * @memberof google.cloud.kms.v1.CryptoKeyVersion
-                         * @instance
-                         */
-                        CryptoKeyVersion.prototype.importTime = null;
-    
-                        /**
-                         * CryptoKeyVersion importFailureReason.
-                         * @member {string} importFailureReason
-                         * @memberof google.cloud.kms.v1.CryptoKeyVersion
-                         * @instance
-                         */
-                        CryptoKeyVersion.prototype.importFailureReason = "";
-    
-                        /**
-                         * Creates a new CryptoKeyVersion instance using the specified properties.
-                         * @function create
-                         * @memberof google.cloud.kms.v1.CryptoKeyVersion
-                         * @static
-                         * @param {google.cloud.kms.v1.ICryptoKeyVersion=} [properties] Properties to set
-                         * @returns {google.cloud.kms.v1.CryptoKeyVersion} CryptoKeyVersion instance
-                         */
-                        CryptoKeyVersion.create = function create(properties) {
-                            return new CryptoKeyVersion(properties);
-                        };
-    
-                        /**
-                         * Encodes the specified CryptoKeyVersion message. Does not implicitly {@link google.cloud.kms.v1.CryptoKeyVersion.verify|verify} messages.
-                         * @function encode
-                         * @memberof google.cloud.kms.v1.CryptoKeyVersion
-                         * @static
-                         * @param {google.cloud.kms.v1.ICryptoKeyVersion} message CryptoKeyVersion message or plain object to encode
-                         * @param {$protobuf.Writer} [writer] Writer to encode to
-                         * @returns {$protobuf.Writer} Writer
-                         */
-                        CryptoKeyVersion.encode = function encode(message, writer) {
-                            if (!writer)
-                                writer = $Writer.create();
-                            if (message.name != null && message.hasOwnProperty("name"))
-                                writer.uint32(/* id 1, wireType 2 =*/10).string(message.name);
-                            if (message.state != null && message.hasOwnProperty("state"))
-                                writer.uint32(/* id 3, wireType 0 =*/24).int32(message.state);
-                            if (message.createTime != null && message.hasOwnProperty("createTime"))
-                                $root.google.protobuf.Timestamp.encode(message.createTime, writer.uint32(/* id 4, wireType 2 =*/34).fork()).ldelim();
-                            if (message.destroyTime != null && message.hasOwnProperty("destroyTime"))
-                                $root.google.protobuf.Timestamp.encode(message.destroyTime, writer.uint32(/* id 5, wireType 2 =*/42).fork()).ldelim();
-                            if (message.destroyEventTime != null && message.hasOwnProperty("destroyEventTime"))
-                                $root.google.protobuf.Timestamp.encode(message.destroyEventTime, writer.uint32(/* id 6, wireType 2 =*/50).fork()).ldelim();
-                            if (message.protectionLevel != null && message.hasOwnProperty("protectionLevel"))
-                                writer.uint32(/* id 7, wireType 0 =*/56).int32(message.protectionLevel);
-                            if (message.attestation != null && message.hasOwnProperty("attestation"))
-                                $root.google.cloud.kms.v1.KeyOperationAttestation.encode(message.attestation, writer.uint32(/* id 8, wireType 2 =*/66).fork()).ldelim();
-                            if (message.algorithm != null && message.hasOwnProperty("algorithm"))
-                                writer.uint32(/* id 10, wireType 0 =*/80).int32(message.algorithm);
-                            if (message.generateTime != null && message.hasOwnProperty("generateTime"))
-                                $root.google.protobuf.Timestamp.encode(message.generateTime, writer.uint32(/* id 11, wireType 2 =*/90).fork()).ldelim();
-                            if (message.importJob != null && message.hasOwnProperty("importJob"))
-                                writer.uint32(/* id 14, wireType 2 =*/114).string(message.importJob);
-                            if (message.importTime != null && message.hasOwnProperty("importTime"))
-                                $root.google.protobuf.Timestamp.encode(message.importTime, writer.uint32(/* id 15, wireType 2 =*/122).fork()).ldelim();
-                            if (message.importFailureReason != null && message.hasOwnProperty("importFailureReason"))
-                                writer.uint32(/* id 16, wireType 2 =*/130).string(message.importFailureReason);
-                            return writer;
-                        };
-    
-                        /**
-                         * Encodes the specified CryptoKeyVersion message, length delimited. Does not implicitly {@link google.cloud.kms.v1.CryptoKeyVersion.verify|verify} messages.
-                         * @function encodeDelimited
-                         * @memberof google.cloud.kms.v1.CryptoKeyVersion
-                         * @static
-                         * @param {google.cloud.kms.v1.ICryptoKeyVersion} message CryptoKeyVersion message or plain object to encode
-                         * @param {$protobuf.Writer} [writer] Writer to encode to
-                         * @returns {$protobuf.Writer} Writer
-                         */
-                        CryptoKeyVersion.encodeDelimited = function encodeDelimited(message, writer) {
-                            return this.encode(message, writer).ldelim();
-                        };
-    
-                        /**
-                         * Decodes a CryptoKeyVersion message from the specified reader or buffer.
-                         * @function decode
-                         * @memberof google.cloud.kms.v1.CryptoKeyVersion
-                         * @static
-                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                         * @param {number} [length] Message length if known beforehand
-                         * @returns {google.cloud.kms.v1.CryptoKeyVersion} CryptoKeyVersion
-                         * @throws {Error} If the payload is not a reader or valid buffer
-                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                         */
-                        CryptoKeyVersion.decode = function decode(reader, length) {
-                            if (!(reader instanceof $Reader))
-                                reader = $Reader.create(reader);
-                            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.cloud.kms.v1.CryptoKeyVersion();
-                            while (reader.pos < end) {
-                                var tag = reader.uint32();
-                                switch (tag >>> 3) {
-                                case 1:
-                                    message.name = reader.string();
-                                    break;
-                                case 3:
-                                    message.state = reader.int32();
-                                    break;
-                                case 7:
-                                    message.protectionLevel = reader.int32();
-                                    break;
-                                case 10:
-                                    message.algorithm = reader.int32();
-                                    break;
-                                case 8:
-                                    message.attestation = $root.google.cloud.kms.v1.KeyOperationAttestation.decode(reader, reader.uint32());
-                                    break;
-                                case 4:
-                                    message.createTime = $root.google.protobuf.Timestamp.decode(reader, reader.uint32());
-                                    break;
-                                case 11:
-                                    message.generateTime = $root.google.protobuf.Timestamp.decode(reader, reader.uint32());
-                                    break;
-                                case 5:
-                                    message.destroyTime = $root.google.protobuf.Timestamp.decode(reader, reader.uint32());
-                                    break;
-                                case 6:
-                                    message.destroyEventTime = $root.google.protobuf.Timestamp.decode(reader, reader.uint32());
-                                    break;
-                                case 14:
-                                    message.importJob = reader.string();
-                                    break;
-                                case 15:
-                                    message.importTime = $root.google.protobuf.Timestamp.decode(reader, reader.uint32());
-                                    break;
-                                case 16:
-                                    message.importFailureReason = reader.string();
-                                    break;
-                                default:
-                                    reader.skipType(tag & 7);
-                                    break;
-                                }
-                            }
-                            return message;
-                        };
-    
-                        /**
-                         * Decodes a CryptoKeyVersion message from the specified reader or buffer, length delimited.
-                         * @function decodeDelimited
-                         * @memberof google.cloud.kms.v1.CryptoKeyVersion
-                         * @static
-                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                         * @returns {google.cloud.kms.v1.CryptoKeyVersion} CryptoKeyVersion
-                         * @throws {Error} If the payload is not a reader or valid buffer
-                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                         */
-                        CryptoKeyVersion.decodeDelimited = function decodeDelimited(reader) {
-                            if (!(reader instanceof $Reader))
-                                reader = new $Reader(reader);
-                            return this.decode(reader, reader.uint32());
-                        };
-    
-                        /**
-                         * Verifies a CryptoKeyVersion message.
-                         * @function verify
-                         * @memberof google.cloud.kms.v1.CryptoKeyVersion
-                         * @static
-                         * @param {Object.<string,*>} message Plain object to verify
-                         * @returns {string|null} `null` if valid, otherwise the reason why it is not
-                         */
-                        CryptoKeyVersion.verify = function verify(message) {
-                            if (typeof message !== "object" || message === null)
-                                return "object expected";
-                            if (message.name != null && message.hasOwnProperty("name"))
-                                if (!$util.isString(message.name))
-                                    return "name: string expected";
-                            if (message.state != null && message.hasOwnProperty("state"))
-                                switch (message.state) {
-                                default:
-                                    return "state: enum value expected";
-                                case 0:
-                                case 5:
-                                case 1:
-                                case 2:
-                                case 3:
-                                case 4:
-                                case 6:
-                                case 7:
-                                    break;
-                                }
-                            if (message.protectionLevel != null && message.hasOwnProperty("protectionLevel"))
-                                switch (message.protectionLevel) {
-                                default:
-                                    return "protectionLevel: enum value expected";
-                                case 0:
-                                case 1:
-                                case 2:
-                                    break;
-                                }
-                            if (message.algorithm != null && message.hasOwnProperty("algorithm"))
-                                switch (message.algorithm) {
-                                default:
-                                    return "algorithm: enum value expected";
-                                case 0:
-                                case 1:
-                                case 2:
-                                case 3:
-                                case 4:
-                                case 15:
-                                case 5:
-                                case 6:
-                                case 7:
-                                case 16:
-                                case 8:
-                                case 9:
-                                case 10:
-                                case 17:
-                                case 12:
-                                case 13:
-                                    break;
-                                }
-                            if (message.attestation != null && message.hasOwnProperty("attestation")) {
-                                var error = $root.google.cloud.kms.v1.KeyOperationAttestation.verify(message.attestation);
-                                if (error)
-                                    return "attestation." + error;
-                            }
-                            if (message.createTime != null && message.hasOwnProperty("createTime")) {
-                                var error = $root.google.protobuf.Timestamp.verify(message.createTime);
-                                if (error)
-                                    return "createTime." + error;
-                            }
-                            if (message.generateTime != null && message.hasOwnProperty("generateTime")) {
-                                var error = $root.google.protobuf.Timestamp.verify(message.generateTime);
-                                if (error)
-                                    return "generateTime." + error;
-                            }
-                            if (message.destroyTime != null && message.hasOwnProperty("destroyTime")) {
-                                var error = $root.google.protobuf.Timestamp.verify(message.destroyTime);
-                                if (error)
-                                    return "destroyTime." + error;
-                            }
-                            if (message.destroyEventTime != null && message.hasOwnProperty("destroyEventTime")) {
-                                var error = $root.google.protobuf.Timestamp.verify(message.destroyEventTime);
-                                if (error)
-                                    return "destroyEventTime." + error;
-                            }
-                            if (message.importJob != null && message.hasOwnProperty("importJob"))
-                                if (!$util.isString(message.importJob))
-                                    return "importJob: string expected";
-                            if (message.importTime != null && message.hasOwnProperty("importTime")) {
-                                var error = $root.google.protobuf.Timestamp.verify(message.importTime);
-                                if (error)
-                                    return "importTime." + error;
-                            }
-                            if (message.importFailureReason != null && message.hasOwnProperty("importFailureReason"))
-                                if (!$util.isString(message.importFailureReason))
-                                    return "importFailureReason: string expected";
-                            return null;
-                        };
-    
-                        /**
-                         * Creates a CryptoKeyVersion message from a plain object. Also converts values to their respective internal types.
-                         * @function fromObject
-                         * @memberof google.cloud.kms.v1.CryptoKeyVersion
-                         * @static
-                         * @param {Object.<string,*>} object Plain object
-                         * @returns {google.cloud.kms.v1.CryptoKeyVersion} CryptoKeyVersion
-                         */
-                        CryptoKeyVersion.fromObject = function fromObject(object) {
-                            if (object instanceof $root.google.cloud.kms.v1.CryptoKeyVersion)
-                                return object;
-                            var message = new $root.google.cloud.kms.v1.CryptoKeyVersion();
-                            if (object.name != null)
-                                message.name = String(object.name);
-                            switch (object.state) {
-                            case "CRYPTO_KEY_VERSION_STATE_UNSPECIFIED":
-                            case 0:
-                                message.state = 0;
-                                break;
-                            case "PENDING_GENERATION":
-                            case 5:
-                                message.state = 5;
-                                break;
-                            case "ENABLED":
-                            case 1:
-                                message.state = 1;
-                                break;
-                            case "DISABLED":
-                            case 2:
-                                message.state = 2;
-                                break;
-                            case "DESTROYED":
-                            case 3:
-                                message.state = 3;
-                                break;
-                            case "DESTROY_SCHEDULED":
-                            case 4:
-                                message.state = 4;
-                                break;
-                            case "PENDING_IMPORT":
-                            case 6:
-                                message.state = 6;
-                                break;
-                            case "IMPORT_FAILED":
-                            case 7:
-                                message.state = 7;
-                                break;
-                            }
-                            switch (object.protectionLevel) {
-                            case "PROTECTION_LEVEL_UNSPECIFIED":
-                            case 0:
-                                message.protectionLevel = 0;
-                                break;
-                            case "SOFTWARE":
-                            case 1:
-                                message.protectionLevel = 1;
-                                break;
-                            case "HSM":
-                            case 2:
-                                message.protectionLevel = 2;
-                                break;
-                            }
-                            switch (object.algorithm) {
-                            case "CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED":
-                            case 0:
-                                message.algorithm = 0;
-                                break;
-                            case "GOOGLE_SYMMETRIC_ENCRYPTION":
-                            case 1:
-                                message.algorithm = 1;
-                                break;
-                            case "RSA_SIGN_PSS_2048_SHA256":
-                            case 2:
-                                message.algorithm = 2;
-                                break;
-                            case "RSA_SIGN_PSS_3072_SHA256":
-                            case 3:
-                                message.algorithm = 3;
-                                break;
-                            case "RSA_SIGN_PSS_4096_SHA256":
-                            case 4:
-                                message.algorithm = 4;
-                                break;
-                            case "RSA_SIGN_PSS_4096_SHA512":
-                            case 15:
-                                message.algorithm = 15;
-                                break;
-                            case "RSA_SIGN_PKCS1_2048_SHA256":
-                            case 5:
-                                message.algorithm = 5;
-                                break;
-                            case "RSA_SIGN_PKCS1_3072_SHA256":
-                            case 6:
-                                message.algorithm = 6;
-                                break;
-                            case "RSA_SIGN_PKCS1_4096_SHA256":
-                            case 7:
-                                message.algorithm = 7;
-                                break;
-                            case "RSA_SIGN_PKCS1_4096_SHA512":
-                            case 16:
-                                message.algorithm = 16;
-                                break;
-                            case "RSA_DECRYPT_OAEP_2048_SHA256":
-                            case 8:
-                                message.algorithm = 8;
-                                break;
-                            case "RSA_DECRYPT_OAEP_3072_SHA256":
-                            case 9:
-                                message.algorithm = 9;
-                                break;
-                            case "RSA_DECRYPT_OAEP_4096_SHA256":
-                            case 10:
-                                message.algorithm = 10;
-                                break;
-                            case "RSA_DECRYPT_OAEP_4096_SHA512":
-                            case 17:
-                                message.algorithm = 17;
-                                break;
-                            case "EC_SIGN_P256_SHA256":
-                            case 12:
-                                message.algorithm = 12;
-                                break;
-                            case "EC_SIGN_P384_SHA384":
-                            case 13:
-                                message.algorithm = 13;
-                                break;
-                            }
-                            if (object.attestation != null) {
-                                if (typeof object.attestation !== "object")
-                                    throw TypeError(".google.cloud.kms.v1.CryptoKeyVersion.attestation: object expected");
-                                message.attestation = $root.google.cloud.kms.v1.KeyOperationAttestation.fromObject(object.attestation);
-                            }
-                            if (object.createTime != null) {
-                                if (typeof object.createTime !== "object")
-                                    throw TypeError(".google.cloud.kms.v1.CryptoKeyVersion.createTime: object expected");
-                                message.createTime = $root.google.protobuf.Timestamp.fromObject(object.createTime);
-                            }
-                            if (object.generateTime != null) {
-                                if (typeof object.generateTime !== "object")
-                                    throw TypeError(".google.cloud.kms.v1.CryptoKeyVersion.generateTime: object expected");
-                                message.generateTime = $root.google.protobuf.Timestamp.fromObject(object.generateTime);
-                            }
-                            if (object.destroyTime != null) {
-                                if (typeof object.destroyTime !== "object")
-                                    throw TypeError(".google.cloud.kms.v1.CryptoKeyVersion.destroyTime: object expected");
-                                message.destroyTime = $root.google.protobuf.Timestamp.fromObject(object.destroyTime);
-                            }
-                            if (object.destroyEventTime != null) {
-                                if (typeof object.destroyEventTime !== "object")
-                                    throw TypeError(".google.cloud.kms.v1.CryptoKeyVersion.destroyEventTime: object expected");
-                                message.destroyEventTime = $root.google.protobuf.Timestamp.fromObject(object.destroyEventTime);
-                            }
-                            if (object.importJob != null)
-                                message.importJob = String(object.importJob);
-                            if (object.importTime != null) {
-                                if (typeof object.importTime !== "object")
-                                    throw TypeError(".google.cloud.kms.v1.CryptoKeyVersion.importTime: object expected");
-                                message.importTime = $root.google.protobuf.Timestamp.fromObject(object.importTime);
-                            }
-                            if (object.importFailureReason != null)
-                                message.importFailureReason = String(object.importFailureReason);
-                            return message;
-                        };
-    
-                        /**
-                         * Creates a plain object from a CryptoKeyVersion message. Also converts values to other types if specified.
-                         * @function toObject
-                         * @memberof google.cloud.kms.v1.CryptoKeyVersion
-                         * @static
-                         * @param {google.cloud.kms.v1.CryptoKeyVersion} message CryptoKeyVersion
-                         * @param {$protobuf.IConversionOptions} [options] Conversion options
-                         * @returns {Object.<string,*>} Plain object
-                         */
-                        CryptoKeyVersion.toObject = function toObject(message, options) {
-                            if (!options)
-                                options = {};
-                            var object = {};
-                            if (options.defaults) {
-                                object.name = "";
-                                object.state = options.enums === String ? "CRYPTO_KEY_VERSION_STATE_UNSPECIFIED" : 0;
-                                object.createTime = null;
-                                object.destroyTime = null;
-                                object.destroyEventTime = null;
-                                object.protectionLevel = options.enums === String ? "PROTECTION_LEVEL_UNSPECIFIED" : 0;
-                                object.attestation = null;
-                                object.algorithm = options.enums === String ? "CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED" : 0;
-                                object.generateTime = null;
-                                object.importJob = "";
-                                object.importTime = null;
-                                object.importFailureReason = "";
-                            }
-                            if (message.name != null && message.hasOwnProperty("name"))
-                                object.name = message.name;
-                            if (message.state != null && message.hasOwnProperty("state"))
-                                object.state = options.enums === String ? $root.google.cloud.kms.v1.CryptoKeyVersion.CryptoKeyVersionState[message.state] : message.state;
-                            if (message.createTime != null && message.hasOwnProperty("createTime"))
-                                object.createTime = $root.google.protobuf.Timestamp.toObject(message.createTime, options);
-                            if (message.destroyTime != null && message.hasOwnProperty("destroyTime"))
-                                object.destroyTime = $root.google.protobuf.Timestamp.toObject(message.destroyTime, options);
-                            if (message.destroyEventTime != null && message.hasOwnProperty("destroyEventTime"))
-                                object.destroyEventTime = $root.google.protobuf.Timestamp.toObject(message.destroyEventTime, options);
-                            if (message.protectionLevel != null && message.hasOwnProperty("protectionLevel"))
-                                object.protectionLevel = options.enums === String ? $root.google.cloud.kms.v1.ProtectionLevel[message.protectionLevel] : message.protectionLevel;
-                            if (message.attestation != null && message.hasOwnProperty("attestation"))
-                                object.attestation = $root.google.cloud.kms.v1.KeyOperationAttestation.toObject(message.attestation, options);
-                            if (message.algorithm != null && message.hasOwnProperty("algorithm"))
-                                object.algorithm = options.enums === String ? $root.google.cloud.kms.v1.CryptoKeyVersion.CryptoKeyVersionAlgorithm[message.algorithm] : message.algorithm;
-                            if (message.generateTime != null && message.hasOwnProperty("generateTime"))
-                                object.generateTime = $root.google.protobuf.Timestamp.toObject(message.generateTime, options);
-                            if (message.importJob != null && message.hasOwnProperty("importJob"))
-                                object.importJob = message.importJob;
-                            if (message.importTime != null && message.hasOwnProperty("importTime"))
-                                object.importTime = $root.google.protobuf.Timestamp.toObject(message.importTime, options);
-                            if (message.importFailureReason != null && message.hasOwnProperty("importFailureReason"))
-                                object.importFailureReason = message.importFailureReason;
-                            return object;
-                        };
-    
-                        /**
-                         * Converts this CryptoKeyVersion to JSON.
-                         * @function toJSON
-                         * @memberof google.cloud.kms.v1.CryptoKeyVersion
-                         * @instance
-                         * @returns {Object.<string,*>} JSON object
-                         */
-                        CryptoKeyVersion.prototype.toJSON = function toJSON() {
-                            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-                        };
-    
-                        /**
-                         * CryptoKeyVersionAlgorithm enum.
-                         * @name google.cloud.kms.v1.CryptoKeyVersion.CryptoKeyVersionAlgorithm
-                         * @enum {string}
-                         * @property {number} CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED=0 CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED value
-                         * @property {number} GOOGLE_SYMMETRIC_ENCRYPTION=1 GOOGLE_SYMMETRIC_ENCRYPTION value
-                         * @property {number} RSA_SIGN_PSS_2048_SHA256=2 RSA_SIGN_PSS_2048_SHA256 value
-                         * @property {number} RSA_SIGN_PSS_3072_SHA256=3 RSA_SIGN_PSS_3072_SHA256 value
-                         * @property {number} RSA_SIGN_PSS_4096_SHA256=4 RSA_SIGN_PSS_4096_SHA256 value
-                         * @property {number} RSA_SIGN_PSS_4096_SHA512=15 RSA_SIGN_PSS_4096_SHA512 value
-                         * @property {number} RSA_SIGN_PKCS1_2048_SHA256=5 RSA_SIGN_PKCS1_2048_SHA256 value
-                         * @property {number} RSA_SIGN_PKCS1_3072_SHA256=6 RSA_SIGN_PKCS1_3072_SHA256 value
-                         * @property {number} RSA_SIGN_PKCS1_4096_SHA256=7 RSA_SIGN_PKCS1_4096_SHA256 value
-                         * @property {number} RSA_SIGN_PKCS1_4096_SHA512=16 RSA_SIGN_PKCS1_4096_SHA512 value
-                         * @property {number} RSA_DECRYPT_OAEP_2048_SHA256=8 RSA_DECRYPT_OAEP_2048_SHA256 value
-                         * @property {number} RSA_DECRYPT_OAEP_3072_SHA256=9 RSA_DECRYPT_OAEP_3072_SHA256 value
-                         * @property {number} RSA_DECRYPT_OAEP_4096_SHA256=10 RSA_DECRYPT_OAEP_4096_SHA256 value
-                         * @property {number} RSA_DECRYPT_OAEP_4096_SHA512=17 RSA_DECRYPT_OAEP_4096_SHA512 value
-                         * @property {number} EC_SIGN_P256_SHA256=12 EC_SIGN_P256_SHA256 value
-                         * @property {number} EC_SIGN_P384_SHA384=13 EC_SIGN_P384_SHA384 value
-                         */
-                        CryptoKeyVersion.CryptoKeyVersionAlgorithm = (function() {
-                            var valuesById = {}, values = Object.create(valuesById);
-                            values[valuesById[0] = "CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED"] = 0;
-                            values[valuesById[1] = "GOOGLE_SYMMETRIC_ENCRYPTION"] = 1;
-                            values[valuesById[2] = "RSA_SIGN_PSS_2048_SHA256"] = 2;
-                            values[valuesById[3] = "RSA_SIGN_PSS_3072_SHA256"] = 3;
-                            values[valuesById[4] = "RSA_SIGN_PSS_4096_SHA256"] = 4;
-                            values[valuesById[15] = "RSA_SIGN_PSS_4096_SHA512"] = 15;
-                            values[valuesById[5] = "RSA_SIGN_PKCS1_2048_SHA256"] = 5;
-                            values[valuesById[6] = "RSA_SIGN_PKCS1_3072_SHA256"] = 6;
-                            values[valuesById[7] = "RSA_SIGN_PKCS1_4096_SHA256"] = 7;
-                            values[valuesById[16] = "RSA_SIGN_PKCS1_4096_SHA512"] = 16;
-                            values[valuesById[8] = "RSA_DECRYPT_OAEP_2048_SHA256"] = 8;
-                            values[valuesById[9] = "RSA_DECRYPT_OAEP_3072_SHA256"] = 9;
-                            values[valuesById[10] = "RSA_DECRYPT_OAEP_4096_SHA256"] = 10;
-                            values[valuesById[17] = "RSA_DECRYPT_OAEP_4096_SHA512"] = 17;
-                            values[valuesById[12] = "EC_SIGN_P256_SHA256"] = 12;
-                            values[valuesById[13] = "EC_SIGN_P384_SHA384"] = 13;
-                            return values;
-                        })();
-    
-                        /**
-                         * CryptoKeyVersionState enum.
-                         * @name google.cloud.kms.v1.CryptoKeyVersion.CryptoKeyVersionState
-                         * @enum {string}
-                         * @property {number} CRYPTO_KEY_VERSION_STATE_UNSPECIFIED=0 CRYPTO_KEY_VERSION_STATE_UNSPECIFIED value
-                         * @property {number} PENDING_GENERATION=5 PENDING_GENERATION value
-                         * @property {number} ENABLED=1 ENABLED value
-                         * @property {number} DISABLED=2 DISABLED value
-                         * @property {number} DESTROYED=3 DESTROYED value
-                         * @property {number} DESTROY_SCHEDULED=4 DESTROY_SCHEDULED value
-                         * @property {number} PENDING_IMPORT=6 PENDING_IMPORT value
-                         * @property {number} IMPORT_FAILED=7 IMPORT_FAILED value
-                         */
-                        CryptoKeyVersion.CryptoKeyVersionState = (function() {
-                            var valuesById = {}, values = Object.create(valuesById);
-                            values[valuesById[0] = "CRYPTO_KEY_VERSION_STATE_UNSPECIFIED"] = 0;
-                            values[valuesById[5] = "PENDING_GENERATION"] = 5;
-                            values[valuesById[1] = "ENABLED"] = 1;
-                            values[valuesById[2] = "DISABLED"] = 2;
-                            values[valuesById[3] = "DESTROYED"] = 3;
-                            values[valuesById[4] = "DESTROY_SCHEDULED"] = 4;
-                            values[valuesById[6] = "PENDING_IMPORT"] = 6;
-                            values[valuesById[7] = "IMPORT_FAILED"] = 7;
-                            return values;
-                        })();
-    
-                        /**
-                         * CryptoKeyVersionView enum.
-                         * @name google.cloud.kms.v1.CryptoKeyVersion.CryptoKeyVersionView
-                         * @enum {string}
-                         * @property {number} CRYPTO_KEY_VERSION_VIEW_UNSPECIFIED=0 CRYPTO_KEY_VERSION_VIEW_UNSPECIFIED value
-                         * @property {number} FULL=1 FULL value
-                         */
-                        CryptoKeyVersion.CryptoKeyVersionView = (function() {
-                            var valuesById = {}, values = Object.create(valuesById);
-                            values[valuesById[0] = "CRYPTO_KEY_VERSION_VIEW_UNSPECIFIED"] = 0;
-                            values[valuesById[1] = "FULL"] = 1;
-                            return values;
-                        })();
-    
-                        return CryptoKeyVersion;
-                    })();
-    
-                    v1.PublicKey = (function() {
-    
-                        /**
-                         * Properties of a PublicKey.
-                         * @memberof google.cloud.kms.v1
-                         * @interface IPublicKey
-                         * @property {string|null} [pem] PublicKey pem
-                         * @property {google.cloud.kms.v1.CryptoKeyVersion.CryptoKeyVersionAlgorithm|null} [algorithm] PublicKey algorithm
-                         */
-    
-                        /**
-                         * Constructs a new PublicKey.
-                         * @memberof google.cloud.kms.v1
-                         * @classdesc Represents a PublicKey.
-                         * @implements IPublicKey
-                         * @constructor
-                         * @param {google.cloud.kms.v1.IPublicKey=} [properties] Properties to set
-                         */
-                        function PublicKey(properties) {
-                            if (properties)
-                                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                                    if (properties[keys[i]] != null)
-                                        this[keys[i]] = properties[keys[i]];
-                        }
-    
-                        /**
-                         * PublicKey pem.
-                         * @member {string} pem
-                         * @memberof google.cloud.kms.v1.PublicKey
-                         * @instance
-                         */
-                        PublicKey.prototype.pem = "";
-    
-                        /**
-                         * PublicKey algorithm.
-                         * @member {google.cloud.kms.v1.CryptoKeyVersion.CryptoKeyVersionAlgorithm} algorithm
-                         * @memberof google.cloud.kms.v1.PublicKey
-                         * @instance
-                         */
-                        PublicKey.prototype.algorithm = 0;
-    
-                        /**
-                         * Creates a new PublicKey instance using the specified properties.
-                         * @function create
-                         * @memberof google.cloud.kms.v1.PublicKey
-                         * @static
-                         * @param {google.cloud.kms.v1.IPublicKey=} [properties] Properties to set
-                         * @returns {google.cloud.kms.v1.PublicKey} PublicKey instance
-                         */
-                        PublicKey.create = function create(properties) {
-                            return new PublicKey(properties);
-                        };
-    
-                        /**
-                         * Encodes the specified PublicKey message. Does not implicitly {@link google.cloud.kms.v1.PublicKey.verify|verify} messages.
-                         * @function encode
-                         * @memberof google.cloud.kms.v1.PublicKey
-                         * @static
-                         * @param {google.cloud.kms.v1.IPublicKey} message PublicKey message or plain object to encode
-                         * @param {$protobuf.Writer} [writer] Writer to encode to
-                         * @returns {$protobuf.Writer} Writer
-                         */
-                        PublicKey.encode = function encode(message, writer) {
-                            if (!writer)
-                                writer = $Writer.create();
-                            if (message.pem != null && message.hasOwnProperty("pem"))
-                                writer.uint32(/* id 1, wireType 2 =*/10).string(message.pem);
-                            if (message.algorithm != null && message.hasOwnProperty("algorithm"))
-                                writer.uint32(/* id 2, wireType 0 =*/16).int32(message.algorithm);
-                            return writer;
-                        };
-    
-                        /**
-                         * Encodes the specified PublicKey message, length delimited. Does not implicitly {@link google.cloud.kms.v1.PublicKey.verify|verify} messages.
-                         * @function encodeDelimited
-                         * @memberof google.cloud.kms.v1.PublicKey
-                         * @static
-                         * @param {google.cloud.kms.v1.IPublicKey} message PublicKey message or plain object to encode
-                         * @param {$protobuf.Writer} [writer] Writer to encode to
-                         * @returns {$protobuf.Writer} Writer
-                         */
-                        PublicKey.encodeDelimited = function encodeDelimited(message, writer) {
-                            return this.encode(message, writer).ldelim();
-                        };
-    
-                        /**
-                         * Decodes a PublicKey message from the specified reader or buffer.
-                         * @function decode
-                         * @memberof google.cloud.kms.v1.PublicKey
-                         * @static
-                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                         * @param {number} [length] Message length if known beforehand
-                         * @returns {google.cloud.kms.v1.PublicKey} PublicKey
-                         * @throws {Error} If the payload is not a reader or valid buffer
-                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                         */
-                        PublicKey.decode = function decode(reader, length) {
-                            if (!(reader instanceof $Reader))
-                                reader = $Reader.create(reader);
-                            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.cloud.kms.v1.PublicKey();
-                            while (reader.pos < end) {
-                                var tag = reader.uint32();
-                                switch (tag >>> 3) {
-                                case 1:
-                                    message.pem = reader.string();
-                                    break;
-                                case 2:
-                                    message.algorithm = reader.int32();
-                                    break;
-                                default:
-                                    reader.skipType(tag & 7);
-                                    break;
-                                }
-                            }
-                            return message;
-                        };
-    
-                        /**
-                         * Decodes a PublicKey message from the specified reader or buffer, length delimited.
-                         * @function decodeDelimited
-                         * @memberof google.cloud.kms.v1.PublicKey
-                         * @static
-                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                         * @returns {google.cloud.kms.v1.PublicKey} PublicKey
-                         * @throws {Error} If the payload is not a reader or valid buffer
-                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                         */
-                        PublicKey.decodeDelimited = function decodeDelimited(reader) {
-                            if (!(reader instanceof $Reader))
-                                reader = new $Reader(reader);
-                            return this.decode(reader, reader.uint32());
-                        };
-    
-                        /**
-                         * Verifies a PublicKey message.
-                         * @function verify
-                         * @memberof google.cloud.kms.v1.PublicKey
-                         * @static
-                         * @param {Object.<string,*>} message Plain object to verify
-                         * @returns {string|null} `null` if valid, otherwise the reason why it is not
-                         */
-                        PublicKey.verify = function verify(message) {
-                            if (typeof message !== "object" || message === null)
-                                return "object expected";
-                            if (message.pem != null && message.hasOwnProperty("pem"))
-                                if (!$util.isString(message.pem))
-                                    return "pem: string expected";
-                            if (message.algorithm != null && message.hasOwnProperty("algorithm"))
-                                switch (message.algorithm) {
-                                default:
-                                    return "algorithm: enum value expected";
-                                case 0:
-                                case 1:
-                                case 2:
-                                case 3:
-                                case 4:
-                                case 15:
-                                case 5:
-                                case 6:
-                                case 7:
-                                case 16:
-                                case 8:
-                                case 9:
-                                case 10:
-                                case 17:
-                                case 12:
-                                case 13:
-                                    break;
-                                }
-                            return null;
-                        };
-    
-                        /**
-                         * Creates a PublicKey message from a plain object. Also converts values to their respective internal types.
-                         * @function fromObject
-                         * @memberof google.cloud.kms.v1.PublicKey
-                         * @static
-                         * @param {Object.<string,*>} object Plain object
-                         * @returns {google.cloud.kms.v1.PublicKey} PublicKey
-                         */
-                        PublicKey.fromObject = function fromObject(object) {
-                            if (object instanceof $root.google.cloud.kms.v1.PublicKey)
-                                return object;
-                            var message = new $root.google.cloud.kms.v1.PublicKey();
-                            if (object.pem != null)
-                                message.pem = String(object.pem);
-                            switch (object.algorithm) {
-                            case "CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED":
-                            case 0:
-                                message.algorithm = 0;
-                                break;
-                            case "GOOGLE_SYMMETRIC_ENCRYPTION":
-                            case 1:
-                                message.algorithm = 1;
-                                break;
-                            case "RSA_SIGN_PSS_2048_SHA256":
-                            case 2:
-                                message.algorithm = 2;
-                                break;
-                            case "RSA_SIGN_PSS_3072_SHA256":
-                            case 3:
-                                message.algorithm = 3;
-                                break;
-                            case "RSA_SIGN_PSS_4096_SHA256":
-                            case 4:
-                                message.algorithm = 4;
-                                break;
-                            case "RSA_SIGN_PSS_4096_SHA512":
-                            case 15:
-                                message.algorithm = 15;
-                                break;
-                            case "RSA_SIGN_PKCS1_2048_SHA256":
-                            case 5:
-                                message.algorithm = 5;
-                                break;
-                            case "RSA_SIGN_PKCS1_3072_SHA256":
-                            case 6:
-                                message.algorithm = 6;
-                                break;
-                            case "RSA_SIGN_PKCS1_4096_SHA256":
-                            case 7:
-                                message.algorithm = 7;
-                                break;
-                            case "RSA_SIGN_PKCS1_4096_SHA512":
-                            case 16:
-                                message.algorithm = 16;
-                                break;
-                            case "RSA_DECRYPT_OAEP_2048_SHA256":
-                            case 8:
-                                message.algorithm = 8;
-                                break;
-                            case "RSA_DECRYPT_OAEP_3072_SHA256":
-                            case 9:
-                                message.algorithm = 9;
-                                break;
-                            case "RSA_DECRYPT_OAEP_4096_SHA256":
-                            case 10:
-                                message.algorithm = 10;
-                                break;
-                            case "RSA_DECRYPT_OAEP_4096_SHA512":
-                            case 17:
-                                message.algorithm = 17;
-                                break;
-                            case "EC_SIGN_P256_SHA256":
-                            case 12:
-                                message.algorithm = 12;
-                                break;
-                            case "EC_SIGN_P384_SHA384":
-                            case 13:
-                                message.algorithm = 13;
-                                break;
-                            }
-                            return message;
-                        };
-    
-                        /**
-                         * Creates a plain object from a PublicKey message. Also converts values to other types if specified.
-                         * @function toObject
-                         * @memberof google.cloud.kms.v1.PublicKey
-                         * @static
-                         * @param {google.cloud.kms.v1.PublicKey} message PublicKey
-                         * @param {$protobuf.IConversionOptions} [options] Conversion options
-                         * @returns {Object.<string,*>} Plain object
-                         */
-                        PublicKey.toObject = function toObject(message, options) {
-                            if (!options)
-                                options = {};
-                            var object = {};
-                            if (options.defaults) {
-                                object.pem = "";
-                                object.algorithm = options.enums === String ? "CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED" : 0;
-                            }
-                            if (message.pem != null && message.hasOwnProperty("pem"))
-                                object.pem = message.pem;
-                            if (message.algorithm != null && message.hasOwnProperty("algorithm"))
-                                object.algorithm = options.enums === String ? $root.google.cloud.kms.v1.CryptoKeyVersion.CryptoKeyVersionAlgorithm[message.algorithm] : message.algorithm;
-                            return object;
-                        };
-    
-                        /**
-                         * Converts this PublicKey to JSON.
-                         * @function toJSON
-                         * @memberof google.cloud.kms.v1.PublicKey
-                         * @instance
-                         * @returns {Object.<string,*>} JSON object
-                         */
-                        PublicKey.prototype.toJSON = function toJSON() {
-                            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-                        };
-    
-                        return PublicKey;
-                    })();
-    
-                    /**
-                     * ProtectionLevel enum.
-                     * @name google.cloud.kms.v1.ProtectionLevel
-                     * @enum {string}
-                     * @property {number} PROTECTION_LEVEL_UNSPECIFIED=0 PROTECTION_LEVEL_UNSPECIFIED value
-                     * @property {number} SOFTWARE=1 SOFTWARE value
-                     * @property {number} HSM=2 HSM value
-                     */
-                    v1.ProtectionLevel = (function() {
-                        var valuesById = {}, values = Object.create(valuesById);
-                        values[valuesById[0] = "PROTECTION_LEVEL_UNSPECIFIED"] = 0;
-                        values[valuesById[1] = "SOFTWARE"] = 1;
-                        values[valuesById[2] = "HSM"] = 2;
-                        return values;
-                    })();
-    
-                    v1.ImportJob = (function() {
-    
-                        /**
-                         * Properties of an ImportJob.
-                         * @memberof google.cloud.kms.v1
-                         * @interface IImportJob
-                         * @property {string|null} [name] ImportJob name
-                         * @property {google.cloud.kms.v1.ImportJob.ImportMethod|null} [importMethod] ImportJob importMethod
-                         * @property {google.cloud.kms.v1.ProtectionLevel|null} [protectionLevel] ImportJob protectionLevel
-                         * @property {google.protobuf.ITimestamp|null} [createTime] ImportJob createTime
-                         * @property {google.protobuf.ITimestamp|null} [generateTime] ImportJob generateTime
-                         * @property {google.protobuf.ITimestamp|null} [expireTime] ImportJob expireTime
-                         * @property {google.protobuf.ITimestamp|null} [expireEventTime] ImportJob expireEventTime
-                         * @property {google.cloud.kms.v1.ImportJob.ImportJobState|null} [state] ImportJob state
-                         * @property {google.cloud.kms.v1.ImportJob.IWrappingPublicKey|null} [publicKey] ImportJob publicKey
-                         * @property {google.cloud.kms.v1.IKeyOperationAttestation|null} [attestation] ImportJob attestation
-                         */
-    
-                        /**
-                         * Constructs a new ImportJob.
-                         * @memberof google.cloud.kms.v1
-                         * @classdesc Represents an ImportJob.
-                         * @implements IImportJob
-                         * @constructor
-                         * @param {google.cloud.kms.v1.IImportJob=} [properties] Properties to set
-                         */
-                        function ImportJob(properties) {
-                            if (properties)
-                                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                                    if (properties[keys[i]] != null)
-                                        this[keys[i]] = properties[keys[i]];
-                        }
-    
-                        /**
-                         * ImportJob name.
-                         * @member {string} name
-                         * @memberof google.cloud.kms.v1.ImportJob
-                         * @instance
-                         */
-                        ImportJob.prototype.name = "";
-    
-                        /**
-                         * ImportJob importMethod.
-                         * @member {google.cloud.kms.v1.ImportJob.ImportMethod} importMethod
-                         * @memberof google.cloud.kms.v1.ImportJob
-                         * @instance
-                         */
-                        ImportJob.prototype.importMethod = 0;
-    
-                        /**
-                         * ImportJob protectionLevel.
-                         * @member {google.cloud.kms.v1.ProtectionLevel} protectionLevel
-                         * @memberof google.cloud.kms.v1.ImportJob
-                         * @instance
-                         */
-                        ImportJob.prototype.protectionLevel = 0;
-    
-                        /**
-                         * ImportJob createTime.
-                         * @member {google.protobuf.ITimestamp|null|undefined} createTime
-                         * @memberof google.cloud.kms.v1.ImportJob
-                         * @instance
-                         */
-                        ImportJob.prototype.createTime = null;
-    
-                        /**
-                         * ImportJob generateTime.
-                         * @member {google.protobuf.ITimestamp|null|undefined} generateTime
-                         * @memberof google.cloud.kms.v1.ImportJob
-                         * @instance
-                         */
-                        ImportJob.prototype.generateTime = null;
-    
-                        /**
-                         * ImportJob expireTime.
-                         * @member {google.protobuf.ITimestamp|null|undefined} expireTime
-                         * @memberof google.cloud.kms.v1.ImportJob
-                         * @instance
-                         */
-                        ImportJob.prototype.expireTime = null;
-    
-                        /**
-                         * ImportJob expireEventTime.
-                         * @member {google.protobuf.ITimestamp|null|undefined} expireEventTime
-                         * @memberof google.cloud.kms.v1.ImportJob
-                         * @instance
-                         */
-                        ImportJob.prototype.expireEventTime = null;
-    
-                        /**
-                         * ImportJob state.
-                         * @member {google.cloud.kms.v1.ImportJob.ImportJobState} state
-                         * @memberof google.cloud.kms.v1.ImportJob
-                         * @instance
-                         */
-                        ImportJob.prototype.state = 0;
-    
-                        /**
-                         * ImportJob publicKey.
-                         * @member {google.cloud.kms.v1.ImportJob.IWrappingPublicKey|null|undefined} publicKey
-                         * @memberof google.cloud.kms.v1.ImportJob
-                         * @instance
-                         */
-                        ImportJob.prototype.publicKey = null;
-    
-                        /**
-                         * ImportJob attestation.
-                         * @member {google.cloud.kms.v1.IKeyOperationAttestation|null|undefined} attestation
-                         * @memberof google.cloud.kms.v1.ImportJob
-                         * @instance
-                         */
-                        ImportJob.prototype.attestation = null;
-    
-                        /**
-                         * Creates a new ImportJob instance using the specified properties.
-                         * @function create
-                         * @memberof google.cloud.kms.v1.ImportJob
-                         * @static
-                         * @param {google.cloud.kms.v1.IImportJob=} [properties] Properties to set
-                         * @returns {google.cloud.kms.v1.ImportJob} ImportJob instance
-                         */
-                        ImportJob.create = function create(properties) {
-                            return new ImportJob(properties);
-                        };
-    
-                        /**
-                         * Encodes the specified ImportJob message. Does not implicitly {@link google.cloud.kms.v1.ImportJob.verify|verify} messages.
-                         * @function encode
-                         * @memberof google.cloud.kms.v1.ImportJob
-                         * @static
-                         * @param {google.cloud.kms.v1.IImportJob} message ImportJob message or plain object to encode
-                         * @param {$protobuf.Writer} [writer] Writer to encode to
-                         * @returns {$protobuf.Writer} Writer
-                         */
-                        ImportJob.encode = function encode(message, writer) {
-                            if (!writer)
-                                writer = $Writer.create();
-                            if (message.name != null && message.hasOwnProperty("name"))
-                                writer.uint32(/* id 1, wireType 2 =*/10).string(message.name);
-                            if (message.importMethod != null && message.hasOwnProperty("importMethod"))
-                                writer.uint32(/* id 2, wireType 0 =*/16).int32(message.importMethod);
-                            if (message.createTime != null && message.hasOwnProperty("createTime"))
-                                $root.google.protobuf.Timestamp.encode(message.createTime, writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
-                            if (message.generateTime != null && message.hasOwnProperty("generateTime"))
-                                $root.google.protobuf.Timestamp.encode(message.generateTime, writer.uint32(/* id 4, wireType 2 =*/34).fork()).ldelim();
-                            if (message.expireTime != null && message.hasOwnProperty("expireTime"))
-                                $root.google.protobuf.Timestamp.encode(message.expireTime, writer.uint32(/* id 5, wireType 2 =*/42).fork()).ldelim();
-                            if (message.state != null && message.hasOwnProperty("state"))
-                                writer.uint32(/* id 6, wireType 0 =*/48).int32(message.state);
-                            if (message.publicKey != null && message.hasOwnProperty("publicKey"))
-                                $root.google.cloud.kms.v1.ImportJob.WrappingPublicKey.encode(message.publicKey, writer.uint32(/* id 7, wireType 2 =*/58).fork()).ldelim();
-                            if (message.attestation != null && message.hasOwnProperty("attestation"))
-                                $root.google.cloud.kms.v1.KeyOperationAttestation.encode(message.attestation, writer.uint32(/* id 8, wireType 2 =*/66).fork()).ldelim();
-                            if (message.protectionLevel != null && message.hasOwnProperty("protectionLevel"))
-                                writer.uint32(/* id 9, wireType 0 =*/72).int32(message.protectionLevel);
-                            if (message.expireEventTime != null && message.hasOwnProperty("expireEventTime"))
-                                $root.google.protobuf.Timestamp.encode(message.expireEventTime, writer.uint32(/* id 10, wireType 2 =*/82).fork()).ldelim();
-                            return writer;
-                        };
-    
-                        /**
-                         * Encodes the specified ImportJob message, length delimited. Does not implicitly {@link google.cloud.kms.v1.ImportJob.verify|verify} messages.
-                         * @function encodeDelimited
-                         * @memberof google.cloud.kms.v1.ImportJob
-                         * @static
-                         * @param {google.cloud.kms.v1.IImportJob} message ImportJob message or plain object to encode
-                         * @param {$protobuf.Writer} [writer] Writer to encode to
-                         * @returns {$protobuf.Writer} Writer
-                         */
-                        ImportJob.encodeDelimited = function encodeDelimited(message, writer) {
-                            return this.encode(message, writer).ldelim();
-                        };
-    
-                        /**
-                         * Decodes an ImportJob message from the specified reader or buffer.
-                         * @function decode
-                         * @memberof google.cloud.kms.v1.ImportJob
-                         * @static
-                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                         * @param {number} [length] Message length if known beforehand
-                         * @returns {google.cloud.kms.v1.ImportJob} ImportJob
-                         * @throws {Error} If the payload is not a reader or valid buffer
-                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                         */
-                        ImportJob.decode = function decode(reader, length) {
-                            if (!(reader instanceof $Reader))
-                                reader = $Reader.create(reader);
-                            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.cloud.kms.v1.ImportJob();
-                            while (reader.pos < end) {
-                                var tag = reader.uint32();
-                                switch (tag >>> 3) {
-                                case 1:
-                                    message.name = reader.string();
-                                    break;
-                                case 2:
-                                    message.importMethod = reader.int32();
-                                    break;
-                                case 9:
-                                    message.protectionLevel = reader.int32();
-                                    break;
-                                case 3:
-                                    message.createTime = $root.google.protobuf.Timestamp.decode(reader, reader.uint32());
-                                    break;
-                                case 4:
-                                    message.generateTime = $root.google.protobuf.Timestamp.decode(reader, reader.uint32());
-                                    break;
-                                case 5:
-                                    message.expireTime = $root.google.protobuf.Timestamp.decode(reader, reader.uint32());
-                                    break;
-                                case 10:
-                                    message.expireEventTime = $root.google.protobuf.Timestamp.decode(reader, reader.uint32());
-                                    break;
-                                case 6:
-                                    message.state = reader.int32();
-                                    break;
-                                case 7:
-                                    message.publicKey = $root.google.cloud.kms.v1.ImportJob.WrappingPublicKey.decode(reader, reader.uint32());
-                                    break;
-                                case 8:
-                                    message.attestation = $root.google.cloud.kms.v1.KeyOperationAttestation.decode(reader, reader.uint32());
-                                    break;
-                                default:
-                                    reader.skipType(tag & 7);
-                                    break;
-                                }
-                            }
-                            return message;
-                        };
-    
-                        /**
-                         * Decodes an ImportJob message from the specified reader or buffer, length delimited.
-                         * @function decodeDelimited
-                         * @memberof google.cloud.kms.v1.ImportJob
-                         * @static
-                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                         * @returns {google.cloud.kms.v1.ImportJob} ImportJob
-                         * @throws {Error} If the payload is not a reader or valid buffer
-                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                         */
-                        ImportJob.decodeDelimited = function decodeDelimited(reader) {
-                            if (!(reader instanceof $Reader))
-                                reader = new $Reader(reader);
-                            return this.decode(reader, reader.uint32());
-                        };
-    
-                        /**
-                         * Verifies an ImportJob message.
-                         * @function verify
-                         * @memberof google.cloud.kms.v1.ImportJob
-                         * @static
-                         * @param {Object.<string,*>} message Plain object to verify
-                         * @returns {string|null} `null` if valid, otherwise the reason why it is not
-                         */
-                        ImportJob.verify = function verify(message) {
-                            if (typeof message !== "object" || message === null)
-                                return "object expected";
-                            if (message.name != null && message.hasOwnProperty("name"))
-                                if (!$util.isString(message.name))
-                                    return "name: string expected";
-                            if (message.importMethod != null && message.hasOwnProperty("importMethod"))
-                                switch (message.importMethod) {
-                                default:
-                                    return "importMethod: enum value expected";
-                                case 0:
-                                case 1:
-                                case 2:
-                                    break;
-                                }
-                            if (message.protectionLevel != null && message.hasOwnProperty("protectionLevel"))
-                                switch (message.protectionLevel) {
-                                default:
-                                    return "protectionLevel: enum value expected";
-                                case 0:
-                                case 1:
-                                case 2:
-                                    break;
-                                }
-                            if (message.createTime != null && message.hasOwnProperty("createTime")) {
-                                var error = $root.google.protobuf.Timestamp.verify(message.createTime);
-                                if (error)
-                                    return "createTime." + error;
-                            }
-                            if (message.generateTime != null && message.hasOwnProperty("generateTime")) {
-                                var error = $root.google.protobuf.Timestamp.verify(message.generateTime);
-                                if (error)
-                                    return "generateTime." + error;
-                            }
-                            if (message.expireTime != null && message.hasOwnProperty("expireTime")) {
-                                var error = $root.google.protobuf.Timestamp.verify(message.expireTime);
-                                if (error)
-                                    return "expireTime." + error;
-                            }
-                            if (message.expireEventTime != null && message.hasOwnProperty("expireEventTime")) {
-                                var error = $root.google.protobuf.Timestamp.verify(message.expireEventTime);
-                                if (error)
-                                    return "expireEventTime." + error;
-                            }
-                            if (message.state != null && message.hasOwnProperty("state"))
-                                switch (message.state) {
-                                default:
-                                    return "state: enum value expected";
-                                case 0:
-                                case 1:
-                                case 2:
-                                case 3:
-                                    break;
-                                }
-                            if (message.publicKey != null && message.hasOwnProperty("publicKey")) {
-                                var error = $root.google.cloud.kms.v1.ImportJob.WrappingPublicKey.verify(message.publicKey);
-                                if (error)
-                                    return "publicKey." + error;
-                            }
-                            if (message.attestation != null && message.hasOwnProperty("attestation")) {
-                                var error = $root.google.cloud.kms.v1.KeyOperationAttestation.verify(message.attestation);
-                                if (error)
-                                    return "attestation." + error;
-                            }
-                            return null;
-                        };
-    
-                        /**
-                         * Creates an ImportJob message from a plain object. Also converts values to their respective internal types.
-                         * @function fromObject
-                         * @memberof google.cloud.kms.v1.ImportJob
-                         * @static
-                         * @param {Object.<string,*>} object Plain object
-                         * @returns {google.cloud.kms.v1.ImportJob} ImportJob
-                         */
-                        ImportJob.fromObject = function fromObject(object) {
-                            if (object instanceof $root.google.cloud.kms.v1.ImportJob)
-                                return object;
-                            var message = new $root.google.cloud.kms.v1.ImportJob();
-                            if (object.name != null)
-                                message.name = String(object.name);
-                            switch (object.importMethod) {
-                            case "IMPORT_METHOD_UNSPECIFIED":
-                            case 0:
-                                message.importMethod = 0;
-                                break;
-                            case "RSA_OAEP_3072_SHA1_AES_256":
-                            case 1:
-                                message.importMethod = 1;
-                                break;
-                            case "RSA_OAEP_4096_SHA1_AES_256":
-                            case 2:
-                                message.importMethod = 2;
-                                break;
-                            }
-                            switch (object.protectionLevel) {
-                            case "PROTECTION_LEVEL_UNSPECIFIED":
-                            case 0:
-                                message.protectionLevel = 0;
-                                break;
-                            case "SOFTWARE":
-                            case 1:
-                                message.protectionLevel = 1;
-                                break;
-                            case "HSM":
-                            case 2:
-                                message.protectionLevel = 2;
-                                break;
-                            }
-                            if (object.createTime != null) {
-                                if (typeof object.createTime !== "object")
-                                    throw TypeError(".google.cloud.kms.v1.ImportJob.createTime: object expected");
-                                message.createTime = $root.google.protobuf.Timestamp.fromObject(object.createTime);
-                            }
-                            if (object.generateTime != null) {
-                                if (typeof object.generateTime !== "object")
-                                    throw TypeError(".google.cloud.kms.v1.ImportJob.generateTime: object expected");
-                                message.generateTime = $root.google.protobuf.Timestamp.fromObject(object.generateTime);
-                            }
-                            if (object.expireTime != null) {
-                                if (typeof object.expireTime !== "object")
-                                    throw TypeError(".google.cloud.kms.v1.ImportJob.expireTime: object expected");
-                                message.expireTime = $root.google.protobuf.Timestamp.fromObject(object.expireTime);
-                            }
-                            if (object.expireEventTime != null) {
-                                if (typeof object.expireEventTime !== "object")
-                                    throw TypeError(".google.cloud.kms.v1.ImportJob.expireEventTime: object expected");
-                                message.expireEventTime = $root.google.protobuf.Timestamp.fromObject(object.expireEventTime);
-                            }
-                            switch (object.state) {
-                            case "IMPORT_JOB_STATE_UNSPECIFIED":
-                            case 0:
-                                message.state = 0;
-                                break;
-                            case "PENDING_GENERATION":
-                            case 1:
-                                message.state = 1;
-                                break;
-                            case "ACTIVE":
-                            case 2:
-                                message.state = 2;
-                                break;
-                            case "EXPIRED":
-                            case 3:
-                                message.state = 3;
-                                break;
-                            }
-                            if (object.publicKey != null) {
-                                if (typeof object.publicKey !== "object")
-                                    throw TypeError(".google.cloud.kms.v1.ImportJob.publicKey: object expected");
-                                message.publicKey = $root.google.cloud.kms.v1.ImportJob.WrappingPublicKey.fromObject(object.publicKey);
-                            }
-                            if (object.attestation != null) {
-                                if (typeof object.attestation !== "object")
-                                    throw TypeError(".google.cloud.kms.v1.ImportJob.attestation: object expected");
-                                message.attestation = $root.google.cloud.kms.v1.KeyOperationAttestation.fromObject(object.attestation);
-                            }
-                            return message;
-                        };
-    
-                        /**
-                         * Creates a plain object from an ImportJob message. Also converts values to other types if specified.
-                         * @function toObject
-                         * @memberof google.cloud.kms.v1.ImportJob
-                         * @static
-                         * @param {google.cloud.kms.v1.ImportJob} message ImportJob
-                         * @param {$protobuf.IConversionOptions} [options] Conversion options
-                         * @returns {Object.<string,*>} Plain object
-                         */
-                        ImportJob.toObject = function toObject(message, options) {
-                            if (!options)
-                                options = {};
-                            var object = {};
-                            if (options.defaults) {
-                                object.name = "";
-                                object.importMethod = options.enums === String ? "IMPORT_METHOD_UNSPECIFIED" : 0;
-                                object.createTime = null;
-                                object.generateTime = null;
-                                object.expireTime = null;
-                                object.state = options.enums === String ? "IMPORT_JOB_STATE_UNSPECIFIED" : 0;
-                                object.publicKey = null;
-                                object.attestation = null;
-                                object.protectionLevel = options.enums === String ? "PROTECTION_LEVEL_UNSPECIFIED" : 0;
-                                object.expireEventTime = null;
-                            }
-                            if (message.name != null && message.hasOwnProperty("name"))
-                                object.name = message.name;
-                            if (message.importMethod != null && message.hasOwnProperty("importMethod"))
-                                object.importMethod = options.enums === String ? $root.google.cloud.kms.v1.ImportJob.ImportMethod[message.importMethod] : message.importMethod;
-                            if (message.createTime != null && message.hasOwnProperty("createTime"))
-                                object.createTime = $root.google.protobuf.Timestamp.toObject(message.createTime, options);
-                            if (message.generateTime != null && message.hasOwnProperty("generateTime"))
-                                object.generateTime = $root.google.protobuf.Timestamp.toObject(message.generateTime, options);
-                            if (message.expireTime != null && message.hasOwnProperty("expireTime"))
-                                object.expireTime = $root.google.protobuf.Timestamp.toObject(message.expireTime, options);
-                            if (message.state != null && message.hasOwnProperty("state"))
-                                object.state = options.enums === String ? $root.google.cloud.kms.v1.ImportJob.ImportJobState[message.state] : message.state;
-                            if (message.publicKey != null && message.hasOwnProperty("publicKey"))
-                                object.publicKey = $root.google.cloud.kms.v1.ImportJob.WrappingPublicKey.toObject(message.publicKey, options);
-                            if (message.attestation != null && message.hasOwnProperty("attestation"))
-                                object.attestation = $root.google.cloud.kms.v1.KeyOperationAttestation.toObject(message.attestation, options);
-                            if (message.protectionLevel != null && message.hasOwnProperty("protectionLevel"))
-                                object.protectionLevel = options.enums === String ? $root.google.cloud.kms.v1.ProtectionLevel[message.protectionLevel] : message.protectionLevel;
-                            if (message.expireEventTime != null && message.hasOwnProperty("expireEventTime"))
-                                object.expireEventTime = $root.google.protobuf.Timestamp.toObject(message.expireEventTime, options);
-                            return object;
-                        };
-    
-                        /**
-                         * Converts this ImportJob to JSON.
-                         * @function toJSON
-                         * @memberof google.cloud.kms.v1.ImportJob
-                         * @instance
-                         * @returns {Object.<string,*>} JSON object
-                         */
-                        ImportJob.prototype.toJSON = function toJSON() {
-                            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-                        };
-    
-                        ImportJob.WrappingPublicKey = (function() {
-    
-                            /**
-                             * Properties of a WrappingPublicKey.
-                             * @memberof google.cloud.kms.v1.ImportJob
-                             * @interface IWrappingPublicKey
-                             * @property {string|null} [pem] WrappingPublicKey pem
-                             */
-    
-                            /**
-                             * Constructs a new WrappingPublicKey.
-                             * @memberof google.cloud.kms.v1.ImportJob
-                             * @classdesc Represents a WrappingPublicKey.
-                             * @implements IWrappingPublicKey
-                             * @constructor
-                             * @param {google.cloud.kms.v1.ImportJob.IWrappingPublicKey=} [properties] Properties to set
-                             */
-                            function WrappingPublicKey(properties) {
-                                if (properties)
-                                    for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                                        if (properties[keys[i]] != null)
-                                            this[keys[i]] = properties[keys[i]];
-                            }
-    
-                            /**
-                             * WrappingPublicKey pem.
-                             * @member {string} pem
-                             * @memberof google.cloud.kms.v1.ImportJob.WrappingPublicKey
-                             * @instance
-                             */
-                            WrappingPublicKey.prototype.pem = "";
-    
-                            /**
-                             * Creates a new WrappingPublicKey instance using the specified properties.
-                             * @function create
-                             * @memberof google.cloud.kms.v1.ImportJob.WrappingPublicKey
-                             * @static
-                             * @param {google.cloud.kms.v1.ImportJob.IWrappingPublicKey=} [properties] Properties to set
-                             * @returns {google.cloud.kms.v1.ImportJob.WrappingPublicKey} WrappingPublicKey instance
-                             */
-                            WrappingPublicKey.create = function create(properties) {
-                                return new WrappingPublicKey(properties);
-                            };
-    
-                            /**
-                             * Encodes the specified WrappingPublicKey message. Does not implicitly {@link google.cloud.kms.v1.ImportJob.WrappingPublicKey.verify|verify} messages.
-                             * @function encode
-                             * @memberof google.cloud.kms.v1.ImportJob.WrappingPublicKey
-                             * @static
-                             * @param {google.cloud.kms.v1.ImportJob.IWrappingPublicKey} message WrappingPublicKey message or plain object to encode
-                             * @param {$protobuf.Writer} [writer] Writer to encode to
-                             * @returns {$protobuf.Writer} Writer
-                             */
-                            WrappingPublicKey.encode = function encode(message, writer) {
-                                if (!writer)
-                                    writer = $Writer.create();
-                                if (message.pem != null && message.hasOwnProperty("pem"))
-                                    writer.uint32(/* id 1, wireType 2 =*/10).string(message.pem);
-                                return writer;
-                            };
-    
-                            /**
-                             * Encodes the specified WrappingPublicKey message, length delimited. Does not implicitly {@link google.cloud.kms.v1.ImportJob.WrappingPublicKey.verify|verify} messages.
-                             * @function encodeDelimited
-                             * @memberof google.cloud.kms.v1.ImportJob.WrappingPublicKey
-                             * @static
-                             * @param {google.cloud.kms.v1.ImportJob.IWrappingPublicKey} message WrappingPublicKey message or plain object to encode
-                             * @param {$protobuf.Writer} [writer] Writer to encode to
-                             * @returns {$protobuf.Writer} Writer
-                             */
-                            WrappingPublicKey.encodeDelimited = function encodeDelimited(message, writer) {
-                                return this.encode(message, writer).ldelim();
-                            };
-    
-                            /**
-                             * Decodes a WrappingPublicKey message from the specified reader or buffer.
-                             * @function decode
-                             * @memberof google.cloud.kms.v1.ImportJob.WrappingPublicKey
-                             * @static
-                             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                             * @param {number} [length] Message length if known beforehand
-                             * @returns {google.cloud.kms.v1.ImportJob.WrappingPublicKey} WrappingPublicKey
-                             * @throws {Error} If the payload is not a reader or valid buffer
-                             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                             */
-                            WrappingPublicKey.decode = function decode(reader, length) {
-                                if (!(reader instanceof $Reader))
-                                    reader = $Reader.create(reader);
-                                var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.cloud.kms.v1.ImportJob.WrappingPublicKey();
-                                while (reader.pos < end) {
-                                    var tag = reader.uint32();
-                                    switch (tag >>> 3) {
-                                    case 1:
-                                        message.pem = reader.string();
-                                        break;
-                                    default:
-                                        reader.skipType(tag & 7);
-                                        break;
-                                    }
-                                }
-                                return message;
-                            };
-    
-                            /**
-                             * Decodes a WrappingPublicKey message from the specified reader or buffer, length delimited.
-                             * @function decodeDelimited
-                             * @memberof google.cloud.kms.v1.ImportJob.WrappingPublicKey
-                             * @static
-                             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                             * @returns {google.cloud.kms.v1.ImportJob.WrappingPublicKey} WrappingPublicKey
-                             * @throws {Error} If the payload is not a reader or valid buffer
-                             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                             */
-                            WrappingPublicKey.decodeDelimited = function decodeDelimited(reader) {
-                                if (!(reader instanceof $Reader))
-                                    reader = new $Reader(reader);
-                                return this.decode(reader, reader.uint32());
-                            };
-    
-                            /**
-                             * Verifies a WrappingPublicKey message.
-                             * @function verify
-                             * @memberof google.cloud.kms.v1.ImportJob.WrappingPublicKey
-                             * @static
-                             * @param {Object.<string,*>} message Plain object to verify
-                             * @returns {string|null} `null` if valid, otherwise the reason why it is not
-                             */
-                            WrappingPublicKey.verify = function verify(message) {
-                                if (typeof message !== "object" || message === null)
-                                    return "object expected";
-                                if (message.pem != null && message.hasOwnProperty("pem"))
-                                    if (!$util.isString(message.pem))
-                                        return "pem: string expected";
-                                return null;
-                            };
-    
-                            /**
-                             * Creates a WrappingPublicKey message from a plain object. Also converts values to their respective internal types.
-                             * @function fromObject
-                             * @memberof google.cloud.kms.v1.ImportJob.WrappingPublicKey
-                             * @static
-                             * @param {Object.<string,*>} object Plain object
-                             * @returns {google.cloud.kms.v1.ImportJob.WrappingPublicKey} WrappingPublicKey
-                             */
-                            WrappingPublicKey.fromObject = function fromObject(object) {
-                                if (object instanceof $root.google.cloud.kms.v1.ImportJob.WrappingPublicKey)
-                                    return object;
-                                var message = new $root.google.cloud.kms.v1.ImportJob.WrappingPublicKey();
-                                if (object.pem != null)
-                                    message.pem = String(object.pem);
-                                return message;
-                            };
-    
-                            /**
-                             * Creates a plain object from a WrappingPublicKey message. Also converts values to other types if specified.
-                             * @function toObject
-                             * @memberof google.cloud.kms.v1.ImportJob.WrappingPublicKey
-                             * @static
-                             * @param {google.cloud.kms.v1.ImportJob.WrappingPublicKey} message WrappingPublicKey
-                             * @param {$protobuf.IConversionOptions} [options] Conversion options
-                             * @returns {Object.<string,*>} Plain object
-                             */
-                            WrappingPublicKey.toObject = function toObject(message, options) {
-                                if (!options)
-                                    options = {};
-                                var object = {};
-                                if (options.defaults)
-                                    object.pem = "";
-                                if (message.pem != null && message.hasOwnProperty("pem"))
-                                    object.pem = message.pem;
-                                return object;
-                            };
-    
-                            /**
-                             * Converts this WrappingPublicKey to JSON.
-                             * @function toJSON
-                             * @memberof google.cloud.kms.v1.ImportJob.WrappingPublicKey
-                             * @instance
-                             * @returns {Object.<string,*>} JSON object
-                             */
-                            WrappingPublicKey.prototype.toJSON = function toJSON() {
-                                return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-                            };
-    
-                            return WrappingPublicKey;
-                        })();
-    
-                        /**
-                         * ImportMethod enum.
-                         * @name google.cloud.kms.v1.ImportJob.ImportMethod
-                         * @enum {string}
-                         * @property {number} IMPORT_METHOD_UNSPECIFIED=0 IMPORT_METHOD_UNSPECIFIED value
-                         * @property {number} RSA_OAEP_3072_SHA1_AES_256=1 RSA_OAEP_3072_SHA1_AES_256 value
-                         * @property {number} RSA_OAEP_4096_SHA1_AES_256=2 RSA_OAEP_4096_SHA1_AES_256 value
-                         */
-                        ImportJob.ImportMethod = (function() {
-                            var valuesById = {}, values = Object.create(valuesById);
-                            values[valuesById[0] = "IMPORT_METHOD_UNSPECIFIED"] = 0;
-                            values[valuesById[1] = "RSA_OAEP_3072_SHA1_AES_256"] = 1;
-                            values[valuesById[2] = "RSA_OAEP_4096_SHA1_AES_256"] = 2;
-                            return values;
-                        })();
-    
-                        /**
-                         * ImportJobState enum.
-                         * @name google.cloud.kms.v1.ImportJob.ImportJobState
-                         * @enum {string}
-                         * @property {number} IMPORT_JOB_STATE_UNSPECIFIED=0 IMPORT_JOB_STATE_UNSPECIFIED value
-                         * @property {number} PENDING_GENERATION=1 PENDING_GENERATION value
-                         * @property {number} ACTIVE=2 ACTIVE value
-                         * @property {number} EXPIRED=3 EXPIRED value
-                         */
-                        ImportJob.ImportJobState = (function() {
-                            var valuesById = {}, values = Object.create(valuesById);
-                            values[valuesById[0] = "IMPORT_JOB_STATE_UNSPECIFIED"] = 0;
-                            values[valuesById[1] = "PENDING_GENERATION"] = 1;
-                            values[valuesById[2] = "ACTIVE"] = 2;
-                            values[valuesById[3] = "EXPIRED"] = 3;
-                            return values;
-                        })();
-    
-                        return ImportJob;
                     })();
     
                     return v1;
@@ -21493,2611 +21493,6 @@
             })();
     
             return protobuf;
-        })();
-    
-        google.iam = (function() {
-    
-            /**
-             * Namespace iam.
-             * @memberof google
-             * @namespace
-             */
-            var iam = {};
-    
-            iam.v1 = (function() {
-    
-                /**
-                 * Namespace v1.
-                 * @memberof google.iam
-                 * @namespace
-                 */
-                var v1 = {};
-    
-                v1.IAMPolicy = (function() {
-    
-                    /**
-                     * Constructs a new IAMPolicy service.
-                     * @memberof google.iam.v1
-                     * @classdesc Represents a IAMPolicy
-                     * @extends $protobuf.rpc.Service
-                     * @constructor
-                     * @param {$protobuf.RPCImpl} rpcImpl RPC implementation
-                     * @param {boolean} [requestDelimited=false] Whether requests are length-delimited
-                     * @param {boolean} [responseDelimited=false] Whether responses are length-delimited
-                     */
-                    function IAMPolicy(rpcImpl, requestDelimited, responseDelimited) {
-                        $protobuf.rpc.Service.call(this, rpcImpl, requestDelimited, responseDelimited);
-                    }
-    
-                    (IAMPolicy.prototype = Object.create($protobuf.rpc.Service.prototype)).constructor = IAMPolicy;
-    
-                    /**
-                     * Creates new IAMPolicy service using the specified rpc implementation.
-                     * @function create
-                     * @memberof google.iam.v1.IAMPolicy
-                     * @static
-                     * @param {$protobuf.RPCImpl} rpcImpl RPC implementation
-                     * @param {boolean} [requestDelimited=false] Whether requests are length-delimited
-                     * @param {boolean} [responseDelimited=false] Whether responses are length-delimited
-                     * @returns {IAMPolicy} RPC service. Useful where requests and/or responses are streamed.
-                     */
-                    IAMPolicy.create = function create(rpcImpl, requestDelimited, responseDelimited) {
-                        return new this(rpcImpl, requestDelimited, responseDelimited);
-                    };
-    
-                    /**
-                     * Callback as used by {@link google.iam.v1.IAMPolicy#setIamPolicy}.
-                     * @memberof google.iam.v1.IAMPolicy
-                     * @typedef SetIamPolicyCallback
-                     * @type {function}
-                     * @param {Error|null} error Error, if any
-                     * @param {google.iam.v1.Policy} [response] Policy
-                     */
-    
-                    /**
-                     * Calls SetIamPolicy.
-                     * @function setIamPolicy
-                     * @memberof google.iam.v1.IAMPolicy
-                     * @instance
-                     * @param {google.iam.v1.ISetIamPolicyRequest} request SetIamPolicyRequest message or plain object
-                     * @param {google.iam.v1.IAMPolicy.SetIamPolicyCallback} callback Node-style callback called with the error, if any, and Policy
-                     * @returns {undefined}
-                     * @variation 1
-                     */
-                    Object.defineProperty(IAMPolicy.prototype.setIamPolicy = function setIamPolicy(request, callback) {
-                        return this.rpcCall(setIamPolicy, $root.google.iam.v1.SetIamPolicyRequest, $root.google.iam.v1.Policy, request, callback);
-                    }, "name", { value: "SetIamPolicy" });
-    
-                    /**
-                     * Calls SetIamPolicy.
-                     * @function setIamPolicy
-                     * @memberof google.iam.v1.IAMPolicy
-                     * @instance
-                     * @param {google.iam.v1.ISetIamPolicyRequest} request SetIamPolicyRequest message or plain object
-                     * @returns {Promise<google.iam.v1.Policy>} Promise
-                     * @variation 2
-                     */
-    
-                    /**
-                     * Callback as used by {@link google.iam.v1.IAMPolicy#getIamPolicy}.
-                     * @memberof google.iam.v1.IAMPolicy
-                     * @typedef GetIamPolicyCallback
-                     * @type {function}
-                     * @param {Error|null} error Error, if any
-                     * @param {google.iam.v1.Policy} [response] Policy
-                     */
-    
-                    /**
-                     * Calls GetIamPolicy.
-                     * @function getIamPolicy
-                     * @memberof google.iam.v1.IAMPolicy
-                     * @instance
-                     * @param {google.iam.v1.IGetIamPolicyRequest} request GetIamPolicyRequest message or plain object
-                     * @param {google.iam.v1.IAMPolicy.GetIamPolicyCallback} callback Node-style callback called with the error, if any, and Policy
-                     * @returns {undefined}
-                     * @variation 1
-                     */
-                    Object.defineProperty(IAMPolicy.prototype.getIamPolicy = function getIamPolicy(request, callback) {
-                        return this.rpcCall(getIamPolicy, $root.google.iam.v1.GetIamPolicyRequest, $root.google.iam.v1.Policy, request, callback);
-                    }, "name", { value: "GetIamPolicy" });
-    
-                    /**
-                     * Calls GetIamPolicy.
-                     * @function getIamPolicy
-                     * @memberof google.iam.v1.IAMPolicy
-                     * @instance
-                     * @param {google.iam.v1.IGetIamPolicyRequest} request GetIamPolicyRequest message or plain object
-                     * @returns {Promise<google.iam.v1.Policy>} Promise
-                     * @variation 2
-                     */
-    
-                    /**
-                     * Callback as used by {@link google.iam.v1.IAMPolicy#testIamPermissions}.
-                     * @memberof google.iam.v1.IAMPolicy
-                     * @typedef TestIamPermissionsCallback
-                     * @type {function}
-                     * @param {Error|null} error Error, if any
-                     * @param {google.iam.v1.TestIamPermissionsResponse} [response] TestIamPermissionsResponse
-                     */
-    
-                    /**
-                     * Calls TestIamPermissions.
-                     * @function testIamPermissions
-                     * @memberof google.iam.v1.IAMPolicy
-                     * @instance
-                     * @param {google.iam.v1.ITestIamPermissionsRequest} request TestIamPermissionsRequest message or plain object
-                     * @param {google.iam.v1.IAMPolicy.TestIamPermissionsCallback} callback Node-style callback called with the error, if any, and TestIamPermissionsResponse
-                     * @returns {undefined}
-                     * @variation 1
-                     */
-                    Object.defineProperty(IAMPolicy.prototype.testIamPermissions = function testIamPermissions(request, callback) {
-                        return this.rpcCall(testIamPermissions, $root.google.iam.v1.TestIamPermissionsRequest, $root.google.iam.v1.TestIamPermissionsResponse, request, callback);
-                    }, "name", { value: "TestIamPermissions" });
-    
-                    /**
-                     * Calls TestIamPermissions.
-                     * @function testIamPermissions
-                     * @memberof google.iam.v1.IAMPolicy
-                     * @instance
-                     * @param {google.iam.v1.ITestIamPermissionsRequest} request TestIamPermissionsRequest message or plain object
-                     * @returns {Promise<google.iam.v1.TestIamPermissionsResponse>} Promise
-                     * @variation 2
-                     */
-    
-                    return IAMPolicy;
-                })();
-    
-                v1.SetIamPolicyRequest = (function() {
-    
-                    /**
-                     * Properties of a SetIamPolicyRequest.
-                     * @memberof google.iam.v1
-                     * @interface ISetIamPolicyRequest
-                     * @property {string|null} [resource] SetIamPolicyRequest resource
-                     * @property {google.iam.v1.IPolicy|null} [policy] SetIamPolicyRequest policy
-                     */
-    
-                    /**
-                     * Constructs a new SetIamPolicyRequest.
-                     * @memberof google.iam.v1
-                     * @classdesc Represents a SetIamPolicyRequest.
-                     * @implements ISetIamPolicyRequest
-                     * @constructor
-                     * @param {google.iam.v1.ISetIamPolicyRequest=} [properties] Properties to set
-                     */
-                    function SetIamPolicyRequest(properties) {
-                        if (properties)
-                            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                                if (properties[keys[i]] != null)
-                                    this[keys[i]] = properties[keys[i]];
-                    }
-    
-                    /**
-                     * SetIamPolicyRequest resource.
-                     * @member {string} resource
-                     * @memberof google.iam.v1.SetIamPolicyRequest
-                     * @instance
-                     */
-                    SetIamPolicyRequest.prototype.resource = "";
-    
-                    /**
-                     * SetIamPolicyRequest policy.
-                     * @member {google.iam.v1.IPolicy|null|undefined} policy
-                     * @memberof google.iam.v1.SetIamPolicyRequest
-                     * @instance
-                     */
-                    SetIamPolicyRequest.prototype.policy = null;
-    
-                    /**
-                     * Creates a new SetIamPolicyRequest instance using the specified properties.
-                     * @function create
-                     * @memberof google.iam.v1.SetIamPolicyRequest
-                     * @static
-                     * @param {google.iam.v1.ISetIamPolicyRequest=} [properties] Properties to set
-                     * @returns {google.iam.v1.SetIamPolicyRequest} SetIamPolicyRequest instance
-                     */
-                    SetIamPolicyRequest.create = function create(properties) {
-                        return new SetIamPolicyRequest(properties);
-                    };
-    
-                    /**
-                     * Encodes the specified SetIamPolicyRequest message. Does not implicitly {@link google.iam.v1.SetIamPolicyRequest.verify|verify} messages.
-                     * @function encode
-                     * @memberof google.iam.v1.SetIamPolicyRequest
-                     * @static
-                     * @param {google.iam.v1.ISetIamPolicyRequest} message SetIamPolicyRequest message or plain object to encode
-                     * @param {$protobuf.Writer} [writer] Writer to encode to
-                     * @returns {$protobuf.Writer} Writer
-                     */
-                    SetIamPolicyRequest.encode = function encode(message, writer) {
-                        if (!writer)
-                            writer = $Writer.create();
-                        if (message.resource != null && message.hasOwnProperty("resource"))
-                            writer.uint32(/* id 1, wireType 2 =*/10).string(message.resource);
-                        if (message.policy != null && message.hasOwnProperty("policy"))
-                            $root.google.iam.v1.Policy.encode(message.policy, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
-                        return writer;
-                    };
-    
-                    /**
-                     * Encodes the specified SetIamPolicyRequest message, length delimited. Does not implicitly {@link google.iam.v1.SetIamPolicyRequest.verify|verify} messages.
-                     * @function encodeDelimited
-                     * @memberof google.iam.v1.SetIamPolicyRequest
-                     * @static
-                     * @param {google.iam.v1.ISetIamPolicyRequest} message SetIamPolicyRequest message or plain object to encode
-                     * @param {$protobuf.Writer} [writer] Writer to encode to
-                     * @returns {$protobuf.Writer} Writer
-                     */
-                    SetIamPolicyRequest.encodeDelimited = function encodeDelimited(message, writer) {
-                        return this.encode(message, writer).ldelim();
-                    };
-    
-                    /**
-                     * Decodes a SetIamPolicyRequest message from the specified reader or buffer.
-                     * @function decode
-                     * @memberof google.iam.v1.SetIamPolicyRequest
-                     * @static
-                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                     * @param {number} [length] Message length if known beforehand
-                     * @returns {google.iam.v1.SetIamPolicyRequest} SetIamPolicyRequest
-                     * @throws {Error} If the payload is not a reader or valid buffer
-                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                     */
-                    SetIamPolicyRequest.decode = function decode(reader, length) {
-                        if (!(reader instanceof $Reader))
-                            reader = $Reader.create(reader);
-                        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.iam.v1.SetIamPolicyRequest();
-                        while (reader.pos < end) {
-                            var tag = reader.uint32();
-                            switch (tag >>> 3) {
-                            case 1:
-                                message.resource = reader.string();
-                                break;
-                            case 2:
-                                message.policy = $root.google.iam.v1.Policy.decode(reader, reader.uint32());
-                                break;
-                            default:
-                                reader.skipType(tag & 7);
-                                break;
-                            }
-                        }
-                        return message;
-                    };
-    
-                    /**
-                     * Decodes a SetIamPolicyRequest message from the specified reader or buffer, length delimited.
-                     * @function decodeDelimited
-                     * @memberof google.iam.v1.SetIamPolicyRequest
-                     * @static
-                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                     * @returns {google.iam.v1.SetIamPolicyRequest} SetIamPolicyRequest
-                     * @throws {Error} If the payload is not a reader or valid buffer
-                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                     */
-                    SetIamPolicyRequest.decodeDelimited = function decodeDelimited(reader) {
-                        if (!(reader instanceof $Reader))
-                            reader = new $Reader(reader);
-                        return this.decode(reader, reader.uint32());
-                    };
-    
-                    /**
-                     * Verifies a SetIamPolicyRequest message.
-                     * @function verify
-                     * @memberof google.iam.v1.SetIamPolicyRequest
-                     * @static
-                     * @param {Object.<string,*>} message Plain object to verify
-                     * @returns {string|null} `null` if valid, otherwise the reason why it is not
-                     */
-                    SetIamPolicyRequest.verify = function verify(message) {
-                        if (typeof message !== "object" || message === null)
-                            return "object expected";
-                        if (message.resource != null && message.hasOwnProperty("resource"))
-                            if (!$util.isString(message.resource))
-                                return "resource: string expected";
-                        if (message.policy != null && message.hasOwnProperty("policy")) {
-                            var error = $root.google.iam.v1.Policy.verify(message.policy);
-                            if (error)
-                                return "policy." + error;
-                        }
-                        return null;
-                    };
-    
-                    /**
-                     * Creates a SetIamPolicyRequest message from a plain object. Also converts values to their respective internal types.
-                     * @function fromObject
-                     * @memberof google.iam.v1.SetIamPolicyRequest
-                     * @static
-                     * @param {Object.<string,*>} object Plain object
-                     * @returns {google.iam.v1.SetIamPolicyRequest} SetIamPolicyRequest
-                     */
-                    SetIamPolicyRequest.fromObject = function fromObject(object) {
-                        if (object instanceof $root.google.iam.v1.SetIamPolicyRequest)
-                            return object;
-                        var message = new $root.google.iam.v1.SetIamPolicyRequest();
-                        if (object.resource != null)
-                            message.resource = String(object.resource);
-                        if (object.policy != null) {
-                            if (typeof object.policy !== "object")
-                                throw TypeError(".google.iam.v1.SetIamPolicyRequest.policy: object expected");
-                            message.policy = $root.google.iam.v1.Policy.fromObject(object.policy);
-                        }
-                        return message;
-                    };
-    
-                    /**
-                     * Creates a plain object from a SetIamPolicyRequest message. Also converts values to other types if specified.
-                     * @function toObject
-                     * @memberof google.iam.v1.SetIamPolicyRequest
-                     * @static
-                     * @param {google.iam.v1.SetIamPolicyRequest} message SetIamPolicyRequest
-                     * @param {$protobuf.IConversionOptions} [options] Conversion options
-                     * @returns {Object.<string,*>} Plain object
-                     */
-                    SetIamPolicyRequest.toObject = function toObject(message, options) {
-                        if (!options)
-                            options = {};
-                        var object = {};
-                        if (options.defaults) {
-                            object.resource = "";
-                            object.policy = null;
-                        }
-                        if (message.resource != null && message.hasOwnProperty("resource"))
-                            object.resource = message.resource;
-                        if (message.policy != null && message.hasOwnProperty("policy"))
-                            object.policy = $root.google.iam.v1.Policy.toObject(message.policy, options);
-                        return object;
-                    };
-    
-                    /**
-                     * Converts this SetIamPolicyRequest to JSON.
-                     * @function toJSON
-                     * @memberof google.iam.v1.SetIamPolicyRequest
-                     * @instance
-                     * @returns {Object.<string,*>} JSON object
-                     */
-                    SetIamPolicyRequest.prototype.toJSON = function toJSON() {
-                        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-                    };
-    
-                    return SetIamPolicyRequest;
-                })();
-    
-                v1.GetIamPolicyRequest = (function() {
-    
-                    /**
-                     * Properties of a GetIamPolicyRequest.
-                     * @memberof google.iam.v1
-                     * @interface IGetIamPolicyRequest
-                     * @property {string|null} [resource] GetIamPolicyRequest resource
-                     */
-    
-                    /**
-                     * Constructs a new GetIamPolicyRequest.
-                     * @memberof google.iam.v1
-                     * @classdesc Represents a GetIamPolicyRequest.
-                     * @implements IGetIamPolicyRequest
-                     * @constructor
-                     * @param {google.iam.v1.IGetIamPolicyRequest=} [properties] Properties to set
-                     */
-                    function GetIamPolicyRequest(properties) {
-                        if (properties)
-                            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                                if (properties[keys[i]] != null)
-                                    this[keys[i]] = properties[keys[i]];
-                    }
-    
-                    /**
-                     * GetIamPolicyRequest resource.
-                     * @member {string} resource
-                     * @memberof google.iam.v1.GetIamPolicyRequest
-                     * @instance
-                     */
-                    GetIamPolicyRequest.prototype.resource = "";
-    
-                    /**
-                     * Creates a new GetIamPolicyRequest instance using the specified properties.
-                     * @function create
-                     * @memberof google.iam.v1.GetIamPolicyRequest
-                     * @static
-                     * @param {google.iam.v1.IGetIamPolicyRequest=} [properties] Properties to set
-                     * @returns {google.iam.v1.GetIamPolicyRequest} GetIamPolicyRequest instance
-                     */
-                    GetIamPolicyRequest.create = function create(properties) {
-                        return new GetIamPolicyRequest(properties);
-                    };
-    
-                    /**
-                     * Encodes the specified GetIamPolicyRequest message. Does not implicitly {@link google.iam.v1.GetIamPolicyRequest.verify|verify} messages.
-                     * @function encode
-                     * @memberof google.iam.v1.GetIamPolicyRequest
-                     * @static
-                     * @param {google.iam.v1.IGetIamPolicyRequest} message GetIamPolicyRequest message or plain object to encode
-                     * @param {$protobuf.Writer} [writer] Writer to encode to
-                     * @returns {$protobuf.Writer} Writer
-                     */
-                    GetIamPolicyRequest.encode = function encode(message, writer) {
-                        if (!writer)
-                            writer = $Writer.create();
-                        if (message.resource != null && message.hasOwnProperty("resource"))
-                            writer.uint32(/* id 1, wireType 2 =*/10).string(message.resource);
-                        return writer;
-                    };
-    
-                    /**
-                     * Encodes the specified GetIamPolicyRequest message, length delimited. Does not implicitly {@link google.iam.v1.GetIamPolicyRequest.verify|verify} messages.
-                     * @function encodeDelimited
-                     * @memberof google.iam.v1.GetIamPolicyRequest
-                     * @static
-                     * @param {google.iam.v1.IGetIamPolicyRequest} message GetIamPolicyRequest message or plain object to encode
-                     * @param {$protobuf.Writer} [writer] Writer to encode to
-                     * @returns {$protobuf.Writer} Writer
-                     */
-                    GetIamPolicyRequest.encodeDelimited = function encodeDelimited(message, writer) {
-                        return this.encode(message, writer).ldelim();
-                    };
-    
-                    /**
-                     * Decodes a GetIamPolicyRequest message from the specified reader or buffer.
-                     * @function decode
-                     * @memberof google.iam.v1.GetIamPolicyRequest
-                     * @static
-                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                     * @param {number} [length] Message length if known beforehand
-                     * @returns {google.iam.v1.GetIamPolicyRequest} GetIamPolicyRequest
-                     * @throws {Error} If the payload is not a reader or valid buffer
-                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                     */
-                    GetIamPolicyRequest.decode = function decode(reader, length) {
-                        if (!(reader instanceof $Reader))
-                            reader = $Reader.create(reader);
-                        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.iam.v1.GetIamPolicyRequest();
-                        while (reader.pos < end) {
-                            var tag = reader.uint32();
-                            switch (tag >>> 3) {
-                            case 1:
-                                message.resource = reader.string();
-                                break;
-                            default:
-                                reader.skipType(tag & 7);
-                                break;
-                            }
-                        }
-                        return message;
-                    };
-    
-                    /**
-                     * Decodes a GetIamPolicyRequest message from the specified reader or buffer, length delimited.
-                     * @function decodeDelimited
-                     * @memberof google.iam.v1.GetIamPolicyRequest
-                     * @static
-                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                     * @returns {google.iam.v1.GetIamPolicyRequest} GetIamPolicyRequest
-                     * @throws {Error} If the payload is not a reader or valid buffer
-                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                     */
-                    GetIamPolicyRequest.decodeDelimited = function decodeDelimited(reader) {
-                        if (!(reader instanceof $Reader))
-                            reader = new $Reader(reader);
-                        return this.decode(reader, reader.uint32());
-                    };
-    
-                    /**
-                     * Verifies a GetIamPolicyRequest message.
-                     * @function verify
-                     * @memberof google.iam.v1.GetIamPolicyRequest
-                     * @static
-                     * @param {Object.<string,*>} message Plain object to verify
-                     * @returns {string|null} `null` if valid, otherwise the reason why it is not
-                     */
-                    GetIamPolicyRequest.verify = function verify(message) {
-                        if (typeof message !== "object" || message === null)
-                            return "object expected";
-                        if (message.resource != null && message.hasOwnProperty("resource"))
-                            if (!$util.isString(message.resource))
-                                return "resource: string expected";
-                        return null;
-                    };
-    
-                    /**
-                     * Creates a GetIamPolicyRequest message from a plain object. Also converts values to their respective internal types.
-                     * @function fromObject
-                     * @memberof google.iam.v1.GetIamPolicyRequest
-                     * @static
-                     * @param {Object.<string,*>} object Plain object
-                     * @returns {google.iam.v1.GetIamPolicyRequest} GetIamPolicyRequest
-                     */
-                    GetIamPolicyRequest.fromObject = function fromObject(object) {
-                        if (object instanceof $root.google.iam.v1.GetIamPolicyRequest)
-                            return object;
-                        var message = new $root.google.iam.v1.GetIamPolicyRequest();
-                        if (object.resource != null)
-                            message.resource = String(object.resource);
-                        return message;
-                    };
-    
-                    /**
-                     * Creates a plain object from a GetIamPolicyRequest message. Also converts values to other types if specified.
-                     * @function toObject
-                     * @memberof google.iam.v1.GetIamPolicyRequest
-                     * @static
-                     * @param {google.iam.v1.GetIamPolicyRequest} message GetIamPolicyRequest
-                     * @param {$protobuf.IConversionOptions} [options] Conversion options
-                     * @returns {Object.<string,*>} Plain object
-                     */
-                    GetIamPolicyRequest.toObject = function toObject(message, options) {
-                        if (!options)
-                            options = {};
-                        var object = {};
-                        if (options.defaults)
-                            object.resource = "";
-                        if (message.resource != null && message.hasOwnProperty("resource"))
-                            object.resource = message.resource;
-                        return object;
-                    };
-    
-                    /**
-                     * Converts this GetIamPolicyRequest to JSON.
-                     * @function toJSON
-                     * @memberof google.iam.v1.GetIamPolicyRequest
-                     * @instance
-                     * @returns {Object.<string,*>} JSON object
-                     */
-                    GetIamPolicyRequest.prototype.toJSON = function toJSON() {
-                        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-                    };
-    
-                    return GetIamPolicyRequest;
-                })();
-    
-                v1.TestIamPermissionsRequest = (function() {
-    
-                    /**
-                     * Properties of a TestIamPermissionsRequest.
-                     * @memberof google.iam.v1
-                     * @interface ITestIamPermissionsRequest
-                     * @property {string|null} [resource] TestIamPermissionsRequest resource
-                     * @property {Array.<string>|null} [permissions] TestIamPermissionsRequest permissions
-                     */
-    
-                    /**
-                     * Constructs a new TestIamPermissionsRequest.
-                     * @memberof google.iam.v1
-                     * @classdesc Represents a TestIamPermissionsRequest.
-                     * @implements ITestIamPermissionsRequest
-                     * @constructor
-                     * @param {google.iam.v1.ITestIamPermissionsRequest=} [properties] Properties to set
-                     */
-                    function TestIamPermissionsRequest(properties) {
-                        this.permissions = [];
-                        if (properties)
-                            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                                if (properties[keys[i]] != null)
-                                    this[keys[i]] = properties[keys[i]];
-                    }
-    
-                    /**
-                     * TestIamPermissionsRequest resource.
-                     * @member {string} resource
-                     * @memberof google.iam.v1.TestIamPermissionsRequest
-                     * @instance
-                     */
-                    TestIamPermissionsRequest.prototype.resource = "";
-    
-                    /**
-                     * TestIamPermissionsRequest permissions.
-                     * @member {Array.<string>} permissions
-                     * @memberof google.iam.v1.TestIamPermissionsRequest
-                     * @instance
-                     */
-                    TestIamPermissionsRequest.prototype.permissions = $util.emptyArray;
-    
-                    /**
-                     * Creates a new TestIamPermissionsRequest instance using the specified properties.
-                     * @function create
-                     * @memberof google.iam.v1.TestIamPermissionsRequest
-                     * @static
-                     * @param {google.iam.v1.ITestIamPermissionsRequest=} [properties] Properties to set
-                     * @returns {google.iam.v1.TestIamPermissionsRequest} TestIamPermissionsRequest instance
-                     */
-                    TestIamPermissionsRequest.create = function create(properties) {
-                        return new TestIamPermissionsRequest(properties);
-                    };
-    
-                    /**
-                     * Encodes the specified TestIamPermissionsRequest message. Does not implicitly {@link google.iam.v1.TestIamPermissionsRequest.verify|verify} messages.
-                     * @function encode
-                     * @memberof google.iam.v1.TestIamPermissionsRequest
-                     * @static
-                     * @param {google.iam.v1.ITestIamPermissionsRequest} message TestIamPermissionsRequest message or plain object to encode
-                     * @param {$protobuf.Writer} [writer] Writer to encode to
-                     * @returns {$protobuf.Writer} Writer
-                     */
-                    TestIamPermissionsRequest.encode = function encode(message, writer) {
-                        if (!writer)
-                            writer = $Writer.create();
-                        if (message.resource != null && message.hasOwnProperty("resource"))
-                            writer.uint32(/* id 1, wireType 2 =*/10).string(message.resource);
-                        if (message.permissions != null && message.permissions.length)
-                            for (var i = 0; i < message.permissions.length; ++i)
-                                writer.uint32(/* id 2, wireType 2 =*/18).string(message.permissions[i]);
-                        return writer;
-                    };
-    
-                    /**
-                     * Encodes the specified TestIamPermissionsRequest message, length delimited. Does not implicitly {@link google.iam.v1.TestIamPermissionsRequest.verify|verify} messages.
-                     * @function encodeDelimited
-                     * @memberof google.iam.v1.TestIamPermissionsRequest
-                     * @static
-                     * @param {google.iam.v1.ITestIamPermissionsRequest} message TestIamPermissionsRequest message or plain object to encode
-                     * @param {$protobuf.Writer} [writer] Writer to encode to
-                     * @returns {$protobuf.Writer} Writer
-                     */
-                    TestIamPermissionsRequest.encodeDelimited = function encodeDelimited(message, writer) {
-                        return this.encode(message, writer).ldelim();
-                    };
-    
-                    /**
-                     * Decodes a TestIamPermissionsRequest message from the specified reader or buffer.
-                     * @function decode
-                     * @memberof google.iam.v1.TestIamPermissionsRequest
-                     * @static
-                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                     * @param {number} [length] Message length if known beforehand
-                     * @returns {google.iam.v1.TestIamPermissionsRequest} TestIamPermissionsRequest
-                     * @throws {Error} If the payload is not a reader or valid buffer
-                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                     */
-                    TestIamPermissionsRequest.decode = function decode(reader, length) {
-                        if (!(reader instanceof $Reader))
-                            reader = $Reader.create(reader);
-                        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.iam.v1.TestIamPermissionsRequest();
-                        while (reader.pos < end) {
-                            var tag = reader.uint32();
-                            switch (tag >>> 3) {
-                            case 1:
-                                message.resource = reader.string();
-                                break;
-                            case 2:
-                                if (!(message.permissions && message.permissions.length))
-                                    message.permissions = [];
-                                message.permissions.push(reader.string());
-                                break;
-                            default:
-                                reader.skipType(tag & 7);
-                                break;
-                            }
-                        }
-                        return message;
-                    };
-    
-                    /**
-                     * Decodes a TestIamPermissionsRequest message from the specified reader or buffer, length delimited.
-                     * @function decodeDelimited
-                     * @memberof google.iam.v1.TestIamPermissionsRequest
-                     * @static
-                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                     * @returns {google.iam.v1.TestIamPermissionsRequest} TestIamPermissionsRequest
-                     * @throws {Error} If the payload is not a reader or valid buffer
-                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                     */
-                    TestIamPermissionsRequest.decodeDelimited = function decodeDelimited(reader) {
-                        if (!(reader instanceof $Reader))
-                            reader = new $Reader(reader);
-                        return this.decode(reader, reader.uint32());
-                    };
-    
-                    /**
-                     * Verifies a TestIamPermissionsRequest message.
-                     * @function verify
-                     * @memberof google.iam.v1.TestIamPermissionsRequest
-                     * @static
-                     * @param {Object.<string,*>} message Plain object to verify
-                     * @returns {string|null} `null` if valid, otherwise the reason why it is not
-                     */
-                    TestIamPermissionsRequest.verify = function verify(message) {
-                        if (typeof message !== "object" || message === null)
-                            return "object expected";
-                        if (message.resource != null && message.hasOwnProperty("resource"))
-                            if (!$util.isString(message.resource))
-                                return "resource: string expected";
-                        if (message.permissions != null && message.hasOwnProperty("permissions")) {
-                            if (!Array.isArray(message.permissions))
-                                return "permissions: array expected";
-                            for (var i = 0; i < message.permissions.length; ++i)
-                                if (!$util.isString(message.permissions[i]))
-                                    return "permissions: string[] expected";
-                        }
-                        return null;
-                    };
-    
-                    /**
-                     * Creates a TestIamPermissionsRequest message from a plain object. Also converts values to their respective internal types.
-                     * @function fromObject
-                     * @memberof google.iam.v1.TestIamPermissionsRequest
-                     * @static
-                     * @param {Object.<string,*>} object Plain object
-                     * @returns {google.iam.v1.TestIamPermissionsRequest} TestIamPermissionsRequest
-                     */
-                    TestIamPermissionsRequest.fromObject = function fromObject(object) {
-                        if (object instanceof $root.google.iam.v1.TestIamPermissionsRequest)
-                            return object;
-                        var message = new $root.google.iam.v1.TestIamPermissionsRequest();
-                        if (object.resource != null)
-                            message.resource = String(object.resource);
-                        if (object.permissions) {
-                            if (!Array.isArray(object.permissions))
-                                throw TypeError(".google.iam.v1.TestIamPermissionsRequest.permissions: array expected");
-                            message.permissions = [];
-                            for (var i = 0; i < object.permissions.length; ++i)
-                                message.permissions[i] = String(object.permissions[i]);
-                        }
-                        return message;
-                    };
-    
-                    /**
-                     * Creates a plain object from a TestIamPermissionsRequest message. Also converts values to other types if specified.
-                     * @function toObject
-                     * @memberof google.iam.v1.TestIamPermissionsRequest
-                     * @static
-                     * @param {google.iam.v1.TestIamPermissionsRequest} message TestIamPermissionsRequest
-                     * @param {$protobuf.IConversionOptions} [options] Conversion options
-                     * @returns {Object.<string,*>} Plain object
-                     */
-                    TestIamPermissionsRequest.toObject = function toObject(message, options) {
-                        if (!options)
-                            options = {};
-                        var object = {};
-                        if (options.arrays || options.defaults)
-                            object.permissions = [];
-                        if (options.defaults)
-                            object.resource = "";
-                        if (message.resource != null && message.hasOwnProperty("resource"))
-                            object.resource = message.resource;
-                        if (message.permissions && message.permissions.length) {
-                            object.permissions = [];
-                            for (var j = 0; j < message.permissions.length; ++j)
-                                object.permissions[j] = message.permissions[j];
-                        }
-                        return object;
-                    };
-    
-                    /**
-                     * Converts this TestIamPermissionsRequest to JSON.
-                     * @function toJSON
-                     * @memberof google.iam.v1.TestIamPermissionsRequest
-                     * @instance
-                     * @returns {Object.<string,*>} JSON object
-                     */
-                    TestIamPermissionsRequest.prototype.toJSON = function toJSON() {
-                        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-                    };
-    
-                    return TestIamPermissionsRequest;
-                })();
-    
-                v1.TestIamPermissionsResponse = (function() {
-    
-                    /**
-                     * Properties of a TestIamPermissionsResponse.
-                     * @memberof google.iam.v1
-                     * @interface ITestIamPermissionsResponse
-                     * @property {Array.<string>|null} [permissions] TestIamPermissionsResponse permissions
-                     */
-    
-                    /**
-                     * Constructs a new TestIamPermissionsResponse.
-                     * @memberof google.iam.v1
-                     * @classdesc Represents a TestIamPermissionsResponse.
-                     * @implements ITestIamPermissionsResponse
-                     * @constructor
-                     * @param {google.iam.v1.ITestIamPermissionsResponse=} [properties] Properties to set
-                     */
-                    function TestIamPermissionsResponse(properties) {
-                        this.permissions = [];
-                        if (properties)
-                            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                                if (properties[keys[i]] != null)
-                                    this[keys[i]] = properties[keys[i]];
-                    }
-    
-                    /**
-                     * TestIamPermissionsResponse permissions.
-                     * @member {Array.<string>} permissions
-                     * @memberof google.iam.v1.TestIamPermissionsResponse
-                     * @instance
-                     */
-                    TestIamPermissionsResponse.prototype.permissions = $util.emptyArray;
-    
-                    /**
-                     * Creates a new TestIamPermissionsResponse instance using the specified properties.
-                     * @function create
-                     * @memberof google.iam.v1.TestIamPermissionsResponse
-                     * @static
-                     * @param {google.iam.v1.ITestIamPermissionsResponse=} [properties] Properties to set
-                     * @returns {google.iam.v1.TestIamPermissionsResponse} TestIamPermissionsResponse instance
-                     */
-                    TestIamPermissionsResponse.create = function create(properties) {
-                        return new TestIamPermissionsResponse(properties);
-                    };
-    
-                    /**
-                     * Encodes the specified TestIamPermissionsResponse message. Does not implicitly {@link google.iam.v1.TestIamPermissionsResponse.verify|verify} messages.
-                     * @function encode
-                     * @memberof google.iam.v1.TestIamPermissionsResponse
-                     * @static
-                     * @param {google.iam.v1.ITestIamPermissionsResponse} message TestIamPermissionsResponse message or plain object to encode
-                     * @param {$protobuf.Writer} [writer] Writer to encode to
-                     * @returns {$protobuf.Writer} Writer
-                     */
-                    TestIamPermissionsResponse.encode = function encode(message, writer) {
-                        if (!writer)
-                            writer = $Writer.create();
-                        if (message.permissions != null && message.permissions.length)
-                            for (var i = 0; i < message.permissions.length; ++i)
-                                writer.uint32(/* id 1, wireType 2 =*/10).string(message.permissions[i]);
-                        return writer;
-                    };
-    
-                    /**
-                     * Encodes the specified TestIamPermissionsResponse message, length delimited. Does not implicitly {@link google.iam.v1.TestIamPermissionsResponse.verify|verify} messages.
-                     * @function encodeDelimited
-                     * @memberof google.iam.v1.TestIamPermissionsResponse
-                     * @static
-                     * @param {google.iam.v1.ITestIamPermissionsResponse} message TestIamPermissionsResponse message or plain object to encode
-                     * @param {$protobuf.Writer} [writer] Writer to encode to
-                     * @returns {$protobuf.Writer} Writer
-                     */
-                    TestIamPermissionsResponse.encodeDelimited = function encodeDelimited(message, writer) {
-                        return this.encode(message, writer).ldelim();
-                    };
-    
-                    /**
-                     * Decodes a TestIamPermissionsResponse message from the specified reader or buffer.
-                     * @function decode
-                     * @memberof google.iam.v1.TestIamPermissionsResponse
-                     * @static
-                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                     * @param {number} [length] Message length if known beforehand
-                     * @returns {google.iam.v1.TestIamPermissionsResponse} TestIamPermissionsResponse
-                     * @throws {Error} If the payload is not a reader or valid buffer
-                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                     */
-                    TestIamPermissionsResponse.decode = function decode(reader, length) {
-                        if (!(reader instanceof $Reader))
-                            reader = $Reader.create(reader);
-                        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.iam.v1.TestIamPermissionsResponse();
-                        while (reader.pos < end) {
-                            var tag = reader.uint32();
-                            switch (tag >>> 3) {
-                            case 1:
-                                if (!(message.permissions && message.permissions.length))
-                                    message.permissions = [];
-                                message.permissions.push(reader.string());
-                                break;
-                            default:
-                                reader.skipType(tag & 7);
-                                break;
-                            }
-                        }
-                        return message;
-                    };
-    
-                    /**
-                     * Decodes a TestIamPermissionsResponse message from the specified reader or buffer, length delimited.
-                     * @function decodeDelimited
-                     * @memberof google.iam.v1.TestIamPermissionsResponse
-                     * @static
-                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                     * @returns {google.iam.v1.TestIamPermissionsResponse} TestIamPermissionsResponse
-                     * @throws {Error} If the payload is not a reader or valid buffer
-                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                     */
-                    TestIamPermissionsResponse.decodeDelimited = function decodeDelimited(reader) {
-                        if (!(reader instanceof $Reader))
-                            reader = new $Reader(reader);
-                        return this.decode(reader, reader.uint32());
-                    };
-    
-                    /**
-                     * Verifies a TestIamPermissionsResponse message.
-                     * @function verify
-                     * @memberof google.iam.v1.TestIamPermissionsResponse
-                     * @static
-                     * @param {Object.<string,*>} message Plain object to verify
-                     * @returns {string|null} `null` if valid, otherwise the reason why it is not
-                     */
-                    TestIamPermissionsResponse.verify = function verify(message) {
-                        if (typeof message !== "object" || message === null)
-                            return "object expected";
-                        if (message.permissions != null && message.hasOwnProperty("permissions")) {
-                            if (!Array.isArray(message.permissions))
-                                return "permissions: array expected";
-                            for (var i = 0; i < message.permissions.length; ++i)
-                                if (!$util.isString(message.permissions[i]))
-                                    return "permissions: string[] expected";
-                        }
-                        return null;
-                    };
-    
-                    /**
-                     * Creates a TestIamPermissionsResponse message from a plain object. Also converts values to their respective internal types.
-                     * @function fromObject
-                     * @memberof google.iam.v1.TestIamPermissionsResponse
-                     * @static
-                     * @param {Object.<string,*>} object Plain object
-                     * @returns {google.iam.v1.TestIamPermissionsResponse} TestIamPermissionsResponse
-                     */
-                    TestIamPermissionsResponse.fromObject = function fromObject(object) {
-                        if (object instanceof $root.google.iam.v1.TestIamPermissionsResponse)
-                            return object;
-                        var message = new $root.google.iam.v1.TestIamPermissionsResponse();
-                        if (object.permissions) {
-                            if (!Array.isArray(object.permissions))
-                                throw TypeError(".google.iam.v1.TestIamPermissionsResponse.permissions: array expected");
-                            message.permissions = [];
-                            for (var i = 0; i < object.permissions.length; ++i)
-                                message.permissions[i] = String(object.permissions[i]);
-                        }
-                        return message;
-                    };
-    
-                    /**
-                     * Creates a plain object from a TestIamPermissionsResponse message. Also converts values to other types if specified.
-                     * @function toObject
-                     * @memberof google.iam.v1.TestIamPermissionsResponse
-                     * @static
-                     * @param {google.iam.v1.TestIamPermissionsResponse} message TestIamPermissionsResponse
-                     * @param {$protobuf.IConversionOptions} [options] Conversion options
-                     * @returns {Object.<string,*>} Plain object
-                     */
-                    TestIamPermissionsResponse.toObject = function toObject(message, options) {
-                        if (!options)
-                            options = {};
-                        var object = {};
-                        if (options.arrays || options.defaults)
-                            object.permissions = [];
-                        if (message.permissions && message.permissions.length) {
-                            object.permissions = [];
-                            for (var j = 0; j < message.permissions.length; ++j)
-                                object.permissions[j] = message.permissions[j];
-                        }
-                        return object;
-                    };
-    
-                    /**
-                     * Converts this TestIamPermissionsResponse to JSON.
-                     * @function toJSON
-                     * @memberof google.iam.v1.TestIamPermissionsResponse
-                     * @instance
-                     * @returns {Object.<string,*>} JSON object
-                     */
-                    TestIamPermissionsResponse.prototype.toJSON = function toJSON() {
-                        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-                    };
-    
-                    return TestIamPermissionsResponse;
-                })();
-    
-                v1.Policy = (function() {
-    
-                    /**
-                     * Properties of a Policy.
-                     * @memberof google.iam.v1
-                     * @interface IPolicy
-                     * @property {number|null} [version] Policy version
-                     * @property {Array.<google.iam.v1.IBinding>|null} [bindings] Policy bindings
-                     * @property {Uint8Array|null} [etag] Policy etag
-                     */
-    
-                    /**
-                     * Constructs a new Policy.
-                     * @memberof google.iam.v1
-                     * @classdesc Represents a Policy.
-                     * @implements IPolicy
-                     * @constructor
-                     * @param {google.iam.v1.IPolicy=} [properties] Properties to set
-                     */
-                    function Policy(properties) {
-                        this.bindings = [];
-                        if (properties)
-                            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                                if (properties[keys[i]] != null)
-                                    this[keys[i]] = properties[keys[i]];
-                    }
-    
-                    /**
-                     * Policy version.
-                     * @member {number} version
-                     * @memberof google.iam.v1.Policy
-                     * @instance
-                     */
-                    Policy.prototype.version = 0;
-    
-                    /**
-                     * Policy bindings.
-                     * @member {Array.<google.iam.v1.IBinding>} bindings
-                     * @memberof google.iam.v1.Policy
-                     * @instance
-                     */
-                    Policy.prototype.bindings = $util.emptyArray;
-    
-                    /**
-                     * Policy etag.
-                     * @member {Uint8Array} etag
-                     * @memberof google.iam.v1.Policy
-                     * @instance
-                     */
-                    Policy.prototype.etag = $util.newBuffer([]);
-    
-                    /**
-                     * Creates a new Policy instance using the specified properties.
-                     * @function create
-                     * @memberof google.iam.v1.Policy
-                     * @static
-                     * @param {google.iam.v1.IPolicy=} [properties] Properties to set
-                     * @returns {google.iam.v1.Policy} Policy instance
-                     */
-                    Policy.create = function create(properties) {
-                        return new Policy(properties);
-                    };
-    
-                    /**
-                     * Encodes the specified Policy message. Does not implicitly {@link google.iam.v1.Policy.verify|verify} messages.
-                     * @function encode
-                     * @memberof google.iam.v1.Policy
-                     * @static
-                     * @param {google.iam.v1.IPolicy} message Policy message or plain object to encode
-                     * @param {$protobuf.Writer} [writer] Writer to encode to
-                     * @returns {$protobuf.Writer} Writer
-                     */
-                    Policy.encode = function encode(message, writer) {
-                        if (!writer)
-                            writer = $Writer.create();
-                        if (message.version != null && message.hasOwnProperty("version"))
-                            writer.uint32(/* id 1, wireType 0 =*/8).int32(message.version);
-                        if (message.etag != null && message.hasOwnProperty("etag"))
-                            writer.uint32(/* id 3, wireType 2 =*/26).bytes(message.etag);
-                        if (message.bindings != null && message.bindings.length)
-                            for (var i = 0; i < message.bindings.length; ++i)
-                                $root.google.iam.v1.Binding.encode(message.bindings[i], writer.uint32(/* id 4, wireType 2 =*/34).fork()).ldelim();
-                        return writer;
-                    };
-    
-                    /**
-                     * Encodes the specified Policy message, length delimited. Does not implicitly {@link google.iam.v1.Policy.verify|verify} messages.
-                     * @function encodeDelimited
-                     * @memberof google.iam.v1.Policy
-                     * @static
-                     * @param {google.iam.v1.IPolicy} message Policy message or plain object to encode
-                     * @param {$protobuf.Writer} [writer] Writer to encode to
-                     * @returns {$protobuf.Writer} Writer
-                     */
-                    Policy.encodeDelimited = function encodeDelimited(message, writer) {
-                        return this.encode(message, writer).ldelim();
-                    };
-    
-                    /**
-                     * Decodes a Policy message from the specified reader or buffer.
-                     * @function decode
-                     * @memberof google.iam.v1.Policy
-                     * @static
-                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                     * @param {number} [length] Message length if known beforehand
-                     * @returns {google.iam.v1.Policy} Policy
-                     * @throws {Error} If the payload is not a reader or valid buffer
-                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                     */
-                    Policy.decode = function decode(reader, length) {
-                        if (!(reader instanceof $Reader))
-                            reader = $Reader.create(reader);
-                        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.iam.v1.Policy();
-                        while (reader.pos < end) {
-                            var tag = reader.uint32();
-                            switch (tag >>> 3) {
-                            case 1:
-                                message.version = reader.int32();
-                                break;
-                            case 4:
-                                if (!(message.bindings && message.bindings.length))
-                                    message.bindings = [];
-                                message.bindings.push($root.google.iam.v1.Binding.decode(reader, reader.uint32()));
-                                break;
-                            case 3:
-                                message.etag = reader.bytes();
-                                break;
-                            default:
-                                reader.skipType(tag & 7);
-                                break;
-                            }
-                        }
-                        return message;
-                    };
-    
-                    /**
-                     * Decodes a Policy message from the specified reader or buffer, length delimited.
-                     * @function decodeDelimited
-                     * @memberof google.iam.v1.Policy
-                     * @static
-                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                     * @returns {google.iam.v1.Policy} Policy
-                     * @throws {Error} If the payload is not a reader or valid buffer
-                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                     */
-                    Policy.decodeDelimited = function decodeDelimited(reader) {
-                        if (!(reader instanceof $Reader))
-                            reader = new $Reader(reader);
-                        return this.decode(reader, reader.uint32());
-                    };
-    
-                    /**
-                     * Verifies a Policy message.
-                     * @function verify
-                     * @memberof google.iam.v1.Policy
-                     * @static
-                     * @param {Object.<string,*>} message Plain object to verify
-                     * @returns {string|null} `null` if valid, otherwise the reason why it is not
-                     */
-                    Policy.verify = function verify(message) {
-                        if (typeof message !== "object" || message === null)
-                            return "object expected";
-                        if (message.version != null && message.hasOwnProperty("version"))
-                            if (!$util.isInteger(message.version))
-                                return "version: integer expected";
-                        if (message.bindings != null && message.hasOwnProperty("bindings")) {
-                            if (!Array.isArray(message.bindings))
-                                return "bindings: array expected";
-                            for (var i = 0; i < message.bindings.length; ++i) {
-                                var error = $root.google.iam.v1.Binding.verify(message.bindings[i]);
-                                if (error)
-                                    return "bindings." + error;
-                            }
-                        }
-                        if (message.etag != null && message.hasOwnProperty("etag"))
-                            if (!(message.etag && typeof message.etag.length === "number" || $util.isString(message.etag)))
-                                return "etag: buffer expected";
-                        return null;
-                    };
-    
-                    /**
-                     * Creates a Policy message from a plain object. Also converts values to their respective internal types.
-                     * @function fromObject
-                     * @memberof google.iam.v1.Policy
-                     * @static
-                     * @param {Object.<string,*>} object Plain object
-                     * @returns {google.iam.v1.Policy} Policy
-                     */
-                    Policy.fromObject = function fromObject(object) {
-                        if (object instanceof $root.google.iam.v1.Policy)
-                            return object;
-                        var message = new $root.google.iam.v1.Policy();
-                        if (object.version != null)
-                            message.version = object.version | 0;
-                        if (object.bindings) {
-                            if (!Array.isArray(object.bindings))
-                                throw TypeError(".google.iam.v1.Policy.bindings: array expected");
-                            message.bindings = [];
-                            for (var i = 0; i < object.bindings.length; ++i) {
-                                if (typeof object.bindings[i] !== "object")
-                                    throw TypeError(".google.iam.v1.Policy.bindings: object expected");
-                                message.bindings[i] = $root.google.iam.v1.Binding.fromObject(object.bindings[i]);
-                            }
-                        }
-                        if (object.etag != null)
-                            if (typeof object.etag === "string")
-                                $util.base64.decode(object.etag, message.etag = $util.newBuffer($util.base64.length(object.etag)), 0);
-                            else if (object.etag.length)
-                                message.etag = object.etag;
-                        return message;
-                    };
-    
-                    /**
-                     * Creates a plain object from a Policy message. Also converts values to other types if specified.
-                     * @function toObject
-                     * @memberof google.iam.v1.Policy
-                     * @static
-                     * @param {google.iam.v1.Policy} message Policy
-                     * @param {$protobuf.IConversionOptions} [options] Conversion options
-                     * @returns {Object.<string,*>} Plain object
-                     */
-                    Policy.toObject = function toObject(message, options) {
-                        if (!options)
-                            options = {};
-                        var object = {};
-                        if (options.arrays || options.defaults)
-                            object.bindings = [];
-                        if (options.defaults) {
-                            object.version = 0;
-                            if (options.bytes === String)
-                                object.etag = "";
-                            else {
-                                object.etag = [];
-                                if (options.bytes !== Array)
-                                    object.etag = $util.newBuffer(object.etag);
-                            }
-                        }
-                        if (message.version != null && message.hasOwnProperty("version"))
-                            object.version = message.version;
-                        if (message.etag != null && message.hasOwnProperty("etag"))
-                            object.etag = options.bytes === String ? $util.base64.encode(message.etag, 0, message.etag.length) : options.bytes === Array ? Array.prototype.slice.call(message.etag) : message.etag;
-                        if (message.bindings && message.bindings.length) {
-                            object.bindings = [];
-                            for (var j = 0; j < message.bindings.length; ++j)
-                                object.bindings[j] = $root.google.iam.v1.Binding.toObject(message.bindings[j], options);
-                        }
-                        return object;
-                    };
-    
-                    /**
-                     * Converts this Policy to JSON.
-                     * @function toJSON
-                     * @memberof google.iam.v1.Policy
-                     * @instance
-                     * @returns {Object.<string,*>} JSON object
-                     */
-                    Policy.prototype.toJSON = function toJSON() {
-                        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-                    };
-    
-                    return Policy;
-                })();
-    
-                v1.Binding = (function() {
-    
-                    /**
-                     * Properties of a Binding.
-                     * @memberof google.iam.v1
-                     * @interface IBinding
-                     * @property {string|null} [role] Binding role
-                     * @property {Array.<string>|null} [members] Binding members
-                     * @property {google.type.IExpr|null} [condition] Binding condition
-                     */
-    
-                    /**
-                     * Constructs a new Binding.
-                     * @memberof google.iam.v1
-                     * @classdesc Represents a Binding.
-                     * @implements IBinding
-                     * @constructor
-                     * @param {google.iam.v1.IBinding=} [properties] Properties to set
-                     */
-                    function Binding(properties) {
-                        this.members = [];
-                        if (properties)
-                            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                                if (properties[keys[i]] != null)
-                                    this[keys[i]] = properties[keys[i]];
-                    }
-    
-                    /**
-                     * Binding role.
-                     * @member {string} role
-                     * @memberof google.iam.v1.Binding
-                     * @instance
-                     */
-                    Binding.prototype.role = "";
-    
-                    /**
-                     * Binding members.
-                     * @member {Array.<string>} members
-                     * @memberof google.iam.v1.Binding
-                     * @instance
-                     */
-                    Binding.prototype.members = $util.emptyArray;
-    
-                    /**
-                     * Binding condition.
-                     * @member {google.type.IExpr|null|undefined} condition
-                     * @memberof google.iam.v1.Binding
-                     * @instance
-                     */
-                    Binding.prototype.condition = null;
-    
-                    /**
-                     * Creates a new Binding instance using the specified properties.
-                     * @function create
-                     * @memberof google.iam.v1.Binding
-                     * @static
-                     * @param {google.iam.v1.IBinding=} [properties] Properties to set
-                     * @returns {google.iam.v1.Binding} Binding instance
-                     */
-                    Binding.create = function create(properties) {
-                        return new Binding(properties);
-                    };
-    
-                    /**
-                     * Encodes the specified Binding message. Does not implicitly {@link google.iam.v1.Binding.verify|verify} messages.
-                     * @function encode
-                     * @memberof google.iam.v1.Binding
-                     * @static
-                     * @param {google.iam.v1.IBinding} message Binding message or plain object to encode
-                     * @param {$protobuf.Writer} [writer] Writer to encode to
-                     * @returns {$protobuf.Writer} Writer
-                     */
-                    Binding.encode = function encode(message, writer) {
-                        if (!writer)
-                            writer = $Writer.create();
-                        if (message.role != null && message.hasOwnProperty("role"))
-                            writer.uint32(/* id 1, wireType 2 =*/10).string(message.role);
-                        if (message.members != null && message.members.length)
-                            for (var i = 0; i < message.members.length; ++i)
-                                writer.uint32(/* id 2, wireType 2 =*/18).string(message.members[i]);
-                        if (message.condition != null && message.hasOwnProperty("condition"))
-                            $root.google.type.Expr.encode(message.condition, writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
-                        return writer;
-                    };
-    
-                    /**
-                     * Encodes the specified Binding message, length delimited. Does not implicitly {@link google.iam.v1.Binding.verify|verify} messages.
-                     * @function encodeDelimited
-                     * @memberof google.iam.v1.Binding
-                     * @static
-                     * @param {google.iam.v1.IBinding} message Binding message or plain object to encode
-                     * @param {$protobuf.Writer} [writer] Writer to encode to
-                     * @returns {$protobuf.Writer} Writer
-                     */
-                    Binding.encodeDelimited = function encodeDelimited(message, writer) {
-                        return this.encode(message, writer).ldelim();
-                    };
-    
-                    /**
-                     * Decodes a Binding message from the specified reader or buffer.
-                     * @function decode
-                     * @memberof google.iam.v1.Binding
-                     * @static
-                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                     * @param {number} [length] Message length if known beforehand
-                     * @returns {google.iam.v1.Binding} Binding
-                     * @throws {Error} If the payload is not a reader or valid buffer
-                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                     */
-                    Binding.decode = function decode(reader, length) {
-                        if (!(reader instanceof $Reader))
-                            reader = $Reader.create(reader);
-                        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.iam.v1.Binding();
-                        while (reader.pos < end) {
-                            var tag = reader.uint32();
-                            switch (tag >>> 3) {
-                            case 1:
-                                message.role = reader.string();
-                                break;
-                            case 2:
-                                if (!(message.members && message.members.length))
-                                    message.members = [];
-                                message.members.push(reader.string());
-                                break;
-                            case 3:
-                                message.condition = $root.google.type.Expr.decode(reader, reader.uint32());
-                                break;
-                            default:
-                                reader.skipType(tag & 7);
-                                break;
-                            }
-                        }
-                        return message;
-                    };
-    
-                    /**
-                     * Decodes a Binding message from the specified reader or buffer, length delimited.
-                     * @function decodeDelimited
-                     * @memberof google.iam.v1.Binding
-                     * @static
-                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                     * @returns {google.iam.v1.Binding} Binding
-                     * @throws {Error} If the payload is not a reader or valid buffer
-                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                     */
-                    Binding.decodeDelimited = function decodeDelimited(reader) {
-                        if (!(reader instanceof $Reader))
-                            reader = new $Reader(reader);
-                        return this.decode(reader, reader.uint32());
-                    };
-    
-                    /**
-                     * Verifies a Binding message.
-                     * @function verify
-                     * @memberof google.iam.v1.Binding
-                     * @static
-                     * @param {Object.<string,*>} message Plain object to verify
-                     * @returns {string|null} `null` if valid, otherwise the reason why it is not
-                     */
-                    Binding.verify = function verify(message) {
-                        if (typeof message !== "object" || message === null)
-                            return "object expected";
-                        if (message.role != null && message.hasOwnProperty("role"))
-                            if (!$util.isString(message.role))
-                                return "role: string expected";
-                        if (message.members != null && message.hasOwnProperty("members")) {
-                            if (!Array.isArray(message.members))
-                                return "members: array expected";
-                            for (var i = 0; i < message.members.length; ++i)
-                                if (!$util.isString(message.members[i]))
-                                    return "members: string[] expected";
-                        }
-                        if (message.condition != null && message.hasOwnProperty("condition")) {
-                            var error = $root.google.type.Expr.verify(message.condition);
-                            if (error)
-                                return "condition." + error;
-                        }
-                        return null;
-                    };
-    
-                    /**
-                     * Creates a Binding message from a plain object. Also converts values to their respective internal types.
-                     * @function fromObject
-                     * @memberof google.iam.v1.Binding
-                     * @static
-                     * @param {Object.<string,*>} object Plain object
-                     * @returns {google.iam.v1.Binding} Binding
-                     */
-                    Binding.fromObject = function fromObject(object) {
-                        if (object instanceof $root.google.iam.v1.Binding)
-                            return object;
-                        var message = new $root.google.iam.v1.Binding();
-                        if (object.role != null)
-                            message.role = String(object.role);
-                        if (object.members) {
-                            if (!Array.isArray(object.members))
-                                throw TypeError(".google.iam.v1.Binding.members: array expected");
-                            message.members = [];
-                            for (var i = 0; i < object.members.length; ++i)
-                                message.members[i] = String(object.members[i]);
-                        }
-                        if (object.condition != null) {
-                            if (typeof object.condition !== "object")
-                                throw TypeError(".google.iam.v1.Binding.condition: object expected");
-                            message.condition = $root.google.type.Expr.fromObject(object.condition);
-                        }
-                        return message;
-                    };
-    
-                    /**
-                     * Creates a plain object from a Binding message. Also converts values to other types if specified.
-                     * @function toObject
-                     * @memberof google.iam.v1.Binding
-                     * @static
-                     * @param {google.iam.v1.Binding} message Binding
-                     * @param {$protobuf.IConversionOptions} [options] Conversion options
-                     * @returns {Object.<string,*>} Plain object
-                     */
-                    Binding.toObject = function toObject(message, options) {
-                        if (!options)
-                            options = {};
-                        var object = {};
-                        if (options.arrays || options.defaults)
-                            object.members = [];
-                        if (options.defaults) {
-                            object.role = "";
-                            object.condition = null;
-                        }
-                        if (message.role != null && message.hasOwnProperty("role"))
-                            object.role = message.role;
-                        if (message.members && message.members.length) {
-                            object.members = [];
-                            for (var j = 0; j < message.members.length; ++j)
-                                object.members[j] = message.members[j];
-                        }
-                        if (message.condition != null && message.hasOwnProperty("condition"))
-                            object.condition = $root.google.type.Expr.toObject(message.condition, options);
-                        return object;
-                    };
-    
-                    /**
-                     * Converts this Binding to JSON.
-                     * @function toJSON
-                     * @memberof google.iam.v1.Binding
-                     * @instance
-                     * @returns {Object.<string,*>} JSON object
-                     */
-                    Binding.prototype.toJSON = function toJSON() {
-                        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-                    };
-    
-                    return Binding;
-                })();
-    
-                v1.PolicyDelta = (function() {
-    
-                    /**
-                     * Properties of a PolicyDelta.
-                     * @memberof google.iam.v1
-                     * @interface IPolicyDelta
-                     * @property {Array.<google.iam.v1.IBindingDelta>|null} [bindingDeltas] PolicyDelta bindingDeltas
-                     * @property {Array.<google.iam.v1.IAuditConfigDelta>|null} [auditConfigDeltas] PolicyDelta auditConfigDeltas
-                     */
-    
-                    /**
-                     * Constructs a new PolicyDelta.
-                     * @memberof google.iam.v1
-                     * @classdesc Represents a PolicyDelta.
-                     * @implements IPolicyDelta
-                     * @constructor
-                     * @param {google.iam.v1.IPolicyDelta=} [properties] Properties to set
-                     */
-                    function PolicyDelta(properties) {
-                        this.bindingDeltas = [];
-                        this.auditConfigDeltas = [];
-                        if (properties)
-                            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                                if (properties[keys[i]] != null)
-                                    this[keys[i]] = properties[keys[i]];
-                    }
-    
-                    /**
-                     * PolicyDelta bindingDeltas.
-                     * @member {Array.<google.iam.v1.IBindingDelta>} bindingDeltas
-                     * @memberof google.iam.v1.PolicyDelta
-                     * @instance
-                     */
-                    PolicyDelta.prototype.bindingDeltas = $util.emptyArray;
-    
-                    /**
-                     * PolicyDelta auditConfigDeltas.
-                     * @member {Array.<google.iam.v1.IAuditConfigDelta>} auditConfigDeltas
-                     * @memberof google.iam.v1.PolicyDelta
-                     * @instance
-                     */
-                    PolicyDelta.prototype.auditConfigDeltas = $util.emptyArray;
-    
-                    /**
-                     * Creates a new PolicyDelta instance using the specified properties.
-                     * @function create
-                     * @memberof google.iam.v1.PolicyDelta
-                     * @static
-                     * @param {google.iam.v1.IPolicyDelta=} [properties] Properties to set
-                     * @returns {google.iam.v1.PolicyDelta} PolicyDelta instance
-                     */
-                    PolicyDelta.create = function create(properties) {
-                        return new PolicyDelta(properties);
-                    };
-    
-                    /**
-                     * Encodes the specified PolicyDelta message. Does not implicitly {@link google.iam.v1.PolicyDelta.verify|verify} messages.
-                     * @function encode
-                     * @memberof google.iam.v1.PolicyDelta
-                     * @static
-                     * @param {google.iam.v1.IPolicyDelta} message PolicyDelta message or plain object to encode
-                     * @param {$protobuf.Writer} [writer] Writer to encode to
-                     * @returns {$protobuf.Writer} Writer
-                     */
-                    PolicyDelta.encode = function encode(message, writer) {
-                        if (!writer)
-                            writer = $Writer.create();
-                        if (message.bindingDeltas != null && message.bindingDeltas.length)
-                            for (var i = 0; i < message.bindingDeltas.length; ++i)
-                                $root.google.iam.v1.BindingDelta.encode(message.bindingDeltas[i], writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
-                        if (message.auditConfigDeltas != null && message.auditConfigDeltas.length)
-                            for (var i = 0; i < message.auditConfigDeltas.length; ++i)
-                                $root.google.iam.v1.AuditConfigDelta.encode(message.auditConfigDeltas[i], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
-                        return writer;
-                    };
-    
-                    /**
-                     * Encodes the specified PolicyDelta message, length delimited. Does not implicitly {@link google.iam.v1.PolicyDelta.verify|verify} messages.
-                     * @function encodeDelimited
-                     * @memberof google.iam.v1.PolicyDelta
-                     * @static
-                     * @param {google.iam.v1.IPolicyDelta} message PolicyDelta message or plain object to encode
-                     * @param {$protobuf.Writer} [writer] Writer to encode to
-                     * @returns {$protobuf.Writer} Writer
-                     */
-                    PolicyDelta.encodeDelimited = function encodeDelimited(message, writer) {
-                        return this.encode(message, writer).ldelim();
-                    };
-    
-                    /**
-                     * Decodes a PolicyDelta message from the specified reader or buffer.
-                     * @function decode
-                     * @memberof google.iam.v1.PolicyDelta
-                     * @static
-                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                     * @param {number} [length] Message length if known beforehand
-                     * @returns {google.iam.v1.PolicyDelta} PolicyDelta
-                     * @throws {Error} If the payload is not a reader or valid buffer
-                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                     */
-                    PolicyDelta.decode = function decode(reader, length) {
-                        if (!(reader instanceof $Reader))
-                            reader = $Reader.create(reader);
-                        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.iam.v1.PolicyDelta();
-                        while (reader.pos < end) {
-                            var tag = reader.uint32();
-                            switch (tag >>> 3) {
-                            case 1:
-                                if (!(message.bindingDeltas && message.bindingDeltas.length))
-                                    message.bindingDeltas = [];
-                                message.bindingDeltas.push($root.google.iam.v1.BindingDelta.decode(reader, reader.uint32()));
-                                break;
-                            case 2:
-                                if (!(message.auditConfigDeltas && message.auditConfigDeltas.length))
-                                    message.auditConfigDeltas = [];
-                                message.auditConfigDeltas.push($root.google.iam.v1.AuditConfigDelta.decode(reader, reader.uint32()));
-                                break;
-                            default:
-                                reader.skipType(tag & 7);
-                                break;
-                            }
-                        }
-                        return message;
-                    };
-    
-                    /**
-                     * Decodes a PolicyDelta message from the specified reader or buffer, length delimited.
-                     * @function decodeDelimited
-                     * @memberof google.iam.v1.PolicyDelta
-                     * @static
-                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                     * @returns {google.iam.v1.PolicyDelta} PolicyDelta
-                     * @throws {Error} If the payload is not a reader or valid buffer
-                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                     */
-                    PolicyDelta.decodeDelimited = function decodeDelimited(reader) {
-                        if (!(reader instanceof $Reader))
-                            reader = new $Reader(reader);
-                        return this.decode(reader, reader.uint32());
-                    };
-    
-                    /**
-                     * Verifies a PolicyDelta message.
-                     * @function verify
-                     * @memberof google.iam.v1.PolicyDelta
-                     * @static
-                     * @param {Object.<string,*>} message Plain object to verify
-                     * @returns {string|null} `null` if valid, otherwise the reason why it is not
-                     */
-                    PolicyDelta.verify = function verify(message) {
-                        if (typeof message !== "object" || message === null)
-                            return "object expected";
-                        if (message.bindingDeltas != null && message.hasOwnProperty("bindingDeltas")) {
-                            if (!Array.isArray(message.bindingDeltas))
-                                return "bindingDeltas: array expected";
-                            for (var i = 0; i < message.bindingDeltas.length; ++i) {
-                                var error = $root.google.iam.v1.BindingDelta.verify(message.bindingDeltas[i]);
-                                if (error)
-                                    return "bindingDeltas." + error;
-                            }
-                        }
-                        if (message.auditConfigDeltas != null && message.hasOwnProperty("auditConfigDeltas")) {
-                            if (!Array.isArray(message.auditConfigDeltas))
-                                return "auditConfigDeltas: array expected";
-                            for (var i = 0; i < message.auditConfigDeltas.length; ++i) {
-                                var error = $root.google.iam.v1.AuditConfigDelta.verify(message.auditConfigDeltas[i]);
-                                if (error)
-                                    return "auditConfigDeltas." + error;
-                            }
-                        }
-                        return null;
-                    };
-    
-                    /**
-                     * Creates a PolicyDelta message from a plain object. Also converts values to their respective internal types.
-                     * @function fromObject
-                     * @memberof google.iam.v1.PolicyDelta
-                     * @static
-                     * @param {Object.<string,*>} object Plain object
-                     * @returns {google.iam.v1.PolicyDelta} PolicyDelta
-                     */
-                    PolicyDelta.fromObject = function fromObject(object) {
-                        if (object instanceof $root.google.iam.v1.PolicyDelta)
-                            return object;
-                        var message = new $root.google.iam.v1.PolicyDelta();
-                        if (object.bindingDeltas) {
-                            if (!Array.isArray(object.bindingDeltas))
-                                throw TypeError(".google.iam.v1.PolicyDelta.bindingDeltas: array expected");
-                            message.bindingDeltas = [];
-                            for (var i = 0; i < object.bindingDeltas.length; ++i) {
-                                if (typeof object.bindingDeltas[i] !== "object")
-                                    throw TypeError(".google.iam.v1.PolicyDelta.bindingDeltas: object expected");
-                                message.bindingDeltas[i] = $root.google.iam.v1.BindingDelta.fromObject(object.bindingDeltas[i]);
-                            }
-                        }
-                        if (object.auditConfigDeltas) {
-                            if (!Array.isArray(object.auditConfigDeltas))
-                                throw TypeError(".google.iam.v1.PolicyDelta.auditConfigDeltas: array expected");
-                            message.auditConfigDeltas = [];
-                            for (var i = 0; i < object.auditConfigDeltas.length; ++i) {
-                                if (typeof object.auditConfigDeltas[i] !== "object")
-                                    throw TypeError(".google.iam.v1.PolicyDelta.auditConfigDeltas: object expected");
-                                message.auditConfigDeltas[i] = $root.google.iam.v1.AuditConfigDelta.fromObject(object.auditConfigDeltas[i]);
-                            }
-                        }
-                        return message;
-                    };
-    
-                    /**
-                     * Creates a plain object from a PolicyDelta message. Also converts values to other types if specified.
-                     * @function toObject
-                     * @memberof google.iam.v1.PolicyDelta
-                     * @static
-                     * @param {google.iam.v1.PolicyDelta} message PolicyDelta
-                     * @param {$protobuf.IConversionOptions} [options] Conversion options
-                     * @returns {Object.<string,*>} Plain object
-                     */
-                    PolicyDelta.toObject = function toObject(message, options) {
-                        if (!options)
-                            options = {};
-                        var object = {};
-                        if (options.arrays || options.defaults) {
-                            object.bindingDeltas = [];
-                            object.auditConfigDeltas = [];
-                        }
-                        if (message.bindingDeltas && message.bindingDeltas.length) {
-                            object.bindingDeltas = [];
-                            for (var j = 0; j < message.bindingDeltas.length; ++j)
-                                object.bindingDeltas[j] = $root.google.iam.v1.BindingDelta.toObject(message.bindingDeltas[j], options);
-                        }
-                        if (message.auditConfigDeltas && message.auditConfigDeltas.length) {
-                            object.auditConfigDeltas = [];
-                            for (var j = 0; j < message.auditConfigDeltas.length; ++j)
-                                object.auditConfigDeltas[j] = $root.google.iam.v1.AuditConfigDelta.toObject(message.auditConfigDeltas[j], options);
-                        }
-                        return object;
-                    };
-    
-                    /**
-                     * Converts this PolicyDelta to JSON.
-                     * @function toJSON
-                     * @memberof google.iam.v1.PolicyDelta
-                     * @instance
-                     * @returns {Object.<string,*>} JSON object
-                     */
-                    PolicyDelta.prototype.toJSON = function toJSON() {
-                        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-                    };
-    
-                    return PolicyDelta;
-                })();
-    
-                v1.BindingDelta = (function() {
-    
-                    /**
-                     * Properties of a BindingDelta.
-                     * @memberof google.iam.v1
-                     * @interface IBindingDelta
-                     * @property {google.iam.v1.BindingDelta.Action|null} [action] BindingDelta action
-                     * @property {string|null} [role] BindingDelta role
-                     * @property {string|null} [member] BindingDelta member
-                     * @property {google.type.IExpr|null} [condition] BindingDelta condition
-                     */
-    
-                    /**
-                     * Constructs a new BindingDelta.
-                     * @memberof google.iam.v1
-                     * @classdesc Represents a BindingDelta.
-                     * @implements IBindingDelta
-                     * @constructor
-                     * @param {google.iam.v1.IBindingDelta=} [properties] Properties to set
-                     */
-                    function BindingDelta(properties) {
-                        if (properties)
-                            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                                if (properties[keys[i]] != null)
-                                    this[keys[i]] = properties[keys[i]];
-                    }
-    
-                    /**
-                     * BindingDelta action.
-                     * @member {google.iam.v1.BindingDelta.Action} action
-                     * @memberof google.iam.v1.BindingDelta
-                     * @instance
-                     */
-                    BindingDelta.prototype.action = 0;
-    
-                    /**
-                     * BindingDelta role.
-                     * @member {string} role
-                     * @memberof google.iam.v1.BindingDelta
-                     * @instance
-                     */
-                    BindingDelta.prototype.role = "";
-    
-                    /**
-                     * BindingDelta member.
-                     * @member {string} member
-                     * @memberof google.iam.v1.BindingDelta
-                     * @instance
-                     */
-                    BindingDelta.prototype.member = "";
-    
-                    /**
-                     * BindingDelta condition.
-                     * @member {google.type.IExpr|null|undefined} condition
-                     * @memberof google.iam.v1.BindingDelta
-                     * @instance
-                     */
-                    BindingDelta.prototype.condition = null;
-    
-                    /**
-                     * Creates a new BindingDelta instance using the specified properties.
-                     * @function create
-                     * @memberof google.iam.v1.BindingDelta
-                     * @static
-                     * @param {google.iam.v1.IBindingDelta=} [properties] Properties to set
-                     * @returns {google.iam.v1.BindingDelta} BindingDelta instance
-                     */
-                    BindingDelta.create = function create(properties) {
-                        return new BindingDelta(properties);
-                    };
-    
-                    /**
-                     * Encodes the specified BindingDelta message. Does not implicitly {@link google.iam.v1.BindingDelta.verify|verify} messages.
-                     * @function encode
-                     * @memberof google.iam.v1.BindingDelta
-                     * @static
-                     * @param {google.iam.v1.IBindingDelta} message BindingDelta message or plain object to encode
-                     * @param {$protobuf.Writer} [writer] Writer to encode to
-                     * @returns {$protobuf.Writer} Writer
-                     */
-                    BindingDelta.encode = function encode(message, writer) {
-                        if (!writer)
-                            writer = $Writer.create();
-                        if (message.action != null && message.hasOwnProperty("action"))
-                            writer.uint32(/* id 1, wireType 0 =*/8).int32(message.action);
-                        if (message.role != null && message.hasOwnProperty("role"))
-                            writer.uint32(/* id 2, wireType 2 =*/18).string(message.role);
-                        if (message.member != null && message.hasOwnProperty("member"))
-                            writer.uint32(/* id 3, wireType 2 =*/26).string(message.member);
-                        if (message.condition != null && message.hasOwnProperty("condition"))
-                            $root.google.type.Expr.encode(message.condition, writer.uint32(/* id 4, wireType 2 =*/34).fork()).ldelim();
-                        return writer;
-                    };
-    
-                    /**
-                     * Encodes the specified BindingDelta message, length delimited. Does not implicitly {@link google.iam.v1.BindingDelta.verify|verify} messages.
-                     * @function encodeDelimited
-                     * @memberof google.iam.v1.BindingDelta
-                     * @static
-                     * @param {google.iam.v1.IBindingDelta} message BindingDelta message or plain object to encode
-                     * @param {$protobuf.Writer} [writer] Writer to encode to
-                     * @returns {$protobuf.Writer} Writer
-                     */
-                    BindingDelta.encodeDelimited = function encodeDelimited(message, writer) {
-                        return this.encode(message, writer).ldelim();
-                    };
-    
-                    /**
-                     * Decodes a BindingDelta message from the specified reader or buffer.
-                     * @function decode
-                     * @memberof google.iam.v1.BindingDelta
-                     * @static
-                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                     * @param {number} [length] Message length if known beforehand
-                     * @returns {google.iam.v1.BindingDelta} BindingDelta
-                     * @throws {Error} If the payload is not a reader or valid buffer
-                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                     */
-                    BindingDelta.decode = function decode(reader, length) {
-                        if (!(reader instanceof $Reader))
-                            reader = $Reader.create(reader);
-                        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.iam.v1.BindingDelta();
-                        while (reader.pos < end) {
-                            var tag = reader.uint32();
-                            switch (tag >>> 3) {
-                            case 1:
-                                message.action = reader.int32();
-                                break;
-                            case 2:
-                                message.role = reader.string();
-                                break;
-                            case 3:
-                                message.member = reader.string();
-                                break;
-                            case 4:
-                                message.condition = $root.google.type.Expr.decode(reader, reader.uint32());
-                                break;
-                            default:
-                                reader.skipType(tag & 7);
-                                break;
-                            }
-                        }
-                        return message;
-                    };
-    
-                    /**
-                     * Decodes a BindingDelta message from the specified reader or buffer, length delimited.
-                     * @function decodeDelimited
-                     * @memberof google.iam.v1.BindingDelta
-                     * @static
-                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                     * @returns {google.iam.v1.BindingDelta} BindingDelta
-                     * @throws {Error} If the payload is not a reader or valid buffer
-                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                     */
-                    BindingDelta.decodeDelimited = function decodeDelimited(reader) {
-                        if (!(reader instanceof $Reader))
-                            reader = new $Reader(reader);
-                        return this.decode(reader, reader.uint32());
-                    };
-    
-                    /**
-                     * Verifies a BindingDelta message.
-                     * @function verify
-                     * @memberof google.iam.v1.BindingDelta
-                     * @static
-                     * @param {Object.<string,*>} message Plain object to verify
-                     * @returns {string|null} `null` if valid, otherwise the reason why it is not
-                     */
-                    BindingDelta.verify = function verify(message) {
-                        if (typeof message !== "object" || message === null)
-                            return "object expected";
-                        if (message.action != null && message.hasOwnProperty("action"))
-                            switch (message.action) {
-                            default:
-                                return "action: enum value expected";
-                            case 0:
-                            case 1:
-                            case 2:
-                                break;
-                            }
-                        if (message.role != null && message.hasOwnProperty("role"))
-                            if (!$util.isString(message.role))
-                                return "role: string expected";
-                        if (message.member != null && message.hasOwnProperty("member"))
-                            if (!$util.isString(message.member))
-                                return "member: string expected";
-                        if (message.condition != null && message.hasOwnProperty("condition")) {
-                            var error = $root.google.type.Expr.verify(message.condition);
-                            if (error)
-                                return "condition." + error;
-                        }
-                        return null;
-                    };
-    
-                    /**
-                     * Creates a BindingDelta message from a plain object. Also converts values to their respective internal types.
-                     * @function fromObject
-                     * @memberof google.iam.v1.BindingDelta
-                     * @static
-                     * @param {Object.<string,*>} object Plain object
-                     * @returns {google.iam.v1.BindingDelta} BindingDelta
-                     */
-                    BindingDelta.fromObject = function fromObject(object) {
-                        if (object instanceof $root.google.iam.v1.BindingDelta)
-                            return object;
-                        var message = new $root.google.iam.v1.BindingDelta();
-                        switch (object.action) {
-                        case "ACTION_UNSPECIFIED":
-                        case 0:
-                            message.action = 0;
-                            break;
-                        case "ADD":
-                        case 1:
-                            message.action = 1;
-                            break;
-                        case "REMOVE":
-                        case 2:
-                            message.action = 2;
-                            break;
-                        }
-                        if (object.role != null)
-                            message.role = String(object.role);
-                        if (object.member != null)
-                            message.member = String(object.member);
-                        if (object.condition != null) {
-                            if (typeof object.condition !== "object")
-                                throw TypeError(".google.iam.v1.BindingDelta.condition: object expected");
-                            message.condition = $root.google.type.Expr.fromObject(object.condition);
-                        }
-                        return message;
-                    };
-    
-                    /**
-                     * Creates a plain object from a BindingDelta message. Also converts values to other types if specified.
-                     * @function toObject
-                     * @memberof google.iam.v1.BindingDelta
-                     * @static
-                     * @param {google.iam.v1.BindingDelta} message BindingDelta
-                     * @param {$protobuf.IConversionOptions} [options] Conversion options
-                     * @returns {Object.<string,*>} Plain object
-                     */
-                    BindingDelta.toObject = function toObject(message, options) {
-                        if (!options)
-                            options = {};
-                        var object = {};
-                        if (options.defaults) {
-                            object.action = options.enums === String ? "ACTION_UNSPECIFIED" : 0;
-                            object.role = "";
-                            object.member = "";
-                            object.condition = null;
-                        }
-                        if (message.action != null && message.hasOwnProperty("action"))
-                            object.action = options.enums === String ? $root.google.iam.v1.BindingDelta.Action[message.action] : message.action;
-                        if (message.role != null && message.hasOwnProperty("role"))
-                            object.role = message.role;
-                        if (message.member != null && message.hasOwnProperty("member"))
-                            object.member = message.member;
-                        if (message.condition != null && message.hasOwnProperty("condition"))
-                            object.condition = $root.google.type.Expr.toObject(message.condition, options);
-                        return object;
-                    };
-    
-                    /**
-                     * Converts this BindingDelta to JSON.
-                     * @function toJSON
-                     * @memberof google.iam.v1.BindingDelta
-                     * @instance
-                     * @returns {Object.<string,*>} JSON object
-                     */
-                    BindingDelta.prototype.toJSON = function toJSON() {
-                        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-                    };
-    
-                    /**
-                     * Action enum.
-                     * @name google.iam.v1.BindingDelta.Action
-                     * @enum {string}
-                     * @property {number} ACTION_UNSPECIFIED=0 ACTION_UNSPECIFIED value
-                     * @property {number} ADD=1 ADD value
-                     * @property {number} REMOVE=2 REMOVE value
-                     */
-                    BindingDelta.Action = (function() {
-                        var valuesById = {}, values = Object.create(valuesById);
-                        values[valuesById[0] = "ACTION_UNSPECIFIED"] = 0;
-                        values[valuesById[1] = "ADD"] = 1;
-                        values[valuesById[2] = "REMOVE"] = 2;
-                        return values;
-                    })();
-    
-                    return BindingDelta;
-                })();
-    
-                v1.AuditConfigDelta = (function() {
-    
-                    /**
-                     * Properties of an AuditConfigDelta.
-                     * @memberof google.iam.v1
-                     * @interface IAuditConfigDelta
-                     * @property {google.iam.v1.AuditConfigDelta.Action|null} [action] AuditConfigDelta action
-                     * @property {string|null} [service] AuditConfigDelta service
-                     * @property {string|null} [exemptedMember] AuditConfigDelta exemptedMember
-                     * @property {string|null} [logType] AuditConfigDelta logType
-                     */
-    
-                    /**
-                     * Constructs a new AuditConfigDelta.
-                     * @memberof google.iam.v1
-                     * @classdesc Represents an AuditConfigDelta.
-                     * @implements IAuditConfigDelta
-                     * @constructor
-                     * @param {google.iam.v1.IAuditConfigDelta=} [properties] Properties to set
-                     */
-                    function AuditConfigDelta(properties) {
-                        if (properties)
-                            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                                if (properties[keys[i]] != null)
-                                    this[keys[i]] = properties[keys[i]];
-                    }
-    
-                    /**
-                     * AuditConfigDelta action.
-                     * @member {google.iam.v1.AuditConfigDelta.Action} action
-                     * @memberof google.iam.v1.AuditConfigDelta
-                     * @instance
-                     */
-                    AuditConfigDelta.prototype.action = 0;
-    
-                    /**
-                     * AuditConfigDelta service.
-                     * @member {string} service
-                     * @memberof google.iam.v1.AuditConfigDelta
-                     * @instance
-                     */
-                    AuditConfigDelta.prototype.service = "";
-    
-                    /**
-                     * AuditConfigDelta exemptedMember.
-                     * @member {string} exemptedMember
-                     * @memberof google.iam.v1.AuditConfigDelta
-                     * @instance
-                     */
-                    AuditConfigDelta.prototype.exemptedMember = "";
-    
-                    /**
-                     * AuditConfigDelta logType.
-                     * @member {string} logType
-                     * @memberof google.iam.v1.AuditConfigDelta
-                     * @instance
-                     */
-                    AuditConfigDelta.prototype.logType = "";
-    
-                    /**
-                     * Creates a new AuditConfigDelta instance using the specified properties.
-                     * @function create
-                     * @memberof google.iam.v1.AuditConfigDelta
-                     * @static
-                     * @param {google.iam.v1.IAuditConfigDelta=} [properties] Properties to set
-                     * @returns {google.iam.v1.AuditConfigDelta} AuditConfigDelta instance
-                     */
-                    AuditConfigDelta.create = function create(properties) {
-                        return new AuditConfigDelta(properties);
-                    };
-    
-                    /**
-                     * Encodes the specified AuditConfigDelta message. Does not implicitly {@link google.iam.v1.AuditConfigDelta.verify|verify} messages.
-                     * @function encode
-                     * @memberof google.iam.v1.AuditConfigDelta
-                     * @static
-                     * @param {google.iam.v1.IAuditConfigDelta} message AuditConfigDelta message or plain object to encode
-                     * @param {$protobuf.Writer} [writer] Writer to encode to
-                     * @returns {$protobuf.Writer} Writer
-                     */
-                    AuditConfigDelta.encode = function encode(message, writer) {
-                        if (!writer)
-                            writer = $Writer.create();
-                        if (message.action != null && message.hasOwnProperty("action"))
-                            writer.uint32(/* id 1, wireType 0 =*/8).int32(message.action);
-                        if (message.service != null && message.hasOwnProperty("service"))
-                            writer.uint32(/* id 2, wireType 2 =*/18).string(message.service);
-                        if (message.exemptedMember != null && message.hasOwnProperty("exemptedMember"))
-                            writer.uint32(/* id 3, wireType 2 =*/26).string(message.exemptedMember);
-                        if (message.logType != null && message.hasOwnProperty("logType"))
-                            writer.uint32(/* id 4, wireType 2 =*/34).string(message.logType);
-                        return writer;
-                    };
-    
-                    /**
-                     * Encodes the specified AuditConfigDelta message, length delimited. Does not implicitly {@link google.iam.v1.AuditConfigDelta.verify|verify} messages.
-                     * @function encodeDelimited
-                     * @memberof google.iam.v1.AuditConfigDelta
-                     * @static
-                     * @param {google.iam.v1.IAuditConfigDelta} message AuditConfigDelta message or plain object to encode
-                     * @param {$protobuf.Writer} [writer] Writer to encode to
-                     * @returns {$protobuf.Writer} Writer
-                     */
-                    AuditConfigDelta.encodeDelimited = function encodeDelimited(message, writer) {
-                        return this.encode(message, writer).ldelim();
-                    };
-    
-                    /**
-                     * Decodes an AuditConfigDelta message from the specified reader or buffer.
-                     * @function decode
-                     * @memberof google.iam.v1.AuditConfigDelta
-                     * @static
-                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                     * @param {number} [length] Message length if known beforehand
-                     * @returns {google.iam.v1.AuditConfigDelta} AuditConfigDelta
-                     * @throws {Error} If the payload is not a reader or valid buffer
-                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                     */
-                    AuditConfigDelta.decode = function decode(reader, length) {
-                        if (!(reader instanceof $Reader))
-                            reader = $Reader.create(reader);
-                        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.iam.v1.AuditConfigDelta();
-                        while (reader.pos < end) {
-                            var tag = reader.uint32();
-                            switch (tag >>> 3) {
-                            case 1:
-                                message.action = reader.int32();
-                                break;
-                            case 2:
-                                message.service = reader.string();
-                                break;
-                            case 3:
-                                message.exemptedMember = reader.string();
-                                break;
-                            case 4:
-                                message.logType = reader.string();
-                                break;
-                            default:
-                                reader.skipType(tag & 7);
-                                break;
-                            }
-                        }
-                        return message;
-                    };
-    
-                    /**
-                     * Decodes an AuditConfigDelta message from the specified reader or buffer, length delimited.
-                     * @function decodeDelimited
-                     * @memberof google.iam.v1.AuditConfigDelta
-                     * @static
-                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                     * @returns {google.iam.v1.AuditConfigDelta} AuditConfigDelta
-                     * @throws {Error} If the payload is not a reader or valid buffer
-                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                     */
-                    AuditConfigDelta.decodeDelimited = function decodeDelimited(reader) {
-                        if (!(reader instanceof $Reader))
-                            reader = new $Reader(reader);
-                        return this.decode(reader, reader.uint32());
-                    };
-    
-                    /**
-                     * Verifies an AuditConfigDelta message.
-                     * @function verify
-                     * @memberof google.iam.v1.AuditConfigDelta
-                     * @static
-                     * @param {Object.<string,*>} message Plain object to verify
-                     * @returns {string|null} `null` if valid, otherwise the reason why it is not
-                     */
-                    AuditConfigDelta.verify = function verify(message) {
-                        if (typeof message !== "object" || message === null)
-                            return "object expected";
-                        if (message.action != null && message.hasOwnProperty("action"))
-                            switch (message.action) {
-                            default:
-                                return "action: enum value expected";
-                            case 0:
-                            case 1:
-                            case 2:
-                                break;
-                            }
-                        if (message.service != null && message.hasOwnProperty("service"))
-                            if (!$util.isString(message.service))
-                                return "service: string expected";
-                        if (message.exemptedMember != null && message.hasOwnProperty("exemptedMember"))
-                            if (!$util.isString(message.exemptedMember))
-                                return "exemptedMember: string expected";
-                        if (message.logType != null && message.hasOwnProperty("logType"))
-                            if (!$util.isString(message.logType))
-                                return "logType: string expected";
-                        return null;
-                    };
-    
-                    /**
-                     * Creates an AuditConfigDelta message from a plain object. Also converts values to their respective internal types.
-                     * @function fromObject
-                     * @memberof google.iam.v1.AuditConfigDelta
-                     * @static
-                     * @param {Object.<string,*>} object Plain object
-                     * @returns {google.iam.v1.AuditConfigDelta} AuditConfigDelta
-                     */
-                    AuditConfigDelta.fromObject = function fromObject(object) {
-                        if (object instanceof $root.google.iam.v1.AuditConfigDelta)
-                            return object;
-                        var message = new $root.google.iam.v1.AuditConfigDelta();
-                        switch (object.action) {
-                        case "ACTION_UNSPECIFIED":
-                        case 0:
-                            message.action = 0;
-                            break;
-                        case "ADD":
-                        case 1:
-                            message.action = 1;
-                            break;
-                        case "REMOVE":
-                        case 2:
-                            message.action = 2;
-                            break;
-                        }
-                        if (object.service != null)
-                            message.service = String(object.service);
-                        if (object.exemptedMember != null)
-                            message.exemptedMember = String(object.exemptedMember);
-                        if (object.logType != null)
-                            message.logType = String(object.logType);
-                        return message;
-                    };
-    
-                    /**
-                     * Creates a plain object from an AuditConfigDelta message. Also converts values to other types if specified.
-                     * @function toObject
-                     * @memberof google.iam.v1.AuditConfigDelta
-                     * @static
-                     * @param {google.iam.v1.AuditConfigDelta} message AuditConfigDelta
-                     * @param {$protobuf.IConversionOptions} [options] Conversion options
-                     * @returns {Object.<string,*>} Plain object
-                     */
-                    AuditConfigDelta.toObject = function toObject(message, options) {
-                        if (!options)
-                            options = {};
-                        var object = {};
-                        if (options.defaults) {
-                            object.action = options.enums === String ? "ACTION_UNSPECIFIED" : 0;
-                            object.service = "";
-                            object.exemptedMember = "";
-                            object.logType = "";
-                        }
-                        if (message.action != null && message.hasOwnProperty("action"))
-                            object.action = options.enums === String ? $root.google.iam.v1.AuditConfigDelta.Action[message.action] : message.action;
-                        if (message.service != null && message.hasOwnProperty("service"))
-                            object.service = message.service;
-                        if (message.exemptedMember != null && message.hasOwnProperty("exemptedMember"))
-                            object.exemptedMember = message.exemptedMember;
-                        if (message.logType != null && message.hasOwnProperty("logType"))
-                            object.logType = message.logType;
-                        return object;
-                    };
-    
-                    /**
-                     * Converts this AuditConfigDelta to JSON.
-                     * @function toJSON
-                     * @memberof google.iam.v1.AuditConfigDelta
-                     * @instance
-                     * @returns {Object.<string,*>} JSON object
-                     */
-                    AuditConfigDelta.prototype.toJSON = function toJSON() {
-                        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-                    };
-    
-                    /**
-                     * Action enum.
-                     * @name google.iam.v1.AuditConfigDelta.Action
-                     * @enum {string}
-                     * @property {number} ACTION_UNSPECIFIED=0 ACTION_UNSPECIFIED value
-                     * @property {number} ADD=1 ADD value
-                     * @property {number} REMOVE=2 REMOVE value
-                     */
-                    AuditConfigDelta.Action = (function() {
-                        var valuesById = {}, values = Object.create(valuesById);
-                        values[valuesById[0] = "ACTION_UNSPECIFIED"] = 0;
-                        values[valuesById[1] = "ADD"] = 1;
-                        values[valuesById[2] = "REMOVE"] = 2;
-                        return values;
-                    })();
-    
-                    return AuditConfigDelta;
-                })();
-    
-                return v1;
-            })();
-    
-            return iam;
-        })();
-    
-        google.type = (function() {
-    
-            /**
-             * Namespace type.
-             * @memberof google
-             * @namespace
-             */
-            var type = {};
-    
-            type.Expr = (function() {
-    
-                /**
-                 * Properties of an Expr.
-                 * @memberof google.type
-                 * @interface IExpr
-                 * @property {string|null} [expression] Expr expression
-                 * @property {string|null} [title] Expr title
-                 * @property {string|null} [description] Expr description
-                 * @property {string|null} [location] Expr location
-                 */
-    
-                /**
-                 * Constructs a new Expr.
-                 * @memberof google.type
-                 * @classdesc Represents an Expr.
-                 * @implements IExpr
-                 * @constructor
-                 * @param {google.type.IExpr=} [properties] Properties to set
-                 */
-                function Expr(properties) {
-                    if (properties)
-                        for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                            if (properties[keys[i]] != null)
-                                this[keys[i]] = properties[keys[i]];
-                }
-    
-                /**
-                 * Expr expression.
-                 * @member {string} expression
-                 * @memberof google.type.Expr
-                 * @instance
-                 */
-                Expr.prototype.expression = "";
-    
-                /**
-                 * Expr title.
-                 * @member {string} title
-                 * @memberof google.type.Expr
-                 * @instance
-                 */
-                Expr.prototype.title = "";
-    
-                /**
-                 * Expr description.
-                 * @member {string} description
-                 * @memberof google.type.Expr
-                 * @instance
-                 */
-                Expr.prototype.description = "";
-    
-                /**
-                 * Expr location.
-                 * @member {string} location
-                 * @memberof google.type.Expr
-                 * @instance
-                 */
-                Expr.prototype.location = "";
-    
-                /**
-                 * Creates a new Expr instance using the specified properties.
-                 * @function create
-                 * @memberof google.type.Expr
-                 * @static
-                 * @param {google.type.IExpr=} [properties] Properties to set
-                 * @returns {google.type.Expr} Expr instance
-                 */
-                Expr.create = function create(properties) {
-                    return new Expr(properties);
-                };
-    
-                /**
-                 * Encodes the specified Expr message. Does not implicitly {@link google.type.Expr.verify|verify} messages.
-                 * @function encode
-                 * @memberof google.type.Expr
-                 * @static
-                 * @param {google.type.IExpr} message Expr message or plain object to encode
-                 * @param {$protobuf.Writer} [writer] Writer to encode to
-                 * @returns {$protobuf.Writer} Writer
-                 */
-                Expr.encode = function encode(message, writer) {
-                    if (!writer)
-                        writer = $Writer.create();
-                    if (message.expression != null && message.hasOwnProperty("expression"))
-                        writer.uint32(/* id 1, wireType 2 =*/10).string(message.expression);
-                    if (message.title != null && message.hasOwnProperty("title"))
-                        writer.uint32(/* id 2, wireType 2 =*/18).string(message.title);
-                    if (message.description != null && message.hasOwnProperty("description"))
-                        writer.uint32(/* id 3, wireType 2 =*/26).string(message.description);
-                    if (message.location != null && message.hasOwnProperty("location"))
-                        writer.uint32(/* id 4, wireType 2 =*/34).string(message.location);
-                    return writer;
-                };
-    
-                /**
-                 * Encodes the specified Expr message, length delimited. Does not implicitly {@link google.type.Expr.verify|verify} messages.
-                 * @function encodeDelimited
-                 * @memberof google.type.Expr
-                 * @static
-                 * @param {google.type.IExpr} message Expr message or plain object to encode
-                 * @param {$protobuf.Writer} [writer] Writer to encode to
-                 * @returns {$protobuf.Writer} Writer
-                 */
-                Expr.encodeDelimited = function encodeDelimited(message, writer) {
-                    return this.encode(message, writer).ldelim();
-                };
-    
-                /**
-                 * Decodes an Expr message from the specified reader or buffer.
-                 * @function decode
-                 * @memberof google.type.Expr
-                 * @static
-                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                 * @param {number} [length] Message length if known beforehand
-                 * @returns {google.type.Expr} Expr
-                 * @throws {Error} If the payload is not a reader or valid buffer
-                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                 */
-                Expr.decode = function decode(reader, length) {
-                    if (!(reader instanceof $Reader))
-                        reader = $Reader.create(reader);
-                    var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.type.Expr();
-                    while (reader.pos < end) {
-                        var tag = reader.uint32();
-                        switch (tag >>> 3) {
-                        case 1:
-                            message.expression = reader.string();
-                            break;
-                        case 2:
-                            message.title = reader.string();
-                            break;
-                        case 3:
-                            message.description = reader.string();
-                            break;
-                        case 4:
-                            message.location = reader.string();
-                            break;
-                        default:
-                            reader.skipType(tag & 7);
-                            break;
-                        }
-                    }
-                    return message;
-                };
-    
-                /**
-                 * Decodes an Expr message from the specified reader or buffer, length delimited.
-                 * @function decodeDelimited
-                 * @memberof google.type.Expr
-                 * @static
-                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-                 * @returns {google.type.Expr} Expr
-                 * @throws {Error} If the payload is not a reader or valid buffer
-                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                 */
-                Expr.decodeDelimited = function decodeDelimited(reader) {
-                    if (!(reader instanceof $Reader))
-                        reader = new $Reader(reader);
-                    return this.decode(reader, reader.uint32());
-                };
-    
-                /**
-                 * Verifies an Expr message.
-                 * @function verify
-                 * @memberof google.type.Expr
-                 * @static
-                 * @param {Object.<string,*>} message Plain object to verify
-                 * @returns {string|null} `null` if valid, otherwise the reason why it is not
-                 */
-                Expr.verify = function verify(message) {
-                    if (typeof message !== "object" || message === null)
-                        return "object expected";
-                    if (message.expression != null && message.hasOwnProperty("expression"))
-                        if (!$util.isString(message.expression))
-                            return "expression: string expected";
-                    if (message.title != null && message.hasOwnProperty("title"))
-                        if (!$util.isString(message.title))
-                            return "title: string expected";
-                    if (message.description != null && message.hasOwnProperty("description"))
-                        if (!$util.isString(message.description))
-                            return "description: string expected";
-                    if (message.location != null && message.hasOwnProperty("location"))
-                        if (!$util.isString(message.location))
-                            return "location: string expected";
-                    return null;
-                };
-    
-                /**
-                 * Creates an Expr message from a plain object. Also converts values to their respective internal types.
-                 * @function fromObject
-                 * @memberof google.type.Expr
-                 * @static
-                 * @param {Object.<string,*>} object Plain object
-                 * @returns {google.type.Expr} Expr
-                 */
-                Expr.fromObject = function fromObject(object) {
-                    if (object instanceof $root.google.type.Expr)
-                        return object;
-                    var message = new $root.google.type.Expr();
-                    if (object.expression != null)
-                        message.expression = String(object.expression);
-                    if (object.title != null)
-                        message.title = String(object.title);
-                    if (object.description != null)
-                        message.description = String(object.description);
-                    if (object.location != null)
-                        message.location = String(object.location);
-                    return message;
-                };
-    
-                /**
-                 * Creates a plain object from an Expr message. Also converts values to other types if specified.
-                 * @function toObject
-                 * @memberof google.type.Expr
-                 * @static
-                 * @param {google.type.Expr} message Expr
-                 * @param {$protobuf.IConversionOptions} [options] Conversion options
-                 * @returns {Object.<string,*>} Plain object
-                 */
-                Expr.toObject = function toObject(message, options) {
-                    if (!options)
-                        options = {};
-                    var object = {};
-                    if (options.defaults) {
-                        object.expression = "";
-                        object.title = "";
-                        object.description = "";
-                        object.location = "";
-                    }
-                    if (message.expression != null && message.hasOwnProperty("expression"))
-                        object.expression = message.expression;
-                    if (message.title != null && message.hasOwnProperty("title"))
-                        object.title = message.title;
-                    if (message.description != null && message.hasOwnProperty("description"))
-                        object.description = message.description;
-                    if (message.location != null && message.hasOwnProperty("location"))
-                        object.location = message.location;
-                    return object;
-                };
-    
-                /**
-                 * Converts this Expr to JSON.
-                 * @function toJSON
-                 * @memberof google.type.Expr
-                 * @instance
-                 * @returns {Object.<string,*>} JSON object
-                 */
-                Expr.prototype.toJSON = function toJSON() {
-                    return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
-                };
-    
-                return Expr;
-            })();
-    
-            return type;
         })();
     
         return google;

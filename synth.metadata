@@ -1,19 +1,12 @@
 {
-  "updateTime": "2019-12-16T19:51:54.044547Z",
+  "updateTime": "2019-12-17T19:05:11.361901Z",
   "sources": [
-    {
-      "generator": {
-        "name": "artman",
-        "version": "0.42.3",
-        "dockerImage": "googleapis/artman@sha256:feed210b5723c6f524b52ef6d7740a030f2d1a8f7c29a71c5e5b4481ceaad7f5"
-      }
-    },
     {
       "git": {
         "name": "googleapis",
         "remote": "https://github.com/googleapis/googleapis.git",
-        "sha": "27d0e0f202cbe91bf155fcf36824a87a5764ef1e",
-        "internalRef": "285802643"
+        "sha": "6ad2bb13bc4b0f3f785517f0563118f6ca52ddfd",
+        "internalRef": "286008145"
       }
     },
     {
@@ -30,10 +23,293 @@
         "source": "googleapis",
         "apiName": "kms",
         "apiVersion": "v1",
-        "language": "nodejs",
-        "generator": "gapic",
-        "config": "google/cloud/kms/artman_cloudkms.yaml"
+        "language": "typescript",
+        "generator": "gapic-generator-typescript"
       }
+    }
+  ],
+  "newFiles": [
+    {
+      "path": "CODE_OF_CONDUCT.md"
+    },
+    {
+      "path": ".eslintrc.yml"
+    },
+    {
+      "path": "LICENSE"
+    },
+    {
+      "path": "codecov.yaml"
+    },
+    {
+      "path": "renovate.json"
+    },
+    {
+      "path": "webpack.config.js"
+    },
+    {
+      "path": ".jsdoc.js"
+    },
+    {
+      "path": ".prettierignore"
+    },
+    {
+      "path": "README.md"
+    },
+    {
+      "path": "tslint.json"
+    },
+    {
+      "path": "CONTRIBUTING.md"
+    },
+    {
+      "path": ".prettierrc"
+    },
+    {
+      "path": "tsconfig.json"
+    },
+    {
+      "path": ".eslintignore"
+    },
+    {
+      "path": ".nycrc"
+    },
+    {
+      "path": "linkinator.config.json"
+    },
+    {
+      "path": "protos/protos.d.ts"
+    },
+    {
+      "path": "protos/protos.json"
+    },
+    {
+      "path": "protos/protos.js"
+    },
+    {
+      "path": "protos/google/cloud/kms/v1/resources.proto"
+    },
+    {
+      "path": "protos/google/cloud/kms/v1/service.proto"
+    },
+    {
+      "path": "test/gapic-key_management_service-v1.ts"
+    },
+    {
+      "path": "system-test/.eslintrc.yml"
+    },
+    {
+      "path": "system-test/install.ts"
+    },
+    {
+      "path": "system-test/fixtures/sample/src/index.js"
+    },
+    {
+      "path": "system-test/fixtures/sample/src/index.ts"
+    },
+    {
+      "path": "__pycache__/synth.cpython-36.pyc"
+    },
+    {
+      "path": "samples/README.md"
+    },
+    {
+      "path": ".github/PULL_REQUEST_TEMPLATE.md"
+    },
+    {
+      "path": ".github/release-please.yml"
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/feature_request.md"
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/bug_report.md"
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/support_request.md"
+    },
+    {
+      "path": "build/protos/protos.d.ts"
+    },
+    {
+      "path": "build/protos/protos.json"
+    },
+    {
+      "path": "build/protos/protos.js"
+    },
+    {
+      "path": "build/protos/google/iam/v1/iam_policy.proto"
+    },
+    {
+      "path": "build/protos/google/cloud/kms/v1/resources.proto"
+    },
+    {
+      "path": "build/protos/google/cloud/kms/v1/service.proto"
+    },
+    {
+      "path": "build/test/gapic-key_management_service-v1.js"
+    },
+    {
+      "path": "build/test/gapic-key_management_service-v1.js.map"
+    },
+    {
+      "path": "build/test/gapic-key_management_service-v1.d.ts"
+    },
+    {
+      "path": "build/system-test/install.js.map"
+    },
+    {
+      "path": "build/system-test/install.js"
+    },
+    {
+      "path": "build/system-test/install.d.ts"
+    },
+    {
+      "path": "build/src/index.js"
+    },
+    {
+      "path": "build/src/index.js.map"
+    },
+    {
+      "path": "build/src/index.d.ts"
+    },
+    {
+      "path": "build/src/v1/key_management_service_client.d.ts"
+    },
+    {
+      "path": "build/src/v1/index.js"
+    },
+    {
+      "path": "build/src/v1/key_management_service_client.js.map"
+    },
+    {
+      "path": "build/src/v1/key_management_service_client_config.json"
+    },
+    {
+      "path": "build/src/v1/key_management_service_client_config.d.ts"
+    },
+    {
+      "path": "build/src/v1/index.js.map"
+    },
+    {
+      "path": "build/src/v1/key_management_service_client.js"
+    },
+    {
+      "path": "build/src/v1/index.d.ts"
+    },
+    {
+      "path": ".kokoro/test.bat"
+    },
+    {
+      "path": ".kokoro/system-test.sh"
+    },
+    {
+      "path": ".kokoro/trampoline.sh"
+    },
+    {
+      "path": ".kokoro/samples-test.sh"
+    },
+    {
+      "path": ".kokoro/publish.sh"
+    },
+    {
+      "path": ".kokoro/lint.sh"
+    },
+    {
+      "path": ".kokoro/common.cfg"
+    },
+    {
+      "path": ".kokoro/test.sh"
+    },
+    {
+      "path": ".kokoro/docs.sh"
+    },
+    {
+      "path": ".kokoro/release/docs.cfg"
+    },
+    {
+      "path": ".kokoro/release/publish.cfg"
+    },
+    {
+      "path": ".kokoro/release/docs.sh"
+    },
+    {
+      "path": ".kokoro/presubmit/node10/system-test.cfg"
+    },
+    {
+      "path": ".kokoro/presubmit/node10/samples-test.cfg"
+    },
+    {
+      "path": ".kokoro/presubmit/node10/test.cfg"
+    },
+    {
+      "path": ".kokoro/presubmit/node10/docs.cfg"
+    },
+    {
+      "path": ".kokoro/presubmit/node10/common.cfg"
+    },
+    {
+      "path": ".kokoro/presubmit/node10/lint.cfg"
+    },
+    {
+      "path": ".kokoro/presubmit/node8/test.cfg"
+    },
+    {
+      "path": ".kokoro/presubmit/node8/common.cfg"
+    },
+    {
+      "path": ".kokoro/presubmit/node12/test.cfg"
+    },
+    {
+      "path": ".kokoro/presubmit/node12/common.cfg"
+    },
+    {
+      "path": ".kokoro/presubmit/windows/test.cfg"
+    },
+    {
+      "path": ".kokoro/presubmit/windows/common.cfg"
+    },
+    {
+      "path": ".kokoro/continuous/node10/system-test.cfg"
+    },
+    {
+      "path": ".kokoro/continuous/node10/samples-test.cfg"
+    },
+    {
+      "path": ".kokoro/continuous/node10/test.cfg"
+    },
+    {
+      "path": ".kokoro/continuous/node10/docs.cfg"
+    },
+    {
+      "path": ".kokoro/continuous/node10/common.cfg"
+    },
+    {
+      "path": ".kokoro/continuous/node10/lint.cfg"
+    },
+    {
+      "path": ".kokoro/continuous/node8/test.cfg"
+    },
+    {
+      "path": ".kokoro/continuous/node8/common.cfg"
+    },
+    {
+      "path": ".kokoro/continuous/node12/test.cfg"
+    },
+    {
+      "path": ".kokoro/continuous/node12/common.cfg"
+    },
+    {
+      "path": "src/v1/key_management_service_proto_list.json"
+    },
+    {
+      "path": "src/v1/key_management_service_client.ts"
+    },
+    {
+      "path": "src/v1/key_management_service_client_config.json"
+    },
+    {
+      "path": "src/v1/index.ts"
     }
   ]
 }

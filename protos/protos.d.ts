@@ -26,6 +26,1002 @@ export namespace google {
             /** Namespace v1. */
             namespace v1 {
 
+                /** Properties of a KeyRing. */
+                interface IKeyRing {
+
+                    /** KeyRing name */
+                    name?: (string|null);
+
+                    /** KeyRing createTime */
+                    createTime?: (google.protobuf.ITimestamp|null);
+                }
+
+                /** Represents a KeyRing. */
+                class KeyRing implements IKeyRing {
+
+                    /**
+                     * Constructs a new KeyRing.
+                     * @param [properties] Properties to set
+                     */
+                    constructor(properties?: google.cloud.kms.v1.IKeyRing);
+
+                    /** KeyRing name. */
+                    public name: string;
+
+                    /** KeyRing createTime. */
+                    public createTime?: (google.protobuf.ITimestamp|null);
+
+                    /**
+                     * Creates a new KeyRing instance using the specified properties.
+                     * @param [properties] Properties to set
+                     * @returns KeyRing instance
+                     */
+                    public static create(properties?: google.cloud.kms.v1.IKeyRing): google.cloud.kms.v1.KeyRing;
+
+                    /**
+                     * Encodes the specified KeyRing message. Does not implicitly {@link google.cloud.kms.v1.KeyRing.verify|verify} messages.
+                     * @param message KeyRing message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encode(message: google.cloud.kms.v1.IKeyRing, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Encodes the specified KeyRing message, length delimited. Does not implicitly {@link google.cloud.kms.v1.KeyRing.verify|verify} messages.
+                     * @param message KeyRing message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encodeDelimited(message: google.cloud.kms.v1.IKeyRing, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Decodes a KeyRing message from the specified reader or buffer.
+                     * @param reader Reader or buffer to decode from
+                     * @param [length] Message length if known beforehand
+                     * @returns KeyRing
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.cloud.kms.v1.KeyRing;
+
+                    /**
+                     * Decodes a KeyRing message from the specified reader or buffer, length delimited.
+                     * @param reader Reader or buffer to decode from
+                     * @returns KeyRing
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.cloud.kms.v1.KeyRing;
+
+                    /**
+                     * Verifies a KeyRing message.
+                     * @param message Plain object to verify
+                     * @returns `null` if valid, otherwise the reason why it is not
+                     */
+                    public static verify(message: { [k: string]: any }): (string|null);
+
+                    /**
+                     * Creates a KeyRing message from a plain object. Also converts values to their respective internal types.
+                     * @param object Plain object
+                     * @returns KeyRing
+                     */
+                    public static fromObject(object: { [k: string]: any }): google.cloud.kms.v1.KeyRing;
+
+                    /**
+                     * Creates a plain object from a KeyRing message. Also converts values to other types if specified.
+                     * @param message KeyRing
+                     * @param [options] Conversion options
+                     * @returns Plain object
+                     */
+                    public static toObject(message: google.cloud.kms.v1.KeyRing, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                    /**
+                     * Converts this KeyRing to JSON.
+                     * @returns JSON object
+                     */
+                    public toJSON(): { [k: string]: any };
+                }
+
+                /** Properties of a CryptoKey. */
+                interface ICryptoKey {
+
+                    /** CryptoKey name */
+                    name?: (string|null);
+
+                    /** CryptoKey primary */
+                    primary?: (google.cloud.kms.v1.ICryptoKeyVersion|null);
+
+                    /** CryptoKey purpose */
+                    purpose?: (google.cloud.kms.v1.CryptoKey.CryptoKeyPurpose|null);
+
+                    /** CryptoKey createTime */
+                    createTime?: (google.protobuf.ITimestamp|null);
+
+                    /** CryptoKey nextRotationTime */
+                    nextRotationTime?: (google.protobuf.ITimestamp|null);
+
+                    /** CryptoKey rotationPeriod */
+                    rotationPeriod?: (google.protobuf.IDuration|null);
+
+                    /** CryptoKey versionTemplate */
+                    versionTemplate?: (google.cloud.kms.v1.ICryptoKeyVersionTemplate|null);
+
+                    /** CryptoKey labels */
+                    labels?: ({ [k: string]: string }|null);
+                }
+
+                /** Represents a CryptoKey. */
+                class CryptoKey implements ICryptoKey {
+
+                    /**
+                     * Constructs a new CryptoKey.
+                     * @param [properties] Properties to set
+                     */
+                    constructor(properties?: google.cloud.kms.v1.ICryptoKey);
+
+                    /** CryptoKey name. */
+                    public name: string;
+
+                    /** CryptoKey primary. */
+                    public primary?: (google.cloud.kms.v1.ICryptoKeyVersion|null);
+
+                    /** CryptoKey purpose. */
+                    public purpose: google.cloud.kms.v1.CryptoKey.CryptoKeyPurpose;
+
+                    /** CryptoKey createTime. */
+                    public createTime?: (google.protobuf.ITimestamp|null);
+
+                    /** CryptoKey nextRotationTime. */
+                    public nextRotationTime?: (google.protobuf.ITimestamp|null);
+
+                    /** CryptoKey rotationPeriod. */
+                    public rotationPeriod?: (google.protobuf.IDuration|null);
+
+                    /** CryptoKey versionTemplate. */
+                    public versionTemplate?: (google.cloud.kms.v1.ICryptoKeyVersionTemplate|null);
+
+                    /** CryptoKey labels. */
+                    public labels: { [k: string]: string };
+
+                    /** CryptoKey rotationSchedule. */
+                    public rotationSchedule?: "rotationPeriod";
+
+                    /**
+                     * Creates a new CryptoKey instance using the specified properties.
+                     * @param [properties] Properties to set
+                     * @returns CryptoKey instance
+                     */
+                    public static create(properties?: google.cloud.kms.v1.ICryptoKey): google.cloud.kms.v1.CryptoKey;
+
+                    /**
+                     * Encodes the specified CryptoKey message. Does not implicitly {@link google.cloud.kms.v1.CryptoKey.verify|verify} messages.
+                     * @param message CryptoKey message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encode(message: google.cloud.kms.v1.ICryptoKey, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Encodes the specified CryptoKey message, length delimited. Does not implicitly {@link google.cloud.kms.v1.CryptoKey.verify|verify} messages.
+                     * @param message CryptoKey message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encodeDelimited(message: google.cloud.kms.v1.ICryptoKey, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Decodes a CryptoKey message from the specified reader or buffer.
+                     * @param reader Reader or buffer to decode from
+                     * @param [length] Message length if known beforehand
+                     * @returns CryptoKey
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.cloud.kms.v1.CryptoKey;
+
+                    /**
+                     * Decodes a CryptoKey message from the specified reader or buffer, length delimited.
+                     * @param reader Reader or buffer to decode from
+                     * @returns CryptoKey
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.cloud.kms.v1.CryptoKey;
+
+                    /**
+                     * Verifies a CryptoKey message.
+                     * @param message Plain object to verify
+                     * @returns `null` if valid, otherwise the reason why it is not
+                     */
+                    public static verify(message: { [k: string]: any }): (string|null);
+
+                    /**
+                     * Creates a CryptoKey message from a plain object. Also converts values to their respective internal types.
+                     * @param object Plain object
+                     * @returns CryptoKey
+                     */
+                    public static fromObject(object: { [k: string]: any }): google.cloud.kms.v1.CryptoKey;
+
+                    /**
+                     * Creates a plain object from a CryptoKey message. Also converts values to other types if specified.
+                     * @param message CryptoKey
+                     * @param [options] Conversion options
+                     * @returns Plain object
+                     */
+                    public static toObject(message: google.cloud.kms.v1.CryptoKey, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                    /**
+                     * Converts this CryptoKey to JSON.
+                     * @returns JSON object
+                     */
+                    public toJSON(): { [k: string]: any };
+                }
+
+                namespace CryptoKey {
+
+                    /** CryptoKeyPurpose enum. */
+                    enum CryptoKeyPurpose {
+                        CRYPTO_KEY_PURPOSE_UNSPECIFIED = 0,
+                        ENCRYPT_DECRYPT = 1,
+                        ASYMMETRIC_SIGN = 5,
+                        ASYMMETRIC_DECRYPT = 6
+                    }
+                }
+
+                /** Properties of a CryptoKeyVersionTemplate. */
+                interface ICryptoKeyVersionTemplate {
+
+                    /** CryptoKeyVersionTemplate protectionLevel */
+                    protectionLevel?: (google.cloud.kms.v1.ProtectionLevel|null);
+
+                    /** CryptoKeyVersionTemplate algorithm */
+                    algorithm?: (google.cloud.kms.v1.CryptoKeyVersion.CryptoKeyVersionAlgorithm|null);
+                }
+
+                /** Represents a CryptoKeyVersionTemplate. */
+                class CryptoKeyVersionTemplate implements ICryptoKeyVersionTemplate {
+
+                    /**
+                     * Constructs a new CryptoKeyVersionTemplate.
+                     * @param [properties] Properties to set
+                     */
+                    constructor(properties?: google.cloud.kms.v1.ICryptoKeyVersionTemplate);
+
+                    /** CryptoKeyVersionTemplate protectionLevel. */
+                    public protectionLevel: google.cloud.kms.v1.ProtectionLevel;
+
+                    /** CryptoKeyVersionTemplate algorithm. */
+                    public algorithm: google.cloud.kms.v1.CryptoKeyVersion.CryptoKeyVersionAlgorithm;
+
+                    /**
+                     * Creates a new CryptoKeyVersionTemplate instance using the specified properties.
+                     * @param [properties] Properties to set
+                     * @returns CryptoKeyVersionTemplate instance
+                     */
+                    public static create(properties?: google.cloud.kms.v1.ICryptoKeyVersionTemplate): google.cloud.kms.v1.CryptoKeyVersionTemplate;
+
+                    /**
+                     * Encodes the specified CryptoKeyVersionTemplate message. Does not implicitly {@link google.cloud.kms.v1.CryptoKeyVersionTemplate.verify|verify} messages.
+                     * @param message CryptoKeyVersionTemplate message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encode(message: google.cloud.kms.v1.ICryptoKeyVersionTemplate, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Encodes the specified CryptoKeyVersionTemplate message, length delimited. Does not implicitly {@link google.cloud.kms.v1.CryptoKeyVersionTemplate.verify|verify} messages.
+                     * @param message CryptoKeyVersionTemplate message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encodeDelimited(message: google.cloud.kms.v1.ICryptoKeyVersionTemplate, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Decodes a CryptoKeyVersionTemplate message from the specified reader or buffer.
+                     * @param reader Reader or buffer to decode from
+                     * @param [length] Message length if known beforehand
+                     * @returns CryptoKeyVersionTemplate
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.cloud.kms.v1.CryptoKeyVersionTemplate;
+
+                    /**
+                     * Decodes a CryptoKeyVersionTemplate message from the specified reader or buffer, length delimited.
+                     * @param reader Reader or buffer to decode from
+                     * @returns CryptoKeyVersionTemplate
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.cloud.kms.v1.CryptoKeyVersionTemplate;
+
+                    /**
+                     * Verifies a CryptoKeyVersionTemplate message.
+                     * @param message Plain object to verify
+                     * @returns `null` if valid, otherwise the reason why it is not
+                     */
+                    public static verify(message: { [k: string]: any }): (string|null);
+
+                    /**
+                     * Creates a CryptoKeyVersionTemplate message from a plain object. Also converts values to their respective internal types.
+                     * @param object Plain object
+                     * @returns CryptoKeyVersionTemplate
+                     */
+                    public static fromObject(object: { [k: string]: any }): google.cloud.kms.v1.CryptoKeyVersionTemplate;
+
+                    /**
+                     * Creates a plain object from a CryptoKeyVersionTemplate message. Also converts values to other types if specified.
+                     * @param message CryptoKeyVersionTemplate
+                     * @param [options] Conversion options
+                     * @returns Plain object
+                     */
+                    public static toObject(message: google.cloud.kms.v1.CryptoKeyVersionTemplate, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                    /**
+                     * Converts this CryptoKeyVersionTemplate to JSON.
+                     * @returns JSON object
+                     */
+                    public toJSON(): { [k: string]: any };
+                }
+
+                /** Properties of a KeyOperationAttestation. */
+                interface IKeyOperationAttestation {
+
+                    /** KeyOperationAttestation format */
+                    format?: (google.cloud.kms.v1.KeyOperationAttestation.AttestationFormat|null);
+
+                    /** KeyOperationAttestation content */
+                    content?: (Uint8Array|null);
+                }
+
+                /** Represents a KeyOperationAttestation. */
+                class KeyOperationAttestation implements IKeyOperationAttestation {
+
+                    /**
+                     * Constructs a new KeyOperationAttestation.
+                     * @param [properties] Properties to set
+                     */
+                    constructor(properties?: google.cloud.kms.v1.IKeyOperationAttestation);
+
+                    /** KeyOperationAttestation format. */
+                    public format: google.cloud.kms.v1.KeyOperationAttestation.AttestationFormat;
+
+                    /** KeyOperationAttestation content. */
+                    public content: Uint8Array;
+
+                    /**
+                     * Creates a new KeyOperationAttestation instance using the specified properties.
+                     * @param [properties] Properties to set
+                     * @returns KeyOperationAttestation instance
+                     */
+                    public static create(properties?: google.cloud.kms.v1.IKeyOperationAttestation): google.cloud.kms.v1.KeyOperationAttestation;
+
+                    /**
+                     * Encodes the specified KeyOperationAttestation message. Does not implicitly {@link google.cloud.kms.v1.KeyOperationAttestation.verify|verify} messages.
+                     * @param message KeyOperationAttestation message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encode(message: google.cloud.kms.v1.IKeyOperationAttestation, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Encodes the specified KeyOperationAttestation message, length delimited. Does not implicitly {@link google.cloud.kms.v1.KeyOperationAttestation.verify|verify} messages.
+                     * @param message KeyOperationAttestation message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encodeDelimited(message: google.cloud.kms.v1.IKeyOperationAttestation, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Decodes a KeyOperationAttestation message from the specified reader or buffer.
+                     * @param reader Reader or buffer to decode from
+                     * @param [length] Message length if known beforehand
+                     * @returns KeyOperationAttestation
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.cloud.kms.v1.KeyOperationAttestation;
+
+                    /**
+                     * Decodes a KeyOperationAttestation message from the specified reader or buffer, length delimited.
+                     * @param reader Reader or buffer to decode from
+                     * @returns KeyOperationAttestation
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.cloud.kms.v1.KeyOperationAttestation;
+
+                    /**
+                     * Verifies a KeyOperationAttestation message.
+                     * @param message Plain object to verify
+                     * @returns `null` if valid, otherwise the reason why it is not
+                     */
+                    public static verify(message: { [k: string]: any }): (string|null);
+
+                    /**
+                     * Creates a KeyOperationAttestation message from a plain object. Also converts values to their respective internal types.
+                     * @param object Plain object
+                     * @returns KeyOperationAttestation
+                     */
+                    public static fromObject(object: { [k: string]: any }): google.cloud.kms.v1.KeyOperationAttestation;
+
+                    /**
+                     * Creates a plain object from a KeyOperationAttestation message. Also converts values to other types if specified.
+                     * @param message KeyOperationAttestation
+                     * @param [options] Conversion options
+                     * @returns Plain object
+                     */
+                    public static toObject(message: google.cloud.kms.v1.KeyOperationAttestation, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                    /**
+                     * Converts this KeyOperationAttestation to JSON.
+                     * @returns JSON object
+                     */
+                    public toJSON(): { [k: string]: any };
+                }
+
+                namespace KeyOperationAttestation {
+
+                    /** AttestationFormat enum. */
+                    enum AttestationFormat {
+                        ATTESTATION_FORMAT_UNSPECIFIED = 0,
+                        CAVIUM_V1_COMPRESSED = 3,
+                        CAVIUM_V2_COMPRESSED = 4
+                    }
+                }
+
+                /** Properties of a CryptoKeyVersion. */
+                interface ICryptoKeyVersion {
+
+                    /** CryptoKeyVersion name */
+                    name?: (string|null);
+
+                    /** CryptoKeyVersion state */
+                    state?: (google.cloud.kms.v1.CryptoKeyVersion.CryptoKeyVersionState|null);
+
+                    /** CryptoKeyVersion protectionLevel */
+                    protectionLevel?: (google.cloud.kms.v1.ProtectionLevel|null);
+
+                    /** CryptoKeyVersion algorithm */
+                    algorithm?: (google.cloud.kms.v1.CryptoKeyVersion.CryptoKeyVersionAlgorithm|null);
+
+                    /** CryptoKeyVersion attestation */
+                    attestation?: (google.cloud.kms.v1.IKeyOperationAttestation|null);
+
+                    /** CryptoKeyVersion createTime */
+                    createTime?: (google.protobuf.ITimestamp|null);
+
+                    /** CryptoKeyVersion generateTime */
+                    generateTime?: (google.protobuf.ITimestamp|null);
+
+                    /** CryptoKeyVersion destroyTime */
+                    destroyTime?: (google.protobuf.ITimestamp|null);
+
+                    /** CryptoKeyVersion destroyEventTime */
+                    destroyEventTime?: (google.protobuf.ITimestamp|null);
+
+                    /** CryptoKeyVersion importJob */
+                    importJob?: (string|null);
+
+                    /** CryptoKeyVersion importTime */
+                    importTime?: (google.protobuf.ITimestamp|null);
+
+                    /** CryptoKeyVersion importFailureReason */
+                    importFailureReason?: (string|null);
+                }
+
+                /** Represents a CryptoKeyVersion. */
+                class CryptoKeyVersion implements ICryptoKeyVersion {
+
+                    /**
+                     * Constructs a new CryptoKeyVersion.
+                     * @param [properties] Properties to set
+                     */
+                    constructor(properties?: google.cloud.kms.v1.ICryptoKeyVersion);
+
+                    /** CryptoKeyVersion name. */
+                    public name: string;
+
+                    /** CryptoKeyVersion state. */
+                    public state: google.cloud.kms.v1.CryptoKeyVersion.CryptoKeyVersionState;
+
+                    /** CryptoKeyVersion protectionLevel. */
+                    public protectionLevel: google.cloud.kms.v1.ProtectionLevel;
+
+                    /** CryptoKeyVersion algorithm. */
+                    public algorithm: google.cloud.kms.v1.CryptoKeyVersion.CryptoKeyVersionAlgorithm;
+
+                    /** CryptoKeyVersion attestation. */
+                    public attestation?: (google.cloud.kms.v1.IKeyOperationAttestation|null);
+
+                    /** CryptoKeyVersion createTime. */
+                    public createTime?: (google.protobuf.ITimestamp|null);
+
+                    /** CryptoKeyVersion generateTime. */
+                    public generateTime?: (google.protobuf.ITimestamp|null);
+
+                    /** CryptoKeyVersion destroyTime. */
+                    public destroyTime?: (google.protobuf.ITimestamp|null);
+
+                    /** CryptoKeyVersion destroyEventTime. */
+                    public destroyEventTime?: (google.protobuf.ITimestamp|null);
+
+                    /** CryptoKeyVersion importJob. */
+                    public importJob: string;
+
+                    /** CryptoKeyVersion importTime. */
+                    public importTime?: (google.protobuf.ITimestamp|null);
+
+                    /** CryptoKeyVersion importFailureReason. */
+                    public importFailureReason: string;
+
+                    /**
+                     * Creates a new CryptoKeyVersion instance using the specified properties.
+                     * @param [properties] Properties to set
+                     * @returns CryptoKeyVersion instance
+                     */
+                    public static create(properties?: google.cloud.kms.v1.ICryptoKeyVersion): google.cloud.kms.v1.CryptoKeyVersion;
+
+                    /**
+                     * Encodes the specified CryptoKeyVersion message. Does not implicitly {@link google.cloud.kms.v1.CryptoKeyVersion.verify|verify} messages.
+                     * @param message CryptoKeyVersion message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encode(message: google.cloud.kms.v1.ICryptoKeyVersion, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Encodes the specified CryptoKeyVersion message, length delimited. Does not implicitly {@link google.cloud.kms.v1.CryptoKeyVersion.verify|verify} messages.
+                     * @param message CryptoKeyVersion message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encodeDelimited(message: google.cloud.kms.v1.ICryptoKeyVersion, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Decodes a CryptoKeyVersion message from the specified reader or buffer.
+                     * @param reader Reader or buffer to decode from
+                     * @param [length] Message length if known beforehand
+                     * @returns CryptoKeyVersion
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.cloud.kms.v1.CryptoKeyVersion;
+
+                    /**
+                     * Decodes a CryptoKeyVersion message from the specified reader or buffer, length delimited.
+                     * @param reader Reader or buffer to decode from
+                     * @returns CryptoKeyVersion
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.cloud.kms.v1.CryptoKeyVersion;
+
+                    /**
+                     * Verifies a CryptoKeyVersion message.
+                     * @param message Plain object to verify
+                     * @returns `null` if valid, otherwise the reason why it is not
+                     */
+                    public static verify(message: { [k: string]: any }): (string|null);
+
+                    /**
+                     * Creates a CryptoKeyVersion message from a plain object. Also converts values to their respective internal types.
+                     * @param object Plain object
+                     * @returns CryptoKeyVersion
+                     */
+                    public static fromObject(object: { [k: string]: any }): google.cloud.kms.v1.CryptoKeyVersion;
+
+                    /**
+                     * Creates a plain object from a CryptoKeyVersion message. Also converts values to other types if specified.
+                     * @param message CryptoKeyVersion
+                     * @param [options] Conversion options
+                     * @returns Plain object
+                     */
+                    public static toObject(message: google.cloud.kms.v1.CryptoKeyVersion, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                    /**
+                     * Converts this CryptoKeyVersion to JSON.
+                     * @returns JSON object
+                     */
+                    public toJSON(): { [k: string]: any };
+                }
+
+                namespace CryptoKeyVersion {
+
+                    /** CryptoKeyVersionAlgorithm enum. */
+                    enum CryptoKeyVersionAlgorithm {
+                        CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED = 0,
+                        GOOGLE_SYMMETRIC_ENCRYPTION = 1,
+                        RSA_SIGN_PSS_2048_SHA256 = 2,
+                        RSA_SIGN_PSS_3072_SHA256 = 3,
+                        RSA_SIGN_PSS_4096_SHA256 = 4,
+                        RSA_SIGN_PSS_4096_SHA512 = 15,
+                        RSA_SIGN_PKCS1_2048_SHA256 = 5,
+                        RSA_SIGN_PKCS1_3072_SHA256 = 6,
+                        RSA_SIGN_PKCS1_4096_SHA256 = 7,
+                        RSA_SIGN_PKCS1_4096_SHA512 = 16,
+                        RSA_DECRYPT_OAEP_2048_SHA256 = 8,
+                        RSA_DECRYPT_OAEP_3072_SHA256 = 9,
+                        RSA_DECRYPT_OAEP_4096_SHA256 = 10,
+                        RSA_DECRYPT_OAEP_4096_SHA512 = 17,
+                        EC_SIGN_P256_SHA256 = 12,
+                        EC_SIGN_P384_SHA384 = 13
+                    }
+
+                    /** CryptoKeyVersionState enum. */
+                    enum CryptoKeyVersionState {
+                        CRYPTO_KEY_VERSION_STATE_UNSPECIFIED = 0,
+                        PENDING_GENERATION = 5,
+                        ENABLED = 1,
+                        DISABLED = 2,
+                        DESTROYED = 3,
+                        DESTROY_SCHEDULED = 4,
+                        PENDING_IMPORT = 6,
+                        IMPORT_FAILED = 7
+                    }
+
+                    /** CryptoKeyVersionView enum. */
+                    enum CryptoKeyVersionView {
+                        CRYPTO_KEY_VERSION_VIEW_UNSPECIFIED = 0,
+                        FULL = 1
+                    }
+                }
+
+                /** Properties of a PublicKey. */
+                interface IPublicKey {
+
+                    /** PublicKey pem */
+                    pem?: (string|null);
+
+                    /** PublicKey algorithm */
+                    algorithm?: (google.cloud.kms.v1.CryptoKeyVersion.CryptoKeyVersionAlgorithm|null);
+                }
+
+                /** Represents a PublicKey. */
+                class PublicKey implements IPublicKey {
+
+                    /**
+                     * Constructs a new PublicKey.
+                     * @param [properties] Properties to set
+                     */
+                    constructor(properties?: google.cloud.kms.v1.IPublicKey);
+
+                    /** PublicKey pem. */
+                    public pem: string;
+
+                    /** PublicKey algorithm. */
+                    public algorithm: google.cloud.kms.v1.CryptoKeyVersion.CryptoKeyVersionAlgorithm;
+
+                    /**
+                     * Creates a new PublicKey instance using the specified properties.
+                     * @param [properties] Properties to set
+                     * @returns PublicKey instance
+                     */
+                    public static create(properties?: google.cloud.kms.v1.IPublicKey): google.cloud.kms.v1.PublicKey;
+
+                    /**
+                     * Encodes the specified PublicKey message. Does not implicitly {@link google.cloud.kms.v1.PublicKey.verify|verify} messages.
+                     * @param message PublicKey message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encode(message: google.cloud.kms.v1.IPublicKey, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Encodes the specified PublicKey message, length delimited. Does not implicitly {@link google.cloud.kms.v1.PublicKey.verify|verify} messages.
+                     * @param message PublicKey message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encodeDelimited(message: google.cloud.kms.v1.IPublicKey, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Decodes a PublicKey message from the specified reader or buffer.
+                     * @param reader Reader or buffer to decode from
+                     * @param [length] Message length if known beforehand
+                     * @returns PublicKey
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.cloud.kms.v1.PublicKey;
+
+                    /**
+                     * Decodes a PublicKey message from the specified reader or buffer, length delimited.
+                     * @param reader Reader or buffer to decode from
+                     * @returns PublicKey
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.cloud.kms.v1.PublicKey;
+
+                    /**
+                     * Verifies a PublicKey message.
+                     * @param message Plain object to verify
+                     * @returns `null` if valid, otherwise the reason why it is not
+                     */
+                    public static verify(message: { [k: string]: any }): (string|null);
+
+                    /**
+                     * Creates a PublicKey message from a plain object. Also converts values to their respective internal types.
+                     * @param object Plain object
+                     * @returns PublicKey
+                     */
+                    public static fromObject(object: { [k: string]: any }): google.cloud.kms.v1.PublicKey;
+
+                    /**
+                     * Creates a plain object from a PublicKey message. Also converts values to other types if specified.
+                     * @param message PublicKey
+                     * @param [options] Conversion options
+                     * @returns Plain object
+                     */
+                    public static toObject(message: google.cloud.kms.v1.PublicKey, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                    /**
+                     * Converts this PublicKey to JSON.
+                     * @returns JSON object
+                     */
+                    public toJSON(): { [k: string]: any };
+                }
+
+                /** ProtectionLevel enum. */
+                enum ProtectionLevel {
+                    PROTECTION_LEVEL_UNSPECIFIED = 0,
+                    SOFTWARE = 1,
+                    HSM = 2
+                }
+
+                /** Properties of an ImportJob. */
+                interface IImportJob {
+
+                    /** ImportJob name */
+                    name?: (string|null);
+
+                    /** ImportJob importMethod */
+                    importMethod?: (google.cloud.kms.v1.ImportJob.ImportMethod|null);
+
+                    /** ImportJob protectionLevel */
+                    protectionLevel?: (google.cloud.kms.v1.ProtectionLevel|null);
+
+                    /** ImportJob createTime */
+                    createTime?: (google.protobuf.ITimestamp|null);
+
+                    /** ImportJob generateTime */
+                    generateTime?: (google.protobuf.ITimestamp|null);
+
+                    /** ImportJob expireTime */
+                    expireTime?: (google.protobuf.ITimestamp|null);
+
+                    /** ImportJob expireEventTime */
+                    expireEventTime?: (google.protobuf.ITimestamp|null);
+
+                    /** ImportJob state */
+                    state?: (google.cloud.kms.v1.ImportJob.ImportJobState|null);
+
+                    /** ImportJob publicKey */
+                    publicKey?: (google.cloud.kms.v1.ImportJob.IWrappingPublicKey|null);
+
+                    /** ImportJob attestation */
+                    attestation?: (google.cloud.kms.v1.IKeyOperationAttestation|null);
+                }
+
+                /** Represents an ImportJob. */
+                class ImportJob implements IImportJob {
+
+                    /**
+                     * Constructs a new ImportJob.
+                     * @param [properties] Properties to set
+                     */
+                    constructor(properties?: google.cloud.kms.v1.IImportJob);
+
+                    /** ImportJob name. */
+                    public name: string;
+
+                    /** ImportJob importMethod. */
+                    public importMethod: google.cloud.kms.v1.ImportJob.ImportMethod;
+
+                    /** ImportJob protectionLevel. */
+                    public protectionLevel: google.cloud.kms.v1.ProtectionLevel;
+
+                    /** ImportJob createTime. */
+                    public createTime?: (google.protobuf.ITimestamp|null);
+
+                    /** ImportJob generateTime. */
+                    public generateTime?: (google.protobuf.ITimestamp|null);
+
+                    /** ImportJob expireTime. */
+                    public expireTime?: (google.protobuf.ITimestamp|null);
+
+                    /** ImportJob expireEventTime. */
+                    public expireEventTime?: (google.protobuf.ITimestamp|null);
+
+                    /** ImportJob state. */
+                    public state: google.cloud.kms.v1.ImportJob.ImportJobState;
+
+                    /** ImportJob publicKey. */
+                    public publicKey?: (google.cloud.kms.v1.ImportJob.IWrappingPublicKey|null);
+
+                    /** ImportJob attestation. */
+                    public attestation?: (google.cloud.kms.v1.IKeyOperationAttestation|null);
+
+                    /**
+                     * Creates a new ImportJob instance using the specified properties.
+                     * @param [properties] Properties to set
+                     * @returns ImportJob instance
+                     */
+                    public static create(properties?: google.cloud.kms.v1.IImportJob): google.cloud.kms.v1.ImportJob;
+
+                    /**
+                     * Encodes the specified ImportJob message. Does not implicitly {@link google.cloud.kms.v1.ImportJob.verify|verify} messages.
+                     * @param message ImportJob message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encode(message: google.cloud.kms.v1.IImportJob, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Encodes the specified ImportJob message, length delimited. Does not implicitly {@link google.cloud.kms.v1.ImportJob.verify|verify} messages.
+                     * @param message ImportJob message or plain object to encode
+                     * @param [writer] Writer to encode to
+                     * @returns Writer
+                     */
+                    public static encodeDelimited(message: google.cloud.kms.v1.IImportJob, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                    /**
+                     * Decodes an ImportJob message from the specified reader or buffer.
+                     * @param reader Reader or buffer to decode from
+                     * @param [length] Message length if known beforehand
+                     * @returns ImportJob
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.cloud.kms.v1.ImportJob;
+
+                    /**
+                     * Decodes an ImportJob message from the specified reader or buffer, length delimited.
+                     * @param reader Reader or buffer to decode from
+                     * @returns ImportJob
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.cloud.kms.v1.ImportJob;
+
+                    /**
+                     * Verifies an ImportJob message.
+                     * @param message Plain object to verify
+                     * @returns `null` if valid, otherwise the reason why it is not
+                     */
+                    public static verify(message: { [k: string]: any }): (string|null);
+
+                    /**
+                     * Creates an ImportJob message from a plain object. Also converts values to their respective internal types.
+                     * @param object Plain object
+                     * @returns ImportJob
+                     */
+                    public static fromObject(object: { [k: string]: any }): google.cloud.kms.v1.ImportJob;
+
+                    /**
+                     * Creates a plain object from an ImportJob message. Also converts values to other types if specified.
+                     * @param message ImportJob
+                     * @param [options] Conversion options
+                     * @returns Plain object
+                     */
+                    public static toObject(message: google.cloud.kms.v1.ImportJob, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                    /**
+                     * Converts this ImportJob to JSON.
+                     * @returns JSON object
+                     */
+                    public toJSON(): { [k: string]: any };
+                }
+
+                namespace ImportJob {
+
+                    /** Properties of a WrappingPublicKey. */
+                    interface IWrappingPublicKey {
+
+                        /** WrappingPublicKey pem */
+                        pem?: (string|null);
+                    }
+
+                    /** Represents a WrappingPublicKey. */
+                    class WrappingPublicKey implements IWrappingPublicKey {
+
+                        /**
+                         * Constructs a new WrappingPublicKey.
+                         * @param [properties] Properties to set
+                         */
+                        constructor(properties?: google.cloud.kms.v1.ImportJob.IWrappingPublicKey);
+
+                        /** WrappingPublicKey pem. */
+                        public pem: string;
+
+                        /**
+                         * Creates a new WrappingPublicKey instance using the specified properties.
+                         * @param [properties] Properties to set
+                         * @returns WrappingPublicKey instance
+                         */
+                        public static create(properties?: google.cloud.kms.v1.ImportJob.IWrappingPublicKey): google.cloud.kms.v1.ImportJob.WrappingPublicKey;
+
+                        /**
+                         * Encodes the specified WrappingPublicKey message. Does not implicitly {@link google.cloud.kms.v1.ImportJob.WrappingPublicKey.verify|verify} messages.
+                         * @param message WrappingPublicKey message or plain object to encode
+                         * @param [writer] Writer to encode to
+                         * @returns Writer
+                         */
+                        public static encode(message: google.cloud.kms.v1.ImportJob.IWrappingPublicKey, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                        /**
+                         * Encodes the specified WrappingPublicKey message, length delimited. Does not implicitly {@link google.cloud.kms.v1.ImportJob.WrappingPublicKey.verify|verify} messages.
+                         * @param message WrappingPublicKey message or plain object to encode
+                         * @param [writer] Writer to encode to
+                         * @returns Writer
+                         */
+                        public static encodeDelimited(message: google.cloud.kms.v1.ImportJob.IWrappingPublicKey, writer?: $protobuf.Writer): $protobuf.Writer;
+
+                        /**
+                         * Decodes a WrappingPublicKey message from the specified reader or buffer.
+                         * @param reader Reader or buffer to decode from
+                         * @param [length] Message length if known beforehand
+                         * @returns WrappingPublicKey
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.cloud.kms.v1.ImportJob.WrappingPublicKey;
+
+                        /**
+                         * Decodes a WrappingPublicKey message from the specified reader or buffer, length delimited.
+                         * @param reader Reader or buffer to decode from
+                         * @returns WrappingPublicKey
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.cloud.kms.v1.ImportJob.WrappingPublicKey;
+
+                        /**
+                         * Verifies a WrappingPublicKey message.
+                         * @param message Plain object to verify
+                         * @returns `null` if valid, otherwise the reason why it is not
+                         */
+                        public static verify(message: { [k: string]: any }): (string|null);
+
+                        /**
+                         * Creates a WrappingPublicKey message from a plain object. Also converts values to their respective internal types.
+                         * @param object Plain object
+                         * @returns WrappingPublicKey
+                         */
+                        public static fromObject(object: { [k: string]: any }): google.cloud.kms.v1.ImportJob.WrappingPublicKey;
+
+                        /**
+                         * Creates a plain object from a WrappingPublicKey message. Also converts values to other types if specified.
+                         * @param message WrappingPublicKey
+                         * @param [options] Conversion options
+                         * @returns Plain object
+                         */
+                        public static toObject(message: google.cloud.kms.v1.ImportJob.WrappingPublicKey, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+                        /**
+                         * Converts this WrappingPublicKey to JSON.
+                         * @returns JSON object
+                         */
+                        public toJSON(): { [k: string]: any };
+                    }
+
+                    /** ImportMethod enum. */
+                    enum ImportMethod {
+                        IMPORT_METHOD_UNSPECIFIED = 0,
+                        RSA_OAEP_3072_SHA1_AES_256 = 1,
+                        RSA_OAEP_4096_SHA1_AES_256 = 2
+                    }
+
+                    /** ImportJobState enum. */
+                    enum ImportJobState {
+                        IMPORT_JOB_STATE_UNSPECIFIED = 0,
+                        PENDING_GENERATION = 1,
+                        ACTIVE = 2,
+                        EXPIRED = 3
+                    }
+                }
+
                 /** Represents a KeyManagementService */
                 class KeyManagementService extends $protobuf.rpc.Service {
 
@@ -3802,1002 +4798,6 @@ export namespace google {
                      */
                     public toJSON(): { [k: string]: any };
                 }
-
-                /** Properties of a KeyRing. */
-                interface IKeyRing {
-
-                    /** KeyRing name */
-                    name?: (string|null);
-
-                    /** KeyRing createTime */
-                    createTime?: (google.protobuf.ITimestamp|null);
-                }
-
-                /** Represents a KeyRing. */
-                class KeyRing implements IKeyRing {
-
-                    /**
-                     * Constructs a new KeyRing.
-                     * @param [properties] Properties to set
-                     */
-                    constructor(properties?: google.cloud.kms.v1.IKeyRing);
-
-                    /** KeyRing name. */
-                    public name: string;
-
-                    /** KeyRing createTime. */
-                    public createTime?: (google.protobuf.ITimestamp|null);
-
-                    /**
-                     * Creates a new KeyRing instance using the specified properties.
-                     * @param [properties] Properties to set
-                     * @returns KeyRing instance
-                     */
-                    public static create(properties?: google.cloud.kms.v1.IKeyRing): google.cloud.kms.v1.KeyRing;
-
-                    /**
-                     * Encodes the specified KeyRing message. Does not implicitly {@link google.cloud.kms.v1.KeyRing.verify|verify} messages.
-                     * @param message KeyRing message or plain object to encode
-                     * @param [writer] Writer to encode to
-                     * @returns Writer
-                     */
-                    public static encode(message: google.cloud.kms.v1.IKeyRing, writer?: $protobuf.Writer): $protobuf.Writer;
-
-                    /**
-                     * Encodes the specified KeyRing message, length delimited. Does not implicitly {@link google.cloud.kms.v1.KeyRing.verify|verify} messages.
-                     * @param message KeyRing message or plain object to encode
-                     * @param [writer] Writer to encode to
-                     * @returns Writer
-                     */
-                    public static encodeDelimited(message: google.cloud.kms.v1.IKeyRing, writer?: $protobuf.Writer): $protobuf.Writer;
-
-                    /**
-                     * Decodes a KeyRing message from the specified reader or buffer.
-                     * @param reader Reader or buffer to decode from
-                     * @param [length] Message length if known beforehand
-                     * @returns KeyRing
-                     * @throws {Error} If the payload is not a reader or valid buffer
-                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                     */
-                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.cloud.kms.v1.KeyRing;
-
-                    /**
-                     * Decodes a KeyRing message from the specified reader or buffer, length delimited.
-                     * @param reader Reader or buffer to decode from
-                     * @returns KeyRing
-                     * @throws {Error} If the payload is not a reader or valid buffer
-                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                     */
-                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.cloud.kms.v1.KeyRing;
-
-                    /**
-                     * Verifies a KeyRing message.
-                     * @param message Plain object to verify
-                     * @returns `null` if valid, otherwise the reason why it is not
-                     */
-                    public static verify(message: { [k: string]: any }): (string|null);
-
-                    /**
-                     * Creates a KeyRing message from a plain object. Also converts values to their respective internal types.
-                     * @param object Plain object
-                     * @returns KeyRing
-                     */
-                    public static fromObject(object: { [k: string]: any }): google.cloud.kms.v1.KeyRing;
-
-                    /**
-                     * Creates a plain object from a KeyRing message. Also converts values to other types if specified.
-                     * @param message KeyRing
-                     * @param [options] Conversion options
-                     * @returns Plain object
-                     */
-                    public static toObject(message: google.cloud.kms.v1.KeyRing, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-                    /**
-                     * Converts this KeyRing to JSON.
-                     * @returns JSON object
-                     */
-                    public toJSON(): { [k: string]: any };
-                }
-
-                /** Properties of a CryptoKey. */
-                interface ICryptoKey {
-
-                    /** CryptoKey name */
-                    name?: (string|null);
-
-                    /** CryptoKey primary */
-                    primary?: (google.cloud.kms.v1.ICryptoKeyVersion|null);
-
-                    /** CryptoKey purpose */
-                    purpose?: (google.cloud.kms.v1.CryptoKey.CryptoKeyPurpose|null);
-
-                    /** CryptoKey createTime */
-                    createTime?: (google.protobuf.ITimestamp|null);
-
-                    /** CryptoKey nextRotationTime */
-                    nextRotationTime?: (google.protobuf.ITimestamp|null);
-
-                    /** CryptoKey rotationPeriod */
-                    rotationPeriod?: (google.protobuf.IDuration|null);
-
-                    /** CryptoKey versionTemplate */
-                    versionTemplate?: (google.cloud.kms.v1.ICryptoKeyVersionTemplate|null);
-
-                    /** CryptoKey labels */
-                    labels?: ({ [k: string]: string }|null);
-                }
-
-                /** Represents a CryptoKey. */
-                class CryptoKey implements ICryptoKey {
-
-                    /**
-                     * Constructs a new CryptoKey.
-                     * @param [properties] Properties to set
-                     */
-                    constructor(properties?: google.cloud.kms.v1.ICryptoKey);
-
-                    /** CryptoKey name. */
-                    public name: string;
-
-                    /** CryptoKey primary. */
-                    public primary?: (google.cloud.kms.v1.ICryptoKeyVersion|null);
-
-                    /** CryptoKey purpose. */
-                    public purpose: google.cloud.kms.v1.CryptoKey.CryptoKeyPurpose;
-
-                    /** CryptoKey createTime. */
-                    public createTime?: (google.protobuf.ITimestamp|null);
-
-                    /** CryptoKey nextRotationTime. */
-                    public nextRotationTime?: (google.protobuf.ITimestamp|null);
-
-                    /** CryptoKey rotationPeriod. */
-                    public rotationPeriod?: (google.protobuf.IDuration|null);
-
-                    /** CryptoKey versionTemplate. */
-                    public versionTemplate?: (google.cloud.kms.v1.ICryptoKeyVersionTemplate|null);
-
-                    /** CryptoKey labels. */
-                    public labels: { [k: string]: string };
-
-                    /** CryptoKey rotationSchedule. */
-                    public rotationSchedule?: "rotationPeriod";
-
-                    /**
-                     * Creates a new CryptoKey instance using the specified properties.
-                     * @param [properties] Properties to set
-                     * @returns CryptoKey instance
-                     */
-                    public static create(properties?: google.cloud.kms.v1.ICryptoKey): google.cloud.kms.v1.CryptoKey;
-
-                    /**
-                     * Encodes the specified CryptoKey message. Does not implicitly {@link google.cloud.kms.v1.CryptoKey.verify|verify} messages.
-                     * @param message CryptoKey message or plain object to encode
-                     * @param [writer] Writer to encode to
-                     * @returns Writer
-                     */
-                    public static encode(message: google.cloud.kms.v1.ICryptoKey, writer?: $protobuf.Writer): $protobuf.Writer;
-
-                    /**
-                     * Encodes the specified CryptoKey message, length delimited. Does not implicitly {@link google.cloud.kms.v1.CryptoKey.verify|verify} messages.
-                     * @param message CryptoKey message or plain object to encode
-                     * @param [writer] Writer to encode to
-                     * @returns Writer
-                     */
-                    public static encodeDelimited(message: google.cloud.kms.v1.ICryptoKey, writer?: $protobuf.Writer): $protobuf.Writer;
-
-                    /**
-                     * Decodes a CryptoKey message from the specified reader or buffer.
-                     * @param reader Reader or buffer to decode from
-                     * @param [length] Message length if known beforehand
-                     * @returns CryptoKey
-                     * @throws {Error} If the payload is not a reader or valid buffer
-                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                     */
-                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.cloud.kms.v1.CryptoKey;
-
-                    /**
-                     * Decodes a CryptoKey message from the specified reader or buffer, length delimited.
-                     * @param reader Reader or buffer to decode from
-                     * @returns CryptoKey
-                     * @throws {Error} If the payload is not a reader or valid buffer
-                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                     */
-                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.cloud.kms.v1.CryptoKey;
-
-                    /**
-                     * Verifies a CryptoKey message.
-                     * @param message Plain object to verify
-                     * @returns `null` if valid, otherwise the reason why it is not
-                     */
-                    public static verify(message: { [k: string]: any }): (string|null);
-
-                    /**
-                     * Creates a CryptoKey message from a plain object. Also converts values to their respective internal types.
-                     * @param object Plain object
-                     * @returns CryptoKey
-                     */
-                    public static fromObject(object: { [k: string]: any }): google.cloud.kms.v1.CryptoKey;
-
-                    /**
-                     * Creates a plain object from a CryptoKey message. Also converts values to other types if specified.
-                     * @param message CryptoKey
-                     * @param [options] Conversion options
-                     * @returns Plain object
-                     */
-                    public static toObject(message: google.cloud.kms.v1.CryptoKey, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-                    /**
-                     * Converts this CryptoKey to JSON.
-                     * @returns JSON object
-                     */
-                    public toJSON(): { [k: string]: any };
-                }
-
-                namespace CryptoKey {
-
-                    /** CryptoKeyPurpose enum. */
-                    enum CryptoKeyPurpose {
-                        CRYPTO_KEY_PURPOSE_UNSPECIFIED = 0,
-                        ENCRYPT_DECRYPT = 1,
-                        ASYMMETRIC_SIGN = 5,
-                        ASYMMETRIC_DECRYPT = 6
-                    }
-                }
-
-                /** Properties of a CryptoKeyVersionTemplate. */
-                interface ICryptoKeyVersionTemplate {
-
-                    /** CryptoKeyVersionTemplate protectionLevel */
-                    protectionLevel?: (google.cloud.kms.v1.ProtectionLevel|null);
-
-                    /** CryptoKeyVersionTemplate algorithm */
-                    algorithm?: (google.cloud.kms.v1.CryptoKeyVersion.CryptoKeyVersionAlgorithm|null);
-                }
-
-                /** Represents a CryptoKeyVersionTemplate. */
-                class CryptoKeyVersionTemplate implements ICryptoKeyVersionTemplate {
-
-                    /**
-                     * Constructs a new CryptoKeyVersionTemplate.
-                     * @param [properties] Properties to set
-                     */
-                    constructor(properties?: google.cloud.kms.v1.ICryptoKeyVersionTemplate);
-
-                    /** CryptoKeyVersionTemplate protectionLevel. */
-                    public protectionLevel: google.cloud.kms.v1.ProtectionLevel;
-
-                    /** CryptoKeyVersionTemplate algorithm. */
-                    public algorithm: google.cloud.kms.v1.CryptoKeyVersion.CryptoKeyVersionAlgorithm;
-
-                    /**
-                     * Creates a new CryptoKeyVersionTemplate instance using the specified properties.
-                     * @param [properties] Properties to set
-                     * @returns CryptoKeyVersionTemplate instance
-                     */
-                    public static create(properties?: google.cloud.kms.v1.ICryptoKeyVersionTemplate): google.cloud.kms.v1.CryptoKeyVersionTemplate;
-
-                    /**
-                     * Encodes the specified CryptoKeyVersionTemplate message. Does not implicitly {@link google.cloud.kms.v1.CryptoKeyVersionTemplate.verify|verify} messages.
-                     * @param message CryptoKeyVersionTemplate message or plain object to encode
-                     * @param [writer] Writer to encode to
-                     * @returns Writer
-                     */
-                    public static encode(message: google.cloud.kms.v1.ICryptoKeyVersionTemplate, writer?: $protobuf.Writer): $protobuf.Writer;
-
-                    /**
-                     * Encodes the specified CryptoKeyVersionTemplate message, length delimited. Does not implicitly {@link google.cloud.kms.v1.CryptoKeyVersionTemplate.verify|verify} messages.
-                     * @param message CryptoKeyVersionTemplate message or plain object to encode
-                     * @param [writer] Writer to encode to
-                     * @returns Writer
-                     */
-                    public static encodeDelimited(message: google.cloud.kms.v1.ICryptoKeyVersionTemplate, writer?: $protobuf.Writer): $protobuf.Writer;
-
-                    /**
-                     * Decodes a CryptoKeyVersionTemplate message from the specified reader or buffer.
-                     * @param reader Reader or buffer to decode from
-                     * @param [length] Message length if known beforehand
-                     * @returns CryptoKeyVersionTemplate
-                     * @throws {Error} If the payload is not a reader or valid buffer
-                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                     */
-                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.cloud.kms.v1.CryptoKeyVersionTemplate;
-
-                    /**
-                     * Decodes a CryptoKeyVersionTemplate message from the specified reader or buffer, length delimited.
-                     * @param reader Reader or buffer to decode from
-                     * @returns CryptoKeyVersionTemplate
-                     * @throws {Error} If the payload is not a reader or valid buffer
-                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                     */
-                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.cloud.kms.v1.CryptoKeyVersionTemplate;
-
-                    /**
-                     * Verifies a CryptoKeyVersionTemplate message.
-                     * @param message Plain object to verify
-                     * @returns `null` if valid, otherwise the reason why it is not
-                     */
-                    public static verify(message: { [k: string]: any }): (string|null);
-
-                    /**
-                     * Creates a CryptoKeyVersionTemplate message from a plain object. Also converts values to their respective internal types.
-                     * @param object Plain object
-                     * @returns CryptoKeyVersionTemplate
-                     */
-                    public static fromObject(object: { [k: string]: any }): google.cloud.kms.v1.CryptoKeyVersionTemplate;
-
-                    /**
-                     * Creates a plain object from a CryptoKeyVersionTemplate message. Also converts values to other types if specified.
-                     * @param message CryptoKeyVersionTemplate
-                     * @param [options] Conversion options
-                     * @returns Plain object
-                     */
-                    public static toObject(message: google.cloud.kms.v1.CryptoKeyVersionTemplate, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-                    /**
-                     * Converts this CryptoKeyVersionTemplate to JSON.
-                     * @returns JSON object
-                     */
-                    public toJSON(): { [k: string]: any };
-                }
-
-                /** Properties of a KeyOperationAttestation. */
-                interface IKeyOperationAttestation {
-
-                    /** KeyOperationAttestation format */
-                    format?: (google.cloud.kms.v1.KeyOperationAttestation.AttestationFormat|null);
-
-                    /** KeyOperationAttestation content */
-                    content?: (Uint8Array|null);
-                }
-
-                /** Represents a KeyOperationAttestation. */
-                class KeyOperationAttestation implements IKeyOperationAttestation {
-
-                    /**
-                     * Constructs a new KeyOperationAttestation.
-                     * @param [properties] Properties to set
-                     */
-                    constructor(properties?: google.cloud.kms.v1.IKeyOperationAttestation);
-
-                    /** KeyOperationAttestation format. */
-                    public format: google.cloud.kms.v1.KeyOperationAttestation.AttestationFormat;
-
-                    /** KeyOperationAttestation content. */
-                    public content: Uint8Array;
-
-                    /**
-                     * Creates a new KeyOperationAttestation instance using the specified properties.
-                     * @param [properties] Properties to set
-                     * @returns KeyOperationAttestation instance
-                     */
-                    public static create(properties?: google.cloud.kms.v1.IKeyOperationAttestation): google.cloud.kms.v1.KeyOperationAttestation;
-
-                    /**
-                     * Encodes the specified KeyOperationAttestation message. Does not implicitly {@link google.cloud.kms.v1.KeyOperationAttestation.verify|verify} messages.
-                     * @param message KeyOperationAttestation message or plain object to encode
-                     * @param [writer] Writer to encode to
-                     * @returns Writer
-                     */
-                    public static encode(message: google.cloud.kms.v1.IKeyOperationAttestation, writer?: $protobuf.Writer): $protobuf.Writer;
-
-                    /**
-                     * Encodes the specified KeyOperationAttestation message, length delimited. Does not implicitly {@link google.cloud.kms.v1.KeyOperationAttestation.verify|verify} messages.
-                     * @param message KeyOperationAttestation message or plain object to encode
-                     * @param [writer] Writer to encode to
-                     * @returns Writer
-                     */
-                    public static encodeDelimited(message: google.cloud.kms.v1.IKeyOperationAttestation, writer?: $protobuf.Writer): $protobuf.Writer;
-
-                    /**
-                     * Decodes a KeyOperationAttestation message from the specified reader or buffer.
-                     * @param reader Reader or buffer to decode from
-                     * @param [length] Message length if known beforehand
-                     * @returns KeyOperationAttestation
-                     * @throws {Error} If the payload is not a reader or valid buffer
-                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                     */
-                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.cloud.kms.v1.KeyOperationAttestation;
-
-                    /**
-                     * Decodes a KeyOperationAttestation message from the specified reader or buffer, length delimited.
-                     * @param reader Reader or buffer to decode from
-                     * @returns KeyOperationAttestation
-                     * @throws {Error} If the payload is not a reader or valid buffer
-                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                     */
-                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.cloud.kms.v1.KeyOperationAttestation;
-
-                    /**
-                     * Verifies a KeyOperationAttestation message.
-                     * @param message Plain object to verify
-                     * @returns `null` if valid, otherwise the reason why it is not
-                     */
-                    public static verify(message: { [k: string]: any }): (string|null);
-
-                    /**
-                     * Creates a KeyOperationAttestation message from a plain object. Also converts values to their respective internal types.
-                     * @param object Plain object
-                     * @returns KeyOperationAttestation
-                     */
-                    public static fromObject(object: { [k: string]: any }): google.cloud.kms.v1.KeyOperationAttestation;
-
-                    /**
-                     * Creates a plain object from a KeyOperationAttestation message. Also converts values to other types if specified.
-                     * @param message KeyOperationAttestation
-                     * @param [options] Conversion options
-                     * @returns Plain object
-                     */
-                    public static toObject(message: google.cloud.kms.v1.KeyOperationAttestation, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-                    /**
-                     * Converts this KeyOperationAttestation to JSON.
-                     * @returns JSON object
-                     */
-                    public toJSON(): { [k: string]: any };
-                }
-
-                namespace KeyOperationAttestation {
-
-                    /** AttestationFormat enum. */
-                    enum AttestationFormat {
-                        ATTESTATION_FORMAT_UNSPECIFIED = 0,
-                        CAVIUM_V1_COMPRESSED = 3,
-                        CAVIUM_V2_COMPRESSED = 4
-                    }
-                }
-
-                /** Properties of a CryptoKeyVersion. */
-                interface ICryptoKeyVersion {
-
-                    /** CryptoKeyVersion name */
-                    name?: (string|null);
-
-                    /** CryptoKeyVersion state */
-                    state?: (google.cloud.kms.v1.CryptoKeyVersion.CryptoKeyVersionState|null);
-
-                    /** CryptoKeyVersion protectionLevel */
-                    protectionLevel?: (google.cloud.kms.v1.ProtectionLevel|null);
-
-                    /** CryptoKeyVersion algorithm */
-                    algorithm?: (google.cloud.kms.v1.CryptoKeyVersion.CryptoKeyVersionAlgorithm|null);
-
-                    /** CryptoKeyVersion attestation */
-                    attestation?: (google.cloud.kms.v1.IKeyOperationAttestation|null);
-
-                    /** CryptoKeyVersion createTime */
-                    createTime?: (google.protobuf.ITimestamp|null);
-
-                    /** CryptoKeyVersion generateTime */
-                    generateTime?: (google.protobuf.ITimestamp|null);
-
-                    /** CryptoKeyVersion destroyTime */
-                    destroyTime?: (google.protobuf.ITimestamp|null);
-
-                    /** CryptoKeyVersion destroyEventTime */
-                    destroyEventTime?: (google.protobuf.ITimestamp|null);
-
-                    /** CryptoKeyVersion importJob */
-                    importJob?: (string|null);
-
-                    /** CryptoKeyVersion importTime */
-                    importTime?: (google.protobuf.ITimestamp|null);
-
-                    /** CryptoKeyVersion importFailureReason */
-                    importFailureReason?: (string|null);
-                }
-
-                /** Represents a CryptoKeyVersion. */
-                class CryptoKeyVersion implements ICryptoKeyVersion {
-
-                    /**
-                     * Constructs a new CryptoKeyVersion.
-                     * @param [properties] Properties to set
-                     */
-                    constructor(properties?: google.cloud.kms.v1.ICryptoKeyVersion);
-
-                    /** CryptoKeyVersion name. */
-                    public name: string;
-
-                    /** CryptoKeyVersion state. */
-                    public state: google.cloud.kms.v1.CryptoKeyVersion.CryptoKeyVersionState;
-
-                    /** CryptoKeyVersion protectionLevel. */
-                    public protectionLevel: google.cloud.kms.v1.ProtectionLevel;
-
-                    /** CryptoKeyVersion algorithm. */
-                    public algorithm: google.cloud.kms.v1.CryptoKeyVersion.CryptoKeyVersionAlgorithm;
-
-                    /** CryptoKeyVersion attestation. */
-                    public attestation?: (google.cloud.kms.v1.IKeyOperationAttestation|null);
-
-                    /** CryptoKeyVersion createTime. */
-                    public createTime?: (google.protobuf.ITimestamp|null);
-
-                    /** CryptoKeyVersion generateTime. */
-                    public generateTime?: (google.protobuf.ITimestamp|null);
-
-                    /** CryptoKeyVersion destroyTime. */
-                    public destroyTime?: (google.protobuf.ITimestamp|null);
-
-                    /** CryptoKeyVersion destroyEventTime. */
-                    public destroyEventTime?: (google.protobuf.ITimestamp|null);
-
-                    /** CryptoKeyVersion importJob. */
-                    public importJob: string;
-
-                    /** CryptoKeyVersion importTime. */
-                    public importTime?: (google.protobuf.ITimestamp|null);
-
-                    /** CryptoKeyVersion importFailureReason. */
-                    public importFailureReason: string;
-
-                    /**
-                     * Creates a new CryptoKeyVersion instance using the specified properties.
-                     * @param [properties] Properties to set
-                     * @returns CryptoKeyVersion instance
-                     */
-                    public static create(properties?: google.cloud.kms.v1.ICryptoKeyVersion): google.cloud.kms.v1.CryptoKeyVersion;
-
-                    /**
-                     * Encodes the specified CryptoKeyVersion message. Does not implicitly {@link google.cloud.kms.v1.CryptoKeyVersion.verify|verify} messages.
-                     * @param message CryptoKeyVersion message or plain object to encode
-                     * @param [writer] Writer to encode to
-                     * @returns Writer
-                     */
-                    public static encode(message: google.cloud.kms.v1.ICryptoKeyVersion, writer?: $protobuf.Writer): $protobuf.Writer;
-
-                    /**
-                     * Encodes the specified CryptoKeyVersion message, length delimited. Does not implicitly {@link google.cloud.kms.v1.CryptoKeyVersion.verify|verify} messages.
-                     * @param message CryptoKeyVersion message or plain object to encode
-                     * @param [writer] Writer to encode to
-                     * @returns Writer
-                     */
-                    public static encodeDelimited(message: google.cloud.kms.v1.ICryptoKeyVersion, writer?: $protobuf.Writer): $protobuf.Writer;
-
-                    /**
-                     * Decodes a CryptoKeyVersion message from the specified reader or buffer.
-                     * @param reader Reader or buffer to decode from
-                     * @param [length] Message length if known beforehand
-                     * @returns CryptoKeyVersion
-                     * @throws {Error} If the payload is not a reader or valid buffer
-                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                     */
-                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.cloud.kms.v1.CryptoKeyVersion;
-
-                    /**
-                     * Decodes a CryptoKeyVersion message from the specified reader or buffer, length delimited.
-                     * @param reader Reader or buffer to decode from
-                     * @returns CryptoKeyVersion
-                     * @throws {Error} If the payload is not a reader or valid buffer
-                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                     */
-                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.cloud.kms.v1.CryptoKeyVersion;
-
-                    /**
-                     * Verifies a CryptoKeyVersion message.
-                     * @param message Plain object to verify
-                     * @returns `null` if valid, otherwise the reason why it is not
-                     */
-                    public static verify(message: { [k: string]: any }): (string|null);
-
-                    /**
-                     * Creates a CryptoKeyVersion message from a plain object. Also converts values to their respective internal types.
-                     * @param object Plain object
-                     * @returns CryptoKeyVersion
-                     */
-                    public static fromObject(object: { [k: string]: any }): google.cloud.kms.v1.CryptoKeyVersion;
-
-                    /**
-                     * Creates a plain object from a CryptoKeyVersion message. Also converts values to other types if specified.
-                     * @param message CryptoKeyVersion
-                     * @param [options] Conversion options
-                     * @returns Plain object
-                     */
-                    public static toObject(message: google.cloud.kms.v1.CryptoKeyVersion, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-                    /**
-                     * Converts this CryptoKeyVersion to JSON.
-                     * @returns JSON object
-                     */
-                    public toJSON(): { [k: string]: any };
-                }
-
-                namespace CryptoKeyVersion {
-
-                    /** CryptoKeyVersionAlgorithm enum. */
-                    enum CryptoKeyVersionAlgorithm {
-                        CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED = 0,
-                        GOOGLE_SYMMETRIC_ENCRYPTION = 1,
-                        RSA_SIGN_PSS_2048_SHA256 = 2,
-                        RSA_SIGN_PSS_3072_SHA256 = 3,
-                        RSA_SIGN_PSS_4096_SHA256 = 4,
-                        RSA_SIGN_PSS_4096_SHA512 = 15,
-                        RSA_SIGN_PKCS1_2048_SHA256 = 5,
-                        RSA_SIGN_PKCS1_3072_SHA256 = 6,
-                        RSA_SIGN_PKCS1_4096_SHA256 = 7,
-                        RSA_SIGN_PKCS1_4096_SHA512 = 16,
-                        RSA_DECRYPT_OAEP_2048_SHA256 = 8,
-                        RSA_DECRYPT_OAEP_3072_SHA256 = 9,
-                        RSA_DECRYPT_OAEP_4096_SHA256 = 10,
-                        RSA_DECRYPT_OAEP_4096_SHA512 = 17,
-                        EC_SIGN_P256_SHA256 = 12,
-                        EC_SIGN_P384_SHA384 = 13
-                    }
-
-                    /** CryptoKeyVersionState enum. */
-                    enum CryptoKeyVersionState {
-                        CRYPTO_KEY_VERSION_STATE_UNSPECIFIED = 0,
-                        PENDING_GENERATION = 5,
-                        ENABLED = 1,
-                        DISABLED = 2,
-                        DESTROYED = 3,
-                        DESTROY_SCHEDULED = 4,
-                        PENDING_IMPORT = 6,
-                        IMPORT_FAILED = 7
-                    }
-
-                    /** CryptoKeyVersionView enum. */
-                    enum CryptoKeyVersionView {
-                        CRYPTO_KEY_VERSION_VIEW_UNSPECIFIED = 0,
-                        FULL = 1
-                    }
-                }
-
-                /** Properties of a PublicKey. */
-                interface IPublicKey {
-
-                    /** PublicKey pem */
-                    pem?: (string|null);
-
-                    /** PublicKey algorithm */
-                    algorithm?: (google.cloud.kms.v1.CryptoKeyVersion.CryptoKeyVersionAlgorithm|null);
-                }
-
-                /** Represents a PublicKey. */
-                class PublicKey implements IPublicKey {
-
-                    /**
-                     * Constructs a new PublicKey.
-                     * @param [properties] Properties to set
-                     */
-                    constructor(properties?: google.cloud.kms.v1.IPublicKey);
-
-                    /** PublicKey pem. */
-                    public pem: string;
-
-                    /** PublicKey algorithm. */
-                    public algorithm: google.cloud.kms.v1.CryptoKeyVersion.CryptoKeyVersionAlgorithm;
-
-                    /**
-                     * Creates a new PublicKey instance using the specified properties.
-                     * @param [properties] Properties to set
-                     * @returns PublicKey instance
-                     */
-                    public static create(properties?: google.cloud.kms.v1.IPublicKey): google.cloud.kms.v1.PublicKey;
-
-                    /**
-                     * Encodes the specified PublicKey message. Does not implicitly {@link google.cloud.kms.v1.PublicKey.verify|verify} messages.
-                     * @param message PublicKey message or plain object to encode
-                     * @param [writer] Writer to encode to
-                     * @returns Writer
-                     */
-                    public static encode(message: google.cloud.kms.v1.IPublicKey, writer?: $protobuf.Writer): $protobuf.Writer;
-
-                    /**
-                     * Encodes the specified PublicKey message, length delimited. Does not implicitly {@link google.cloud.kms.v1.PublicKey.verify|verify} messages.
-                     * @param message PublicKey message or plain object to encode
-                     * @param [writer] Writer to encode to
-                     * @returns Writer
-                     */
-                    public static encodeDelimited(message: google.cloud.kms.v1.IPublicKey, writer?: $protobuf.Writer): $protobuf.Writer;
-
-                    /**
-                     * Decodes a PublicKey message from the specified reader or buffer.
-                     * @param reader Reader or buffer to decode from
-                     * @param [length] Message length if known beforehand
-                     * @returns PublicKey
-                     * @throws {Error} If the payload is not a reader or valid buffer
-                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                     */
-                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.cloud.kms.v1.PublicKey;
-
-                    /**
-                     * Decodes a PublicKey message from the specified reader or buffer, length delimited.
-                     * @param reader Reader or buffer to decode from
-                     * @returns PublicKey
-                     * @throws {Error} If the payload is not a reader or valid buffer
-                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                     */
-                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.cloud.kms.v1.PublicKey;
-
-                    /**
-                     * Verifies a PublicKey message.
-                     * @param message Plain object to verify
-                     * @returns `null` if valid, otherwise the reason why it is not
-                     */
-                    public static verify(message: { [k: string]: any }): (string|null);
-
-                    /**
-                     * Creates a PublicKey message from a plain object. Also converts values to their respective internal types.
-                     * @param object Plain object
-                     * @returns PublicKey
-                     */
-                    public static fromObject(object: { [k: string]: any }): google.cloud.kms.v1.PublicKey;
-
-                    /**
-                     * Creates a plain object from a PublicKey message. Also converts values to other types if specified.
-                     * @param message PublicKey
-                     * @param [options] Conversion options
-                     * @returns Plain object
-                     */
-                    public static toObject(message: google.cloud.kms.v1.PublicKey, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-                    /**
-                     * Converts this PublicKey to JSON.
-                     * @returns JSON object
-                     */
-                    public toJSON(): { [k: string]: any };
-                }
-
-                /** ProtectionLevel enum. */
-                enum ProtectionLevel {
-                    PROTECTION_LEVEL_UNSPECIFIED = 0,
-                    SOFTWARE = 1,
-                    HSM = 2
-                }
-
-                /** Properties of an ImportJob. */
-                interface IImportJob {
-
-                    /** ImportJob name */
-                    name?: (string|null);
-
-                    /** ImportJob importMethod */
-                    importMethod?: (google.cloud.kms.v1.ImportJob.ImportMethod|null);
-
-                    /** ImportJob protectionLevel */
-                    protectionLevel?: (google.cloud.kms.v1.ProtectionLevel|null);
-
-                    /** ImportJob createTime */
-                    createTime?: (google.protobuf.ITimestamp|null);
-
-                    /** ImportJob generateTime */
-                    generateTime?: (google.protobuf.ITimestamp|null);
-
-                    /** ImportJob expireTime */
-                    expireTime?: (google.protobuf.ITimestamp|null);
-
-                    /** ImportJob expireEventTime */
-                    expireEventTime?: (google.protobuf.ITimestamp|null);
-
-                    /** ImportJob state */
-                    state?: (google.cloud.kms.v1.ImportJob.ImportJobState|null);
-
-                    /** ImportJob publicKey */
-                    publicKey?: (google.cloud.kms.v1.ImportJob.IWrappingPublicKey|null);
-
-                    /** ImportJob attestation */
-                    attestation?: (google.cloud.kms.v1.IKeyOperationAttestation|null);
-                }
-
-                /** Represents an ImportJob. */
-                class ImportJob implements IImportJob {
-
-                    /**
-                     * Constructs a new ImportJob.
-                     * @param [properties] Properties to set
-                     */
-                    constructor(properties?: google.cloud.kms.v1.IImportJob);
-
-                    /** ImportJob name. */
-                    public name: string;
-
-                    /** ImportJob importMethod. */
-                    public importMethod: google.cloud.kms.v1.ImportJob.ImportMethod;
-
-                    /** ImportJob protectionLevel. */
-                    public protectionLevel: google.cloud.kms.v1.ProtectionLevel;
-
-                    /** ImportJob createTime. */
-                    public createTime?: (google.protobuf.ITimestamp|null);
-
-                    /** ImportJob generateTime. */
-                    public generateTime?: (google.protobuf.ITimestamp|null);
-
-                    /** ImportJob expireTime. */
-                    public expireTime?: (google.protobuf.ITimestamp|null);
-
-                    /** ImportJob expireEventTime. */
-                    public expireEventTime?: (google.protobuf.ITimestamp|null);
-
-                    /** ImportJob state. */
-                    public state: google.cloud.kms.v1.ImportJob.ImportJobState;
-
-                    /** ImportJob publicKey. */
-                    public publicKey?: (google.cloud.kms.v1.ImportJob.IWrappingPublicKey|null);
-
-                    /** ImportJob attestation. */
-                    public attestation?: (google.cloud.kms.v1.IKeyOperationAttestation|null);
-
-                    /**
-                     * Creates a new ImportJob instance using the specified properties.
-                     * @param [properties] Properties to set
-                     * @returns ImportJob instance
-                     */
-                    public static create(properties?: google.cloud.kms.v1.IImportJob): google.cloud.kms.v1.ImportJob;
-
-                    /**
-                     * Encodes the specified ImportJob message. Does not implicitly {@link google.cloud.kms.v1.ImportJob.verify|verify} messages.
-                     * @param message ImportJob message or plain object to encode
-                     * @param [writer] Writer to encode to
-                     * @returns Writer
-                     */
-                    public static encode(message: google.cloud.kms.v1.IImportJob, writer?: $protobuf.Writer): $protobuf.Writer;
-
-                    /**
-                     * Encodes the specified ImportJob message, length delimited. Does not implicitly {@link google.cloud.kms.v1.ImportJob.verify|verify} messages.
-                     * @param message ImportJob message or plain object to encode
-                     * @param [writer] Writer to encode to
-                     * @returns Writer
-                     */
-                    public static encodeDelimited(message: google.cloud.kms.v1.IImportJob, writer?: $protobuf.Writer): $protobuf.Writer;
-
-                    /**
-                     * Decodes an ImportJob message from the specified reader or buffer.
-                     * @param reader Reader or buffer to decode from
-                     * @param [length] Message length if known beforehand
-                     * @returns ImportJob
-                     * @throws {Error} If the payload is not a reader or valid buffer
-                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                     */
-                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.cloud.kms.v1.ImportJob;
-
-                    /**
-                     * Decodes an ImportJob message from the specified reader or buffer, length delimited.
-                     * @param reader Reader or buffer to decode from
-                     * @returns ImportJob
-                     * @throws {Error} If the payload is not a reader or valid buffer
-                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                     */
-                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.cloud.kms.v1.ImportJob;
-
-                    /**
-                     * Verifies an ImportJob message.
-                     * @param message Plain object to verify
-                     * @returns `null` if valid, otherwise the reason why it is not
-                     */
-                    public static verify(message: { [k: string]: any }): (string|null);
-
-                    /**
-                     * Creates an ImportJob message from a plain object. Also converts values to their respective internal types.
-                     * @param object Plain object
-                     * @returns ImportJob
-                     */
-                    public static fromObject(object: { [k: string]: any }): google.cloud.kms.v1.ImportJob;
-
-                    /**
-                     * Creates a plain object from an ImportJob message. Also converts values to other types if specified.
-                     * @param message ImportJob
-                     * @param [options] Conversion options
-                     * @returns Plain object
-                     */
-                    public static toObject(message: google.cloud.kms.v1.ImportJob, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-                    /**
-                     * Converts this ImportJob to JSON.
-                     * @returns JSON object
-                     */
-                    public toJSON(): { [k: string]: any };
-                }
-
-                namespace ImportJob {
-
-                    /** Properties of a WrappingPublicKey. */
-                    interface IWrappingPublicKey {
-
-                        /** WrappingPublicKey pem */
-                        pem?: (string|null);
-                    }
-
-                    /** Represents a WrappingPublicKey. */
-                    class WrappingPublicKey implements IWrappingPublicKey {
-
-                        /**
-                         * Constructs a new WrappingPublicKey.
-                         * @param [properties] Properties to set
-                         */
-                        constructor(properties?: google.cloud.kms.v1.ImportJob.IWrappingPublicKey);
-
-                        /** WrappingPublicKey pem. */
-                        public pem: string;
-
-                        /**
-                         * Creates a new WrappingPublicKey instance using the specified properties.
-                         * @param [properties] Properties to set
-                         * @returns WrappingPublicKey instance
-                         */
-                        public static create(properties?: google.cloud.kms.v1.ImportJob.IWrappingPublicKey): google.cloud.kms.v1.ImportJob.WrappingPublicKey;
-
-                        /**
-                         * Encodes the specified WrappingPublicKey message. Does not implicitly {@link google.cloud.kms.v1.ImportJob.WrappingPublicKey.verify|verify} messages.
-                         * @param message WrappingPublicKey message or plain object to encode
-                         * @param [writer] Writer to encode to
-                         * @returns Writer
-                         */
-                        public static encode(message: google.cloud.kms.v1.ImportJob.IWrappingPublicKey, writer?: $protobuf.Writer): $protobuf.Writer;
-
-                        /**
-                         * Encodes the specified WrappingPublicKey message, length delimited. Does not implicitly {@link google.cloud.kms.v1.ImportJob.WrappingPublicKey.verify|verify} messages.
-                         * @param message WrappingPublicKey message or plain object to encode
-                         * @param [writer] Writer to encode to
-                         * @returns Writer
-                         */
-                        public static encodeDelimited(message: google.cloud.kms.v1.ImportJob.IWrappingPublicKey, writer?: $protobuf.Writer): $protobuf.Writer;
-
-                        /**
-                         * Decodes a WrappingPublicKey message from the specified reader or buffer.
-                         * @param reader Reader or buffer to decode from
-                         * @param [length] Message length if known beforehand
-                         * @returns WrappingPublicKey
-                         * @throws {Error} If the payload is not a reader or valid buffer
-                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                         */
-                        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.cloud.kms.v1.ImportJob.WrappingPublicKey;
-
-                        /**
-                         * Decodes a WrappingPublicKey message from the specified reader or buffer, length delimited.
-                         * @param reader Reader or buffer to decode from
-                         * @returns WrappingPublicKey
-                         * @throws {Error} If the payload is not a reader or valid buffer
-                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                         */
-                        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.cloud.kms.v1.ImportJob.WrappingPublicKey;
-
-                        /**
-                         * Verifies a WrappingPublicKey message.
-                         * @param message Plain object to verify
-                         * @returns `null` if valid, otherwise the reason why it is not
-                         */
-                        public static verify(message: { [k: string]: any }): (string|null);
-
-                        /**
-                         * Creates a WrappingPublicKey message from a plain object. Also converts values to their respective internal types.
-                         * @param object Plain object
-                         * @returns WrappingPublicKey
-                         */
-                        public static fromObject(object: { [k: string]: any }): google.cloud.kms.v1.ImportJob.WrappingPublicKey;
-
-                        /**
-                         * Creates a plain object from a WrappingPublicKey message. Also converts values to other types if specified.
-                         * @param message WrappingPublicKey
-                         * @param [options] Conversion options
-                         * @returns Plain object
-                         */
-                        public static toObject(message: google.cloud.kms.v1.ImportJob.WrappingPublicKey, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-                        /**
-                         * Converts this WrappingPublicKey to JSON.
-                         * @returns JSON object
-                         */
-                        public toJSON(): { [k: string]: any };
-                    }
-
-                    /** ImportMethod enum. */
-                    enum ImportMethod {
-                        IMPORT_METHOD_UNSPECIFIED = 0,
-                        RSA_OAEP_3072_SHA1_AES_256 = 1,
-                        RSA_OAEP_4096_SHA1_AES_256 = 2
-                    }
-
-                    /** ImportJobState enum. */
-                    enum ImportJobState {
-                        IMPORT_JOB_STATE_UNSPECIFIED = 0,
-                        PENDING_GENERATION = 1,
-                        ACTIVE = 2,
-                        EXPIRED = 3
-                    }
-                }
             }
         }
     }
@@ -8533,1121 +8533,6 @@ export namespace google {
 
             /**
              * Converts this FieldMask to JSON.
-             * @returns JSON object
-             */
-            public toJSON(): { [k: string]: any };
-        }
-    }
-
-    /** Namespace iam. */
-    namespace iam {
-
-        /** Namespace v1. */
-        namespace v1 {
-
-            /** Represents a IAMPolicy */
-            class IAMPolicy extends $protobuf.rpc.Service {
-
-                /**
-                 * Constructs a new IAMPolicy service.
-                 * @param rpcImpl RPC implementation
-                 * @param [requestDelimited=false] Whether requests are length-delimited
-                 * @param [responseDelimited=false] Whether responses are length-delimited
-                 */
-                constructor(rpcImpl: $protobuf.RPCImpl, requestDelimited?: boolean, responseDelimited?: boolean);
-
-                /**
-                 * Creates new IAMPolicy service using the specified rpc implementation.
-                 * @param rpcImpl RPC implementation
-                 * @param [requestDelimited=false] Whether requests are length-delimited
-                 * @param [responseDelimited=false] Whether responses are length-delimited
-                 * @returns RPC service. Useful where requests and/or responses are streamed.
-                 */
-                public static create(rpcImpl: $protobuf.RPCImpl, requestDelimited?: boolean, responseDelimited?: boolean): IAMPolicy;
-
-                /**
-                 * Calls SetIamPolicy.
-                 * @param request SetIamPolicyRequest message or plain object
-                 * @param callback Node-style callback called with the error, if any, and Policy
-                 */
-                public setIamPolicy(request: google.iam.v1.ISetIamPolicyRequest, callback: google.iam.v1.IAMPolicy.SetIamPolicyCallback): void;
-
-                /**
-                 * Calls SetIamPolicy.
-                 * @param request SetIamPolicyRequest message or plain object
-                 * @returns Promise
-                 */
-                public setIamPolicy(request: google.iam.v1.ISetIamPolicyRequest): Promise<google.iam.v1.Policy>;
-
-                /**
-                 * Calls GetIamPolicy.
-                 * @param request GetIamPolicyRequest message or plain object
-                 * @param callback Node-style callback called with the error, if any, and Policy
-                 */
-                public getIamPolicy(request: google.iam.v1.IGetIamPolicyRequest, callback: google.iam.v1.IAMPolicy.GetIamPolicyCallback): void;
-
-                /**
-                 * Calls GetIamPolicy.
-                 * @param request GetIamPolicyRequest message or plain object
-                 * @returns Promise
-                 */
-                public getIamPolicy(request: google.iam.v1.IGetIamPolicyRequest): Promise<google.iam.v1.Policy>;
-
-                /**
-                 * Calls TestIamPermissions.
-                 * @param request TestIamPermissionsRequest message or plain object
-                 * @param callback Node-style callback called with the error, if any, and TestIamPermissionsResponse
-                 */
-                public testIamPermissions(request: google.iam.v1.ITestIamPermissionsRequest, callback: google.iam.v1.IAMPolicy.TestIamPermissionsCallback): void;
-
-                /**
-                 * Calls TestIamPermissions.
-                 * @param request TestIamPermissionsRequest message or plain object
-                 * @returns Promise
-                 */
-                public testIamPermissions(request: google.iam.v1.ITestIamPermissionsRequest): Promise<google.iam.v1.TestIamPermissionsResponse>;
-            }
-
-            namespace IAMPolicy {
-
-                /**
-                 * Callback as used by {@link google.iam.v1.IAMPolicy#setIamPolicy}.
-                 * @param error Error, if any
-                 * @param [response] Policy
-                 */
-                type SetIamPolicyCallback = (error: (Error|null), response?: google.iam.v1.Policy) => void;
-
-                /**
-                 * Callback as used by {@link google.iam.v1.IAMPolicy#getIamPolicy}.
-                 * @param error Error, if any
-                 * @param [response] Policy
-                 */
-                type GetIamPolicyCallback = (error: (Error|null), response?: google.iam.v1.Policy) => void;
-
-                /**
-                 * Callback as used by {@link google.iam.v1.IAMPolicy#testIamPermissions}.
-                 * @param error Error, if any
-                 * @param [response] TestIamPermissionsResponse
-                 */
-                type TestIamPermissionsCallback = (error: (Error|null), response?: google.iam.v1.TestIamPermissionsResponse) => void;
-            }
-
-            /** Properties of a SetIamPolicyRequest. */
-            interface ISetIamPolicyRequest {
-
-                /** SetIamPolicyRequest resource */
-                resource?: (string|null);
-
-                /** SetIamPolicyRequest policy */
-                policy?: (google.iam.v1.IPolicy|null);
-            }
-
-            /** Represents a SetIamPolicyRequest. */
-            class SetIamPolicyRequest implements ISetIamPolicyRequest {
-
-                /**
-                 * Constructs a new SetIamPolicyRequest.
-                 * @param [properties] Properties to set
-                 */
-                constructor(properties?: google.iam.v1.ISetIamPolicyRequest);
-
-                /** SetIamPolicyRequest resource. */
-                public resource: string;
-
-                /** SetIamPolicyRequest policy. */
-                public policy?: (google.iam.v1.IPolicy|null);
-
-                /**
-                 * Creates a new SetIamPolicyRequest instance using the specified properties.
-                 * @param [properties] Properties to set
-                 * @returns SetIamPolicyRequest instance
-                 */
-                public static create(properties?: google.iam.v1.ISetIamPolicyRequest): google.iam.v1.SetIamPolicyRequest;
-
-                /**
-                 * Encodes the specified SetIamPolicyRequest message. Does not implicitly {@link google.iam.v1.SetIamPolicyRequest.verify|verify} messages.
-                 * @param message SetIamPolicyRequest message or plain object to encode
-                 * @param [writer] Writer to encode to
-                 * @returns Writer
-                 */
-                public static encode(message: google.iam.v1.ISetIamPolicyRequest, writer?: $protobuf.Writer): $protobuf.Writer;
-
-                /**
-                 * Encodes the specified SetIamPolicyRequest message, length delimited. Does not implicitly {@link google.iam.v1.SetIamPolicyRequest.verify|verify} messages.
-                 * @param message SetIamPolicyRequest message or plain object to encode
-                 * @param [writer] Writer to encode to
-                 * @returns Writer
-                 */
-                public static encodeDelimited(message: google.iam.v1.ISetIamPolicyRequest, writer?: $protobuf.Writer): $protobuf.Writer;
-
-                /**
-                 * Decodes a SetIamPolicyRequest message from the specified reader or buffer.
-                 * @param reader Reader or buffer to decode from
-                 * @param [length] Message length if known beforehand
-                 * @returns SetIamPolicyRequest
-                 * @throws {Error} If the payload is not a reader or valid buffer
-                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                 */
-                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.iam.v1.SetIamPolicyRequest;
-
-                /**
-                 * Decodes a SetIamPolicyRequest message from the specified reader or buffer, length delimited.
-                 * @param reader Reader or buffer to decode from
-                 * @returns SetIamPolicyRequest
-                 * @throws {Error} If the payload is not a reader or valid buffer
-                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                 */
-                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.iam.v1.SetIamPolicyRequest;
-
-                /**
-                 * Verifies a SetIamPolicyRequest message.
-                 * @param message Plain object to verify
-                 * @returns `null` if valid, otherwise the reason why it is not
-                 */
-                public static verify(message: { [k: string]: any }): (string|null);
-
-                /**
-                 * Creates a SetIamPolicyRequest message from a plain object. Also converts values to their respective internal types.
-                 * @param object Plain object
-                 * @returns SetIamPolicyRequest
-                 */
-                public static fromObject(object: { [k: string]: any }): google.iam.v1.SetIamPolicyRequest;
-
-                /**
-                 * Creates a plain object from a SetIamPolicyRequest message. Also converts values to other types if specified.
-                 * @param message SetIamPolicyRequest
-                 * @param [options] Conversion options
-                 * @returns Plain object
-                 */
-                public static toObject(message: google.iam.v1.SetIamPolicyRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-                /**
-                 * Converts this SetIamPolicyRequest to JSON.
-                 * @returns JSON object
-                 */
-                public toJSON(): { [k: string]: any };
-            }
-
-            /** Properties of a GetIamPolicyRequest. */
-            interface IGetIamPolicyRequest {
-
-                /** GetIamPolicyRequest resource */
-                resource?: (string|null);
-            }
-
-            /** Represents a GetIamPolicyRequest. */
-            class GetIamPolicyRequest implements IGetIamPolicyRequest {
-
-                /**
-                 * Constructs a new GetIamPolicyRequest.
-                 * @param [properties] Properties to set
-                 */
-                constructor(properties?: google.iam.v1.IGetIamPolicyRequest);
-
-                /** GetIamPolicyRequest resource. */
-                public resource: string;
-
-                /**
-                 * Creates a new GetIamPolicyRequest instance using the specified properties.
-                 * @param [properties] Properties to set
-                 * @returns GetIamPolicyRequest instance
-                 */
-                public static create(properties?: google.iam.v1.IGetIamPolicyRequest): google.iam.v1.GetIamPolicyRequest;
-
-                /**
-                 * Encodes the specified GetIamPolicyRequest message. Does not implicitly {@link google.iam.v1.GetIamPolicyRequest.verify|verify} messages.
-                 * @param message GetIamPolicyRequest message or plain object to encode
-                 * @param [writer] Writer to encode to
-                 * @returns Writer
-                 */
-                public static encode(message: google.iam.v1.IGetIamPolicyRequest, writer?: $protobuf.Writer): $protobuf.Writer;
-
-                /**
-                 * Encodes the specified GetIamPolicyRequest message, length delimited. Does not implicitly {@link google.iam.v1.GetIamPolicyRequest.verify|verify} messages.
-                 * @param message GetIamPolicyRequest message or plain object to encode
-                 * @param [writer] Writer to encode to
-                 * @returns Writer
-                 */
-                public static encodeDelimited(message: google.iam.v1.IGetIamPolicyRequest, writer?: $protobuf.Writer): $protobuf.Writer;
-
-                /**
-                 * Decodes a GetIamPolicyRequest message from the specified reader or buffer.
-                 * @param reader Reader or buffer to decode from
-                 * @param [length] Message length if known beforehand
-                 * @returns GetIamPolicyRequest
-                 * @throws {Error} If the payload is not a reader or valid buffer
-                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                 */
-                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.iam.v1.GetIamPolicyRequest;
-
-                /**
-                 * Decodes a GetIamPolicyRequest message from the specified reader or buffer, length delimited.
-                 * @param reader Reader or buffer to decode from
-                 * @returns GetIamPolicyRequest
-                 * @throws {Error} If the payload is not a reader or valid buffer
-                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                 */
-                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.iam.v1.GetIamPolicyRequest;
-
-                /**
-                 * Verifies a GetIamPolicyRequest message.
-                 * @param message Plain object to verify
-                 * @returns `null` if valid, otherwise the reason why it is not
-                 */
-                public static verify(message: { [k: string]: any }): (string|null);
-
-                /**
-                 * Creates a GetIamPolicyRequest message from a plain object. Also converts values to their respective internal types.
-                 * @param object Plain object
-                 * @returns GetIamPolicyRequest
-                 */
-                public static fromObject(object: { [k: string]: any }): google.iam.v1.GetIamPolicyRequest;
-
-                /**
-                 * Creates a plain object from a GetIamPolicyRequest message. Also converts values to other types if specified.
-                 * @param message GetIamPolicyRequest
-                 * @param [options] Conversion options
-                 * @returns Plain object
-                 */
-                public static toObject(message: google.iam.v1.GetIamPolicyRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-                /**
-                 * Converts this GetIamPolicyRequest to JSON.
-                 * @returns JSON object
-                 */
-                public toJSON(): { [k: string]: any };
-            }
-
-            /** Properties of a TestIamPermissionsRequest. */
-            interface ITestIamPermissionsRequest {
-
-                /** TestIamPermissionsRequest resource */
-                resource?: (string|null);
-
-                /** TestIamPermissionsRequest permissions */
-                permissions?: (string[]|null);
-            }
-
-            /** Represents a TestIamPermissionsRequest. */
-            class TestIamPermissionsRequest implements ITestIamPermissionsRequest {
-
-                /**
-                 * Constructs a new TestIamPermissionsRequest.
-                 * @param [properties] Properties to set
-                 */
-                constructor(properties?: google.iam.v1.ITestIamPermissionsRequest);
-
-                /** TestIamPermissionsRequest resource. */
-                public resource: string;
-
-                /** TestIamPermissionsRequest permissions. */
-                public permissions: string[];
-
-                /**
-                 * Creates a new TestIamPermissionsRequest instance using the specified properties.
-                 * @param [properties] Properties to set
-                 * @returns TestIamPermissionsRequest instance
-                 */
-                public static create(properties?: google.iam.v1.ITestIamPermissionsRequest): google.iam.v1.TestIamPermissionsRequest;
-
-                /**
-                 * Encodes the specified TestIamPermissionsRequest message. Does not implicitly {@link google.iam.v1.TestIamPermissionsRequest.verify|verify} messages.
-                 * @param message TestIamPermissionsRequest message or plain object to encode
-                 * @param [writer] Writer to encode to
-                 * @returns Writer
-                 */
-                public static encode(message: google.iam.v1.ITestIamPermissionsRequest, writer?: $protobuf.Writer): $protobuf.Writer;
-
-                /**
-                 * Encodes the specified TestIamPermissionsRequest message, length delimited. Does not implicitly {@link google.iam.v1.TestIamPermissionsRequest.verify|verify} messages.
-                 * @param message TestIamPermissionsRequest message or plain object to encode
-                 * @param [writer] Writer to encode to
-                 * @returns Writer
-                 */
-                public static encodeDelimited(message: google.iam.v1.ITestIamPermissionsRequest, writer?: $protobuf.Writer): $protobuf.Writer;
-
-                /**
-                 * Decodes a TestIamPermissionsRequest message from the specified reader or buffer.
-                 * @param reader Reader or buffer to decode from
-                 * @param [length] Message length if known beforehand
-                 * @returns TestIamPermissionsRequest
-                 * @throws {Error} If the payload is not a reader or valid buffer
-                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                 */
-                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.iam.v1.TestIamPermissionsRequest;
-
-                /**
-                 * Decodes a TestIamPermissionsRequest message from the specified reader or buffer, length delimited.
-                 * @param reader Reader or buffer to decode from
-                 * @returns TestIamPermissionsRequest
-                 * @throws {Error} If the payload is not a reader or valid buffer
-                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                 */
-                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.iam.v1.TestIamPermissionsRequest;
-
-                /**
-                 * Verifies a TestIamPermissionsRequest message.
-                 * @param message Plain object to verify
-                 * @returns `null` if valid, otherwise the reason why it is not
-                 */
-                public static verify(message: { [k: string]: any }): (string|null);
-
-                /**
-                 * Creates a TestIamPermissionsRequest message from a plain object. Also converts values to their respective internal types.
-                 * @param object Plain object
-                 * @returns TestIamPermissionsRequest
-                 */
-                public static fromObject(object: { [k: string]: any }): google.iam.v1.TestIamPermissionsRequest;
-
-                /**
-                 * Creates a plain object from a TestIamPermissionsRequest message. Also converts values to other types if specified.
-                 * @param message TestIamPermissionsRequest
-                 * @param [options] Conversion options
-                 * @returns Plain object
-                 */
-                public static toObject(message: google.iam.v1.TestIamPermissionsRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-                /**
-                 * Converts this TestIamPermissionsRequest to JSON.
-                 * @returns JSON object
-                 */
-                public toJSON(): { [k: string]: any };
-            }
-
-            /** Properties of a TestIamPermissionsResponse. */
-            interface ITestIamPermissionsResponse {
-
-                /** TestIamPermissionsResponse permissions */
-                permissions?: (string[]|null);
-            }
-
-            /** Represents a TestIamPermissionsResponse. */
-            class TestIamPermissionsResponse implements ITestIamPermissionsResponse {
-
-                /**
-                 * Constructs a new TestIamPermissionsResponse.
-                 * @param [properties] Properties to set
-                 */
-                constructor(properties?: google.iam.v1.ITestIamPermissionsResponse);
-
-                /** TestIamPermissionsResponse permissions. */
-                public permissions: string[];
-
-                /**
-                 * Creates a new TestIamPermissionsResponse instance using the specified properties.
-                 * @param [properties] Properties to set
-                 * @returns TestIamPermissionsResponse instance
-                 */
-                public static create(properties?: google.iam.v1.ITestIamPermissionsResponse): google.iam.v1.TestIamPermissionsResponse;
-
-                /**
-                 * Encodes the specified TestIamPermissionsResponse message. Does not implicitly {@link google.iam.v1.TestIamPermissionsResponse.verify|verify} messages.
-                 * @param message TestIamPermissionsResponse message or plain object to encode
-                 * @param [writer] Writer to encode to
-                 * @returns Writer
-                 */
-                public static encode(message: google.iam.v1.ITestIamPermissionsResponse, writer?: $protobuf.Writer): $protobuf.Writer;
-
-                /**
-                 * Encodes the specified TestIamPermissionsResponse message, length delimited. Does not implicitly {@link google.iam.v1.TestIamPermissionsResponse.verify|verify} messages.
-                 * @param message TestIamPermissionsResponse message or plain object to encode
-                 * @param [writer] Writer to encode to
-                 * @returns Writer
-                 */
-                public static encodeDelimited(message: google.iam.v1.ITestIamPermissionsResponse, writer?: $protobuf.Writer): $protobuf.Writer;
-
-                /**
-                 * Decodes a TestIamPermissionsResponse message from the specified reader or buffer.
-                 * @param reader Reader or buffer to decode from
-                 * @param [length] Message length if known beforehand
-                 * @returns TestIamPermissionsResponse
-                 * @throws {Error} If the payload is not a reader or valid buffer
-                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                 */
-                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.iam.v1.TestIamPermissionsResponse;
-
-                /**
-                 * Decodes a TestIamPermissionsResponse message from the specified reader or buffer, length delimited.
-                 * @param reader Reader or buffer to decode from
-                 * @returns TestIamPermissionsResponse
-                 * @throws {Error} If the payload is not a reader or valid buffer
-                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                 */
-                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.iam.v1.TestIamPermissionsResponse;
-
-                /**
-                 * Verifies a TestIamPermissionsResponse message.
-                 * @param message Plain object to verify
-                 * @returns `null` if valid, otherwise the reason why it is not
-                 */
-                public static verify(message: { [k: string]: any }): (string|null);
-
-                /**
-                 * Creates a TestIamPermissionsResponse message from a plain object. Also converts values to their respective internal types.
-                 * @param object Plain object
-                 * @returns TestIamPermissionsResponse
-                 */
-                public static fromObject(object: { [k: string]: any }): google.iam.v1.TestIamPermissionsResponse;
-
-                /**
-                 * Creates a plain object from a TestIamPermissionsResponse message. Also converts values to other types if specified.
-                 * @param message TestIamPermissionsResponse
-                 * @param [options] Conversion options
-                 * @returns Plain object
-                 */
-                public static toObject(message: google.iam.v1.TestIamPermissionsResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-                /**
-                 * Converts this TestIamPermissionsResponse to JSON.
-                 * @returns JSON object
-                 */
-                public toJSON(): { [k: string]: any };
-            }
-
-            /** Properties of a Policy. */
-            interface IPolicy {
-
-                /** Policy version */
-                version?: (number|null);
-
-                /** Policy bindings */
-                bindings?: (google.iam.v1.IBinding[]|null);
-
-                /** Policy etag */
-                etag?: (Uint8Array|null);
-            }
-
-            /** Represents a Policy. */
-            class Policy implements IPolicy {
-
-                /**
-                 * Constructs a new Policy.
-                 * @param [properties] Properties to set
-                 */
-                constructor(properties?: google.iam.v1.IPolicy);
-
-                /** Policy version. */
-                public version: number;
-
-                /** Policy bindings. */
-                public bindings: google.iam.v1.IBinding[];
-
-                /** Policy etag. */
-                public etag: Uint8Array;
-
-                /**
-                 * Creates a new Policy instance using the specified properties.
-                 * @param [properties] Properties to set
-                 * @returns Policy instance
-                 */
-                public static create(properties?: google.iam.v1.IPolicy): google.iam.v1.Policy;
-
-                /**
-                 * Encodes the specified Policy message. Does not implicitly {@link google.iam.v1.Policy.verify|verify} messages.
-                 * @param message Policy message or plain object to encode
-                 * @param [writer] Writer to encode to
-                 * @returns Writer
-                 */
-                public static encode(message: google.iam.v1.IPolicy, writer?: $protobuf.Writer): $protobuf.Writer;
-
-                /**
-                 * Encodes the specified Policy message, length delimited. Does not implicitly {@link google.iam.v1.Policy.verify|verify} messages.
-                 * @param message Policy message or plain object to encode
-                 * @param [writer] Writer to encode to
-                 * @returns Writer
-                 */
-                public static encodeDelimited(message: google.iam.v1.IPolicy, writer?: $protobuf.Writer): $protobuf.Writer;
-
-                /**
-                 * Decodes a Policy message from the specified reader or buffer.
-                 * @param reader Reader or buffer to decode from
-                 * @param [length] Message length if known beforehand
-                 * @returns Policy
-                 * @throws {Error} If the payload is not a reader or valid buffer
-                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                 */
-                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.iam.v1.Policy;
-
-                /**
-                 * Decodes a Policy message from the specified reader or buffer, length delimited.
-                 * @param reader Reader or buffer to decode from
-                 * @returns Policy
-                 * @throws {Error} If the payload is not a reader or valid buffer
-                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                 */
-                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.iam.v1.Policy;
-
-                /**
-                 * Verifies a Policy message.
-                 * @param message Plain object to verify
-                 * @returns `null` if valid, otherwise the reason why it is not
-                 */
-                public static verify(message: { [k: string]: any }): (string|null);
-
-                /**
-                 * Creates a Policy message from a plain object. Also converts values to their respective internal types.
-                 * @param object Plain object
-                 * @returns Policy
-                 */
-                public static fromObject(object: { [k: string]: any }): google.iam.v1.Policy;
-
-                /**
-                 * Creates a plain object from a Policy message. Also converts values to other types if specified.
-                 * @param message Policy
-                 * @param [options] Conversion options
-                 * @returns Plain object
-                 */
-                public static toObject(message: google.iam.v1.Policy, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-                /**
-                 * Converts this Policy to JSON.
-                 * @returns JSON object
-                 */
-                public toJSON(): { [k: string]: any };
-            }
-
-            /** Properties of a Binding. */
-            interface IBinding {
-
-                /** Binding role */
-                role?: (string|null);
-
-                /** Binding members */
-                members?: (string[]|null);
-
-                /** Binding condition */
-                condition?: (google.type.IExpr|null);
-            }
-
-            /** Represents a Binding. */
-            class Binding implements IBinding {
-
-                /**
-                 * Constructs a new Binding.
-                 * @param [properties] Properties to set
-                 */
-                constructor(properties?: google.iam.v1.IBinding);
-
-                /** Binding role. */
-                public role: string;
-
-                /** Binding members. */
-                public members: string[];
-
-                /** Binding condition. */
-                public condition?: (google.type.IExpr|null);
-
-                /**
-                 * Creates a new Binding instance using the specified properties.
-                 * @param [properties] Properties to set
-                 * @returns Binding instance
-                 */
-                public static create(properties?: google.iam.v1.IBinding): google.iam.v1.Binding;
-
-                /**
-                 * Encodes the specified Binding message. Does not implicitly {@link google.iam.v1.Binding.verify|verify} messages.
-                 * @param message Binding message or plain object to encode
-                 * @param [writer] Writer to encode to
-                 * @returns Writer
-                 */
-                public static encode(message: google.iam.v1.IBinding, writer?: $protobuf.Writer): $protobuf.Writer;
-
-                /**
-                 * Encodes the specified Binding message, length delimited. Does not implicitly {@link google.iam.v1.Binding.verify|verify} messages.
-                 * @param message Binding message or plain object to encode
-                 * @param [writer] Writer to encode to
-                 * @returns Writer
-                 */
-                public static encodeDelimited(message: google.iam.v1.IBinding, writer?: $protobuf.Writer): $protobuf.Writer;
-
-                /**
-                 * Decodes a Binding message from the specified reader or buffer.
-                 * @param reader Reader or buffer to decode from
-                 * @param [length] Message length if known beforehand
-                 * @returns Binding
-                 * @throws {Error} If the payload is not a reader or valid buffer
-                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                 */
-                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.iam.v1.Binding;
-
-                /**
-                 * Decodes a Binding message from the specified reader or buffer, length delimited.
-                 * @param reader Reader or buffer to decode from
-                 * @returns Binding
-                 * @throws {Error} If the payload is not a reader or valid buffer
-                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                 */
-                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.iam.v1.Binding;
-
-                /**
-                 * Verifies a Binding message.
-                 * @param message Plain object to verify
-                 * @returns `null` if valid, otherwise the reason why it is not
-                 */
-                public static verify(message: { [k: string]: any }): (string|null);
-
-                /**
-                 * Creates a Binding message from a plain object. Also converts values to their respective internal types.
-                 * @param object Plain object
-                 * @returns Binding
-                 */
-                public static fromObject(object: { [k: string]: any }): google.iam.v1.Binding;
-
-                /**
-                 * Creates a plain object from a Binding message. Also converts values to other types if specified.
-                 * @param message Binding
-                 * @param [options] Conversion options
-                 * @returns Plain object
-                 */
-                public static toObject(message: google.iam.v1.Binding, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-                /**
-                 * Converts this Binding to JSON.
-                 * @returns JSON object
-                 */
-                public toJSON(): { [k: string]: any };
-            }
-
-            /** Properties of a PolicyDelta. */
-            interface IPolicyDelta {
-
-                /** PolicyDelta bindingDeltas */
-                bindingDeltas?: (google.iam.v1.IBindingDelta[]|null);
-
-                /** PolicyDelta auditConfigDeltas */
-                auditConfigDeltas?: (google.iam.v1.IAuditConfigDelta[]|null);
-            }
-
-            /** Represents a PolicyDelta. */
-            class PolicyDelta implements IPolicyDelta {
-
-                /**
-                 * Constructs a new PolicyDelta.
-                 * @param [properties] Properties to set
-                 */
-                constructor(properties?: google.iam.v1.IPolicyDelta);
-
-                /** PolicyDelta bindingDeltas. */
-                public bindingDeltas: google.iam.v1.IBindingDelta[];
-
-                /** PolicyDelta auditConfigDeltas. */
-                public auditConfigDeltas: google.iam.v1.IAuditConfigDelta[];
-
-                /**
-                 * Creates a new PolicyDelta instance using the specified properties.
-                 * @param [properties] Properties to set
-                 * @returns PolicyDelta instance
-                 */
-                public static create(properties?: google.iam.v1.IPolicyDelta): google.iam.v1.PolicyDelta;
-
-                /**
-                 * Encodes the specified PolicyDelta message. Does not implicitly {@link google.iam.v1.PolicyDelta.verify|verify} messages.
-                 * @param message PolicyDelta message or plain object to encode
-                 * @param [writer] Writer to encode to
-                 * @returns Writer
-                 */
-                public static encode(message: google.iam.v1.IPolicyDelta, writer?: $protobuf.Writer): $protobuf.Writer;
-
-                /**
-                 * Encodes the specified PolicyDelta message, length delimited. Does not implicitly {@link google.iam.v1.PolicyDelta.verify|verify} messages.
-                 * @param message PolicyDelta message or plain object to encode
-                 * @param [writer] Writer to encode to
-                 * @returns Writer
-                 */
-                public static encodeDelimited(message: google.iam.v1.IPolicyDelta, writer?: $protobuf.Writer): $protobuf.Writer;
-
-                /**
-                 * Decodes a PolicyDelta message from the specified reader or buffer.
-                 * @param reader Reader or buffer to decode from
-                 * @param [length] Message length if known beforehand
-                 * @returns PolicyDelta
-                 * @throws {Error} If the payload is not a reader or valid buffer
-                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                 */
-                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.iam.v1.PolicyDelta;
-
-                /**
-                 * Decodes a PolicyDelta message from the specified reader or buffer, length delimited.
-                 * @param reader Reader or buffer to decode from
-                 * @returns PolicyDelta
-                 * @throws {Error} If the payload is not a reader or valid buffer
-                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                 */
-                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.iam.v1.PolicyDelta;
-
-                /**
-                 * Verifies a PolicyDelta message.
-                 * @param message Plain object to verify
-                 * @returns `null` if valid, otherwise the reason why it is not
-                 */
-                public static verify(message: { [k: string]: any }): (string|null);
-
-                /**
-                 * Creates a PolicyDelta message from a plain object. Also converts values to their respective internal types.
-                 * @param object Plain object
-                 * @returns PolicyDelta
-                 */
-                public static fromObject(object: { [k: string]: any }): google.iam.v1.PolicyDelta;
-
-                /**
-                 * Creates a plain object from a PolicyDelta message. Also converts values to other types if specified.
-                 * @param message PolicyDelta
-                 * @param [options] Conversion options
-                 * @returns Plain object
-                 */
-                public static toObject(message: google.iam.v1.PolicyDelta, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-                /**
-                 * Converts this PolicyDelta to JSON.
-                 * @returns JSON object
-                 */
-                public toJSON(): { [k: string]: any };
-            }
-
-            /** Properties of a BindingDelta. */
-            interface IBindingDelta {
-
-                /** BindingDelta action */
-                action?: (google.iam.v1.BindingDelta.Action|null);
-
-                /** BindingDelta role */
-                role?: (string|null);
-
-                /** BindingDelta member */
-                member?: (string|null);
-
-                /** BindingDelta condition */
-                condition?: (google.type.IExpr|null);
-            }
-
-            /** Represents a BindingDelta. */
-            class BindingDelta implements IBindingDelta {
-
-                /**
-                 * Constructs a new BindingDelta.
-                 * @param [properties] Properties to set
-                 */
-                constructor(properties?: google.iam.v1.IBindingDelta);
-
-                /** BindingDelta action. */
-                public action: google.iam.v1.BindingDelta.Action;
-
-                /** BindingDelta role. */
-                public role: string;
-
-                /** BindingDelta member. */
-                public member: string;
-
-                /** BindingDelta condition. */
-                public condition?: (google.type.IExpr|null);
-
-                /**
-                 * Creates a new BindingDelta instance using the specified properties.
-                 * @param [properties] Properties to set
-                 * @returns BindingDelta instance
-                 */
-                public static create(properties?: google.iam.v1.IBindingDelta): google.iam.v1.BindingDelta;
-
-                /**
-                 * Encodes the specified BindingDelta message. Does not implicitly {@link google.iam.v1.BindingDelta.verify|verify} messages.
-                 * @param message BindingDelta message or plain object to encode
-                 * @param [writer] Writer to encode to
-                 * @returns Writer
-                 */
-                public static encode(message: google.iam.v1.IBindingDelta, writer?: $protobuf.Writer): $protobuf.Writer;
-
-                /**
-                 * Encodes the specified BindingDelta message, length delimited. Does not implicitly {@link google.iam.v1.BindingDelta.verify|verify} messages.
-                 * @param message BindingDelta message or plain object to encode
-                 * @param [writer] Writer to encode to
-                 * @returns Writer
-                 */
-                public static encodeDelimited(message: google.iam.v1.IBindingDelta, writer?: $protobuf.Writer): $protobuf.Writer;
-
-                /**
-                 * Decodes a BindingDelta message from the specified reader or buffer.
-                 * @param reader Reader or buffer to decode from
-                 * @param [length] Message length if known beforehand
-                 * @returns BindingDelta
-                 * @throws {Error} If the payload is not a reader or valid buffer
-                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                 */
-                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.iam.v1.BindingDelta;
-
-                /**
-                 * Decodes a BindingDelta message from the specified reader or buffer, length delimited.
-                 * @param reader Reader or buffer to decode from
-                 * @returns BindingDelta
-                 * @throws {Error} If the payload is not a reader or valid buffer
-                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                 */
-                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.iam.v1.BindingDelta;
-
-                /**
-                 * Verifies a BindingDelta message.
-                 * @param message Plain object to verify
-                 * @returns `null` if valid, otherwise the reason why it is not
-                 */
-                public static verify(message: { [k: string]: any }): (string|null);
-
-                /**
-                 * Creates a BindingDelta message from a plain object. Also converts values to their respective internal types.
-                 * @param object Plain object
-                 * @returns BindingDelta
-                 */
-                public static fromObject(object: { [k: string]: any }): google.iam.v1.BindingDelta;
-
-                /**
-                 * Creates a plain object from a BindingDelta message. Also converts values to other types if specified.
-                 * @param message BindingDelta
-                 * @param [options] Conversion options
-                 * @returns Plain object
-                 */
-                public static toObject(message: google.iam.v1.BindingDelta, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-                /**
-                 * Converts this BindingDelta to JSON.
-                 * @returns JSON object
-                 */
-                public toJSON(): { [k: string]: any };
-            }
-
-            namespace BindingDelta {
-
-                /** Action enum. */
-                enum Action {
-                    ACTION_UNSPECIFIED = 0,
-                    ADD = 1,
-                    REMOVE = 2
-                }
-            }
-
-            /** Properties of an AuditConfigDelta. */
-            interface IAuditConfigDelta {
-
-                /** AuditConfigDelta action */
-                action?: (google.iam.v1.AuditConfigDelta.Action|null);
-
-                /** AuditConfigDelta service */
-                service?: (string|null);
-
-                /** AuditConfigDelta exemptedMember */
-                exemptedMember?: (string|null);
-
-                /** AuditConfigDelta logType */
-                logType?: (string|null);
-            }
-
-            /** Represents an AuditConfigDelta. */
-            class AuditConfigDelta implements IAuditConfigDelta {
-
-                /**
-                 * Constructs a new AuditConfigDelta.
-                 * @param [properties] Properties to set
-                 */
-                constructor(properties?: google.iam.v1.IAuditConfigDelta);
-
-                /** AuditConfigDelta action. */
-                public action: google.iam.v1.AuditConfigDelta.Action;
-
-                /** AuditConfigDelta service. */
-                public service: string;
-
-                /** AuditConfigDelta exemptedMember. */
-                public exemptedMember: string;
-
-                /** AuditConfigDelta logType. */
-                public logType: string;
-
-                /**
-                 * Creates a new AuditConfigDelta instance using the specified properties.
-                 * @param [properties] Properties to set
-                 * @returns AuditConfigDelta instance
-                 */
-                public static create(properties?: google.iam.v1.IAuditConfigDelta): google.iam.v1.AuditConfigDelta;
-
-                /**
-                 * Encodes the specified AuditConfigDelta message. Does not implicitly {@link google.iam.v1.AuditConfigDelta.verify|verify} messages.
-                 * @param message AuditConfigDelta message or plain object to encode
-                 * @param [writer] Writer to encode to
-                 * @returns Writer
-                 */
-                public static encode(message: google.iam.v1.IAuditConfigDelta, writer?: $protobuf.Writer): $protobuf.Writer;
-
-                /**
-                 * Encodes the specified AuditConfigDelta message, length delimited. Does not implicitly {@link google.iam.v1.AuditConfigDelta.verify|verify} messages.
-                 * @param message AuditConfigDelta message or plain object to encode
-                 * @param [writer] Writer to encode to
-                 * @returns Writer
-                 */
-                public static encodeDelimited(message: google.iam.v1.IAuditConfigDelta, writer?: $protobuf.Writer): $protobuf.Writer;
-
-                /**
-                 * Decodes an AuditConfigDelta message from the specified reader or buffer.
-                 * @param reader Reader or buffer to decode from
-                 * @param [length] Message length if known beforehand
-                 * @returns AuditConfigDelta
-                 * @throws {Error} If the payload is not a reader or valid buffer
-                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                 */
-                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.iam.v1.AuditConfigDelta;
-
-                /**
-                 * Decodes an AuditConfigDelta message from the specified reader or buffer, length delimited.
-                 * @param reader Reader or buffer to decode from
-                 * @returns AuditConfigDelta
-                 * @throws {Error} If the payload is not a reader or valid buffer
-                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
-                 */
-                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.iam.v1.AuditConfigDelta;
-
-                /**
-                 * Verifies an AuditConfigDelta message.
-                 * @param message Plain object to verify
-                 * @returns `null` if valid, otherwise the reason why it is not
-                 */
-                public static verify(message: { [k: string]: any }): (string|null);
-
-                /**
-                 * Creates an AuditConfigDelta message from a plain object. Also converts values to their respective internal types.
-                 * @param object Plain object
-                 * @returns AuditConfigDelta
-                 */
-                public static fromObject(object: { [k: string]: any }): google.iam.v1.AuditConfigDelta;
-
-                /**
-                 * Creates a plain object from an AuditConfigDelta message. Also converts values to other types if specified.
-                 * @param message AuditConfigDelta
-                 * @param [options] Conversion options
-                 * @returns Plain object
-                 */
-                public static toObject(message: google.iam.v1.AuditConfigDelta, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-                /**
-                 * Converts this AuditConfigDelta to JSON.
-                 * @returns JSON object
-                 */
-                public toJSON(): { [k: string]: any };
-            }
-
-            namespace AuditConfigDelta {
-
-                /** Action enum. */
-                enum Action {
-                    ACTION_UNSPECIFIED = 0,
-                    ADD = 1,
-                    REMOVE = 2
-                }
-            }
-        }
-    }
-
-    /** Namespace type. */
-    namespace type {
-
-        /** Properties of an Expr. */
-        interface IExpr {
-
-            /** Expr expression */
-            expression?: (string|null);
-
-            /** Expr title */
-            title?: (string|null);
-
-            /** Expr description */
-            description?: (string|null);
-
-            /** Expr location */
-            location?: (string|null);
-        }
-
-        /** Represents an Expr. */
-        class Expr implements IExpr {
-
-            /**
-             * Constructs a new Expr.
-             * @param [properties] Properties to set
-             */
-            constructor(properties?: google.type.IExpr);
-
-            /** Expr expression. */
-            public expression: string;
-
-            /** Expr title. */
-            public title: string;
-
-            /** Expr description. */
-            public description: string;
-
-            /** Expr location. */
-            public location: string;
-
-            /**
-             * Creates a new Expr instance using the specified properties.
-             * @param [properties] Properties to set
-             * @returns Expr instance
-             */
-            public static create(properties?: google.type.IExpr): google.type.Expr;
-
-            /**
-             * Encodes the specified Expr message. Does not implicitly {@link google.type.Expr.verify|verify} messages.
-             * @param message Expr message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encode(message: google.type.IExpr, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Encodes the specified Expr message, length delimited. Does not implicitly {@link google.type.Expr.verify|verify} messages.
-             * @param message Expr message or plain object to encode
-             * @param [writer] Writer to encode to
-             * @returns Writer
-             */
-            public static encodeDelimited(message: google.type.IExpr, writer?: $protobuf.Writer): $protobuf.Writer;
-
-            /**
-             * Decodes an Expr message from the specified reader or buffer.
-             * @param reader Reader or buffer to decode from
-             * @param [length] Message length if known beforehand
-             * @returns Expr
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): google.type.Expr;
-
-            /**
-             * Decodes an Expr message from the specified reader or buffer, length delimited.
-             * @param reader Reader or buffer to decode from
-             * @returns Expr
-             * @throws {Error} If the payload is not a reader or valid buffer
-             * @throws {$protobuf.util.ProtocolError} If required fields are missing
-             */
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): google.type.Expr;
-
-            /**
-             * Verifies an Expr message.
-             * @param message Plain object to verify
-             * @returns `null` if valid, otherwise the reason why it is not
-             */
-            public static verify(message: { [k: string]: any }): (string|null);
-
-            /**
-             * Creates an Expr message from a plain object. Also converts values to their respective internal types.
-             * @param object Plain object
-             * @returns Expr
-             */
-            public static fromObject(object: { [k: string]: any }): google.type.Expr;
-
-            /**
-             * Creates a plain object from an Expr message. Also converts values to other types if specified.
-             * @param message Expr
-             * @param [options] Conversion options
-             * @returns Plain object
-             */
-            public static toObject(message: google.type.Expr, options?: $protobuf.IConversionOptions): { [k: string]: any };
-
-            /**
-             * Converts this Expr to JSON.
              * @returns JSON object
              */
             public toJSON(): { [k: string]: any };
