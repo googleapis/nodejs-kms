@@ -2712,16 +2712,15 @@ export class KeyManagementServiceClient {
       .location;
   }
 
-  locationPath(project: string, location: string){
+  locationPath(project: string, location: string) {
     return this._pathTemplates.locationPathTemplate.render({
       project,
-      location
+      location,
     });
   }
 
-  matchProjectFromLocationName(locationName: string){
-    return this._pathTemplates.locationPathTemplate.match(locationName)
-    .project;
+  matchProjectFromLocationName(locationName: string) {
+    return this._pathTemplates.locationPathTemplate.match(locationName).project;
   }
 
   /**
