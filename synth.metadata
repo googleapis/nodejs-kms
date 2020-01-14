@@ -1,13 +1,6 @@
 {
-  "updateTime": "2020-01-14T18:47:23.599929Z",
+  "updateTime": "2020-01-14T19:22:55.346135Z",
   "sources": [
-    {
-      "generator": {
-        "name": "artman",
-        "version": "0.44.0",
-        "dockerImage": "googleapis/artman@sha256:10a6d0342b8d62544810ac5ad86c3b21049ec0696608ac60175da8e513234344"
-      }
-    },
     {
       "git": {
         "name": "googleapis",
@@ -30,9 +23,8 @@
         "source": "googleapis",
         "apiName": "kms",
         "apiVersion": "v1",
-        "language": "nodejs",
-        "generator": "gapic",
-        "config": "google/cloud/kms/artman_cloudkms.yaml"
+        "language": "typescript",
+        "generator": "gapic-generator-typescript"
       }
     }
   ]

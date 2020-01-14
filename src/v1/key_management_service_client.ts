@@ -43,6 +43,7 @@ const version = require('../../../package.json').version;
  *  * [KeyRing][google.cloud.kms.v1.KeyRing]
  *  * [CryptoKey][google.cloud.kms.v1.CryptoKey]
  *  * [CryptoKeyVersion][google.cloud.kms.v1.CryptoKeyVersion]
+ *  * [ImportJob][google.cloud.kms.v1.ImportJob]
  *
  *  If you are using manual gRPC libraries, see
  *  [Using gRPC with Cloud KMS](https://cloud.google.com/kms/docs/grpc).
@@ -52,6 +53,7 @@ const version = require('../../../package.json').version;
 export class KeyManagementServiceClient {
   private _descriptors: Descriptors = {page: {}, stream: {}, longrunning: {}};
   private _innerApiCalls: {[name: string]: Function};
+  private _pathTemplates: {[name: string]: gax.PathTemplate};
   private _terminated = false;
   auth: gax.GoogleAuth;
   keyManagementServiceStub: Promise<{[name: string]: Function}>;
@@ -147,6 +149,24 @@ export class KeyManagementServiceClient {
     const protos = gaxGrpc.loadProto(
       opts.fallback ? require('../../protos/protos.json') : nodejsProtoPath
     );
+
+    // This API contains "path templates"; forward-slash-separated
+    // identifiers to uniquely identify resources within the API.
+    // Create useful helper objects for these.
+    this._pathTemplates = {
+      keyRingPathTemplate: new gaxModule.PathTemplate(
+        'projects/{project}/locations/{location}/keyRings/{key_ring}'
+      ),
+      cryptoKeyPathTemplate: new gaxModule.PathTemplate(
+        'projects/{project}/locations/{location}/keyRings/{key_ring}/cryptoKeys/{crypto_key}'
+      ),
+      cryptoKeyVersionPathTemplate: new gaxModule.PathTemplate(
+        'projects/{project}/locations/{location}/keyRings/{key_ring}/cryptoKeys/{crypto_key}/cryptoKeyVersions/{crypto_key_version}'
+      ),
+      importJobPathTemplate: new gaxModule.PathTemplate(
+        'projects/{project}/locations/{location}/keyRings/{key_ring}/importJobs/{import_job}'
+      ),
+    };
 
     // Some of the methods on this service return "paged" results,
     // (e.g. 50 results at a time, with tokens to get subsequent
@@ -336,7 +356,7 @@ export class KeyManagementServiceClient {
    * @param {Object} request
    *   The request object that will be sent.
    * @param {string} request.name
-   *   The [name][google.cloud.kms.v1.KeyRing.name] of the [KeyRing][google.cloud.kms.v1.KeyRing] to get.
+   *   Required. The [name][google.cloud.kms.v1.KeyRing.name] of the [KeyRing][google.cloud.kms.v1.KeyRing] to get.
    * @param {object} [options]
    *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
    * @returns {Promise} - The promise which resolves to an array.
@@ -408,7 +428,7 @@ export class KeyManagementServiceClient {
    * @param {Object} request
    *   The request object that will be sent.
    * @param {string} request.name
-   *   The [name][google.cloud.kms.v1.CryptoKey.name] of the [CryptoKey][google.cloud.kms.v1.CryptoKey] to get.
+   *   Required. The [name][google.cloud.kms.v1.CryptoKey.name] of the [CryptoKey][google.cloud.kms.v1.CryptoKey] to get.
    * @param {object} [options]
    *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
    * @returns {Promise} - The promise which resolves to an array.
@@ -479,7 +499,7 @@ export class KeyManagementServiceClient {
    * @param {Object} request
    *   The request object that will be sent.
    * @param {string} request.name
-   *   The [name][google.cloud.kms.v1.CryptoKeyVersion.name] of the [CryptoKeyVersion][google.cloud.kms.v1.CryptoKeyVersion] to get.
+   *   Required. The [name][google.cloud.kms.v1.CryptoKeyVersion.name] of the [CryptoKeyVersion][google.cloud.kms.v1.CryptoKeyVersion] to get.
    * @param {object} [options]
    *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
    * @returns {Promise} - The promise which resolves to an array.
@@ -554,7 +574,7 @@ export class KeyManagementServiceClient {
    * @param {Object} request
    *   The request object that will be sent.
    * @param {string} request.name
-   *   The [name][google.cloud.kms.v1.CryptoKeyVersion.name] of the [CryptoKeyVersion][google.cloud.kms.v1.CryptoKeyVersion] public key to
+   *   Required. The [name][google.cloud.kms.v1.CryptoKeyVersion.name] of the [CryptoKeyVersion][google.cloud.kms.v1.CryptoKeyVersion] public key to
    *   get.
    * @param {object} [options]
    *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
@@ -626,7 +646,7 @@ export class KeyManagementServiceClient {
    * @param {Object} request
    *   The request object that will be sent.
    * @param {string} request.name
-   *   The [name][google.cloud.kms.v1.ImportJob.name] of the [ImportJob][google.cloud.kms.v1.ImportJob] to get.
+   *   Required. The [name][google.cloud.kms.v1.ImportJob.name] of the [ImportJob][google.cloud.kms.v1.ImportJob] to get.
    * @param {object} [options]
    *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
    * @returns {Promise} - The promise which resolves to an array.
@@ -703,7 +723,7 @@ export class KeyManagementServiceClient {
    *   Required. It must be unique within a location and match the regular
    *   expression `[a-zA-Z0-9_-]{1,63}`
    * @param {google.cloud.kms.v1.KeyRing} request.keyRing
-   *   A [KeyRing][google.cloud.kms.v1.KeyRing] with initial field values.
+   *   Required. A [KeyRing][google.cloud.kms.v1.KeyRing] with initial field values.
    * @param {object} [options]
    *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
    * @returns {Promise} - The promise which resolves to an array.
@@ -784,7 +804,7 @@ export class KeyManagementServiceClient {
    *   Required. It must be unique within a KeyRing and match the regular
    *   expression `[a-zA-Z0-9_-]{1,63}`
    * @param {google.cloud.kms.v1.CryptoKey} request.cryptoKey
-   *   A [CryptoKey][google.cloud.kms.v1.CryptoKey] with initial field values.
+   *   Required. A [CryptoKey][google.cloud.kms.v1.CryptoKey] with initial field values.
    * @param {boolean} request.skipInitialVersionCreation
    *   If set to true, the request will create a [CryptoKey][google.cloud.kms.v1.CryptoKey] without any
    *   [CryptoKeyVersions][google.cloud.kms.v1.CryptoKeyVersion]. You must manually call
@@ -872,7 +892,7 @@ export class KeyManagementServiceClient {
    *   Required. The [name][google.cloud.kms.v1.CryptoKey.name] of the [CryptoKey][google.cloud.kms.v1.CryptoKey] associated with
    *   the [CryptoKeyVersions][google.cloud.kms.v1.CryptoKeyVersion].
    * @param {google.cloud.kms.v1.CryptoKeyVersion} request.cryptoKeyVersion
-   *   A [CryptoKeyVersion][google.cloud.kms.v1.CryptoKeyVersion] with initial field values.
+   *   Required. A [CryptoKeyVersion][google.cloud.kms.v1.CryptoKeyVersion] with initial field values.
    * @param {object} [options]
    *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
    * @returns {Promise} - The promise which resolves to an array.
@@ -986,6 +1006,11 @@ export class KeyManagementServiceClient {
    *         using AES-KWP (RFC 5649).
    *     </li>
    *   </ol>
+   *
+   *   If importing symmetric key material, it is expected that the unwrapped
+   *   key contains plain bytes. If importing asymmetric key material, it is
+   *   expected that the unwrapped key is in PKCS#8-encoded DER format (the
+   *   PrivateKeyInfo structure from RFC 5208).
    *
    *   This format is the same as the format produced by PKCS#11 mechanism
    *   CKM_RSA_AES_KEY_WRAP.
@@ -1147,9 +1172,9 @@ export class KeyManagementServiceClient {
    * @param {Object} request
    *   The request object that will be sent.
    * @param {google.cloud.kms.v1.CryptoKey} request.cryptoKey
-   *   [CryptoKey][google.cloud.kms.v1.CryptoKey] with updated values.
+   *   Required. [CryptoKey][google.cloud.kms.v1.CryptoKey] with updated values.
    * @param {google.protobuf.FieldMask} request.updateMask
-   *   Required list of fields to be updated in this request.
+   *   Required. List of fields to be updated in this request.
    * @param {object} [options]
    *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
    * @returns {Promise} - The promise which resolves to an array.
@@ -1230,9 +1255,9 @@ export class KeyManagementServiceClient {
    * @param {Object} request
    *   The request object that will be sent.
    * @param {google.cloud.kms.v1.CryptoKeyVersion} request.cryptoKeyVersion
-   *   [CryptoKeyVersion][google.cloud.kms.v1.CryptoKeyVersion] with updated values.
+   *   Required. [CryptoKeyVersion][google.cloud.kms.v1.CryptoKeyVersion] with updated values.
    * @param {google.protobuf.FieldMask} request.updateMask
-   *   Required list of fields to be updated in this request.
+   *   Required. List of fields to be updated in this request.
    * @param {object} [options]
    *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
    * @returns {Promise} - The promise which resolves to an array.
@@ -1328,8 +1353,8 @@ export class KeyManagementServiceClient {
    *   than 64KiB. For [HSM][google.cloud.kms.v1.ProtectionLevel.HSM] keys, the combined length of the
    *   plaintext and additional_authenticated_data fields must be no larger than
    *   8KiB.
-   * @param {Buffer} request.additionalAuthenticatedData
-   *   Optional data that, if specified, must also be provided during decryption
+   * @param {Buffer} [request.additionalAuthenticatedData]
+   *   Optional. Optional data that, if specified, must also be provided during decryption
    *   through [DecryptRequest.additional_authenticated_data][google.cloud.kms.v1.DecryptRequest.additional_authenticated_data].
    *
    *   The maximum size depends on the key version's
@@ -1414,8 +1439,8 @@ export class KeyManagementServiceClient {
    * @param {Buffer} request.ciphertext
    *   Required. The encrypted data originally returned in
    *   [EncryptResponse.ciphertext][google.cloud.kms.v1.EncryptResponse.ciphertext].
-   * @param {Buffer} request.additionalAuthenticatedData
-   *   Optional data that must match the data originally supplied in
+   * @param {Buffer} [request.additionalAuthenticatedData]
+   *   Optional. Optional data that must match the data originally supplied in
    *   [EncryptRequest.additional_authenticated_data][google.cloud.kms.v1.EncryptRequest.additional_authenticated_data].
    * @param {object} [options]
    *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
@@ -1647,9 +1672,9 @@ export class KeyManagementServiceClient {
    * @param {Object} request
    *   The request object that will be sent.
    * @param {string} request.name
-   *   The resource name of the [CryptoKey][google.cloud.kms.v1.CryptoKey] to update.
+   *   Required. The resource name of the [CryptoKey][google.cloud.kms.v1.CryptoKey] to update.
    * @param {string} request.cryptoKeyVersionId
-   *   The id of the child [CryptoKeyVersion][google.cloud.kms.v1.CryptoKeyVersion] to use as primary.
+   *   Required. The id of the child [CryptoKeyVersion][google.cloud.kms.v1.CryptoKeyVersion] to use as primary.
    * @param {object} [options]
    *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
    * @returns {Promise} - The promise which resolves to an array.
@@ -1744,7 +1769,7 @@ export class KeyManagementServiceClient {
    * @param {Object} request
    *   The request object that will be sent.
    * @param {string} request.name
-   *   The resource name of the [CryptoKeyVersion][google.cloud.kms.v1.CryptoKeyVersion] to destroy.
+   *   Required. The resource name of the [CryptoKeyVersion][google.cloud.kms.v1.CryptoKeyVersion] to destroy.
    * @param {object} [options]
    *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
    * @returns {Promise} - The promise which resolves to an array.
@@ -1834,7 +1859,7 @@ export class KeyManagementServiceClient {
    * @param {Object} request
    *   The request object that will be sent.
    * @param {string} request.name
-   *   The resource name of the [CryptoKeyVersion][google.cloud.kms.v1.CryptoKeyVersion] to restore.
+   *   Required. The resource name of the [CryptoKeyVersion][google.cloud.kms.v1.CryptoKeyVersion] to restore.
    * @param {object} [options]
    *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
    * @returns {Promise} - The promise which resolves to an array.
@@ -1917,19 +1942,24 @@ export class KeyManagementServiceClient {
    * @param {string} request.parent
    *   Required. The resource name of the location associated with the
    *   [KeyRings][google.cloud.kms.v1.KeyRing], in the format `projects/* /locations/*`.
-   * @param {number} request.pageSize
-   *   Optional limit on the number of [KeyRings][google.cloud.kms.v1.KeyRing] to include in the
+   * @param {number} [request.pageSize]
+   *   Optional. Optional limit on the number of [KeyRings][google.cloud.kms.v1.KeyRing] to include in the
    *   response.  Further [KeyRings][google.cloud.kms.v1.KeyRing] can subsequently be obtained by
    *   including the [ListKeyRingsResponse.next_page_token][google.cloud.kms.v1.ListKeyRingsResponse.next_page_token] in a subsequent
    *   request.  If unspecified, the server will pick an appropriate default.
-   * @param {string} request.pageToken
-   *   Optional pagination token, returned earlier via
+   * @param {string} [request.pageToken]
+   *   Optional. Optional pagination token, returned earlier via
    *   [ListKeyRingsResponse.next_page_token][google.cloud.kms.v1.ListKeyRingsResponse.next_page_token].
-   * @param {string} request.filter
-   *   Optional. Only include resources that match the filter in the response.
-   * @param {string} request.orderBy
+   * @param {string} [request.filter]
+   *   Optional. Only include resources that match the filter in the response. For
+   *   more information, see
+   *   [Sorting and filtering list
+   *   results](https://cloud.google.com/kms/docs/sorting-and-filtering).
+   * @param {string} [request.orderBy]
    *   Optional. Specify how the results should be sorted. If not specified, the
-   *   results will be sorted in the default order.
+   *   results will be sorted in the default order.  For more information, see
+   *   [Sorting and filtering list
+   *   results](https://cloud.google.com/kms/docs/sorting-and-filtering).
    * @param {object} [options]
    *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
    * @returns {Promise} - The promise which resolves to an array.
@@ -2006,19 +2036,24 @@ export class KeyManagementServiceClient {
    * @param {string} request.parent
    *   Required. The resource name of the location associated with the
    *   [KeyRings][google.cloud.kms.v1.KeyRing], in the format `projects/* /locations/*`.
-   * @param {number} request.pageSize
-   *   Optional limit on the number of [KeyRings][google.cloud.kms.v1.KeyRing] to include in the
+   * @param {number} [request.pageSize]
+   *   Optional. Optional limit on the number of [KeyRings][google.cloud.kms.v1.KeyRing] to include in the
    *   response.  Further [KeyRings][google.cloud.kms.v1.KeyRing] can subsequently be obtained by
    *   including the [ListKeyRingsResponse.next_page_token][google.cloud.kms.v1.ListKeyRingsResponse.next_page_token] in a subsequent
    *   request.  If unspecified, the server will pick an appropriate default.
-   * @param {string} request.pageToken
-   *   Optional pagination token, returned earlier via
+   * @param {string} [request.pageToken]
+   *   Optional. Optional pagination token, returned earlier via
    *   [ListKeyRingsResponse.next_page_token][google.cloud.kms.v1.ListKeyRingsResponse.next_page_token].
-   * @param {string} request.filter
-   *   Optional. Only include resources that match the filter in the response.
-   * @param {string} request.orderBy
+   * @param {string} [request.filter]
+   *   Optional. Only include resources that match the filter in the response. For
+   *   more information, see
+   *   [Sorting and filtering list
+   *   results](https://cloud.google.com/kms/docs/sorting-and-filtering).
+   * @param {string} [request.orderBy]
    *   Optional. Specify how the results should be sorted. If not specified, the
-   *   results will be sorted in the default order.
+   *   results will be sorted in the default order.  For more information, see
+   *   [Sorting and filtering list
+   *   results](https://cloud.google.com/kms/docs/sorting-and-filtering).
    * @param {object} [options]
    *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
    * @returns {Stream}
@@ -2063,21 +2098,26 @@ export class KeyManagementServiceClient {
    * @param {string} request.parent
    *   Required. The resource name of the [KeyRing][google.cloud.kms.v1.KeyRing] to list, in the format
    *   `projects/* /locations/* /keyRings/*`.
-   * @param {number} request.pageSize
-   *   Optional limit on the number of [CryptoKeys][google.cloud.kms.v1.CryptoKey] to include in the
+   * @param {number} [request.pageSize]
+   *   Optional. Optional limit on the number of [CryptoKeys][google.cloud.kms.v1.CryptoKey] to include in the
    *   response.  Further [CryptoKeys][google.cloud.kms.v1.CryptoKey] can subsequently be obtained by
    *   including the [ListCryptoKeysResponse.next_page_token][google.cloud.kms.v1.ListCryptoKeysResponse.next_page_token] in a subsequent
    *   request.  If unspecified, the server will pick an appropriate default.
-   * @param {string} request.pageToken
-   *   Optional pagination token, returned earlier via
+   * @param {string} [request.pageToken]
+   *   Optional. Optional pagination token, returned earlier via
    *   [ListCryptoKeysResponse.next_page_token][google.cloud.kms.v1.ListCryptoKeysResponse.next_page_token].
    * @param {google.cloud.kms.v1.CryptoKeyVersion.CryptoKeyVersionView} request.versionView
    *   The fields of the primary version to include in the response.
-   * @param {string} request.filter
-   *   Optional. Only include resources that match the filter in the response.
-   * @param {string} request.orderBy
+   * @param {string} [request.filter]
+   *   Optional. Only include resources that match the filter in the response. For
+   *   more information, see
+   *   [Sorting and filtering list
+   *   results](https://cloud.google.com/kms/docs/sorting-and-filtering).
+   * @param {string} [request.orderBy]
    *   Optional. Specify how the results should be sorted. If not specified, the
-   *   results will be sorted in the default order.
+   *   results will be sorted in the default order. For more information, see
+   *   [Sorting and filtering list
+   *   results](https://cloud.google.com/kms/docs/sorting-and-filtering).
    * @param {object} [options]
    *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
    * @returns {Promise} - The promise which resolves to an array.
@@ -2154,21 +2194,26 @@ export class KeyManagementServiceClient {
    * @param {string} request.parent
    *   Required. The resource name of the [KeyRing][google.cloud.kms.v1.KeyRing] to list, in the format
    *   `projects/* /locations/* /keyRings/*`.
-   * @param {number} request.pageSize
-   *   Optional limit on the number of [CryptoKeys][google.cloud.kms.v1.CryptoKey] to include in the
+   * @param {number} [request.pageSize]
+   *   Optional. Optional limit on the number of [CryptoKeys][google.cloud.kms.v1.CryptoKey] to include in the
    *   response.  Further [CryptoKeys][google.cloud.kms.v1.CryptoKey] can subsequently be obtained by
    *   including the [ListCryptoKeysResponse.next_page_token][google.cloud.kms.v1.ListCryptoKeysResponse.next_page_token] in a subsequent
    *   request.  If unspecified, the server will pick an appropriate default.
-   * @param {string} request.pageToken
-   *   Optional pagination token, returned earlier via
+   * @param {string} [request.pageToken]
+   *   Optional. Optional pagination token, returned earlier via
    *   [ListCryptoKeysResponse.next_page_token][google.cloud.kms.v1.ListCryptoKeysResponse.next_page_token].
    * @param {google.cloud.kms.v1.CryptoKeyVersion.CryptoKeyVersionView} request.versionView
    *   The fields of the primary version to include in the response.
-   * @param {string} request.filter
-   *   Optional. Only include resources that match the filter in the response.
-   * @param {string} request.orderBy
+   * @param {string} [request.filter]
+   *   Optional. Only include resources that match the filter in the response. For
+   *   more information, see
+   *   [Sorting and filtering list
+   *   results](https://cloud.google.com/kms/docs/sorting-and-filtering).
+   * @param {string} [request.orderBy]
    *   Optional. Specify how the results should be sorted. If not specified, the
-   *   results will be sorted in the default order.
+   *   results will be sorted in the default order. For more information, see
+   *   [Sorting and filtering list
+   *   results](https://cloud.google.com/kms/docs/sorting-and-filtering).
    * @param {object} [options]
    *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
    * @returns {Stream}
@@ -2213,22 +2258,27 @@ export class KeyManagementServiceClient {
    * @param {string} request.parent
    *   Required. The resource name of the [CryptoKey][google.cloud.kms.v1.CryptoKey] to list, in the format
    *   `projects/* /locations/* /keyRings/* /cryptoKeys/*`.
-   * @param {number} request.pageSize
-   *   Optional limit on the number of [CryptoKeyVersions][google.cloud.kms.v1.CryptoKeyVersion] to
+   * @param {number} [request.pageSize]
+   *   Optional. Optional limit on the number of [CryptoKeyVersions][google.cloud.kms.v1.CryptoKeyVersion] to
    *   include in the response. Further [CryptoKeyVersions][google.cloud.kms.v1.CryptoKeyVersion] can
    *   subsequently be obtained by including the
    *   [ListCryptoKeyVersionsResponse.next_page_token][google.cloud.kms.v1.ListCryptoKeyVersionsResponse.next_page_token] in a subsequent request.
    *   If unspecified, the server will pick an appropriate default.
-   * @param {string} request.pageToken
-   *   Optional pagination token, returned earlier via
+   * @param {string} [request.pageToken]
+   *   Optional. Optional pagination token, returned earlier via
    *   [ListCryptoKeyVersionsResponse.next_page_token][google.cloud.kms.v1.ListCryptoKeyVersionsResponse.next_page_token].
    * @param {google.cloud.kms.v1.CryptoKeyVersion.CryptoKeyVersionView} request.view
    *   The fields to include in the response.
-   * @param {string} request.filter
-   *   Optional. Only include resources that match the filter in the response.
-   * @param {string} request.orderBy
+   * @param {string} [request.filter]
+   *   Optional. Only include resources that match the filter in the response. For
+   *   more information, see
+   *   [Sorting and filtering list
+   *   results](https://cloud.google.com/kms/docs/sorting-and-filtering).
+   * @param {string} [request.orderBy]
    *   Optional. Specify how the results should be sorted. If not specified, the
-   *   results will be sorted in the default order.
+   *   results will be sorted in the default order. For more information, see
+   *   [Sorting and filtering list
+   *   results](https://cloud.google.com/kms/docs/sorting-and-filtering).
    * @param {object} [options]
    *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
    * @returns {Promise} - The promise which resolves to an array.
@@ -2309,22 +2359,27 @@ export class KeyManagementServiceClient {
    * @param {string} request.parent
    *   Required. The resource name of the [CryptoKey][google.cloud.kms.v1.CryptoKey] to list, in the format
    *   `projects/* /locations/* /keyRings/* /cryptoKeys/*`.
-   * @param {number} request.pageSize
-   *   Optional limit on the number of [CryptoKeyVersions][google.cloud.kms.v1.CryptoKeyVersion] to
+   * @param {number} [request.pageSize]
+   *   Optional. Optional limit on the number of [CryptoKeyVersions][google.cloud.kms.v1.CryptoKeyVersion] to
    *   include in the response. Further [CryptoKeyVersions][google.cloud.kms.v1.CryptoKeyVersion] can
    *   subsequently be obtained by including the
    *   [ListCryptoKeyVersionsResponse.next_page_token][google.cloud.kms.v1.ListCryptoKeyVersionsResponse.next_page_token] in a subsequent request.
    *   If unspecified, the server will pick an appropriate default.
-   * @param {string} request.pageToken
-   *   Optional pagination token, returned earlier via
+   * @param {string} [request.pageToken]
+   *   Optional. Optional pagination token, returned earlier via
    *   [ListCryptoKeyVersionsResponse.next_page_token][google.cloud.kms.v1.ListCryptoKeyVersionsResponse.next_page_token].
    * @param {google.cloud.kms.v1.CryptoKeyVersion.CryptoKeyVersionView} request.view
    *   The fields to include in the response.
-   * @param {string} request.filter
-   *   Optional. Only include resources that match the filter in the response.
-   * @param {string} request.orderBy
+   * @param {string} [request.filter]
+   *   Optional. Only include resources that match the filter in the response. For
+   *   more information, see
+   *   [Sorting and filtering list
+   *   results](https://cloud.google.com/kms/docs/sorting-and-filtering).
+   * @param {string} [request.orderBy]
    *   Optional. Specify how the results should be sorted. If not specified, the
-   *   results will be sorted in the default order.
+   *   results will be sorted in the default order. For more information, see
+   *   [Sorting and filtering list
+   *   results](https://cloud.google.com/kms/docs/sorting-and-filtering).
    * @param {object} [options]
    *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
    * @returns {Stream}
@@ -2369,19 +2424,24 @@ export class KeyManagementServiceClient {
    * @param {string} request.parent
    *   Required. The resource name of the [KeyRing][google.cloud.kms.v1.KeyRing] to list, in the format
    *   `projects/* /locations/* /keyRings/*`.
-   * @param {number} request.pageSize
-   *   Optional limit on the number of [ImportJobs][google.cloud.kms.v1.ImportJob] to include in the
+   * @param {number} [request.pageSize]
+   *   Optional. Optional limit on the number of [ImportJobs][google.cloud.kms.v1.ImportJob] to include in the
    *   response. Further [ImportJobs][google.cloud.kms.v1.ImportJob] can subsequently be obtained by
    *   including the [ListImportJobsResponse.next_page_token][google.cloud.kms.v1.ListImportJobsResponse.next_page_token] in a subsequent
    *   request. If unspecified, the server will pick an appropriate default.
-   * @param {string} request.pageToken
-   *   Optional pagination token, returned earlier via
+   * @param {string} [request.pageToken]
+   *   Optional. Optional pagination token, returned earlier via
    *   [ListImportJobsResponse.next_page_token][google.cloud.kms.v1.ListImportJobsResponse.next_page_token].
-   * @param {string} request.filter
-   *   Optional. Only include resources that match the filter in the response.
-   * @param {string} request.orderBy
+   * @param {string} [request.filter]
+   *   Optional. Only include resources that match the filter in the response. For
+   *   more information, see
+   *   [Sorting and filtering list
+   *   results](https://cloud.google.com/kms/docs/sorting-and-filtering).
+   * @param {string} [request.orderBy]
    *   Optional. Specify how the results should be sorted. If not specified, the
-   *   results will be sorted in the default order.
+   *   results will be sorted in the default order. For more information, see
+   *   [Sorting and filtering list
+   *   results](https://cloud.google.com/kms/docs/sorting-and-filtering).
    * @param {object} [options]
    *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
    * @returns {Promise} - The promise which resolves to an array.
@@ -2458,19 +2518,24 @@ export class KeyManagementServiceClient {
    * @param {string} request.parent
    *   Required. The resource name of the [KeyRing][google.cloud.kms.v1.KeyRing] to list, in the format
    *   `projects/* /locations/* /keyRings/*`.
-   * @param {number} request.pageSize
-   *   Optional limit on the number of [ImportJobs][google.cloud.kms.v1.ImportJob] to include in the
+   * @param {number} [request.pageSize]
+   *   Optional. Optional limit on the number of [ImportJobs][google.cloud.kms.v1.ImportJob] to include in the
    *   response. Further [ImportJobs][google.cloud.kms.v1.ImportJob] can subsequently be obtained by
    *   including the [ListImportJobsResponse.next_page_token][google.cloud.kms.v1.ListImportJobsResponse.next_page_token] in a subsequent
    *   request. If unspecified, the server will pick an appropriate default.
-   * @param {string} request.pageToken
-   *   Optional pagination token, returned earlier via
+   * @param {string} [request.pageToken]
+   *   Optional. Optional pagination token, returned earlier via
    *   [ListImportJobsResponse.next_page_token][google.cloud.kms.v1.ListImportJobsResponse.next_page_token].
-   * @param {string} request.filter
-   *   Optional. Only include resources that match the filter in the response.
-   * @param {string} request.orderBy
+   * @param {string} [request.filter]
+   *   Optional. Only include resources that match the filter in the response. For
+   *   more information, see
+   *   [Sorting and filtering list
+   *   results](https://cloud.google.com/kms/docs/sorting-and-filtering).
+   * @param {string} [request.orderBy]
    *   Optional. Specify how the results should be sorted. If not specified, the
-   *   results will be sorted in the default order.
+   *   results will be sorted in the default order. For more information, see
+   *   [Sorting and filtering list
+   *   results](https://cloud.google.com/kms/docs/sorting-and-filtering).
    * @param {object} [options]
    *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
    * @returns {Stream}
@@ -2487,6 +2552,161 @@ export class KeyManagementServiceClient {
       request,
       callSettings
     );
+  }
+  // --------------------
+  // -- Path templates --
+  // --------------------
+
+  /**
+   * Return a fully-qualified keyring resource name string.
+   *
+   * @param {string} project
+   * @param {string} location
+   * @returns {string} Resource name string.
+   */
+  keyRingPath(project: string, location: string) {
+    return this._pathTemplates.keyringPathTemplate.render({
+      project,
+      location,
+    });
+  }
+
+  /**
+   * Parse the project from KeyRing resource.
+   *
+   * @param {string} keyringName
+   *   A fully-qualified path representing KeyRing resource.
+   * @returns {string} A string representing the project.
+   */
+  matchProjectFromKeyRingName(keyringName: string) {
+    return this._pathTemplates.keyringPathTemplate.match(keyringName).project;
+  }
+
+  /**
+   * Parse the location from KeyRing resource.
+   *
+   * @param {string} keyringName
+   *   A fully-qualified path representing KeyRing resource.
+   * @returns {string} A string representing the location.
+   */
+  matchLocationFromKeyRingName(keyringName: string) {
+    return this._pathTemplates.keyringPathTemplate.match(keyringName).location;
+  }
+
+  /**
+   * Return a fully-qualified cryptokey resource name string.
+   *
+   * @param {string} project
+   * @param {string} location
+   * @returns {string} Resource name string.
+   */
+  cryptoKeyPath(project: string, location: string) {
+    return this._pathTemplates.cryptokeyPathTemplate.render({
+      project,
+      location,
+    });
+  }
+
+  /**
+   * Parse the project from CryptoKey resource.
+   *
+   * @param {string} cryptokeyName
+   *   A fully-qualified path representing CryptoKey resource.
+   * @returns {string} A string representing the project.
+   */
+  matchProjectFromCryptoKeyName(cryptokeyName: string) {
+    return this._pathTemplates.cryptokeyPathTemplate.match(cryptokeyName)
+      .project;
+  }
+
+  /**
+   * Parse the location from CryptoKey resource.
+   *
+   * @param {string} cryptokeyName
+   *   A fully-qualified path representing CryptoKey resource.
+   * @returns {string} A string representing the location.
+   */
+  matchLocationFromCryptoKeyName(cryptokeyName: string) {
+    return this._pathTemplates.cryptokeyPathTemplate.match(cryptokeyName)
+      .location;
+  }
+
+  /**
+   * Return a fully-qualified cryptokeyversion resource name string.
+   *
+   * @param {string} project
+   * @param {string} location
+   * @returns {string} Resource name string.
+   */
+  cryptoKeyVersionPath(project: string, location: string) {
+    return this._pathTemplates.cryptokeyversionPathTemplate.render({
+      project,
+      location,
+    });
+  }
+
+  /**
+   * Parse the project from CryptoKeyVersion resource.
+   *
+   * @param {string} cryptokeyversionName
+   *   A fully-qualified path representing CryptoKeyVersion resource.
+   * @returns {string} A string representing the project.
+   */
+  matchProjectFromCryptoKeyVersionName(cryptokeyversionName: string) {
+    return this._pathTemplates.cryptokeyversionPathTemplate.match(
+      cryptokeyversionName
+    ).project;
+  }
+
+  /**
+   * Parse the location from CryptoKeyVersion resource.
+   *
+   * @param {string} cryptokeyversionName
+   *   A fully-qualified path representing CryptoKeyVersion resource.
+   * @returns {string} A string representing the location.
+   */
+  matchLocationFromCryptoKeyVersionName(cryptokeyversionName: string) {
+    return this._pathTemplates.cryptokeyversionPathTemplate.match(
+      cryptokeyversionName
+    ).location;
+  }
+
+  /**
+   * Return a fully-qualified importjob resource name string.
+   *
+   * @param {string} project
+   * @param {string} location
+   * @returns {string} Resource name string.
+   */
+  importJobPath(project: string, location: string) {
+    return this._pathTemplates.importjobPathTemplate.render({
+      project,
+      location,
+    });
+  }
+
+  /**
+   * Parse the project from ImportJob resource.
+   *
+   * @param {string} importjobName
+   *   A fully-qualified path representing ImportJob resource.
+   * @returns {string} A string representing the project.
+   */
+  matchProjectFromImportJobName(importjobName: string) {
+    return this._pathTemplates.importjobPathTemplate.match(importjobName)
+      .project;
+  }
+
+  /**
+   * Parse the location from ImportJob resource.
+   *
+   * @param {string} importjobName
+   *   A fully-qualified path representing ImportJob resource.
+   * @returns {string} A string representing the location.
+   */
+  matchLocationFromImportJobName(importjobName: string) {
+    return this._pathTemplates.importjobPathTemplate.match(importjobName)
+      .location;
   }
 
   /**
