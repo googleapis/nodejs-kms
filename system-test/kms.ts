@@ -14,7 +14,7 @@
 
 const kms = require('../src');
 const assert = require('assert');
-const {describe, it} = require('mocha');
+import {describe, it} from 'mocha';
 
 const client = new kms.v1.KeyManagementServiceClient();
 
