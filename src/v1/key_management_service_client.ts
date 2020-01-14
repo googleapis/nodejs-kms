@@ -166,6 +166,9 @@ export class KeyManagementServiceClient {
       importJobPathTemplate: new gaxModule.PathTemplate(
         'projects/{project}/locations/{location}/keyRings/{key_ring}/importJobs/{import_job}'
       ),
+      locationPathTemplate: new gaxModule.PathTemplate(
+        'projects/{project}/locations/{location}'
+      ),
     };
 
     // Some of the methods on this service return "paged" results,
@@ -2707,6 +2710,18 @@ export class KeyManagementServiceClient {
   matchLocationFromImportJobName(importjobName: string) {
     return this._pathTemplates.importjobPathTemplate.match(importjobName)
       .location;
+  }
+
+  locationPath(project: string, location: string){
+    return this._pathTemplates.locationPathTemplate.render({
+      project,
+      location
+    });
+  }
+
+  matchProjectFromLocationName(locationName: string){
+    return this._pathTemplates.locationPathTemplate.match(locationName)
+    .project;
   }
 
   /**
