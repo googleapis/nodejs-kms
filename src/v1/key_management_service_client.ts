@@ -2608,7 +2608,7 @@ export class KeyManagementServiceClient {
     return this._pathTemplates.keyringPathTemplate.render({
       project,
       location,
-      keyring
+      keyring,
     });
   }
 
@@ -2641,12 +2641,17 @@ export class KeyManagementServiceClient {
    * @param {string} location
    * @returns {string} Resource name string.
    */
-  cryptoKeyPath(project: string, location: string, keyring: string, cryptoKey: string) {
+  cryptoKeyPath(
+    project: string,
+    location: string,
+    keyring: string,
+    cryptoKey: string
+  ) {
     return this._pathTemplates.cryptokeyPathTemplate.render({
       project,
       location,
       keyring,
-      cryptoKey
+      cryptoKey,
     });
   }
 
@@ -2681,13 +2686,19 @@ export class KeyManagementServiceClient {
    * @param {string} location
    * @returns {string} Resource name string.
    */
-  cryptoKeyVersionPath(project: string, location: string, keyRing: string, cryptoKey: string, cryptoKeyCersion: string) {
+  cryptoKeyVersionPath(
+    project: string,
+    location: string,
+    keyRing: string,
+    cryptoKey: string,
+    cryptoKeyCersion: string
+  ) {
     return this._pathTemplates.cryptokeyversionPathTemplate.render({
       project,
       location,
       keyRing,
       cryptoKey,
-      cryptoKeyCersion
+      cryptoKeyCersion,
     });
   }
 
@@ -2724,12 +2735,17 @@ export class KeyManagementServiceClient {
    * @param {string} location
    * @returns {string} Resource name string.
    */
-  importJobPath(project: string, location: string, key_ring: string, importJob) {
+  importJobPath(
+    project: string,
+    location: string,
+    keyRing: string,
+    importJob: string
+  ) {
     return this._pathTemplates.importjobPathTemplate.render({
       project,
       location,
-      key_ring,
-      importJob
+      keyRing,
+      importJob,
     });
   }
 
