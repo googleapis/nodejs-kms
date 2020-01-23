@@ -88,48 +88,6 @@ describe('kms sample tests', () => {
     assert.match(output, /Created: /);
   });
 
-  it(`should get a key ring's empty IAM policy`, async () => {
-    const output = execSync(
-      `node getKeyringIamPolicy.js ${projectId} ${keyRingName}`
-    );
-    assert.match(
-      output,
-      new RegExp(`Policy for key ring ${keyRingName} is empty.`)
-    );
-  });
-
-  it(`should grant access to a key ring`, async () => {
-    const output = execSync(
-      `node addMemberToKeyRingPolicy.js ${projectId} ${keyRingName} ${member} ${role}`
-    );
-    assert.match(
-      output,
-      new RegExp(
-        `${member}/${role} combo added to policy for key ring ${keyRingName}.`
-      )
-    );
-  });
-
-  it(`should get a key ring's updated IAM policy`, async () => {
-    const output = execSync(
-      `node getKeyringIamPolicy.js ${projectId} ${keyRingName}`
-    );
-    assert.match(output, new RegExp(`${role}:`));
-    assert.match(output, new RegExp(`  ${member}`));
-  });
-
-  it(`should revoke access to a key ring`, async () => {
-    const output = execSync(
-      `node removeMemberFromKeyRingPolicy.js ${projectId} ${keyRingName} ${member} ${role}`
-    );
-    assert.match(
-      output,
-      new RegExp(
-        `${member}/${role} combo removed from policy for key ring ${keyRingName}.`
-      )
-    );
-  });
-
   it(`should create a key`, async () => {
     const output = execSync(
       `node createCryptoKey.js ${projectId} ${keyRingName} ${keyNameOne}`
@@ -254,48 +212,6 @@ describe('kms sample tests', () => {
       output,
       new RegExp(
         `Crypto key version ${formattedKeyName}/cryptoKeyVersions/2 disabled.`
-      )
-    );
-  });
-
-  it(`should get a crypto key's empty IAM policy`, async () => {
-    const output = execSync(
-      `node getCryptoKeyIamPolicy ${projectId} "${keyRingName}" "${keyNameOne}"`
-    );
-    assert.match(
-      output,
-      new RegExp(`Policy for crypto key ${keyNameOne} is empty.`)
-    );
-  });
-
-  it(`should grant access to a crypto key`, async () => {
-    const output = execSync(
-      `node addMemberToCryptoKeyPolicy ${projectId} "${keyRingName}" "${keyNameOne}" "${member}" "${role}"`
-    );
-    assert.match(
-      output,
-      new RegExp(
-        `${member}/${role} combo added to policy for crypto key ${keyNameOne}.`
-      )
-    );
-  });
-
-  it(`should get a crypto key's updated IAM policy`, async () => {
-    const output = execSync(
-      `node getCryptoKeyIamPolicy ${projectId} "${keyRingName}" "${keyNameOne}"`
-    );
-    assert.match(output, new RegExp(`${role}:`));
-    assert.match(output, new RegExp(`  ${member}`));
-  });
-
-  it(`should revoke access to a crypto key`, async () => {
-    const output = execSync(
-      `node removeMemberCryptoKeyPolicy ${projectId} "${keyRingName}" "${keyNameOne}" ${member} ${role}`
-    );
-    assert.match(
-      output,
-      new RegExp(
-        `${member}/${role} combo removed from policy for crypto key ${keyNameOne}.`
       )
     );
   });

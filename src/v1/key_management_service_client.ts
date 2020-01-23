@@ -2582,29 +2582,6 @@ export class KeyManagementServiceClient {
   }
 
   /**
-   * Return a fully-qualified crypto_key_path resource name string.
-   *
-   * @param {String} project
-   * @param {String} location
-   * @param {String} keyRing
-   * @param {String} cryptoKeyPath
-   * @returns {String}
-   */
-  cryptoKeyPathPath(
-    project: string,
-    location: string,
-    keyRing: string,
-    cryptoKeyPath: string
-  ) {
-    return this._pathTemplates.cryptoKeyPathPathTemplate.render({
-      project,
-      location,
-      key_ring: keyRing,
-      crypto_key_path: cryptoKeyPath,
-    });
-  }
-
-  /**
    * Return a fully-qualified crypto_key_version resource name string.
    *
    * @param {String} project
@@ -2729,58 +2706,6 @@ export class KeyManagementServiceClient {
   matchCryptoKeyFromCryptoKeyName(cryptoKeyName: string) {
     return this._pathTemplates.cryptoKeyPathTemplate.match(cryptoKeyName)
       .crypto_key;
-  }
-
-  /**
-   * Parse the cryptoKeyPathName from a crypto_key_path resource.
-   *
-   * @param {String} cryptoKeyPathName
-   *   A fully-qualified path representing a crypto_key_path resources.
-   * @returns {String} - A string representing the project.
-   */
-  matchProjectFromCryptoKeyPathName(cryptoKeyPathName: string) {
-    return this._pathTemplates.cryptoKeyPathPathTemplate.match(
-      cryptoKeyPathName
-    ).project;
-  }
-
-  /**
-   * Parse the cryptoKeyPathName from a crypto_key_path resource.
-   *
-   * @param {String} cryptoKeyPathName
-   *   A fully-qualified path representing a crypto_key_path resources.
-   * @returns {String} - A string representing the location.
-   */
-  matchLocationFromCryptoKeyPathName(cryptoKeyPathName: string) {
-    return this._pathTemplates.cryptoKeyPathPathTemplate.match(
-      cryptoKeyPathName
-    ).location;
-  }
-
-  /**
-   * Parse the cryptoKeyPathName from a crypto_key_path resource.
-   *
-   * @param {String} cryptoKeyPathName
-   *   A fully-qualified path representing a crypto_key_path resources.
-   * @returns {String} - A string representing the key_ring.
-   */
-  matchKeyRingFromCryptoKeyPathName(cryptoKeyPathName: string) {
-    return this._pathTemplates.cryptoKeyPathPathTemplate.match(
-      cryptoKeyPathName
-    ).key_ring;
-  }
-
-  /**
-   * Parse the cryptoKeyPathName from a crypto_key_path resource.
-   *
-   * @param {String} cryptoKeyPathName
-   *   A fully-qualified path representing a crypto_key_path resources.
-   * @returns {String} - A string representing the crypto_key_path.
-   */
-  matchCryptoKeyPathFromCryptoKeyPathName(cryptoKeyPathName: string) {
-    return this._pathTemplates.cryptoKeyPathPathTemplate.match(
-      cryptoKeyPathName
-    ).crypto_key_path;
   }
 
   /**
