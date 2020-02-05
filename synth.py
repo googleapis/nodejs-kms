@@ -31,7 +31,7 @@ for version in versions:
                 "package-name": f"@google-cloud/kms"
                 },
             proto_path=f'/google/cloud/kms/{version}',
-            extra_proto_files=['google/cloud/common_resources.proto', 'google/iam/v1/policy.proto']
+            extra_proto_files=['google/cloud/common_resources.proto']
             )
     # skip index, package.json, and README.md
     s.copy(

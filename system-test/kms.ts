@@ -16,7 +16,7 @@ const kms = require('../src');
 const assert = require('assert');
 import {describe, it} from 'mocha';
 
-const client = new kms.v1.KeyManagementServiceClient();
+const client = new kms.KeyManagementServiceClient();
 
 describe('KMS system tests', () => {
   it('should list global key rings', async () => {

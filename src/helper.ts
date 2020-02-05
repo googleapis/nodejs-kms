@@ -20,25 +20,25 @@ import {ClientOptions} from 'google-gax';
 import * as path from 'path';
 
 export class ImprovedKMSClient extends KeyManagementServiceClient {
-  constructor(opts: ClientOptions) {
+  constructor(opts?: ClientOptions) {
     super(opts);
     const nodejsProtoPath = path.join(__dirname, '..', 'protos', 'protos.json');
     const protos = this.gaxGrpc.loadProto(
-      opts.fallback ? require('../rotos/protos.json') : nodejsProtoPath
+      this.opts.fallback ? require('../protos/protos.json') : nodejsProtoPath
     );
     const isBrowser = typeof window !== 'undefined';
     if (isBrowser) {
-      opts.fallback = true;
+      this.opts.fallback = true;
     }
-    const gaxModule = !isBrowser && opts.fallback ? gax.fallback : gax;
+    const gaxModule = !isBrowser && this.opts.fallback ? gax.fallback : gax;
     // Put together the "service stub" for
     // google.iam.v1.IAMPolicy.
     const iamPolicyStub = this.gaxGrpc.createStub(
-      opts.fallback
+      this.opts.fallback
         ? (protos as protobuf.Root).lookupService('google.iam.v1.IAMPolicy')
         : // tslint:disable-next-line no-any
           (protos as any).google.iam.v1.IAMPolicy,
-      opts
+      this.opts
     ) as Promise<{[method: string]: Function}>;
 
     // Iterate over each of the methods that the service provides
