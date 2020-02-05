@@ -51,11 +51,12 @@ const version = require('../../../package.json').version;
  * @memberof v1
  */
 export class KeyManagementServiceClient {
-  public _descriptors: Descriptors = {page: {}, stream: {}, longrunning: {}};
+  _descriptors: Descriptors = {page: {}, stream: {}, longrunning: {}};
   _innerApiCalls: {[name: string]: Function};
   private _pathTemplates: {[name: string]: gax.PathTemplate};
   _terminated = false;
   opts: ClientOptions = {};
+  // tslint:disable-next-line no-any
   defaults: any;
   gaxGrpc: gax.GrpcClient | gax.fallback.GrpcClient;
   auth: gax.GoogleAuth;

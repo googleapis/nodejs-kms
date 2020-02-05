@@ -20,14 +20,9 @@ import {ClientOptions} from 'google-gax';
 import * as path from 'path';
 
 export class ImprovedKMSClient extends KeyManagementServiceClient {
-  constructor(opts: ClientOptions){
+  constructor(opts: ClientOptions) {
     super(opts);
-    const nodejsProtoPath = path.join(
-      __dirname,
-      '..',
-      'protos',
-      'protos.json'
-    );
+    const nodejsProtoPath = path.join(__dirname, '..', 'protos', 'protos.json');
     const protos = this.gaxGrpc.loadProto(
       opts.fallback ? require('../rotos/protos.json') : nodejsProtoPath
     );
@@ -42,7 +37,7 @@ export class ImprovedKMSClient extends KeyManagementServiceClient {
       opts.fallback
         ? (protos as protobuf.Root).lookupService('google.iam.v1.IAMPolicy')
         : // tslint:disable-next-line no-any
-        (protos as any).google.iam.v1.IAMPolicy,
+          (protos as any).google.iam.v1.IAMPolicy,
       opts
     ) as Promise<{[method: string]: Function}>;
 
