@@ -17,8 +17,12 @@
 import {KeyManagementServiceClient} from './v1';
 import * as gax from 'google-gax';
 
-export class ImprovedKMSClient extends KeyManagementServiceClient{
-  getIamPolicy(request: {resource: string}, options: gax.CallOptions, callback: {}) {
+export class ImprovedKMSClient extends KeyManagementServiceClient {
+  getIamPolicy(
+    request: {resource: string},
+    options: gax.CallOptions,
+    callback: {}
+  ) {
     if (options instanceof Function && callback === undefined) {
       callback = options;
       options = {};
@@ -36,7 +40,11 @@ export class ImprovedKMSClient extends KeyManagementServiceClient{
     return this._innerApiCalls.getIamPolicy(request, options, callback);
   }
 
-  setIamPolicy(request: {resource: string}, options: gax.CallOptions, callback: {}) {
+  setIamPolicy(
+    request: {resource: string},
+    options: gax.CallOptions,
+    callback: {}
+  ) {
     if (options instanceof Function && callback === undefined) {
       callback = options;
       options = {};
@@ -53,7 +61,11 @@ export class ImprovedKMSClient extends KeyManagementServiceClient{
 
     return this._innerApiCalls.setIamPolicy(request, options, callback);
   }
-  testIamPermissions(request: {resource: string}, options: gax.CallOptions, callback: {}) {
+  testIamPermissions(
+    request: {resource: string},
+    options: gax.CallOptions,
+    callback: {}
+  ) {
     if (options instanceof Function && callback === undefined) {
       callback = options;
       options = {};

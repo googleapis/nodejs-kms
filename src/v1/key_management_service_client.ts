@@ -52,7 +52,7 @@ const version = require('../../../package.json').version;
  */
 export class KeyManagementServiceClient {
   private _descriptors: Descriptors = {page: {}, stream: {}, longrunning: {}};
-  public _innerApiCalls: {[name: string]: Function};
+  _innerApiCalls: {[name: string]: Function};
   private _pathTemplates: {[name: string]: gax.PathTemplate};
   private _terminated = false;
   opts: ClientOptions = {};
