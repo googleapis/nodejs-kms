@@ -86,7 +86,7 @@ describe('kms sample tests', () => {
     assert.match(output, /Created: /);
   });
 
-  it.only(`should get a key ring's empty IAM policy`, async () => {
+  it(`should get a key ring's empty IAM policy`, async () => {
     const output = execSync(
       `node getKeyringIamPolicy.js ${projectId} ${keyRingName}`
     );
