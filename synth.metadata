@@ -1,30 +1,12 @@
 {
-  "updateTime": "2020-01-15T22:38:56.297910Z",
+  "updateTime": "2020-02-04T23:23:40.197617Z",
   "sources": [
     {
       "git": {
         "name": "googleapis",
         "remote": "https://github.com/googleapis/googleapis.git",
-        "sha": "8760d3d9a4543d7f9c0d1c7870aca08b116e4095",
-        "internalRef": "289939020"
-      }
-    },
-    {
-      "template": {
-        "name": "node_library",
-        "origin": "synthtool.gcp",
-        "version": "2019.10.17"
-      }
-    }
-  ],
-  "destinations": [
-    {
-      "client": {
-        "source": "googleapis",
-        "apiName": "kms",
-        "apiVersion": "v1",
-        "language": "typescript",
-        "generator": "gapic-generator-typescript"
+        "sha": "3f7a0d29b28ee9365771da2b66edf7fa2b4e9c56",
+        "internalRef": "293234418"
       }
     }
   ]

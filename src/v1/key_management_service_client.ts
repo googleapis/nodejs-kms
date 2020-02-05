@@ -52,9 +52,10 @@ const version = require('../../../package.json').version;
  */
 export class KeyManagementServiceClient {
   private _descriptors: Descriptors = {page: {}, stream: {}, longrunning: {}};
-  private _innerApiCalls: {[name: string]: Function};
+  public _innerApiCalls: {[name: string]: Function};
   private _pathTemplates: {[name: string]: gax.PathTemplate};
   private _terminated = false;
+  opts: ClientOptions = {};
   auth: gax.GoogleAuth;
   keyManagementServiceStub: Promise<{[name: string]: Function}>;
 
@@ -279,6 +280,7 @@ export class KeyManagementServiceClient {
         return apiCall(argument, callOptions, callback);
       };
     }
+    this.opts = opts;
   }
 
   /**

@@ -25,18 +25,18 @@ gapic = gcp.GAPICMicrogenerator()
 versions = ['v1']
 for version in versions:
     library = gapic.typescript_library(
-            'kms',
+            'kms', version,
             generator_args={
                 "grpc-service-config": f"google/cloud/kms/{version}/cloudkms_grpc_service_config.json",
                 "package-name": f"@google-cloud/kms"
                 },
             proto_path=f'/google/cloud/kms/{version}',
-            extra_proto_files=['google/cloud/common_resources.proto', 'google/cloud/iam'],
-            version=version)
+            extra_proto_files=['google/cloud/common_resources.proto', 'google/iam/v1/policy.proto']
+            )
     # skip index, package.json, and README.md
     s.copy(
         library,
-        excludes=['package.json', 'README.md', 'src/index.ts'],
+        excludes=['package.json', 'README.md', 'src/index.ts', 'src/helper.ts'],
     )
 
 # Copy common templates

@@ -17,7 +17,8 @@
 // ** All changes to this file may be overwritten. **
 
 import * as v1 from './v1';
-const KeyManagementServiceClient = v1.KeyManagementServiceClient;
+import {ImprovedKMSClient} from './helper';
+const KeyManagementServiceClient = ImprovedKMSClient;
 export {v1, KeyManagementServiceClient};
 // For compatibility with JavaScript libraries we need to provide this default export:
 // tslint:disable-next-line no-default-export
