@@ -16,8 +16,64 @@
 
 import {KeyManagementServiceClient} from './v1';
 import * as gax from 'google-gax';
+import {ClientOptions} from 'google-gax';
+import * as path from 'path';
 
 export class ImprovedKMSClient extends KeyManagementServiceClient {
+  constructor(opts: ClientOptions){
+    super(opts);
+    const nodejsProtoPath = path.join(
+      __dirname,
+      '..',
+      'protos',
+      'protos.json'
+    );
+    const protos = this.gaxGrpc.loadProto(
+      opts.fallback ? require('../rotos/protos.json') : nodejsProtoPath
+    );
+    const isBrowser = typeof window !== 'undefined';
+    if (isBrowser) {
+      opts.fallback = true;
+    }
+    const gaxModule = !isBrowser && opts.fallback ? gax.fallback : gax;
+    // Put together the "service stub" for
+    // google.iam.v1.IAMPolicy.
+    const iamPolicyStub = this.gaxGrpc.createStub(
+      opts.fallback
+        ? (protos as protobuf.Root).lookupService('google.iam.v1.IAMPolicy')
+        : // tslint:disable-next-line no-any
+        (protos as any).google.iam.v1.IAMPolicy,
+      opts
+    ) as Promise<{[method: string]: Function}>;
+
+    // Iterate over each of the methods that the service provides
+    // and create an API call method for each.
+    const iamPolicyStubMethods = [
+      'setIamPolicy',
+      'getIamPolicy',
+      'testIamPermissions',
+    ];
+
+    for (const methodName of iamPolicyStubMethods) {
+      const innerCallPromise = iamPolicyStub.then(
+        stub => (...args: Array<{}>) => {
+          if (this._terminated) {
+            return Promise.reject('The client has already been closed.');
+          }
+          return stub[methodName].apply(stub, args);
+        },
+        (err: Error | null | undefined) => () => {
+          throw err;
+        }
+      );
+      this._innerApiCalls[methodName] = gaxModule.createApiCall(
+        innerCallPromise,
+        this.defaults[methodName],
+        this._descriptors.page[methodName]
+      );
+    }
+  }
+
   getIamPolicy(
     request: {resource: string},
     options: gax.CallOptions,

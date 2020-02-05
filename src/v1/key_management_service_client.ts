@@ -51,11 +51,13 @@ const version = require('../../../package.json').version;
  * @memberof v1
  */
 export class KeyManagementServiceClient {
-  private _descriptors: Descriptors = {page: {}, stream: {}, longrunning: {}};
+  public _descriptors: Descriptors = {page: {}, stream: {}, longrunning: {}};
   _innerApiCalls: {[name: string]: Function};
   private _pathTemplates: {[name: string]: gax.PathTemplate};
-  private _terminated = false;
+  _terminated = false;
   opts: ClientOptions = {};
+  defaults: any;
+  gaxGrpc: gax.GrpcClient | gax.fallback.GrpcClient;
   auth: gax.GoogleAuth;
   keyManagementServiceStub: Promise<{[name: string]: Function}>;
 
@@ -118,10 +120,10 @@ export class KeyManagementServiceClient {
     // sent to the client.
     opts.scopes = (this
       .constructor as typeof KeyManagementServiceClient).scopes;
-    const gaxGrpc = new gaxModule.GrpcClient(opts);
+    this.gaxGrpc = new gaxModule.GrpcClient(opts);
 
     // Save the auth object to the client, for use by other methods.
-    this.auth = gaxGrpc.auth as gax.GoogleAuth;
+    this.auth = this.gaxGrpc.auth as gax.GoogleAuth;
 
     // Determine the client header string.
     const clientHeader = [`gax/${gaxModule.version}`, `gapic/${version}`];
@@ -131,7 +133,7 @@ export class KeyManagementServiceClient {
       clientHeader.push(`gl-web/${gaxModule.version}`);
     }
     if (!opts.fallback) {
-      clientHeader.push(`grpc/${gaxGrpc.grpcVersion}`);
+      clientHeader.push(`grpc/${this.gaxGrpc.grpcVersion}`);
     }
     if (opts.libName && opts.libVersion) {
       clientHeader.push(`${opts.libName}/${opts.libVersion}`);
@@ -147,7 +149,7 @@ export class KeyManagementServiceClient {
       'protos',
       'protos.json'
     );
-    const protos = gaxGrpc.loadProto(
+    const protos = this.gaxGrpc.loadProto(
       opts.fallback ? require('../../protos/protos.json') : nodejsProtoPath
     );
 
@@ -199,7 +201,7 @@ export class KeyManagementServiceClient {
     };
 
     // Put together the default options sent with requests.
-    const defaults = gaxGrpc.constructSettings(
+    this.defaults = this.gaxGrpc.constructSettings(
       'google.cloud.kms.v1.KeyManagementService',
       gapicConfig as gax.ClientConfig,
       opts.clientConfig || {},
@@ -213,7 +215,7 @@ export class KeyManagementServiceClient {
 
     // Put together the "service stub" for
     // google.cloud.kms.v1.KeyManagementService.
-    this.keyManagementServiceStub = gaxGrpc.createStub(
+    this.keyManagementServiceStub = this.gaxGrpc.createStub(
       opts.fallback
         ? (protos as protobuf.Root).lookupService(
             'google.cloud.kms.v1.KeyManagementService'
@@ -266,7 +268,7 @@ export class KeyManagementServiceClient {
 
       const apiCall = gaxModule.createApiCall(
         innerCallPromise,
-        defaults[methodName],
+        this.defaults[methodName],
         this._descriptors.page[methodName] ||
           this._descriptors.stream[methodName] ||
           this._descriptors.longrunning[methodName]
