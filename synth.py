@@ -18,6 +18,7 @@ import synthtool as s
 import synthtool.gcp as gcp
 import logging
 import subprocess
+import json
 
 logging.basicConfig(level=logging.DEBUG)
 
@@ -31,18 +32,36 @@ for version in versions:
                 "package-name": f"@google-cloud/kms"
                 },
             proto_path=f'/google/cloud/kms/{version}',
-            extra_proto_files=['google/cloud/common_resources.proto']
+            extra_proto_files=['google/cloud/common_resources.proto', 'google/iam/v1']
             )
     # skip index, package.json, and README.md
     s.copy(
         library,
-        excludes=['package.json', 'README.md', 'src/index.ts', 'src/helper.ts'],
+        excludes=['package.json', 'README.md', 'src/index.ts', 'src/helper.ts', 'tslint.json'],
     )
 
 # Copy common templates
 common_templates = gcp.CommonTemplates()
 templates = common_templates.node_library(source_location='build/src')
 s.copy(templates)
+# remove unneeded protos in proto_list.json
+list_json='src/v1/key_management_service_proto_list.json'
+remove_proto_keywords=['/google/api', '/google/protobuf', 'google/type']
+with open(list_json, 'r') as f:
+    items=json.load(f)
+    content =[item for item in items if all([(x not in item) for x in remove_proto_keywords])]
+    new_file=json.dumps(content, indent=2) + '\n'
+with open(list_json, 'w') as f:  
+    f.write(new_file)
+
+# surgery in client.ts file
+client_file='src/v1/key_management_service_client.ts'
+# s.replace(client_file, 'private \_descriptors:', '_descriptors:')
+# s.replace(client_file, 'private \_innerApiCalls:', '_innerApiCalls:')
+# s.replace(client_file, 'defaults', 'this.defaults')
+# s.replace(client_file, 'const this\.defaults', 'this.defaults')
+# s.replace(client_file, 'gaxGrpc', 'this.gaxGrpc')
+# s.replace(client_file, 'auth', 'this.auth')
 
 # Node.js specific cleanup
 subprocess.run(['npm', 'install'])

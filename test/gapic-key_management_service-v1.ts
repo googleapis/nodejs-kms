@@ -1,4 +1,4 @@
-// Copyright 2020 Google LLC
+// Copyright 2019 Google LLC
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -95,6 +95,7 @@ describe('v1.KeyManagementServiceClient', () => {
       );
       // Mock request
       const request: protosTypes.google.cloud.kms.v1.IGetKeyRingRequest = {};
+      request.name = '';
       // Mock response
       const expectedResponse = {};
       // Mock gRPC layer
@@ -119,6 +120,7 @@ describe('v1.KeyManagementServiceClient', () => {
       );
       // Mock request
       const request: protosTypes.google.cloud.kms.v1.IGetKeyRingRequest = {};
+      request.name = '';
       // Mock response
       const expectedResponse = {};
       // Mock gRPC layer
@@ -145,6 +147,7 @@ describe('v1.KeyManagementServiceClient', () => {
       );
       // Mock request
       const request: protosTypes.google.cloud.kms.v1.IGetCryptoKeyRequest = {};
+      request.name = '';
       // Mock response
       const expectedResponse = {};
       // Mock gRPC layer
@@ -169,6 +172,7 @@ describe('v1.KeyManagementServiceClient', () => {
       );
       // Mock request
       const request: protosTypes.google.cloud.kms.v1.IGetCryptoKeyRequest = {};
+      request.name = '';
       // Mock response
       const expectedResponse = {};
       // Mock gRPC layer
@@ -195,6 +199,7 @@ describe('v1.KeyManagementServiceClient', () => {
       );
       // Mock request
       const request: protosTypes.google.cloud.kms.v1.IGetCryptoKeyVersionRequest = {};
+      request.name = '';
       // Mock response
       const expectedResponse = {};
       // Mock gRPC layer
@@ -219,6 +224,7 @@ describe('v1.KeyManagementServiceClient', () => {
       );
       // Mock request
       const request: protosTypes.google.cloud.kms.v1.IGetCryptoKeyVersionRequest = {};
+      request.name = '';
       // Mock response
       const expectedResponse = {};
       // Mock gRPC layer
@@ -245,6 +251,7 @@ describe('v1.KeyManagementServiceClient', () => {
       );
       // Mock request
       const request: protosTypes.google.cloud.kms.v1.IGetPublicKeyRequest = {};
+      request.name = '';
       // Mock response
       const expectedResponse = {};
       // Mock gRPC layer
@@ -269,6 +276,7 @@ describe('v1.KeyManagementServiceClient', () => {
       );
       // Mock request
       const request: protosTypes.google.cloud.kms.v1.IGetPublicKeyRequest = {};
+      request.name = '';
       // Mock response
       const expectedResponse = {};
       // Mock gRPC layer
@@ -295,6 +303,7 @@ describe('v1.KeyManagementServiceClient', () => {
       );
       // Mock request
       const request: protosTypes.google.cloud.kms.v1.IGetImportJobRequest = {};
+      request.name = '';
       // Mock response
       const expectedResponse = {};
       // Mock gRPC layer
@@ -319,6 +328,7 @@ describe('v1.KeyManagementServiceClient', () => {
       );
       // Mock request
       const request: protosTypes.google.cloud.kms.v1.IGetImportJobRequest = {};
+      request.name = '';
       // Mock response
       const expectedResponse = {};
       // Mock gRPC layer
@@ -345,6 +355,7 @@ describe('v1.KeyManagementServiceClient', () => {
       );
       // Mock request
       const request: protosTypes.google.cloud.kms.v1.ICreateKeyRingRequest = {};
+      request.parent = '';
       // Mock response
       const expectedResponse = {};
       // Mock gRPC layer
@@ -369,6 +380,7 @@ describe('v1.KeyManagementServiceClient', () => {
       );
       // Mock request
       const request: protosTypes.google.cloud.kms.v1.ICreateKeyRingRequest = {};
+      request.parent = '';
       // Mock response
       const expectedResponse = {};
       // Mock gRPC layer
@@ -395,6 +407,7 @@ describe('v1.KeyManagementServiceClient', () => {
       );
       // Mock request
       const request: protosTypes.google.cloud.kms.v1.ICreateCryptoKeyRequest = {};
+      request.parent = '';
       // Mock response
       const expectedResponse = {};
       // Mock gRPC layer
@@ -419,6 +432,7 @@ describe('v1.KeyManagementServiceClient', () => {
       );
       // Mock request
       const request: protosTypes.google.cloud.kms.v1.ICreateCryptoKeyRequest = {};
+      request.parent = '';
       // Mock response
       const expectedResponse = {};
       // Mock gRPC layer
@@ -445,6 +459,7 @@ describe('v1.KeyManagementServiceClient', () => {
       );
       // Mock request
       const request: protosTypes.google.cloud.kms.v1.ICreateCryptoKeyVersionRequest = {};
+      request.parent = '';
       // Mock response
       const expectedResponse = {};
       // Mock gRPC layer
@@ -469,6 +484,7 @@ describe('v1.KeyManagementServiceClient', () => {
       );
       // Mock request
       const request: protosTypes.google.cloud.kms.v1.ICreateCryptoKeyVersionRequest = {};
+      request.parent = '';
       // Mock response
       const expectedResponse = {};
       // Mock gRPC layer
@@ -495,6 +511,7 @@ describe('v1.KeyManagementServiceClient', () => {
       );
       // Mock request
       const request: protosTypes.google.cloud.kms.v1.IImportCryptoKeyVersionRequest = {};
+      request.parent = '';
       // Mock response
       const expectedResponse = {};
       // Mock gRPC layer
@@ -519,6 +536,7 @@ describe('v1.KeyManagementServiceClient', () => {
       );
       // Mock request
       const request: protosTypes.google.cloud.kms.v1.IImportCryptoKeyVersionRequest = {};
+      request.parent = '';
       // Mock response
       const expectedResponse = {};
       // Mock gRPC layer
@@ -545,6 +563,7 @@ describe('v1.KeyManagementServiceClient', () => {
       );
       // Mock request
       const request: protosTypes.google.cloud.kms.v1.ICreateImportJobRequest = {};
+      request.parent = '';
       // Mock response
       const expectedResponse = {};
       // Mock gRPC layer
@@ -569,6 +588,7 @@ describe('v1.KeyManagementServiceClient', () => {
       );
       // Mock request
       const request: protosTypes.google.cloud.kms.v1.ICreateImportJobRequest = {};
+      request.parent = '';
       // Mock response
       const expectedResponse = {};
       // Mock gRPC layer
@@ -703,6 +723,7 @@ describe('v1.KeyManagementServiceClient', () => {
       );
       // Mock request
       const request: protosTypes.google.cloud.kms.v1.IEncryptRequest = {};
+      request.name = '';
       // Mock response
       const expectedResponse = {};
       // Mock gRPC layer
@@ -727,6 +748,7 @@ describe('v1.KeyManagementServiceClient', () => {
       );
       // Mock request
       const request: protosTypes.google.cloud.kms.v1.IEncryptRequest = {};
+      request.name = '';
       // Mock response
       const expectedResponse = {};
       // Mock gRPC layer
@@ -753,6 +775,7 @@ describe('v1.KeyManagementServiceClient', () => {
       );
       // Mock request
       const request: protosTypes.google.cloud.kms.v1.IDecryptRequest = {};
+      request.name = '';
       // Mock response
       const expectedResponse = {};
       // Mock gRPC layer
@@ -777,6 +800,7 @@ describe('v1.KeyManagementServiceClient', () => {
       );
       // Mock request
       const request: protosTypes.google.cloud.kms.v1.IDecryptRequest = {};
+      request.name = '';
       // Mock response
       const expectedResponse = {};
       // Mock gRPC layer
@@ -803,6 +827,7 @@ describe('v1.KeyManagementServiceClient', () => {
       );
       // Mock request
       const request: protosTypes.google.cloud.kms.v1.IAsymmetricSignRequest = {};
+      request.name = '';
       // Mock response
       const expectedResponse = {};
       // Mock gRPC layer
@@ -827,6 +852,7 @@ describe('v1.KeyManagementServiceClient', () => {
       );
       // Mock request
       const request: protosTypes.google.cloud.kms.v1.IAsymmetricSignRequest = {};
+      request.name = '';
       // Mock response
       const expectedResponse = {};
       // Mock gRPC layer
@@ -853,6 +879,7 @@ describe('v1.KeyManagementServiceClient', () => {
       );
       // Mock request
       const request: protosTypes.google.cloud.kms.v1.IAsymmetricDecryptRequest = {};
+      request.name = '';
       // Mock response
       const expectedResponse = {};
       // Mock gRPC layer
@@ -877,6 +904,7 @@ describe('v1.KeyManagementServiceClient', () => {
       );
       // Mock request
       const request: protosTypes.google.cloud.kms.v1.IAsymmetricDecryptRequest = {};
+      request.name = '';
       // Mock response
       const expectedResponse = {};
       // Mock gRPC layer
@@ -903,6 +931,7 @@ describe('v1.KeyManagementServiceClient', () => {
       );
       // Mock request
       const request: protosTypes.google.cloud.kms.v1.IUpdateCryptoKeyPrimaryVersionRequest = {};
+      request.name = '';
       // Mock response
       const expectedResponse = {};
       // Mock gRPC layer
@@ -927,6 +956,7 @@ describe('v1.KeyManagementServiceClient', () => {
       );
       // Mock request
       const request: protosTypes.google.cloud.kms.v1.IUpdateCryptoKeyPrimaryVersionRequest = {};
+      request.name = '';
       // Mock response
       const expectedResponse = {};
       // Mock gRPC layer
@@ -956,6 +986,7 @@ describe('v1.KeyManagementServiceClient', () => {
       );
       // Mock request
       const request: protosTypes.google.cloud.kms.v1.IDestroyCryptoKeyVersionRequest = {};
+      request.name = '';
       // Mock response
       const expectedResponse = {};
       // Mock gRPC layer
@@ -980,6 +1011,7 @@ describe('v1.KeyManagementServiceClient', () => {
       );
       // Mock request
       const request: protosTypes.google.cloud.kms.v1.IDestroyCryptoKeyVersionRequest = {};
+      request.name = '';
       // Mock response
       const expectedResponse = {};
       // Mock gRPC layer
@@ -1009,6 +1041,7 @@ describe('v1.KeyManagementServiceClient', () => {
       );
       // Mock request
       const request: protosTypes.google.cloud.kms.v1.IRestoreCryptoKeyVersionRequest = {};
+      request.name = '';
       // Mock response
       const expectedResponse = {};
       // Mock gRPC layer
@@ -1033,6 +1066,7 @@ describe('v1.KeyManagementServiceClient', () => {
       );
       // Mock request
       const request: protosTypes.google.cloud.kms.v1.IRestoreCryptoKeyVersionRequest = {};
+      request.name = '';
       // Mock response
       const expectedResponse = {};
       // Mock gRPC layer
@@ -1062,6 +1096,7 @@ describe('v1.KeyManagementServiceClient', () => {
       );
       // Mock request
       const request: protosTypes.google.cloud.kms.v1.IListKeyRingsRequest = {};
+      request.parent = '';
       // Mock response
       const expectedResponse = {};
       // Mock Grpc layer
@@ -1090,8 +1125,9 @@ describe('v1.KeyManagementServiceClient', () => {
       );
       // Mock request
       const request: protosTypes.google.cloud.kms.v1.IListKeyRingsRequest = {};
+      request.parent = '';
       // Mock response
-      const expectedResponse = {};
+      const expectedResponse = {response: 'data'};
       // Mock Grpc layer
       client._innerApiCalls.listKeyRings = (
         actualRequest: {},
@@ -1110,7 +1146,7 @@ describe('v1.KeyManagementServiceClient', () => {
         .on('error', (err: FakeError) => {
           done(err);
         });
-      stream.write(request);
+      stream.write(expectedResponse);
     });
   });
   describe('listCryptoKeys', () => {
@@ -1123,6 +1159,7 @@ describe('v1.KeyManagementServiceClient', () => {
       );
       // Mock request
       const request: protosTypes.google.cloud.kms.v1.IListCryptoKeysRequest = {};
+      request.parent = '';
       // Mock response
       const expectedResponse = {};
       // Mock Grpc layer
@@ -1151,8 +1188,9 @@ describe('v1.KeyManagementServiceClient', () => {
       );
       // Mock request
       const request: protosTypes.google.cloud.kms.v1.IListCryptoKeysRequest = {};
+      request.parent = '';
       // Mock response
-      const expectedResponse = {};
+      const expectedResponse = {response: 'data'};
       // Mock Grpc layer
       client._innerApiCalls.listCryptoKeys = (
         actualRequest: {},
@@ -1171,7 +1209,7 @@ describe('v1.KeyManagementServiceClient', () => {
         .on('error', (err: FakeError) => {
           done(err);
         });
-      stream.write(request);
+      stream.write(expectedResponse);
     });
   });
   describe('listCryptoKeyVersions', () => {
@@ -1184,6 +1222,7 @@ describe('v1.KeyManagementServiceClient', () => {
       );
       // Mock request
       const request: protosTypes.google.cloud.kms.v1.IListCryptoKeyVersionsRequest = {};
+      request.parent = '';
       // Mock response
       const expectedResponse = {};
       // Mock Grpc layer
@@ -1212,8 +1251,9 @@ describe('v1.KeyManagementServiceClient', () => {
       );
       // Mock request
       const request: protosTypes.google.cloud.kms.v1.IListCryptoKeyVersionsRequest = {};
+      request.parent = '';
       // Mock response
-      const expectedResponse = {};
+      const expectedResponse = {response: 'data'};
       // Mock Grpc layer
       client._innerApiCalls.listCryptoKeyVersions = (
         actualRequest: {},
@@ -1232,7 +1272,7 @@ describe('v1.KeyManagementServiceClient', () => {
         .on('error', (err: FakeError) => {
           done(err);
         });
-      stream.write(request);
+      stream.write(expectedResponse);
     });
   });
   describe('listImportJobs', () => {
@@ -1245,6 +1285,7 @@ describe('v1.KeyManagementServiceClient', () => {
       );
       // Mock request
       const request: protosTypes.google.cloud.kms.v1.IListImportJobsRequest = {};
+      request.parent = '';
       // Mock response
       const expectedResponse = {};
       // Mock Grpc layer
@@ -1273,8 +1314,9 @@ describe('v1.KeyManagementServiceClient', () => {
       );
       // Mock request
       const request: protosTypes.google.cloud.kms.v1.IListImportJobsRequest = {};
+      request.parent = '';
       // Mock response
-      const expectedResponse = {};
+      const expectedResponse = {response: 'data'};
       // Mock Grpc layer
       client._innerApiCalls.listImportJobs = (
         actualRequest: {},
@@ -1293,7 +1335,7 @@ describe('v1.KeyManagementServiceClient', () => {
         .on('error', (err: FakeError) => {
           done(err);
         });
-      stream.write(request);
+      stream.write(expectedResponse);
     });
   });
 });

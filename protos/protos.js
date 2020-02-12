@@ -22273,6 +22273,1850 @@
             return protobuf;
         })();
     
+        google.iam = (function() {
+    
+            /**
+             * Namespace iam.
+             * @memberof google
+             * @namespace
+             */
+            var iam = {};
+    
+            iam.v1 = (function() {
+    
+                /**
+                 * Namespace v1.
+                 * @memberof google.iam
+                 * @namespace
+                 */
+                var v1 = {};
+    
+                v1.logging = (function() {
+    
+                    /**
+                     * Namespace logging.
+                     * @memberof google.iam.v1
+                     * @namespace
+                     */
+                    var logging = {};
+    
+                    logging.AuditData = (function() {
+    
+                        /**
+                         * Properties of an AuditData.
+                         * @memberof google.iam.v1.logging
+                         * @interface IAuditData
+                         * @property {google.iam.v1.IPolicyDelta|null} [policyDelta] AuditData policyDelta
+                         */
+    
+                        /**
+                         * Constructs a new AuditData.
+                         * @memberof google.iam.v1.logging
+                         * @classdesc Represents an AuditData.
+                         * @implements IAuditData
+                         * @constructor
+                         * @param {google.iam.v1.logging.IAuditData=} [properties] Properties to set
+                         */
+                        function AuditData(properties) {
+                            if (properties)
+                                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                    if (properties[keys[i]] != null)
+                                        this[keys[i]] = properties[keys[i]];
+                        }
+    
+                        /**
+                         * AuditData policyDelta.
+                         * @member {google.iam.v1.IPolicyDelta|null|undefined} policyDelta
+                         * @memberof google.iam.v1.logging.AuditData
+                         * @instance
+                         */
+                        AuditData.prototype.policyDelta = null;
+    
+                        /**
+                         * Creates a new AuditData instance using the specified properties.
+                         * @function create
+                         * @memberof google.iam.v1.logging.AuditData
+                         * @static
+                         * @param {google.iam.v1.logging.IAuditData=} [properties] Properties to set
+                         * @returns {google.iam.v1.logging.AuditData} AuditData instance
+                         */
+                        AuditData.create = function create(properties) {
+                            return new AuditData(properties);
+                        };
+    
+                        /**
+                         * Encodes the specified AuditData message. Does not implicitly {@link google.iam.v1.logging.AuditData.verify|verify} messages.
+                         * @function encode
+                         * @memberof google.iam.v1.logging.AuditData
+                         * @static
+                         * @param {google.iam.v1.logging.IAuditData} message AuditData message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        AuditData.encode = function encode(message, writer) {
+                            if (!writer)
+                                writer = $Writer.create();
+                            if (message.policyDelta != null && message.hasOwnProperty("policyDelta"))
+                                $root.google.iam.v1.PolicyDelta.encode(message.policyDelta, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                            return writer;
+                        };
+    
+                        /**
+                         * Encodes the specified AuditData message, length delimited. Does not implicitly {@link google.iam.v1.logging.AuditData.verify|verify} messages.
+                         * @function encodeDelimited
+                         * @memberof google.iam.v1.logging.AuditData
+                         * @static
+                         * @param {google.iam.v1.logging.IAuditData} message AuditData message or plain object to encode
+                         * @param {$protobuf.Writer} [writer] Writer to encode to
+                         * @returns {$protobuf.Writer} Writer
+                         */
+                        AuditData.encodeDelimited = function encodeDelimited(message, writer) {
+                            return this.encode(message, writer).ldelim();
+                        };
+    
+                        /**
+                         * Decodes an AuditData message from the specified reader or buffer.
+                         * @function decode
+                         * @memberof google.iam.v1.logging.AuditData
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @param {number} [length] Message length if known beforehand
+                         * @returns {google.iam.v1.logging.AuditData} AuditData
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        AuditData.decode = function decode(reader, length) {
+                            if (!(reader instanceof $Reader))
+                                reader = $Reader.create(reader);
+                            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.iam.v1.logging.AuditData();
+                            while (reader.pos < end) {
+                                var tag = reader.uint32();
+                                switch (tag >>> 3) {
+                                case 2:
+                                    message.policyDelta = $root.google.iam.v1.PolicyDelta.decode(reader, reader.uint32());
+                                    break;
+                                default:
+                                    reader.skipType(tag & 7);
+                                    break;
+                                }
+                            }
+                            return message;
+                        };
+    
+                        /**
+                         * Decodes an AuditData message from the specified reader or buffer, length delimited.
+                         * @function decodeDelimited
+                         * @memberof google.iam.v1.logging.AuditData
+                         * @static
+                         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                         * @returns {google.iam.v1.logging.AuditData} AuditData
+                         * @throws {Error} If the payload is not a reader or valid buffer
+                         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                         */
+                        AuditData.decodeDelimited = function decodeDelimited(reader) {
+                            if (!(reader instanceof $Reader))
+                                reader = new $Reader(reader);
+                            return this.decode(reader, reader.uint32());
+                        };
+    
+                        /**
+                         * Verifies an AuditData message.
+                         * @function verify
+                         * @memberof google.iam.v1.logging.AuditData
+                         * @static
+                         * @param {Object.<string,*>} message Plain object to verify
+                         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                         */
+                        AuditData.verify = function verify(message) {
+                            if (typeof message !== "object" || message === null)
+                                return "object expected";
+                            if (message.policyDelta != null && message.hasOwnProperty("policyDelta")) {
+                                var error = $root.google.iam.v1.PolicyDelta.verify(message.policyDelta);
+                                if (error)
+                                    return "policyDelta." + error;
+                            }
+                            return null;
+                        };
+    
+                        /**
+                         * Creates an AuditData message from a plain object. Also converts values to their respective internal types.
+                         * @function fromObject
+                         * @memberof google.iam.v1.logging.AuditData
+                         * @static
+                         * @param {Object.<string,*>} object Plain object
+                         * @returns {google.iam.v1.logging.AuditData} AuditData
+                         */
+                        AuditData.fromObject = function fromObject(object) {
+                            if (object instanceof $root.google.iam.v1.logging.AuditData)
+                                return object;
+                            var message = new $root.google.iam.v1.logging.AuditData();
+                            if (object.policyDelta != null) {
+                                if (typeof object.policyDelta !== "object")
+                                    throw TypeError(".google.iam.v1.logging.AuditData.policyDelta: object expected");
+                                message.policyDelta = $root.google.iam.v1.PolicyDelta.fromObject(object.policyDelta);
+                            }
+                            return message;
+                        };
+    
+                        /**
+                         * Creates a plain object from an AuditData message. Also converts values to other types if specified.
+                         * @function toObject
+                         * @memberof google.iam.v1.logging.AuditData
+                         * @static
+                         * @param {google.iam.v1.logging.AuditData} message AuditData
+                         * @param {$protobuf.IConversionOptions} [options] Conversion options
+                         * @returns {Object.<string,*>} Plain object
+                         */
+                        AuditData.toObject = function toObject(message, options) {
+                            if (!options)
+                                options = {};
+                            var object = {};
+                            if (options.defaults)
+                                object.policyDelta = null;
+                            if (message.policyDelta != null && message.hasOwnProperty("policyDelta"))
+                                object.policyDelta = $root.google.iam.v1.PolicyDelta.toObject(message.policyDelta, options);
+                            return object;
+                        };
+    
+                        /**
+                         * Converts this AuditData to JSON.
+                         * @function toJSON
+                         * @memberof google.iam.v1.logging.AuditData
+                         * @instance
+                         * @returns {Object.<string,*>} JSON object
+                         */
+                        AuditData.prototype.toJSON = function toJSON() {
+                            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                        };
+    
+                        return AuditData;
+                    })();
+    
+                    return logging;
+                })();
+    
+                v1.Policy = (function() {
+    
+                    /**
+                     * Properties of a Policy.
+                     * @memberof google.iam.v1
+                     * @interface IPolicy
+                     * @property {number|null} [version] Policy version
+                     * @property {Array.<google.iam.v1.IBinding>|null} [bindings] Policy bindings
+                     * @property {Uint8Array|null} [etag] Policy etag
+                     */
+    
+                    /**
+                     * Constructs a new Policy.
+                     * @memberof google.iam.v1
+                     * @classdesc Represents a Policy.
+                     * @implements IPolicy
+                     * @constructor
+                     * @param {google.iam.v1.IPolicy=} [properties] Properties to set
+                     */
+                    function Policy(properties) {
+                        this.bindings = [];
+                        if (properties)
+                            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                if (properties[keys[i]] != null)
+                                    this[keys[i]] = properties[keys[i]];
+                    }
+    
+                    /**
+                     * Policy version.
+                     * @member {number} version
+                     * @memberof google.iam.v1.Policy
+                     * @instance
+                     */
+                    Policy.prototype.version = 0;
+    
+                    /**
+                     * Policy bindings.
+                     * @member {Array.<google.iam.v1.IBinding>} bindings
+                     * @memberof google.iam.v1.Policy
+                     * @instance
+                     */
+                    Policy.prototype.bindings = $util.emptyArray;
+    
+                    /**
+                     * Policy etag.
+                     * @member {Uint8Array} etag
+                     * @memberof google.iam.v1.Policy
+                     * @instance
+                     */
+                    Policy.prototype.etag = $util.newBuffer([]);
+    
+                    /**
+                     * Creates a new Policy instance using the specified properties.
+                     * @function create
+                     * @memberof google.iam.v1.Policy
+                     * @static
+                     * @param {google.iam.v1.IPolicy=} [properties] Properties to set
+                     * @returns {google.iam.v1.Policy} Policy instance
+                     */
+                    Policy.create = function create(properties) {
+                        return new Policy(properties);
+                    };
+    
+                    /**
+                     * Encodes the specified Policy message. Does not implicitly {@link google.iam.v1.Policy.verify|verify} messages.
+                     * @function encode
+                     * @memberof google.iam.v1.Policy
+                     * @static
+                     * @param {google.iam.v1.IPolicy} message Policy message or plain object to encode
+                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                     * @returns {$protobuf.Writer} Writer
+                     */
+                    Policy.encode = function encode(message, writer) {
+                        if (!writer)
+                            writer = $Writer.create();
+                        if (message.version != null && message.hasOwnProperty("version"))
+                            writer.uint32(/* id 1, wireType 0 =*/8).int32(message.version);
+                        if (message.etag != null && message.hasOwnProperty("etag"))
+                            writer.uint32(/* id 3, wireType 2 =*/26).bytes(message.etag);
+                        if (message.bindings != null && message.bindings.length)
+                            for (var i = 0; i < message.bindings.length; ++i)
+                                $root.google.iam.v1.Binding.encode(message.bindings[i], writer.uint32(/* id 4, wireType 2 =*/34).fork()).ldelim();
+                        return writer;
+                    };
+    
+                    /**
+                     * Encodes the specified Policy message, length delimited. Does not implicitly {@link google.iam.v1.Policy.verify|verify} messages.
+                     * @function encodeDelimited
+                     * @memberof google.iam.v1.Policy
+                     * @static
+                     * @param {google.iam.v1.IPolicy} message Policy message or plain object to encode
+                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                     * @returns {$protobuf.Writer} Writer
+                     */
+                    Policy.encodeDelimited = function encodeDelimited(message, writer) {
+                        return this.encode(message, writer).ldelim();
+                    };
+    
+                    /**
+                     * Decodes a Policy message from the specified reader or buffer.
+                     * @function decode
+                     * @memberof google.iam.v1.Policy
+                     * @static
+                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                     * @param {number} [length] Message length if known beforehand
+                     * @returns {google.iam.v1.Policy} Policy
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    Policy.decode = function decode(reader, length) {
+                        if (!(reader instanceof $Reader))
+                            reader = $Reader.create(reader);
+                        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.iam.v1.Policy();
+                        while (reader.pos < end) {
+                            var tag = reader.uint32();
+                            switch (tag >>> 3) {
+                            case 1:
+                                message.version = reader.int32();
+                                break;
+                            case 4:
+                                if (!(message.bindings && message.bindings.length))
+                                    message.bindings = [];
+                                message.bindings.push($root.google.iam.v1.Binding.decode(reader, reader.uint32()));
+                                break;
+                            case 3:
+                                message.etag = reader.bytes();
+                                break;
+                            default:
+                                reader.skipType(tag & 7);
+                                break;
+                            }
+                        }
+                        return message;
+                    };
+    
+                    /**
+                     * Decodes a Policy message from the specified reader or buffer, length delimited.
+                     * @function decodeDelimited
+                     * @memberof google.iam.v1.Policy
+                     * @static
+                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                     * @returns {google.iam.v1.Policy} Policy
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    Policy.decodeDelimited = function decodeDelimited(reader) {
+                        if (!(reader instanceof $Reader))
+                            reader = new $Reader(reader);
+                        return this.decode(reader, reader.uint32());
+                    };
+    
+                    /**
+                     * Verifies a Policy message.
+                     * @function verify
+                     * @memberof google.iam.v1.Policy
+                     * @static
+                     * @param {Object.<string,*>} message Plain object to verify
+                     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                     */
+                    Policy.verify = function verify(message) {
+                        if (typeof message !== "object" || message === null)
+                            return "object expected";
+                        if (message.version != null && message.hasOwnProperty("version"))
+                            if (!$util.isInteger(message.version))
+                                return "version: integer expected";
+                        if (message.bindings != null && message.hasOwnProperty("bindings")) {
+                            if (!Array.isArray(message.bindings))
+                                return "bindings: array expected";
+                            for (var i = 0; i < message.bindings.length; ++i) {
+                                var error = $root.google.iam.v1.Binding.verify(message.bindings[i]);
+                                if (error)
+                                    return "bindings." + error;
+                            }
+                        }
+                        if (message.etag != null && message.hasOwnProperty("etag"))
+                            if (!(message.etag && typeof message.etag.length === "number" || $util.isString(message.etag)))
+                                return "etag: buffer expected";
+                        return null;
+                    };
+    
+                    /**
+                     * Creates a Policy message from a plain object. Also converts values to their respective internal types.
+                     * @function fromObject
+                     * @memberof google.iam.v1.Policy
+                     * @static
+                     * @param {Object.<string,*>} object Plain object
+                     * @returns {google.iam.v1.Policy} Policy
+                     */
+                    Policy.fromObject = function fromObject(object) {
+                        if (object instanceof $root.google.iam.v1.Policy)
+                            return object;
+                        var message = new $root.google.iam.v1.Policy();
+                        if (object.version != null)
+                            message.version = object.version | 0;
+                        if (object.bindings) {
+                            if (!Array.isArray(object.bindings))
+                                throw TypeError(".google.iam.v1.Policy.bindings: array expected");
+                            message.bindings = [];
+                            for (var i = 0; i < object.bindings.length; ++i) {
+                                if (typeof object.bindings[i] !== "object")
+                                    throw TypeError(".google.iam.v1.Policy.bindings: object expected");
+                                message.bindings[i] = $root.google.iam.v1.Binding.fromObject(object.bindings[i]);
+                            }
+                        }
+                        if (object.etag != null)
+                            if (typeof object.etag === "string")
+                                $util.base64.decode(object.etag, message.etag = $util.newBuffer($util.base64.length(object.etag)), 0);
+                            else if (object.etag.length)
+                                message.etag = object.etag;
+                        return message;
+                    };
+    
+                    /**
+                     * Creates a plain object from a Policy message. Also converts values to other types if specified.
+                     * @function toObject
+                     * @memberof google.iam.v1.Policy
+                     * @static
+                     * @param {google.iam.v1.Policy} message Policy
+                     * @param {$protobuf.IConversionOptions} [options] Conversion options
+                     * @returns {Object.<string,*>} Plain object
+                     */
+                    Policy.toObject = function toObject(message, options) {
+                        if (!options)
+                            options = {};
+                        var object = {};
+                        if (options.arrays || options.defaults)
+                            object.bindings = [];
+                        if (options.defaults) {
+                            object.version = 0;
+                            if (options.bytes === String)
+                                object.etag = "";
+                            else {
+                                object.etag = [];
+                                if (options.bytes !== Array)
+                                    object.etag = $util.newBuffer(object.etag);
+                            }
+                        }
+                        if (message.version != null && message.hasOwnProperty("version"))
+                            object.version = message.version;
+                        if (message.etag != null && message.hasOwnProperty("etag"))
+                            object.etag = options.bytes === String ? $util.base64.encode(message.etag, 0, message.etag.length) : options.bytes === Array ? Array.prototype.slice.call(message.etag) : message.etag;
+                        if (message.bindings && message.bindings.length) {
+                            object.bindings = [];
+                            for (var j = 0; j < message.bindings.length; ++j)
+                                object.bindings[j] = $root.google.iam.v1.Binding.toObject(message.bindings[j], options);
+                        }
+                        return object;
+                    };
+    
+                    /**
+                     * Converts this Policy to JSON.
+                     * @function toJSON
+                     * @memberof google.iam.v1.Policy
+                     * @instance
+                     * @returns {Object.<string,*>} JSON object
+                     */
+                    Policy.prototype.toJSON = function toJSON() {
+                        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                    };
+    
+                    return Policy;
+                })();
+    
+                v1.Binding = (function() {
+    
+                    /**
+                     * Properties of a Binding.
+                     * @memberof google.iam.v1
+                     * @interface IBinding
+                     * @property {string|null} [role] Binding role
+                     * @property {Array.<string>|null} [members] Binding members
+                     * @property {google.type.IExpr|null} [condition] Binding condition
+                     */
+    
+                    /**
+                     * Constructs a new Binding.
+                     * @memberof google.iam.v1
+                     * @classdesc Represents a Binding.
+                     * @implements IBinding
+                     * @constructor
+                     * @param {google.iam.v1.IBinding=} [properties] Properties to set
+                     */
+                    function Binding(properties) {
+                        this.members = [];
+                        if (properties)
+                            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                if (properties[keys[i]] != null)
+                                    this[keys[i]] = properties[keys[i]];
+                    }
+    
+                    /**
+                     * Binding role.
+                     * @member {string} role
+                     * @memberof google.iam.v1.Binding
+                     * @instance
+                     */
+                    Binding.prototype.role = "";
+    
+                    /**
+                     * Binding members.
+                     * @member {Array.<string>} members
+                     * @memberof google.iam.v1.Binding
+                     * @instance
+                     */
+                    Binding.prototype.members = $util.emptyArray;
+    
+                    /**
+                     * Binding condition.
+                     * @member {google.type.IExpr|null|undefined} condition
+                     * @memberof google.iam.v1.Binding
+                     * @instance
+                     */
+                    Binding.prototype.condition = null;
+    
+                    /**
+                     * Creates a new Binding instance using the specified properties.
+                     * @function create
+                     * @memberof google.iam.v1.Binding
+                     * @static
+                     * @param {google.iam.v1.IBinding=} [properties] Properties to set
+                     * @returns {google.iam.v1.Binding} Binding instance
+                     */
+                    Binding.create = function create(properties) {
+                        return new Binding(properties);
+                    };
+    
+                    /**
+                     * Encodes the specified Binding message. Does not implicitly {@link google.iam.v1.Binding.verify|verify} messages.
+                     * @function encode
+                     * @memberof google.iam.v1.Binding
+                     * @static
+                     * @param {google.iam.v1.IBinding} message Binding message or plain object to encode
+                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                     * @returns {$protobuf.Writer} Writer
+                     */
+                    Binding.encode = function encode(message, writer) {
+                        if (!writer)
+                            writer = $Writer.create();
+                        if (message.role != null && message.hasOwnProperty("role"))
+                            writer.uint32(/* id 1, wireType 2 =*/10).string(message.role);
+                        if (message.members != null && message.members.length)
+                            for (var i = 0; i < message.members.length; ++i)
+                                writer.uint32(/* id 2, wireType 2 =*/18).string(message.members[i]);
+                        if (message.condition != null && message.hasOwnProperty("condition"))
+                            $root.google.type.Expr.encode(message.condition, writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
+                        return writer;
+                    };
+    
+                    /**
+                     * Encodes the specified Binding message, length delimited. Does not implicitly {@link google.iam.v1.Binding.verify|verify} messages.
+                     * @function encodeDelimited
+                     * @memberof google.iam.v1.Binding
+                     * @static
+                     * @param {google.iam.v1.IBinding} message Binding message or plain object to encode
+                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                     * @returns {$protobuf.Writer} Writer
+                     */
+                    Binding.encodeDelimited = function encodeDelimited(message, writer) {
+                        return this.encode(message, writer).ldelim();
+                    };
+    
+                    /**
+                     * Decodes a Binding message from the specified reader or buffer.
+                     * @function decode
+                     * @memberof google.iam.v1.Binding
+                     * @static
+                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                     * @param {number} [length] Message length if known beforehand
+                     * @returns {google.iam.v1.Binding} Binding
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    Binding.decode = function decode(reader, length) {
+                        if (!(reader instanceof $Reader))
+                            reader = $Reader.create(reader);
+                        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.iam.v1.Binding();
+                        while (reader.pos < end) {
+                            var tag = reader.uint32();
+                            switch (tag >>> 3) {
+                            case 1:
+                                message.role = reader.string();
+                                break;
+                            case 2:
+                                if (!(message.members && message.members.length))
+                                    message.members = [];
+                                message.members.push(reader.string());
+                                break;
+                            case 3:
+                                message.condition = $root.google.type.Expr.decode(reader, reader.uint32());
+                                break;
+                            default:
+                                reader.skipType(tag & 7);
+                                break;
+                            }
+                        }
+                        return message;
+                    };
+    
+                    /**
+                     * Decodes a Binding message from the specified reader or buffer, length delimited.
+                     * @function decodeDelimited
+                     * @memberof google.iam.v1.Binding
+                     * @static
+                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                     * @returns {google.iam.v1.Binding} Binding
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    Binding.decodeDelimited = function decodeDelimited(reader) {
+                        if (!(reader instanceof $Reader))
+                            reader = new $Reader(reader);
+                        return this.decode(reader, reader.uint32());
+                    };
+    
+                    /**
+                     * Verifies a Binding message.
+                     * @function verify
+                     * @memberof google.iam.v1.Binding
+                     * @static
+                     * @param {Object.<string,*>} message Plain object to verify
+                     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                     */
+                    Binding.verify = function verify(message) {
+                        if (typeof message !== "object" || message === null)
+                            return "object expected";
+                        if (message.role != null && message.hasOwnProperty("role"))
+                            if (!$util.isString(message.role))
+                                return "role: string expected";
+                        if (message.members != null && message.hasOwnProperty("members")) {
+                            if (!Array.isArray(message.members))
+                                return "members: array expected";
+                            for (var i = 0; i < message.members.length; ++i)
+                                if (!$util.isString(message.members[i]))
+                                    return "members: string[] expected";
+                        }
+                        if (message.condition != null && message.hasOwnProperty("condition")) {
+                            var error = $root.google.type.Expr.verify(message.condition);
+                            if (error)
+                                return "condition." + error;
+                        }
+                        return null;
+                    };
+    
+                    /**
+                     * Creates a Binding message from a plain object. Also converts values to their respective internal types.
+                     * @function fromObject
+                     * @memberof google.iam.v1.Binding
+                     * @static
+                     * @param {Object.<string,*>} object Plain object
+                     * @returns {google.iam.v1.Binding} Binding
+                     */
+                    Binding.fromObject = function fromObject(object) {
+                        if (object instanceof $root.google.iam.v1.Binding)
+                            return object;
+                        var message = new $root.google.iam.v1.Binding();
+                        if (object.role != null)
+                            message.role = String(object.role);
+                        if (object.members) {
+                            if (!Array.isArray(object.members))
+                                throw TypeError(".google.iam.v1.Binding.members: array expected");
+                            message.members = [];
+                            for (var i = 0; i < object.members.length; ++i)
+                                message.members[i] = String(object.members[i]);
+                        }
+                        if (object.condition != null) {
+                            if (typeof object.condition !== "object")
+                                throw TypeError(".google.iam.v1.Binding.condition: object expected");
+                            message.condition = $root.google.type.Expr.fromObject(object.condition);
+                        }
+                        return message;
+                    };
+    
+                    /**
+                     * Creates a plain object from a Binding message. Also converts values to other types if specified.
+                     * @function toObject
+                     * @memberof google.iam.v1.Binding
+                     * @static
+                     * @param {google.iam.v1.Binding} message Binding
+                     * @param {$protobuf.IConversionOptions} [options] Conversion options
+                     * @returns {Object.<string,*>} Plain object
+                     */
+                    Binding.toObject = function toObject(message, options) {
+                        if (!options)
+                            options = {};
+                        var object = {};
+                        if (options.arrays || options.defaults)
+                            object.members = [];
+                        if (options.defaults) {
+                            object.role = "";
+                            object.condition = null;
+                        }
+                        if (message.role != null && message.hasOwnProperty("role"))
+                            object.role = message.role;
+                        if (message.members && message.members.length) {
+                            object.members = [];
+                            for (var j = 0; j < message.members.length; ++j)
+                                object.members[j] = message.members[j];
+                        }
+                        if (message.condition != null && message.hasOwnProperty("condition"))
+                            object.condition = $root.google.type.Expr.toObject(message.condition, options);
+                        return object;
+                    };
+    
+                    /**
+                     * Converts this Binding to JSON.
+                     * @function toJSON
+                     * @memberof google.iam.v1.Binding
+                     * @instance
+                     * @returns {Object.<string,*>} JSON object
+                     */
+                    Binding.prototype.toJSON = function toJSON() {
+                        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                    };
+    
+                    return Binding;
+                })();
+    
+                v1.PolicyDelta = (function() {
+    
+                    /**
+                     * Properties of a PolicyDelta.
+                     * @memberof google.iam.v1
+                     * @interface IPolicyDelta
+                     * @property {Array.<google.iam.v1.IBindingDelta>|null} [bindingDeltas] PolicyDelta bindingDeltas
+                     * @property {Array.<google.iam.v1.IAuditConfigDelta>|null} [auditConfigDeltas] PolicyDelta auditConfigDeltas
+                     */
+    
+                    /**
+                     * Constructs a new PolicyDelta.
+                     * @memberof google.iam.v1
+                     * @classdesc Represents a PolicyDelta.
+                     * @implements IPolicyDelta
+                     * @constructor
+                     * @param {google.iam.v1.IPolicyDelta=} [properties] Properties to set
+                     */
+                    function PolicyDelta(properties) {
+                        this.bindingDeltas = [];
+                        this.auditConfigDeltas = [];
+                        if (properties)
+                            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                if (properties[keys[i]] != null)
+                                    this[keys[i]] = properties[keys[i]];
+                    }
+    
+                    /**
+                     * PolicyDelta bindingDeltas.
+                     * @member {Array.<google.iam.v1.IBindingDelta>} bindingDeltas
+                     * @memberof google.iam.v1.PolicyDelta
+                     * @instance
+                     */
+                    PolicyDelta.prototype.bindingDeltas = $util.emptyArray;
+    
+                    /**
+                     * PolicyDelta auditConfigDeltas.
+                     * @member {Array.<google.iam.v1.IAuditConfigDelta>} auditConfigDeltas
+                     * @memberof google.iam.v1.PolicyDelta
+                     * @instance
+                     */
+                    PolicyDelta.prototype.auditConfigDeltas = $util.emptyArray;
+    
+                    /**
+                     * Creates a new PolicyDelta instance using the specified properties.
+                     * @function create
+                     * @memberof google.iam.v1.PolicyDelta
+                     * @static
+                     * @param {google.iam.v1.IPolicyDelta=} [properties] Properties to set
+                     * @returns {google.iam.v1.PolicyDelta} PolicyDelta instance
+                     */
+                    PolicyDelta.create = function create(properties) {
+                        return new PolicyDelta(properties);
+                    };
+    
+                    /**
+                     * Encodes the specified PolicyDelta message. Does not implicitly {@link google.iam.v1.PolicyDelta.verify|verify} messages.
+                     * @function encode
+                     * @memberof google.iam.v1.PolicyDelta
+                     * @static
+                     * @param {google.iam.v1.IPolicyDelta} message PolicyDelta message or plain object to encode
+                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                     * @returns {$protobuf.Writer} Writer
+                     */
+                    PolicyDelta.encode = function encode(message, writer) {
+                        if (!writer)
+                            writer = $Writer.create();
+                        if (message.bindingDeltas != null && message.bindingDeltas.length)
+                            for (var i = 0; i < message.bindingDeltas.length; ++i)
+                                $root.google.iam.v1.BindingDelta.encode(message.bindingDeltas[i], writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+                        if (message.auditConfigDeltas != null && message.auditConfigDeltas.length)
+                            for (var i = 0; i < message.auditConfigDeltas.length; ++i)
+                                $root.google.iam.v1.AuditConfigDelta.encode(message.auditConfigDeltas[i], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+                        return writer;
+                    };
+    
+                    /**
+                     * Encodes the specified PolicyDelta message, length delimited. Does not implicitly {@link google.iam.v1.PolicyDelta.verify|verify} messages.
+                     * @function encodeDelimited
+                     * @memberof google.iam.v1.PolicyDelta
+                     * @static
+                     * @param {google.iam.v1.IPolicyDelta} message PolicyDelta message or plain object to encode
+                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                     * @returns {$protobuf.Writer} Writer
+                     */
+                    PolicyDelta.encodeDelimited = function encodeDelimited(message, writer) {
+                        return this.encode(message, writer).ldelim();
+                    };
+    
+                    /**
+                     * Decodes a PolicyDelta message from the specified reader or buffer.
+                     * @function decode
+                     * @memberof google.iam.v1.PolicyDelta
+                     * @static
+                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                     * @param {number} [length] Message length if known beforehand
+                     * @returns {google.iam.v1.PolicyDelta} PolicyDelta
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    PolicyDelta.decode = function decode(reader, length) {
+                        if (!(reader instanceof $Reader))
+                            reader = $Reader.create(reader);
+                        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.iam.v1.PolicyDelta();
+                        while (reader.pos < end) {
+                            var tag = reader.uint32();
+                            switch (tag >>> 3) {
+                            case 1:
+                                if (!(message.bindingDeltas && message.bindingDeltas.length))
+                                    message.bindingDeltas = [];
+                                message.bindingDeltas.push($root.google.iam.v1.BindingDelta.decode(reader, reader.uint32()));
+                                break;
+                            case 2:
+                                if (!(message.auditConfigDeltas && message.auditConfigDeltas.length))
+                                    message.auditConfigDeltas = [];
+                                message.auditConfigDeltas.push($root.google.iam.v1.AuditConfigDelta.decode(reader, reader.uint32()));
+                                break;
+                            default:
+                                reader.skipType(tag & 7);
+                                break;
+                            }
+                        }
+                        return message;
+                    };
+    
+                    /**
+                     * Decodes a PolicyDelta message from the specified reader or buffer, length delimited.
+                     * @function decodeDelimited
+                     * @memberof google.iam.v1.PolicyDelta
+                     * @static
+                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                     * @returns {google.iam.v1.PolicyDelta} PolicyDelta
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    PolicyDelta.decodeDelimited = function decodeDelimited(reader) {
+                        if (!(reader instanceof $Reader))
+                            reader = new $Reader(reader);
+                        return this.decode(reader, reader.uint32());
+                    };
+    
+                    /**
+                     * Verifies a PolicyDelta message.
+                     * @function verify
+                     * @memberof google.iam.v1.PolicyDelta
+                     * @static
+                     * @param {Object.<string,*>} message Plain object to verify
+                     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                     */
+                    PolicyDelta.verify = function verify(message) {
+                        if (typeof message !== "object" || message === null)
+                            return "object expected";
+                        if (message.bindingDeltas != null && message.hasOwnProperty("bindingDeltas")) {
+                            if (!Array.isArray(message.bindingDeltas))
+                                return "bindingDeltas: array expected";
+                            for (var i = 0; i < message.bindingDeltas.length; ++i) {
+                                var error = $root.google.iam.v1.BindingDelta.verify(message.bindingDeltas[i]);
+                                if (error)
+                                    return "bindingDeltas." + error;
+                            }
+                        }
+                        if (message.auditConfigDeltas != null && message.hasOwnProperty("auditConfigDeltas")) {
+                            if (!Array.isArray(message.auditConfigDeltas))
+                                return "auditConfigDeltas: array expected";
+                            for (var i = 0; i < message.auditConfigDeltas.length; ++i) {
+                                var error = $root.google.iam.v1.AuditConfigDelta.verify(message.auditConfigDeltas[i]);
+                                if (error)
+                                    return "auditConfigDeltas." + error;
+                            }
+                        }
+                        return null;
+                    };
+    
+                    /**
+                     * Creates a PolicyDelta message from a plain object. Also converts values to their respective internal types.
+                     * @function fromObject
+                     * @memberof google.iam.v1.PolicyDelta
+                     * @static
+                     * @param {Object.<string,*>} object Plain object
+                     * @returns {google.iam.v1.PolicyDelta} PolicyDelta
+                     */
+                    PolicyDelta.fromObject = function fromObject(object) {
+                        if (object instanceof $root.google.iam.v1.PolicyDelta)
+                            return object;
+                        var message = new $root.google.iam.v1.PolicyDelta();
+                        if (object.bindingDeltas) {
+                            if (!Array.isArray(object.bindingDeltas))
+                                throw TypeError(".google.iam.v1.PolicyDelta.bindingDeltas: array expected");
+                            message.bindingDeltas = [];
+                            for (var i = 0; i < object.bindingDeltas.length; ++i) {
+                                if (typeof object.bindingDeltas[i] !== "object")
+                                    throw TypeError(".google.iam.v1.PolicyDelta.bindingDeltas: object expected");
+                                message.bindingDeltas[i] = $root.google.iam.v1.BindingDelta.fromObject(object.bindingDeltas[i]);
+                            }
+                        }
+                        if (object.auditConfigDeltas) {
+                            if (!Array.isArray(object.auditConfigDeltas))
+                                throw TypeError(".google.iam.v1.PolicyDelta.auditConfigDeltas: array expected");
+                            message.auditConfigDeltas = [];
+                            for (var i = 0; i < object.auditConfigDeltas.length; ++i) {
+                                if (typeof object.auditConfigDeltas[i] !== "object")
+                                    throw TypeError(".google.iam.v1.PolicyDelta.auditConfigDeltas: object expected");
+                                message.auditConfigDeltas[i] = $root.google.iam.v1.AuditConfigDelta.fromObject(object.auditConfigDeltas[i]);
+                            }
+                        }
+                        return message;
+                    };
+    
+                    /**
+                     * Creates a plain object from a PolicyDelta message. Also converts values to other types if specified.
+                     * @function toObject
+                     * @memberof google.iam.v1.PolicyDelta
+                     * @static
+                     * @param {google.iam.v1.PolicyDelta} message PolicyDelta
+                     * @param {$protobuf.IConversionOptions} [options] Conversion options
+                     * @returns {Object.<string,*>} Plain object
+                     */
+                    PolicyDelta.toObject = function toObject(message, options) {
+                        if (!options)
+                            options = {};
+                        var object = {};
+                        if (options.arrays || options.defaults) {
+                            object.bindingDeltas = [];
+                            object.auditConfigDeltas = [];
+                        }
+                        if (message.bindingDeltas && message.bindingDeltas.length) {
+                            object.bindingDeltas = [];
+                            for (var j = 0; j < message.bindingDeltas.length; ++j)
+                                object.bindingDeltas[j] = $root.google.iam.v1.BindingDelta.toObject(message.bindingDeltas[j], options);
+                        }
+                        if (message.auditConfigDeltas && message.auditConfigDeltas.length) {
+                            object.auditConfigDeltas = [];
+                            for (var j = 0; j < message.auditConfigDeltas.length; ++j)
+                                object.auditConfigDeltas[j] = $root.google.iam.v1.AuditConfigDelta.toObject(message.auditConfigDeltas[j], options);
+                        }
+                        return object;
+                    };
+    
+                    /**
+                     * Converts this PolicyDelta to JSON.
+                     * @function toJSON
+                     * @memberof google.iam.v1.PolicyDelta
+                     * @instance
+                     * @returns {Object.<string,*>} JSON object
+                     */
+                    PolicyDelta.prototype.toJSON = function toJSON() {
+                        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                    };
+    
+                    return PolicyDelta;
+                })();
+    
+                v1.BindingDelta = (function() {
+    
+                    /**
+                     * Properties of a BindingDelta.
+                     * @memberof google.iam.v1
+                     * @interface IBindingDelta
+                     * @property {google.iam.v1.BindingDelta.Action|null} [action] BindingDelta action
+                     * @property {string|null} [role] BindingDelta role
+                     * @property {string|null} [member] BindingDelta member
+                     * @property {google.type.IExpr|null} [condition] BindingDelta condition
+                     */
+    
+                    /**
+                     * Constructs a new BindingDelta.
+                     * @memberof google.iam.v1
+                     * @classdesc Represents a BindingDelta.
+                     * @implements IBindingDelta
+                     * @constructor
+                     * @param {google.iam.v1.IBindingDelta=} [properties] Properties to set
+                     */
+                    function BindingDelta(properties) {
+                        if (properties)
+                            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                if (properties[keys[i]] != null)
+                                    this[keys[i]] = properties[keys[i]];
+                    }
+    
+                    /**
+                     * BindingDelta action.
+                     * @member {google.iam.v1.BindingDelta.Action} action
+                     * @memberof google.iam.v1.BindingDelta
+                     * @instance
+                     */
+                    BindingDelta.prototype.action = 0;
+    
+                    /**
+                     * BindingDelta role.
+                     * @member {string} role
+                     * @memberof google.iam.v1.BindingDelta
+                     * @instance
+                     */
+                    BindingDelta.prototype.role = "";
+    
+                    /**
+                     * BindingDelta member.
+                     * @member {string} member
+                     * @memberof google.iam.v1.BindingDelta
+                     * @instance
+                     */
+                    BindingDelta.prototype.member = "";
+    
+                    /**
+                     * BindingDelta condition.
+                     * @member {google.type.IExpr|null|undefined} condition
+                     * @memberof google.iam.v1.BindingDelta
+                     * @instance
+                     */
+                    BindingDelta.prototype.condition = null;
+    
+                    /**
+                     * Creates a new BindingDelta instance using the specified properties.
+                     * @function create
+                     * @memberof google.iam.v1.BindingDelta
+                     * @static
+                     * @param {google.iam.v1.IBindingDelta=} [properties] Properties to set
+                     * @returns {google.iam.v1.BindingDelta} BindingDelta instance
+                     */
+                    BindingDelta.create = function create(properties) {
+                        return new BindingDelta(properties);
+                    };
+    
+                    /**
+                     * Encodes the specified BindingDelta message. Does not implicitly {@link google.iam.v1.BindingDelta.verify|verify} messages.
+                     * @function encode
+                     * @memberof google.iam.v1.BindingDelta
+                     * @static
+                     * @param {google.iam.v1.IBindingDelta} message BindingDelta message or plain object to encode
+                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                     * @returns {$protobuf.Writer} Writer
+                     */
+                    BindingDelta.encode = function encode(message, writer) {
+                        if (!writer)
+                            writer = $Writer.create();
+                        if (message.action != null && message.hasOwnProperty("action"))
+                            writer.uint32(/* id 1, wireType 0 =*/8).int32(message.action);
+                        if (message.role != null && message.hasOwnProperty("role"))
+                            writer.uint32(/* id 2, wireType 2 =*/18).string(message.role);
+                        if (message.member != null && message.hasOwnProperty("member"))
+                            writer.uint32(/* id 3, wireType 2 =*/26).string(message.member);
+                        if (message.condition != null && message.hasOwnProperty("condition"))
+                            $root.google.type.Expr.encode(message.condition, writer.uint32(/* id 4, wireType 2 =*/34).fork()).ldelim();
+                        return writer;
+                    };
+    
+                    /**
+                     * Encodes the specified BindingDelta message, length delimited. Does not implicitly {@link google.iam.v1.BindingDelta.verify|verify} messages.
+                     * @function encodeDelimited
+                     * @memberof google.iam.v1.BindingDelta
+                     * @static
+                     * @param {google.iam.v1.IBindingDelta} message BindingDelta message or plain object to encode
+                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                     * @returns {$protobuf.Writer} Writer
+                     */
+                    BindingDelta.encodeDelimited = function encodeDelimited(message, writer) {
+                        return this.encode(message, writer).ldelim();
+                    };
+    
+                    /**
+                     * Decodes a BindingDelta message from the specified reader or buffer.
+                     * @function decode
+                     * @memberof google.iam.v1.BindingDelta
+                     * @static
+                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                     * @param {number} [length] Message length if known beforehand
+                     * @returns {google.iam.v1.BindingDelta} BindingDelta
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    BindingDelta.decode = function decode(reader, length) {
+                        if (!(reader instanceof $Reader))
+                            reader = $Reader.create(reader);
+                        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.iam.v1.BindingDelta();
+                        while (reader.pos < end) {
+                            var tag = reader.uint32();
+                            switch (tag >>> 3) {
+                            case 1:
+                                message.action = reader.int32();
+                                break;
+                            case 2:
+                                message.role = reader.string();
+                                break;
+                            case 3:
+                                message.member = reader.string();
+                                break;
+                            case 4:
+                                message.condition = $root.google.type.Expr.decode(reader, reader.uint32());
+                                break;
+                            default:
+                                reader.skipType(tag & 7);
+                                break;
+                            }
+                        }
+                        return message;
+                    };
+    
+                    /**
+                     * Decodes a BindingDelta message from the specified reader or buffer, length delimited.
+                     * @function decodeDelimited
+                     * @memberof google.iam.v1.BindingDelta
+                     * @static
+                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                     * @returns {google.iam.v1.BindingDelta} BindingDelta
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    BindingDelta.decodeDelimited = function decodeDelimited(reader) {
+                        if (!(reader instanceof $Reader))
+                            reader = new $Reader(reader);
+                        return this.decode(reader, reader.uint32());
+                    };
+    
+                    /**
+                     * Verifies a BindingDelta message.
+                     * @function verify
+                     * @memberof google.iam.v1.BindingDelta
+                     * @static
+                     * @param {Object.<string,*>} message Plain object to verify
+                     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                     */
+                    BindingDelta.verify = function verify(message) {
+                        if (typeof message !== "object" || message === null)
+                            return "object expected";
+                        if (message.action != null && message.hasOwnProperty("action"))
+                            switch (message.action) {
+                            default:
+                                return "action: enum value expected";
+                            case 0:
+                            case 1:
+                            case 2:
+                                break;
+                            }
+                        if (message.role != null && message.hasOwnProperty("role"))
+                            if (!$util.isString(message.role))
+                                return "role: string expected";
+                        if (message.member != null && message.hasOwnProperty("member"))
+                            if (!$util.isString(message.member))
+                                return "member: string expected";
+                        if (message.condition != null && message.hasOwnProperty("condition")) {
+                            var error = $root.google.type.Expr.verify(message.condition);
+                            if (error)
+                                return "condition." + error;
+                        }
+                        return null;
+                    };
+    
+                    /**
+                     * Creates a BindingDelta message from a plain object. Also converts values to their respective internal types.
+                     * @function fromObject
+                     * @memberof google.iam.v1.BindingDelta
+                     * @static
+                     * @param {Object.<string,*>} object Plain object
+                     * @returns {google.iam.v1.BindingDelta} BindingDelta
+                     */
+                    BindingDelta.fromObject = function fromObject(object) {
+                        if (object instanceof $root.google.iam.v1.BindingDelta)
+                            return object;
+                        var message = new $root.google.iam.v1.BindingDelta();
+                        switch (object.action) {
+                        case "ACTION_UNSPECIFIED":
+                        case 0:
+                            message.action = 0;
+                            break;
+                        case "ADD":
+                        case 1:
+                            message.action = 1;
+                            break;
+                        case "REMOVE":
+                        case 2:
+                            message.action = 2;
+                            break;
+                        }
+                        if (object.role != null)
+                            message.role = String(object.role);
+                        if (object.member != null)
+                            message.member = String(object.member);
+                        if (object.condition != null) {
+                            if (typeof object.condition !== "object")
+                                throw TypeError(".google.iam.v1.BindingDelta.condition: object expected");
+                            message.condition = $root.google.type.Expr.fromObject(object.condition);
+                        }
+                        return message;
+                    };
+    
+                    /**
+                     * Creates a plain object from a BindingDelta message. Also converts values to other types if specified.
+                     * @function toObject
+                     * @memberof google.iam.v1.BindingDelta
+                     * @static
+                     * @param {google.iam.v1.BindingDelta} message BindingDelta
+                     * @param {$protobuf.IConversionOptions} [options] Conversion options
+                     * @returns {Object.<string,*>} Plain object
+                     */
+                    BindingDelta.toObject = function toObject(message, options) {
+                        if (!options)
+                            options = {};
+                        var object = {};
+                        if (options.defaults) {
+                            object.action = options.enums === String ? "ACTION_UNSPECIFIED" : 0;
+                            object.role = "";
+                            object.member = "";
+                            object.condition = null;
+                        }
+                        if (message.action != null && message.hasOwnProperty("action"))
+                            object.action = options.enums === String ? $root.google.iam.v1.BindingDelta.Action[message.action] : message.action;
+                        if (message.role != null && message.hasOwnProperty("role"))
+                            object.role = message.role;
+                        if (message.member != null && message.hasOwnProperty("member"))
+                            object.member = message.member;
+                        if (message.condition != null && message.hasOwnProperty("condition"))
+                            object.condition = $root.google.type.Expr.toObject(message.condition, options);
+                        return object;
+                    };
+    
+                    /**
+                     * Converts this BindingDelta to JSON.
+                     * @function toJSON
+                     * @memberof google.iam.v1.BindingDelta
+                     * @instance
+                     * @returns {Object.<string,*>} JSON object
+                     */
+                    BindingDelta.prototype.toJSON = function toJSON() {
+                        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                    };
+    
+                    /**
+                     * Action enum.
+                     * @name google.iam.v1.BindingDelta.Action
+                     * @enum {string}
+                     * @property {number} ACTION_UNSPECIFIED=0 ACTION_UNSPECIFIED value
+                     * @property {number} ADD=1 ADD value
+                     * @property {number} REMOVE=2 REMOVE value
+                     */
+                    BindingDelta.Action = (function() {
+                        var valuesById = {}, values = Object.create(valuesById);
+                        values[valuesById[0] = "ACTION_UNSPECIFIED"] = 0;
+                        values[valuesById[1] = "ADD"] = 1;
+                        values[valuesById[2] = "REMOVE"] = 2;
+                        return values;
+                    })();
+    
+                    return BindingDelta;
+                })();
+    
+                v1.AuditConfigDelta = (function() {
+    
+                    /**
+                     * Properties of an AuditConfigDelta.
+                     * @memberof google.iam.v1
+                     * @interface IAuditConfigDelta
+                     * @property {google.iam.v1.AuditConfigDelta.Action|null} [action] AuditConfigDelta action
+                     * @property {string|null} [service] AuditConfigDelta service
+                     * @property {string|null} [exemptedMember] AuditConfigDelta exemptedMember
+                     * @property {string|null} [logType] AuditConfigDelta logType
+                     */
+    
+                    /**
+                     * Constructs a new AuditConfigDelta.
+                     * @memberof google.iam.v1
+                     * @classdesc Represents an AuditConfigDelta.
+                     * @implements IAuditConfigDelta
+                     * @constructor
+                     * @param {google.iam.v1.IAuditConfigDelta=} [properties] Properties to set
+                     */
+                    function AuditConfigDelta(properties) {
+                        if (properties)
+                            for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                                if (properties[keys[i]] != null)
+                                    this[keys[i]] = properties[keys[i]];
+                    }
+    
+                    /**
+                     * AuditConfigDelta action.
+                     * @member {google.iam.v1.AuditConfigDelta.Action} action
+                     * @memberof google.iam.v1.AuditConfigDelta
+                     * @instance
+                     */
+                    AuditConfigDelta.prototype.action = 0;
+    
+                    /**
+                     * AuditConfigDelta service.
+                     * @member {string} service
+                     * @memberof google.iam.v1.AuditConfigDelta
+                     * @instance
+                     */
+                    AuditConfigDelta.prototype.service = "";
+    
+                    /**
+                     * AuditConfigDelta exemptedMember.
+                     * @member {string} exemptedMember
+                     * @memberof google.iam.v1.AuditConfigDelta
+                     * @instance
+                     */
+                    AuditConfigDelta.prototype.exemptedMember = "";
+    
+                    /**
+                     * AuditConfigDelta logType.
+                     * @member {string} logType
+                     * @memberof google.iam.v1.AuditConfigDelta
+                     * @instance
+                     */
+                    AuditConfigDelta.prototype.logType = "";
+    
+                    /**
+                     * Creates a new AuditConfigDelta instance using the specified properties.
+                     * @function create
+                     * @memberof google.iam.v1.AuditConfigDelta
+                     * @static
+                     * @param {google.iam.v1.IAuditConfigDelta=} [properties] Properties to set
+                     * @returns {google.iam.v1.AuditConfigDelta} AuditConfigDelta instance
+                     */
+                    AuditConfigDelta.create = function create(properties) {
+                        return new AuditConfigDelta(properties);
+                    };
+    
+                    /**
+                     * Encodes the specified AuditConfigDelta message. Does not implicitly {@link google.iam.v1.AuditConfigDelta.verify|verify} messages.
+                     * @function encode
+                     * @memberof google.iam.v1.AuditConfigDelta
+                     * @static
+                     * @param {google.iam.v1.IAuditConfigDelta} message AuditConfigDelta message or plain object to encode
+                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                     * @returns {$protobuf.Writer} Writer
+                     */
+                    AuditConfigDelta.encode = function encode(message, writer) {
+                        if (!writer)
+                            writer = $Writer.create();
+                        if (message.action != null && message.hasOwnProperty("action"))
+                            writer.uint32(/* id 1, wireType 0 =*/8).int32(message.action);
+                        if (message.service != null && message.hasOwnProperty("service"))
+                            writer.uint32(/* id 2, wireType 2 =*/18).string(message.service);
+                        if (message.exemptedMember != null && message.hasOwnProperty("exemptedMember"))
+                            writer.uint32(/* id 3, wireType 2 =*/26).string(message.exemptedMember);
+                        if (message.logType != null && message.hasOwnProperty("logType"))
+                            writer.uint32(/* id 4, wireType 2 =*/34).string(message.logType);
+                        return writer;
+                    };
+    
+                    /**
+                     * Encodes the specified AuditConfigDelta message, length delimited. Does not implicitly {@link google.iam.v1.AuditConfigDelta.verify|verify} messages.
+                     * @function encodeDelimited
+                     * @memberof google.iam.v1.AuditConfigDelta
+                     * @static
+                     * @param {google.iam.v1.IAuditConfigDelta} message AuditConfigDelta message or plain object to encode
+                     * @param {$protobuf.Writer} [writer] Writer to encode to
+                     * @returns {$protobuf.Writer} Writer
+                     */
+                    AuditConfigDelta.encodeDelimited = function encodeDelimited(message, writer) {
+                        return this.encode(message, writer).ldelim();
+                    };
+    
+                    /**
+                     * Decodes an AuditConfigDelta message from the specified reader or buffer.
+                     * @function decode
+                     * @memberof google.iam.v1.AuditConfigDelta
+                     * @static
+                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                     * @param {number} [length] Message length if known beforehand
+                     * @returns {google.iam.v1.AuditConfigDelta} AuditConfigDelta
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    AuditConfigDelta.decode = function decode(reader, length) {
+                        if (!(reader instanceof $Reader))
+                            reader = $Reader.create(reader);
+                        var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.iam.v1.AuditConfigDelta();
+                        while (reader.pos < end) {
+                            var tag = reader.uint32();
+                            switch (tag >>> 3) {
+                            case 1:
+                                message.action = reader.int32();
+                                break;
+                            case 2:
+                                message.service = reader.string();
+                                break;
+                            case 3:
+                                message.exemptedMember = reader.string();
+                                break;
+                            case 4:
+                                message.logType = reader.string();
+                                break;
+                            default:
+                                reader.skipType(tag & 7);
+                                break;
+                            }
+                        }
+                        return message;
+                    };
+    
+                    /**
+                     * Decodes an AuditConfigDelta message from the specified reader or buffer, length delimited.
+                     * @function decodeDelimited
+                     * @memberof google.iam.v1.AuditConfigDelta
+                     * @static
+                     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                     * @returns {google.iam.v1.AuditConfigDelta} AuditConfigDelta
+                     * @throws {Error} If the payload is not a reader or valid buffer
+                     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                     */
+                    AuditConfigDelta.decodeDelimited = function decodeDelimited(reader) {
+                        if (!(reader instanceof $Reader))
+                            reader = new $Reader(reader);
+                        return this.decode(reader, reader.uint32());
+                    };
+    
+                    /**
+                     * Verifies an AuditConfigDelta message.
+                     * @function verify
+                     * @memberof google.iam.v1.AuditConfigDelta
+                     * @static
+                     * @param {Object.<string,*>} message Plain object to verify
+                     * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                     */
+                    AuditConfigDelta.verify = function verify(message) {
+                        if (typeof message !== "object" || message === null)
+                            return "object expected";
+                        if (message.action != null && message.hasOwnProperty("action"))
+                            switch (message.action) {
+                            default:
+                                return "action: enum value expected";
+                            case 0:
+                            case 1:
+                            case 2:
+                                break;
+                            }
+                        if (message.service != null && message.hasOwnProperty("service"))
+                            if (!$util.isString(message.service))
+                                return "service: string expected";
+                        if (message.exemptedMember != null && message.hasOwnProperty("exemptedMember"))
+                            if (!$util.isString(message.exemptedMember))
+                                return "exemptedMember: string expected";
+                        if (message.logType != null && message.hasOwnProperty("logType"))
+                            if (!$util.isString(message.logType))
+                                return "logType: string expected";
+                        return null;
+                    };
+    
+                    /**
+                     * Creates an AuditConfigDelta message from a plain object. Also converts values to their respective internal types.
+                     * @function fromObject
+                     * @memberof google.iam.v1.AuditConfigDelta
+                     * @static
+                     * @param {Object.<string,*>} object Plain object
+                     * @returns {google.iam.v1.AuditConfigDelta} AuditConfigDelta
+                     */
+                    AuditConfigDelta.fromObject = function fromObject(object) {
+                        if (object instanceof $root.google.iam.v1.AuditConfigDelta)
+                            return object;
+                        var message = new $root.google.iam.v1.AuditConfigDelta();
+                        switch (object.action) {
+                        case "ACTION_UNSPECIFIED":
+                        case 0:
+                            message.action = 0;
+                            break;
+                        case "ADD":
+                        case 1:
+                            message.action = 1;
+                            break;
+                        case "REMOVE":
+                        case 2:
+                            message.action = 2;
+                            break;
+                        }
+                        if (object.service != null)
+                            message.service = String(object.service);
+                        if (object.exemptedMember != null)
+                            message.exemptedMember = String(object.exemptedMember);
+                        if (object.logType != null)
+                            message.logType = String(object.logType);
+                        return message;
+                    };
+    
+                    /**
+                     * Creates a plain object from an AuditConfigDelta message. Also converts values to other types if specified.
+                     * @function toObject
+                     * @memberof google.iam.v1.AuditConfigDelta
+                     * @static
+                     * @param {google.iam.v1.AuditConfigDelta} message AuditConfigDelta
+                     * @param {$protobuf.IConversionOptions} [options] Conversion options
+                     * @returns {Object.<string,*>} Plain object
+                     */
+                    AuditConfigDelta.toObject = function toObject(message, options) {
+                        if (!options)
+                            options = {};
+                        var object = {};
+                        if (options.defaults) {
+                            object.action = options.enums === String ? "ACTION_UNSPECIFIED" : 0;
+                            object.service = "";
+                            object.exemptedMember = "";
+                            object.logType = "";
+                        }
+                        if (message.action != null && message.hasOwnProperty("action"))
+                            object.action = options.enums === String ? $root.google.iam.v1.AuditConfigDelta.Action[message.action] : message.action;
+                        if (message.service != null && message.hasOwnProperty("service"))
+                            object.service = message.service;
+                        if (message.exemptedMember != null && message.hasOwnProperty("exemptedMember"))
+                            object.exemptedMember = message.exemptedMember;
+                        if (message.logType != null && message.hasOwnProperty("logType"))
+                            object.logType = message.logType;
+                        return object;
+                    };
+    
+                    /**
+                     * Converts this AuditConfigDelta to JSON.
+                     * @function toJSON
+                     * @memberof google.iam.v1.AuditConfigDelta
+                     * @instance
+                     * @returns {Object.<string,*>} JSON object
+                     */
+                    AuditConfigDelta.prototype.toJSON = function toJSON() {
+                        return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                    };
+    
+                    /**
+                     * Action enum.
+                     * @name google.iam.v1.AuditConfigDelta.Action
+                     * @enum {string}
+                     * @property {number} ACTION_UNSPECIFIED=0 ACTION_UNSPECIFIED value
+                     * @property {number} ADD=1 ADD value
+                     * @property {number} REMOVE=2 REMOVE value
+                     */
+                    AuditConfigDelta.Action = (function() {
+                        var valuesById = {}, values = Object.create(valuesById);
+                        values[valuesById[0] = "ACTION_UNSPECIFIED"] = 0;
+                        values[valuesById[1] = "ADD"] = 1;
+                        values[valuesById[2] = "REMOVE"] = 2;
+                        return values;
+                    })();
+    
+                    return AuditConfigDelta;
+                })();
+    
+                return v1;
+            })();
+    
+            return iam;
+        })();
+    
+        google.type = (function() {
+    
+            /**
+             * Namespace type.
+             * @memberof google
+             * @namespace
+             */
+            var type = {};
+    
+            type.Expr = (function() {
+    
+                /**
+                 * Properties of an Expr.
+                 * @memberof google.type
+                 * @interface IExpr
+                 * @property {string|null} [expression] Expr expression
+                 * @property {string|null} [title] Expr title
+                 * @property {string|null} [description] Expr description
+                 * @property {string|null} [location] Expr location
+                 */
+    
+                /**
+                 * Constructs a new Expr.
+                 * @memberof google.type
+                 * @classdesc Represents an Expr.
+                 * @implements IExpr
+                 * @constructor
+                 * @param {google.type.IExpr=} [properties] Properties to set
+                 */
+                function Expr(properties) {
+                    if (properties)
+                        for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                            if (properties[keys[i]] != null)
+                                this[keys[i]] = properties[keys[i]];
+                }
+    
+                /**
+                 * Expr expression.
+                 * @member {string} expression
+                 * @memberof google.type.Expr
+                 * @instance
+                 */
+                Expr.prototype.expression = "";
+    
+                /**
+                 * Expr title.
+                 * @member {string} title
+                 * @memberof google.type.Expr
+                 * @instance
+                 */
+                Expr.prototype.title = "";
+    
+                /**
+                 * Expr description.
+                 * @member {string} description
+                 * @memberof google.type.Expr
+                 * @instance
+                 */
+                Expr.prototype.description = "";
+    
+                /**
+                 * Expr location.
+                 * @member {string} location
+                 * @memberof google.type.Expr
+                 * @instance
+                 */
+                Expr.prototype.location = "";
+    
+                /**
+                 * Creates a new Expr instance using the specified properties.
+                 * @function create
+                 * @memberof google.type.Expr
+                 * @static
+                 * @param {google.type.IExpr=} [properties] Properties to set
+                 * @returns {google.type.Expr} Expr instance
+                 */
+                Expr.create = function create(properties) {
+                    return new Expr(properties);
+                };
+    
+                /**
+                 * Encodes the specified Expr message. Does not implicitly {@link google.type.Expr.verify|verify} messages.
+                 * @function encode
+                 * @memberof google.type.Expr
+                 * @static
+                 * @param {google.type.IExpr} message Expr message or plain object to encode
+                 * @param {$protobuf.Writer} [writer] Writer to encode to
+                 * @returns {$protobuf.Writer} Writer
+                 */
+                Expr.encode = function encode(message, writer) {
+                    if (!writer)
+                        writer = $Writer.create();
+                    if (message.expression != null && message.hasOwnProperty("expression"))
+                        writer.uint32(/* id 1, wireType 2 =*/10).string(message.expression);
+                    if (message.title != null && message.hasOwnProperty("title"))
+                        writer.uint32(/* id 2, wireType 2 =*/18).string(message.title);
+                    if (message.description != null && message.hasOwnProperty("description"))
+                        writer.uint32(/* id 3, wireType 2 =*/26).string(message.description);
+                    if (message.location != null && message.hasOwnProperty("location"))
+                        writer.uint32(/* id 4, wireType 2 =*/34).string(message.location);
+                    return writer;
+                };
+    
+                /**
+                 * Encodes the specified Expr message, length delimited. Does not implicitly {@link google.type.Expr.verify|verify} messages.
+                 * @function encodeDelimited
+                 * @memberof google.type.Expr
+                 * @static
+                 * @param {google.type.IExpr} message Expr message or plain object to encode
+                 * @param {$protobuf.Writer} [writer] Writer to encode to
+                 * @returns {$protobuf.Writer} Writer
+                 */
+                Expr.encodeDelimited = function encodeDelimited(message, writer) {
+                    return this.encode(message, writer).ldelim();
+                };
+    
+                /**
+                 * Decodes an Expr message from the specified reader or buffer.
+                 * @function decode
+                 * @memberof google.type.Expr
+                 * @static
+                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                 * @param {number} [length] Message length if known beforehand
+                 * @returns {google.type.Expr} Expr
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                Expr.decode = function decode(reader, length) {
+                    if (!(reader instanceof $Reader))
+                        reader = $Reader.create(reader);
+                    var end = length === undefined ? reader.len : reader.pos + length, message = new $root.google.type.Expr();
+                    while (reader.pos < end) {
+                        var tag = reader.uint32();
+                        switch (tag >>> 3) {
+                        case 1:
+                            message.expression = reader.string();
+                            break;
+                        case 2:
+                            message.title = reader.string();
+                            break;
+                        case 3:
+                            message.description = reader.string();
+                            break;
+                        case 4:
+                            message.location = reader.string();
+                            break;
+                        default:
+                            reader.skipType(tag & 7);
+                            break;
+                        }
+                    }
+                    return message;
+                };
+    
+                /**
+                 * Decodes an Expr message from the specified reader or buffer, length delimited.
+                 * @function decodeDelimited
+                 * @memberof google.type.Expr
+                 * @static
+                 * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+                 * @returns {google.type.Expr} Expr
+                 * @throws {Error} If the payload is not a reader or valid buffer
+                 * @throws {$protobuf.util.ProtocolError} If required fields are missing
+                 */
+                Expr.decodeDelimited = function decodeDelimited(reader) {
+                    if (!(reader instanceof $Reader))
+                        reader = new $Reader(reader);
+                    return this.decode(reader, reader.uint32());
+                };
+    
+                /**
+                 * Verifies an Expr message.
+                 * @function verify
+                 * @memberof google.type.Expr
+                 * @static
+                 * @param {Object.<string,*>} message Plain object to verify
+                 * @returns {string|null} `null` if valid, otherwise the reason why it is not
+                 */
+                Expr.verify = function verify(message) {
+                    if (typeof message !== "object" || message === null)
+                        return "object expected";
+                    if (message.expression != null && message.hasOwnProperty("expression"))
+                        if (!$util.isString(message.expression))
+                            return "expression: string expected";
+                    if (message.title != null && message.hasOwnProperty("title"))
+                        if (!$util.isString(message.title))
+                            return "title: string expected";
+                    if (message.description != null && message.hasOwnProperty("description"))
+                        if (!$util.isString(message.description))
+                            return "description: string expected";
+                    if (message.location != null && message.hasOwnProperty("location"))
+                        if (!$util.isString(message.location))
+                            return "location: string expected";
+                    return null;
+                };
+    
+                /**
+                 * Creates an Expr message from a plain object. Also converts values to their respective internal types.
+                 * @function fromObject
+                 * @memberof google.type.Expr
+                 * @static
+                 * @param {Object.<string,*>} object Plain object
+                 * @returns {google.type.Expr} Expr
+                 */
+                Expr.fromObject = function fromObject(object) {
+                    if (object instanceof $root.google.type.Expr)
+                        return object;
+                    var message = new $root.google.type.Expr();
+                    if (object.expression != null)
+                        message.expression = String(object.expression);
+                    if (object.title != null)
+                        message.title = String(object.title);
+                    if (object.description != null)
+                        message.description = String(object.description);
+                    if (object.location != null)
+                        message.location = String(object.location);
+                    return message;
+                };
+    
+                /**
+                 * Creates a plain object from an Expr message. Also converts values to other types if specified.
+                 * @function toObject
+                 * @memberof google.type.Expr
+                 * @static
+                 * @param {google.type.Expr} message Expr
+                 * @param {$protobuf.IConversionOptions} [options] Conversion options
+                 * @returns {Object.<string,*>} Plain object
+                 */
+                Expr.toObject = function toObject(message, options) {
+                    if (!options)
+                        options = {};
+                    var object = {};
+                    if (options.defaults) {
+                        object.expression = "";
+                        object.title = "";
+                        object.description = "";
+                        object.location = "";
+                    }
+                    if (message.expression != null && message.hasOwnProperty("expression"))
+                        object.expression = message.expression;
+                    if (message.title != null && message.hasOwnProperty("title"))
+                        object.title = message.title;
+                    if (message.description != null && message.hasOwnProperty("description"))
+                        object.description = message.description;
+                    if (message.location != null && message.hasOwnProperty("location"))
+                        object.location = message.location;
+                    return object;
+                };
+    
+                /**
+                 * Converts this Expr to JSON.
+                 * @function toJSON
+                 * @memberof google.type.Expr
+                 * @instance
+                 * @returns {Object.<string,*>} JSON object
+                 */
+                Expr.prototype.toJSON = function toJSON() {
+                    return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+                };
+    
+                return Expr;
+            })();
+    
+            return type;
+        })();
+    
         return google;
     })();
 
