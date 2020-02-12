@@ -18,10 +18,10 @@
 
 
 /* eslint-disable node/no-missing-require, no-unused-vars */
-import { KeyManagementServiceClient } from '@google-cloud/kms';
+const kms = require('@google-cloud/kms');
 
 function main() {
-  const keyManagementServiceClient = new KeyManagementServiceClient();
+  const keyManagementServiceClient = new kms.KeyManagementServiceClient();
 }
 
 main();

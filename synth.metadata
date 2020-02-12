@@ -1,12 +1,13 @@
 {
-  "updateTime": "2020-02-12T19:48:42.682464Z",
+  "updateTime": "2020-02-12T21:14:35.619537Z",
   "sources": [
     {
       "git": {
         "name": "googleapis",
         "remote": "https://github.com/googleapis/googleapis.git",
-        "sha": "d5e8a8953f2acdfe96fb15e85eb2f33739623957",
-        "internalRef": "294703703"
+        "sha": "2c17ac33b226194041155bb5340c3f34733f1b3a",
+        "internalRef": "294734008",
+        "log": "2c17ac33b226194041155bb5340c3f34733f1b3a\nAdd parameter to sample generated for UpdateInstance. Related to https://github.com/googleapis/python-redis/issues/4\n\nPiperOrigin-RevId: 294734008\n\n"
       }
     },
     {
