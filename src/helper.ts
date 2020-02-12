@@ -18,6 +18,8 @@ import {KeyManagementServiceClient} from './v1/key_management_service_client';
 import * as gax from 'google-gax';
 import {ClientOptions} from 'google-gax';
 import * as path from 'path';
+import * as gapicConfig from './v1/key_management_service_proto_list.json';
+const version = require('../../../package.json').version;
 
 export class ImprovedKMSClient extends KeyManagementServiceClient {
   constructor(opts?: ClientOptions) {
@@ -31,6 +33,25 @@ export class ImprovedKMSClient extends KeyManagementServiceClient {
       this.opts.fallback = true;
     }
     const gaxModule = !isBrowser && this.opts.fallback ? gax.fallback : gax;
+    const clientHeader = [`gax/${gaxModule.version}`, `gapic/${version}`];
+    if (typeof process !== 'undefined' && 'versions' in process) {
+      clientHeader.push(`gl-node/${process.versions.node}`);
+    } else {
+      clientHeader.push(`gl-web/${gaxModule.version}`);
+    }
+    if (!this.opts.fallback) {
+      clientHeader.push(`grpc/${this.gaxGrpc.grpcVersion}`);
+    }
+    if (this.opts.libName && this.opts.libVersion) {
+      clientHeader.push(`${this.opts.libName}/${this.opts.libVersion}`);
+    }
+    // Put together the default options sent with requests.
+    this.defaults = this.gaxGrpc.constructSettings(
+      'google.cloud.kms.v1.KeyManagementService',
+      gapicConfig as gax.ClientConfig,
+      opts!.clientConfig || {},
+      {'x-goog-api-client': clientHeader.join(' ')}
+    );
     // Put together the "service stub" for
     // google.iam.v1.IAMPolicy.
     const iamPolicyStub = this.gaxGrpc.createStub(
