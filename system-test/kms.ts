@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-const kms = require('../src');
-const assert = require('assert');
+import * as kms from '../src';
+import * as assert from 'assert';
 import {describe, it} from 'mocha';
 
 const client = new kms.KeyManagementServiceClient();

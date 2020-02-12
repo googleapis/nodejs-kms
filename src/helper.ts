@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import {KeyManagementServiceClient} from './v1';
+import {KeyManagementServiceClient} from './v1/key_management_service_client';
 import * as gax from 'google-gax';
 import {ClientOptions} from 'google-gax';
 import * as path from 'path';
