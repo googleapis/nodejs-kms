@@ -56,12 +56,10 @@ with open(list_json, 'w') as f:
 
 # surgery in client.ts file
 client_file='src/v1/key_management_service_client.ts'
-# s.replace(client_file, 'private \_descriptors:', '_descriptors:')
-# s.replace(client_file, 'private \_innerApiCalls:', '_innerApiCalls:')
-# s.replace(client_file, 'defaults', 'this.defaults')
-# s.replace(client_file, 'const this\.defaults', 'this.defaults')
-# s.replace(client_file, 'gaxGrpc', 'this.gaxGrpc')
-# s.replace(client_file, 'auth', 'this.auth')
+s.replace(f'src/{version}/{name}_client.ts', r'\Z', '\n' + 
+"import {ImprovedKMSClient} from '../helper';\n" +
+'export interface KeyManagementServiceClient extends ImprovedKMSClient {}\n'
+)
 
 # Node.js specific cleanup
 subprocess.run(['npm', 'install'])
