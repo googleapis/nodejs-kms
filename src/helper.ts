@@ -19,7 +19,8 @@ import * as gax from 'google-gax';
 import {ClientOptions} from 'google-gax';
 import * as path from 'path';
 import * as gapicConfig from './v1/key_management_service_proto_list.json';
-const version = require('../../../package.json').version;
+import * as packagejson from '../package.json';
+const version = packagejson.version;
 
 export class ImprovedKMSClient extends KeyManagementServiceClient {
   constructor(opts?: ClientOptions) {
