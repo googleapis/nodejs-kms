@@ -1,4 +1,4 @@
-// Copyright 2020 Google LLC
+// Copyright 2019 Google LLC
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -23,8 +23,6 @@ import {
   CallOptions,
   Descriptors,
   ClientOptions,
-  PaginationCallback,
-  PaginationResponse,
 } from 'google-gax';
 import * as path from 'path';
 
@@ -51,14 +49,10 @@ const version = require('../../../package.json').version;
  * @memberof v1
  */
 export class KeyManagementServiceClient {
-  _descriptors: Descriptors = {page: {}, stream: {}, longrunning: {}};
-  _innerApiCalls: {[name: string]: Function};
+  private _descriptors: Descriptors = {page: {}, stream: {}, longrunning: {}};
+  private _innerApiCalls: {[name: string]: Function};
   private _pathTemplates: {[name: string]: gax.PathTemplate};
-  _terminated = false;
-  opts: ClientOptions = {};
-  // tslint:disable-next-line no-any
-  defaults: any;
-  gaxGrpc: gax.GrpcClient | gax.fallback.GrpcClient;
+  private _terminated = false;
   auth: gax.GoogleAuth;
   keyManagementServiceStub: Promise<{[name: string]: Function}>;
 
@@ -121,10 +115,10 @@ export class KeyManagementServiceClient {
     // sent to the client.
     opts.scopes = (this
       .constructor as typeof KeyManagementServiceClient).scopes;
-    this.gaxGrpc = new gaxModule.GrpcClient(opts);
+    const gaxGrpc = new gaxModule.GrpcClient(opts);
 
     // Save the auth object to the client, for use by other methods.
-    this.auth = this.gaxGrpc.auth as gax.GoogleAuth;
+    this.auth = gaxGrpc.auth as gax.GoogleAuth;
 
     // Determine the client header string.
     const clientHeader = [`gax/${gaxModule.version}`, `gapic/${version}`];
@@ -134,7 +128,7 @@ export class KeyManagementServiceClient {
       clientHeader.push(`gl-web/${gaxModule.version}`);
     }
     if (!opts.fallback) {
-      clientHeader.push(`grpc/${this.gaxGrpc.grpcVersion}`);
+      clientHeader.push(`grpc/${gaxGrpc.grpcVersion}`);
     }
     if (opts.libName && opts.libVersion) {
       clientHeader.push(`${opts.libName}/${opts.libVersion}`);
@@ -150,7 +144,7 @@ export class KeyManagementServiceClient {
       'protos',
       'protos.json'
     );
-    const protos = this.gaxGrpc.loadProto(
+    const protos = gaxGrpc.loadProto(
       opts.fallback ? require('../../protos/protos.json') : nodejsProtoPath
     );
 
@@ -158,12 +152,6 @@ export class KeyManagementServiceClient {
     // identifiers to uniquely identify resources within the API.
     // Create useful helper objects for these.
     this._pathTemplates = {
-      locationPathTemplate: new gaxModule.PathTemplate(
-        'projects/{project}/locations/{location}'
-      ),
-      keyRingPathTemplate: new gaxModule.PathTemplate(
-        'projects/{project}/locations/{location}/keyRings/{key_ring}'
-      ),
       cryptoKeyPathTemplate: new gaxModule.PathTemplate(
         'projects/{project}/locations/{location}/keyRings/{key_ring}/cryptoKeys/{crypto_key}'
       ),
@@ -172,6 +160,12 @@ export class KeyManagementServiceClient {
       ),
       importJobPathTemplate: new gaxModule.PathTemplate(
         'projects/{project}/locations/{location}/keyRings/{key_ring}/importJobs/{import_job}'
+      ),
+      keyRingPathTemplate: new gaxModule.PathTemplate(
+        'projects/{project}/locations/{location}/keyRings/{key_ring}'
+      ),
+      locationPathTemplate: new gaxModule.PathTemplate(
+        'projects/{project}/locations/{location}'
       ),
     };
 
@@ -202,7 +196,7 @@ export class KeyManagementServiceClient {
     };
 
     // Put together the default options sent with requests.
-    this.defaults = this.gaxGrpc.constructSettings(
+    const defaults = gaxGrpc.constructSettings(
       'google.cloud.kms.v1.KeyManagementService',
       gapicConfig as gax.ClientConfig,
       opts.clientConfig || {},
@@ -216,7 +210,7 @@ export class KeyManagementServiceClient {
 
     // Put together the "service stub" for
     // google.cloud.kms.v1.KeyManagementService.
-    this.keyManagementServiceStub = this.gaxGrpc.createStub(
+    this.keyManagementServiceStub = gaxGrpc.createStub(
       opts.fallback
         ? (protos as protobuf.Root).lookupService(
             'google.cloud.kms.v1.KeyManagementService'
@@ -269,7 +263,7 @@ export class KeyManagementServiceClient {
 
       const apiCall = gaxModule.createApiCall(
         innerCallPromise,
-        this.defaults[methodName],
+        defaults[methodName],
         this._descriptors.page[methodName] ||
           this._descriptors.stream[methodName] ||
           this._descriptors.longrunning[methodName]
@@ -283,7 +277,6 @@ export class KeyManagementServiceClient {
         return apiCall(argument, callOptions, callback);
       };
     }
-    this.opts = opts;
   }
 
   /**
@@ -2069,9 +2062,17 @@ export class KeyManagementServiceClient {
    */
   listKeyRingsStream(
     request?: protosTypes.google.cloud.kms.v1.IListKeyRingsRequest,
-    options?: gax.CallOptions | {}
+    options?: gax.CallOptions
   ): Transform {
     request = request || {};
+    options = options || {};
+    options.otherArgs = options.otherArgs || {};
+    options.otherArgs.headers = options.otherArgs.headers || {};
+    options.otherArgs.headers[
+      'x-goog-request-params'
+    ] = gax.routingHeader.fromParams({
+      parent: request.parent || '',
+    });
     const callSettings = new gax.CallSettings(options);
     return this._descriptors.page.listKeyRings.createStream(
       this._innerApiCalls.listKeyRings as gax.GaxCall,
@@ -2229,9 +2230,17 @@ export class KeyManagementServiceClient {
    */
   listCryptoKeysStream(
     request?: protosTypes.google.cloud.kms.v1.IListCryptoKeysRequest,
-    options?: gax.CallOptions | {}
+    options?: gax.CallOptions
   ): Transform {
     request = request || {};
+    options = options || {};
+    options.otherArgs = options.otherArgs || {};
+    options.otherArgs.headers = options.otherArgs.headers || {};
+    options.otherArgs.headers[
+      'x-goog-request-params'
+    ] = gax.routingHeader.fromParams({
+      parent: request.parent || '',
+    });
     const callSettings = new gax.CallSettings(options);
     return this._descriptors.page.listCryptoKeys.createStream(
       this._innerApiCalls.listCryptoKeys as gax.GaxCall,
@@ -2395,9 +2404,17 @@ export class KeyManagementServiceClient {
    */
   listCryptoKeyVersionsStream(
     request?: protosTypes.google.cloud.kms.v1.IListCryptoKeyVersionsRequest,
-    options?: gax.CallOptions | {}
+    options?: gax.CallOptions
   ): Transform {
     request = request || {};
+    options = options || {};
+    options.otherArgs = options.otherArgs || {};
+    options.otherArgs.headers = options.otherArgs.headers || {};
+    options.otherArgs.headers[
+      'x-goog-request-params'
+    ] = gax.routingHeader.fromParams({
+      parent: request.parent || '',
+    });
     const callSettings = new gax.CallSettings(options);
     return this._descriptors.page.listCryptoKeyVersions.createStream(
       this._innerApiCalls.listCryptoKeyVersions as gax.GaxCall,
@@ -2551,9 +2568,17 @@ export class KeyManagementServiceClient {
    */
   listImportJobsStream(
     request?: protosTypes.google.cloud.kms.v1.IListImportJobsRequest,
-    options?: gax.CallOptions | {}
+    options?: gax.CallOptions
   ): Transform {
     request = request || {};
+    options = options || {};
+    options.otherArgs = options.otherArgs || {};
+    options.otherArgs.headers = options.otherArgs.headers || {};
+    options.otherArgs.headers[
+      'x-goog-request-params'
+    ] = gax.routingHeader.fromParams({
+      parent: request.parent || '',
+    });
     const callSettings = new gax.CallSettings(options);
     return this._descriptors.page.listImportJobs.createStream(
       this._innerApiCalls.listImportJobs as gax.GaxCall,
@@ -2566,10 +2591,12 @@ export class KeyManagementServiceClient {
   // --------------------
 
   /**
-   * Return a fully-qualified location resource name string.
+   * Return a fully-qualified cryptoKey resource name string.
    *
    * @param {string} project
    * @param {string} location
+   * @param {string} key_ring
+   * @param {string} crypto_key
    * @returns {string} Resource name string.
    */
   cryptoKeyPath(
@@ -2587,14 +2614,62 @@ export class KeyManagementServiceClient {
   }
 
   /**
-   * Return a fully-qualified crypto_key_version resource name string.
+   * Parse the project from CryptoKey resource.
    *
-   * @param {String} project
-   * @param {String} location
-   * @param {String} keyRing
-   * @param {String} cryptoKey
-   * @param {String} cryptoKeyVersion
-   * @returns {String}
+   * @param {string} cryptoKeyName
+   *   A fully-qualified path representing CryptoKey resource.
+   * @returns {string} A string representing the project.
+   */
+  matchProjectFromCryptoKeyName(cryptoKeyName: string) {
+    return this._pathTemplates.cryptoKeyPathTemplate.match(cryptoKeyName)
+      .project;
+  }
+
+  /**
+   * Parse the location from CryptoKey resource.
+   *
+   * @param {string} cryptoKeyName
+   *   A fully-qualified path representing CryptoKey resource.
+   * @returns {string} A string representing the location.
+   */
+  matchLocationFromCryptoKeyName(cryptoKeyName: string) {
+    return this._pathTemplates.cryptoKeyPathTemplate.match(cryptoKeyName)
+      .location;
+  }
+
+  /**
+   * Parse the key_ring from CryptoKey resource.
+   *
+   * @param {string} cryptoKeyName
+   *   A fully-qualified path representing CryptoKey resource.
+   * @returns {string} A string representing the key_ring.
+   */
+  matchKeyRingFromCryptoKeyName(cryptoKeyName: string) {
+    return this._pathTemplates.cryptoKeyPathTemplate.match(cryptoKeyName)
+      .key_ring;
+  }
+
+  /**
+   * Parse the crypto_key from CryptoKey resource.
+   *
+   * @param {string} cryptoKeyName
+   *   A fully-qualified path representing CryptoKey resource.
+   * @returns {string} A string representing the crypto_key.
+   */
+  matchCryptoKeyFromCryptoKeyName(cryptoKeyName: string) {
+    return this._pathTemplates.cryptoKeyPathTemplate.match(cryptoKeyName)
+      .crypto_key;
+  }
+
+  /**
+   * Return a fully-qualified cryptoKeyVersion resource name string.
+   *
+   * @param {string} project
+   * @param {string} location
+   * @param {string} key_ring
+   * @param {string} crypto_key
+   * @param {string} crypto_key_version
+   * @returns {string} Resource name string.
    */
   cryptoKeyVersionPath(
     project: string,
@@ -2613,13 +2688,78 @@ export class KeyManagementServiceClient {
   }
 
   /**
-   * Return a fully-qualified import_job resource name string.
+   * Parse the project from CryptoKeyVersion resource.
    *
-   * @param {String} project
-   * @param {String} location
-   * @param {String} keyRing
-   * @param {String} importJob
-   * @returns {String}
+   * @param {string} cryptoKeyVersionName
+   *   A fully-qualified path representing CryptoKeyVersion resource.
+   * @returns {string} A string representing the project.
+   */
+  matchProjectFromCryptoKeyVersionName(cryptoKeyVersionName: string) {
+    return this._pathTemplates.cryptoKeyVersionPathTemplate.match(
+      cryptoKeyVersionName
+    ).project;
+  }
+
+  /**
+   * Parse the location from CryptoKeyVersion resource.
+   *
+   * @param {string} cryptoKeyVersionName
+   *   A fully-qualified path representing CryptoKeyVersion resource.
+   * @returns {string} A string representing the location.
+   */
+  matchLocationFromCryptoKeyVersionName(cryptoKeyVersionName: string) {
+    return this._pathTemplates.cryptoKeyVersionPathTemplate.match(
+      cryptoKeyVersionName
+    ).location;
+  }
+
+  /**
+   * Parse the key_ring from CryptoKeyVersion resource.
+   *
+   * @param {string} cryptoKeyVersionName
+   *   A fully-qualified path representing CryptoKeyVersion resource.
+   * @returns {string} A string representing the key_ring.
+   */
+  matchKeyRingFromCryptoKeyVersionName(cryptoKeyVersionName: string) {
+    return this._pathTemplates.cryptoKeyVersionPathTemplate.match(
+      cryptoKeyVersionName
+    ).key_ring;
+  }
+
+  /**
+   * Parse the crypto_key from CryptoKeyVersion resource.
+   *
+   * @param {string} cryptoKeyVersionName
+   *   A fully-qualified path representing CryptoKeyVersion resource.
+   * @returns {string} A string representing the crypto_key.
+   */
+  matchCryptoKeyFromCryptoKeyVersionName(cryptoKeyVersionName: string) {
+    return this._pathTemplates.cryptoKeyVersionPathTemplate.match(
+      cryptoKeyVersionName
+    ).crypto_key;
+  }
+
+  /**
+   * Parse the crypto_key_version from CryptoKeyVersion resource.
+   *
+   * @param {string} cryptoKeyVersionName
+   *   A fully-qualified path representing CryptoKeyVersion resource.
+   * @returns {string} A string representing the crypto_key_version.
+   */
+  matchCryptoKeyVersionFromCryptoKeyVersionName(cryptoKeyVersionName: string) {
+    return this._pathTemplates.cryptoKeyVersionPathTemplate.match(
+      cryptoKeyVersionName
+    ).crypto_key_version;
+  }
+
+  /**
+   * Return a fully-qualified importJob resource name string.
+   *
+   * @param {string} project
+   * @param {string} location
+   * @param {string} key_ring
+   * @param {string} import_job
+   * @returns {string} Resource name string.
    */
   importJobPath(
     project: string,
@@ -2636,12 +2776,60 @@ export class KeyManagementServiceClient {
   }
 
   /**
-   * Return a fully-qualified key_ring resource name string.
+   * Parse the project from ImportJob resource.
    *
-   * @param {String} project
-   * @param {String} location
-   * @param {String} keyRing
-   * @returns {String}
+   * @param {string} importJobName
+   *   A fully-qualified path representing ImportJob resource.
+   * @returns {string} A string representing the project.
+   */
+  matchProjectFromImportJobName(importJobName: string) {
+    return this._pathTemplates.importJobPathTemplate.match(importJobName)
+      .project;
+  }
+
+  /**
+   * Parse the location from ImportJob resource.
+   *
+   * @param {string} importJobName
+   *   A fully-qualified path representing ImportJob resource.
+   * @returns {string} A string representing the location.
+   */
+  matchLocationFromImportJobName(importJobName: string) {
+    return this._pathTemplates.importJobPathTemplate.match(importJobName)
+      .location;
+  }
+
+  /**
+   * Parse the key_ring from ImportJob resource.
+   *
+   * @param {string} importJobName
+   *   A fully-qualified path representing ImportJob resource.
+   * @returns {string} A string representing the key_ring.
+   */
+  matchKeyRingFromImportJobName(importJobName: string) {
+    return this._pathTemplates.importJobPathTemplate.match(importJobName)
+      .key_ring;
+  }
+
+  /**
+   * Parse the import_job from ImportJob resource.
+   *
+   * @param {string} importJobName
+   *   A fully-qualified path representing ImportJob resource.
+   * @returns {string} A string representing the import_job.
+   */
+  matchImportJobFromImportJobName(importJobName: string) {
+    return this._pathTemplates.importJobPathTemplate.match(importJobName)
+      .import_job;
+  }
+
+  /**
+   * Return a fully-qualified keyRing resource name string.
+   *
+   * @param {string} project
+   * @param {string} location
+   * @param {string} key_ring
+   * @returns {string} Resource name string.
    */
   keyRingPath(project: string, location: string, keyRing: string) {
     return this._pathTemplates.keyRingPathTemplate.render({
@@ -2652,11 +2840,44 @@ export class KeyManagementServiceClient {
   }
 
   /**
+   * Parse the project from KeyRing resource.
+   *
+   * @param {string} keyRingName
+   *   A fully-qualified path representing KeyRing resource.
+   * @returns {string} A string representing the project.
+   */
+  matchProjectFromKeyRingName(keyRingName: string) {
+    return this._pathTemplates.keyRingPathTemplate.match(keyRingName).project;
+  }
+
+  /**
+   * Parse the location from KeyRing resource.
+   *
+   * @param {string} keyRingName
+   *   A fully-qualified path representing KeyRing resource.
+   * @returns {string} A string representing the location.
+   */
+  matchLocationFromKeyRingName(keyRingName: string) {
+    return this._pathTemplates.keyRingPathTemplate.match(keyRingName).location;
+  }
+
+  /**
+   * Parse the key_ring from KeyRing resource.
+   *
+   * @param {string} keyRingName
+   *   A fully-qualified path representing KeyRing resource.
+   * @returns {string} A string representing the key_ring.
+   */
+  matchKeyRingFromKeyRingName(keyRingName: string) {
+    return this._pathTemplates.keyRingPathTemplate.match(keyRingName).key_ring;
+  }
+
+  /**
    * Return a fully-qualified location resource name string.
    *
-   * @param {String} project
-   * @param {String} location
-   * @returns {String}
+   * @param {string} project
+   * @param {string} location
+   * @returns {string} Resource name string.
    */
   locationPath(project: string, location: string) {
     return this._pathTemplates.locationPathTemplate.render({
@@ -2666,221 +2887,28 @@ export class KeyManagementServiceClient {
   }
 
   /**
-   * Parse the cryptoKeyName from a crypto_key resource.
+   * Parse the project from Location resource.
    *
-   * @param {String} cryptoKeyName
-   *   A fully-qualified path representing a crypto_key resources.
-   * @returns {String} - A string representing the project.
-   */
-  matchProjectFromCryptoKeyName(cryptoKeyName: string) {
-    return this._pathTemplates.cryptoKeyPathTemplate.match(cryptoKeyName)
-      .project;
-  }
-
-  /**
-   * Parse the cryptoKeyName from a crypto_key resource.
-   *
-   * @param {String} cryptoKeyName
-   *   A fully-qualified path representing a crypto_key resources.
-   * @returns {String} - A string representing the location.
-   */
-  matchLocationFromCryptoKeyName(cryptoKeyName: string) {
-    return this._pathTemplates.cryptoKeyPathTemplate.match(cryptoKeyName)
-      .location;
-  }
-
-  /**
-   * Parse the cryptoKeyName from a crypto_key resource.
-   *
-   * @param {String} cryptoKeyName
-   *   A fully-qualified path representing a crypto_key resources.
-   * @returns {String} - A string representing the key_ring.
-   */
-  matchKeyRingFromCryptoKeyName(cryptoKeyName: string) {
-    return this._pathTemplates.cryptoKeyPathTemplate.match(cryptoKeyName)
-      .key_ring;
-  }
-
-  /**
-   * Parse the cryptoKeyName from a crypto_key resource.
-   *
-   * @param {String} cryptoKeyName
-   *   A fully-qualified path representing a crypto_key resources.
-   * @returns {String} - A string representing the crypto_key.
-   */
-  matchCryptoKeyFromCryptoKeyName(cryptoKeyName: string) {
-    return this._pathTemplates.cryptoKeyPathTemplate.match(cryptoKeyName)
-      .crypto_key;
-  }
-
-  /**
-   * Parse the cryptoKeyVersionName from a crypto_key_version resource.
-   *
-   * @param {String} cryptoKeyVersionName
-   *   A fully-qualified path representing a crypto_key_version resources.
-   * @returns {String} - A string representing the project.
-   */
-  matchProjectFromCryptoKeyVersionName(cryptoKeyVersionName: string) {
-    return this._pathTemplates.cryptoKeyVersionPathTemplate.match(
-      cryptoKeyVersionName
-    ).project;
-  }
-
-  /**
-   * Parse the cryptoKeyVersionName from a crypto_key_version resource.
-   *
-   * @param {String} cryptoKeyVersionName
-   *   A fully-qualified path representing a crypto_key_version resources.
-   * @returns {String} - A string representing the location.
-   */
-  matchLocationFromCryptoKeyVersionName(cryptoKeyVersionName: string) {
-    return this._pathTemplates.cryptoKeyVersionPathTemplate.match(
-      cryptoKeyVersionName
-    ).location;
-  }
-
-  /**
-   * Parse the cryptoKeyVersionName from a crypto_key_version resource.
-   *
-   * @param {String} cryptoKeyVersionName
-   *   A fully-qualified path representing a crypto_key_version resources.
-   * @returns {String} - A string representing the key_ring.
-   */
-  matchKeyRingFromCryptoKeyVersionName(cryptoKeyVersionName: string) {
-    return this._pathTemplates.cryptoKeyVersionPathTemplate.match(
-      cryptoKeyVersionName
-    ).key_ring;
-  }
-
-  /**
-   * Parse the cryptoKeyVersionName from a crypto_key_version resource.
-   *
-   * @param {String} cryptoKeyVersionName
-   *   A fully-qualified path representing a crypto_key_version resources.
-   * @returns {String} - A string representing the crypto_key.
-   */
-  matchCryptoKeyFromCryptoKeyVersionName(cryptoKeyVersionName: string) {
-    return this._pathTemplates.cryptoKeyVersionPathTemplate.match(
-      cryptoKeyVersionName
-    ).crypto_key;
-  }
-
-  /**
-   * Parse the cryptoKeyVersionName from a crypto_key_version resource.
-   *
-   * @param {String} cryptoKeyVersionName
-   *   A fully-qualified path representing a crypto_key_version resources.
-   * @returns {String} - A string representing the crypto_key_version.
-   */
-  matchCryptoKeyVersionFromCryptoKeyVersionName(cryptoKeyVersionName: string) {
-    return this._pathTemplates.cryptoKeyVersionPathTemplate.match(
-      cryptoKeyVersionName
-    ).crypto_key_version;
-  }
-
-  /**
-   * Parse the importJobName from a import_job resource.
-   *
-   * @param {String} importJobName
-   *   A fully-qualified path representing a import_job resources.
-   * @returns {String} - A string representing the project.
-   */
-  matchProjectFromImportJobName(importJobName: string) {
-    return this._pathTemplates.importJobPathTemplate.match(importJobName)
-      .project;
-  }
-
-  /**
-   * Parse the importJobName from a import_job resource.
-   *
-   * @param {String} importJobName
-   *   A fully-qualified path representing a import_job resources.
-   * @returns {String} - A string representing the location.
-   */
-  matchLocationFromImportJobName(importJobName: string) {
-    return this._pathTemplates.importJobPathTemplate.match(importJobName)
-      .location;
-  }
-
-  /**
-   * Parse the importJobName from a import_job resource.
-   *
-   * @param {String} importJobName
-   *   A fully-qualified path representing a import_job resources.
-   * @returns {String} - A string representing the key_ring.
-   */
-  matchKeyRingFromImportJobName(importJobName: string) {
-    return this._pathTemplates.importJobPathTemplate.match(importJobName)
-      .key_ring;
-  }
-
-  /**
-   * Parse the importJobName from a import_job resource.
-   *
-   * @param {String} importJobName
-   *   A fully-qualified path representing a import_job resources.
-   * @returns {String} - A string representing the import_job.
-   */
-  matchImportJobFromImportJobName(importJobName: string) {
-    return this._pathTemplates.importJobPathTemplate.match(importJobName)
-      .import_job;
-  }
-
-  /**
-   * Parse the keyRingName from a key_ring resource.
-   *
-   * @param {String} keyRingName
-   *   A fully-qualified path representing a key_ring resources.
-   * @returns {String} - A string representing the project.
-   */
-  matchProjectFromKeyRingName(keyRingName: string) {
-    return this._pathTemplates.keyRingPathTemplate.match(keyRingName).project;
-  }
-
-  /**
-   * Parse the keyRingName from a key_ring resource.
-   *
-   * @param {String} keyRingName
-   *   A fully-qualified path representing a key_ring resources.
-   * @returns {String} - A string representing the location.
-   */
-  matchLocationFromKeyRingName(keyRingName: string) {
-    return this._pathTemplates.keyRingPathTemplate.match(keyRingName).location;
-  }
-
-  /**
-   * Parse the keyRingName from a key_ring resource.
-   *
-   * @param {String} keyRingName
-   *   A fully-qualified path representing a key_ring resources.
-   * @returns {String} - A string representing the key_ring.
-   */
-  matchKeyRingFromKeyRingName(keyRingName: string) {
-    return this._pathTemplates.keyRingPathTemplate.match(keyRingName).key_ring;
-  }
-
-  /**
-   * Parse the locationName from a location resource.
-   *
-   * @param {String} locationName
-   *   A fully-qualified path representing a location resources.
-   * @returns {String} - A string representing the project.
+   * @param {string} locationName
+   *   A fully-qualified path representing Location resource.
+   * @returns {string} A string representing the project.
    */
   matchProjectFromLocationName(locationName: string) {
     return this._pathTemplates.locationPathTemplate.match(locationName).project;
   }
 
   /**
-   * Parse the locationName from a location resource.
+   * Parse the location from Location resource.
    *
-   * @param {String} locationName
-   *   A fully-qualified path representing a location resources.
-   * @returns {String} - A string representing the location.
+   * @param {string} locationName
+   *   A fully-qualified path representing Location resource.
+   * @returns {string} A string representing the location.
    */
   matchLocationFromLocationName(locationName: string) {
     return this._pathTemplates.locationPathTemplate.match(locationName)
       .location;
   }
+
   /**
    * Terminate the GRPC channel and close the client.
    *
@@ -2896,3 +2924,5 @@ export class KeyManagementServiceClient {
     return Promise.resolve();
   }
 }
+import {ImprovedKMSClient} from '../helper';
+export interface KeyManagementServiceClient extends ImprovedKMSClient {}

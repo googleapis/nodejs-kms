@@ -18,7 +18,9 @@
 
 import * as v1 from './v1';
 import {ImprovedKMSClient} from './helper';
-const KeyManagementServiceClient = ImprovedKMSClient;
+Object.assign(v1.KeyManagementServiceClient.prototype, ImprovedKMSClient);
+
+const KeyManagementServiceClient = v1.KeyManagementServiceClient;
 export {v1, KeyManagementServiceClient};
 // For compatibility with JavaScript libraries we need to provide this default export:
 // tslint:disable-next-line no-default-export

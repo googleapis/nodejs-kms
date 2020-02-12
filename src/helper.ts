@@ -14,40 +14,70 @@
  * limitations under the License.
  */
 
-import {KeyManagementServiceClient} from './v1/key_management_service_client';
 import * as gax from 'google-gax';
-import {ClientOptions} from 'google-gax';
+import {Descriptors, ClientOptions} from 'google-gax';
 import * as path from 'path';
 import * as gapicConfig from './v1/key_management_service_proto_list.json';
 import * as packagejson from '../package.json';
+import {ProjectIdCallback} from 'google-auth-library';
 const version = packagejson.version;
 
-export class ImprovedKMSClient extends KeyManagementServiceClient {
+export class ImprovedKMSClient {
+  private _descriptors1: Descriptors = {page: {}, stream: {}, longrunning: {}};
+  private _innerApiCalls1: {[name: string]: Function};
+  private _terminated1 = false;
+  auth: gax.GoogleAuth;
+
   constructor(opts?: ClientOptions) {
-    super(opts);
-    const nodejsProtoPath = path.join(__dirname, '..', 'protos', 'protos.json');
-    const protos = this.gaxGrpc.loadProto(
-      this.opts.fallback ? require('../protos/protos.json') : nodejsProtoPath
-    );
+    // Ensure that options include the service address and port.
+    const staticMembers = this.constructor as typeof ImprovedKMSClient;
+    const servicePath =
+      opts && opts.servicePath
+        ? opts.servicePath
+        : opts && opts.apiEndpoint
+        ? opts.apiEndpoint
+        : staticMembers.servicePath;
+    const port = opts && opts.port ? opts.port : staticMembers.port;
+
+    if (!opts) {
+      opts = {servicePath, port};
+    }
+    opts.servicePath = opts.servicePath || servicePath;
+    opts.port = opts.port || port;
+    opts.clientConfig = opts.clientConfig || {};
+
     const isBrowser = typeof window !== 'undefined';
     if (isBrowser) {
-      this.opts.fallback = true;
+      opts.fallback = true;
     }
-    const gaxModule = !isBrowser && this.opts.fallback ? gax.fallback : gax;
+    const gaxModule = !isBrowser && opts.fallback ? gax.fallback : gax;
+
+    // Create a `gaxGrpc` object, with any grpc-specific options
+    // sent to the client.
+    opts.scopes = (this.constructor as typeof ImprovedKMSClient).scopes;
+    const gaxGrpc = new gaxModule.GrpcClient(opts);
+
+    // Save the auth object to the client, for use by other methods.
+    this.auth = gaxGrpc.auth as gax.GoogleAuth;
     const clientHeader = [`gax/${gaxModule.version}`, `gapic/${version}`];
     if (typeof process !== 'undefined' && 'versions' in process) {
       clientHeader.push(`gl-node/${process.versions.node}`);
     } else {
       clientHeader.push(`gl-web/${gaxModule.version}`);
     }
-    if (!this.opts.fallback) {
-      clientHeader.push(`grpc/${this.gaxGrpc.grpcVersion}`);
+    if (!opts.fallback) {
+      clientHeader.push(`grpc/${gaxGrpc.grpcVersion}`);
     }
-    if (this.opts.libName && this.opts.libVersion) {
-      clientHeader.push(`${this.opts.libName}/${this.opts.libVersion}`);
+    if (opts.libName && opts.libVersion) {
+      clientHeader.push(`${opts.libName}/${opts.libVersion}`);
     }
+    const nodejsProtoPath = path.join(__dirname, '..', 'protos', 'protos.json');
+
+    const protos = gaxGrpc.loadProto(
+      opts.fallback ? require('../protos/protos.json') : nodejsProtoPath
+    );
     // Put together the default options sent with requests.
-    this.defaults = this.gaxGrpc.constructSettings(
+    const defaults = gaxGrpc.constructSettings(
       'google.cloud.kms.v1.KeyManagementService',
       gapicConfig as gax.ClientConfig,
       opts!.clientConfig || {},
@@ -55,14 +85,14 @@ export class ImprovedKMSClient extends KeyManagementServiceClient {
     );
     // Put together the "service stub" for
     // google.iam.v1.IAMPolicy.
-    const iamPolicyStub = this.gaxGrpc.createStub(
-      this.opts.fallback
+    const iamPolicyStub = gaxGrpc.createStub(
+      opts.fallback
         ? (protos as protobuf.Root).lookupService('google.iam.v1.IAMPolicy')
         : // tslint:disable-next-line no-any
           (protos as any).google.iam.v1.IAMPolicy,
-      this.opts
+      opts
     ) as Promise<{[method: string]: Function}>;
-
+    this._innerApiCalls1 = {};
     // Iterate over each of the methods that the service provides
     // and create an API call method for each.
     const iamPolicyStubMethods = [
@@ -74,7 +104,7 @@ export class ImprovedKMSClient extends KeyManagementServiceClient {
     for (const methodName of iamPolicyStubMethods) {
       const innerCallPromise = iamPolicyStub.then(
         stub => (...args: Array<{}>) => {
-          if (this._terminated) {
+          if (this._terminated1) {
             return Promise.reject('The client has already been closed.');
           }
           return stub[methodName].apply(stub, args);
@@ -83,12 +113,52 @@ export class ImprovedKMSClient extends KeyManagementServiceClient {
           throw err;
         }
       );
-      this._innerApiCalls[methodName] = gaxModule.createApiCall(
+      this._innerApiCalls1[methodName] = gaxModule.createApiCall(
         innerCallPromise,
-        this.defaults[methodName],
-        this._descriptors.page[methodName]
+        defaults[methodName],
+        this._descriptors1.page[methodName]
       );
     }
+  }
+
+  /**
+   * The DNS address for this API service.
+   */
+  static get servicePath() {
+    return 'cloudkms.googleapis.com';
+  }
+
+  /**
+   * The DNS address for this API service - same as servicePath(),
+   * exists for compatibility reasons.
+   */
+  static get apiEndpoint() {
+    return 'cloudkms.googleapis.com';
+  }
+
+  /**
+   * The port for this API service.
+   */
+  static get port() {
+    return 443;
+  }
+  /**
+   * The scopes needed to make gRPC calls for every method defined
+   * in this service.
+   */
+  static get scopes() {
+    return [
+      'https://www.googleapis.com/auth/cloud-platform',
+      'https://www.googleapis.com/auth/cloudkms',
+    ];
+  }
+  /**
+   * Return the project ID used by this class.
+   * @param {function(Error, string)} callback - the callback to
+   *   be called with the current project Id.
+   */
+  getProjectId(callback: ProjectIdCallback) {
+    return this.auth.getProjectId(callback);
   }
 
   getIamPolicy(
@@ -110,7 +180,7 @@ export class ImprovedKMSClient extends KeyManagementServiceClient {
       resource: request.resource,
     });
 
-    return this._innerApiCalls.getIamPolicy(request, options, callback);
+    return this._innerApiCalls1.getIamPolicy(request, options, callback);
   }
 
   setIamPolicy(
@@ -132,7 +202,7 @@ export class ImprovedKMSClient extends KeyManagementServiceClient {
       resource: request.resource,
     });
 
-    return this._innerApiCalls.setIamPolicy(request, options, callback);
+    return this._innerApiCalls1.setIamPolicy(request, options, callback);
   }
   testIamPermissions(
     request: {resource: string},
@@ -153,6 +223,6 @@ export class ImprovedKMSClient extends KeyManagementServiceClient {
       resource: request.resource,
     });
 
-    return this._innerApiCalls.testIamPermissions(request, options, callback);
+    return this._innerApiCalls1.testIamPermissions(request, options, callback);
   }
 }
