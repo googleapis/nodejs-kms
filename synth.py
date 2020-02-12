@@ -56,7 +56,7 @@ with open(list_json, 'w') as f:
 
 # surgery in client.ts file
 client_file='src/v1/key_management_service_client.ts'
-s.replace(f'src/{version}/{name}_client.ts', r'\Z', '\n' + 
+s.replace(client_file, r'\Z', '\n' + 
 "import {ImprovedKMSClient} from '../helper';\n" +
 'export interface KeyManagementServiceClient extends ImprovedKMSClient {}\n'
 )

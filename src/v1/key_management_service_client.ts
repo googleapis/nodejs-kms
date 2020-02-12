@@ -23,6 +23,8 @@ import {
   CallOptions,
   Descriptors,
   ClientOptions,
+  PaginationCallback,
+  PaginationResponse,
 } from 'google-gax';
 import * as path from 'path';
 
@@ -2924,5 +2926,6 @@ export class KeyManagementServiceClient {
     return Promise.resolve();
   }
 }
+
 import {ImprovedKMSClient} from '../helper';
 export interface KeyManagementServiceClient extends ImprovedKMSClient {}

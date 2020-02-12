@@ -1,13 +1,12 @@
 {
-  "updateTime": "2020-02-12T19:11:41.150626Z",
+  "updateTime": "2020-02-12T19:48:42.682464Z",
   "sources": [
     {
       "git": {
         "name": "googleapis",
         "remote": "https://github.com/googleapis/googleapis.git",
         "sha": "d5e8a8953f2acdfe96fb15e85eb2f33739623957",
-        "internalRef": "294703703",
-        "log": "d5e8a8953f2acdfe96fb15e85eb2f33739623957\nMove bigquery datatransfer to gapic v2.\n\nPiperOrigin-RevId: 294703703\n\nefd36705972cfcd7d00ab4c6dfa1135bafacd4ae\nfix: Add two annotations that we missed.\n\nPiperOrigin-RevId: 294664231\n\n"
+        "internalRef": "294703703"
       }
     },
     {
