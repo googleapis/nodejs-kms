@@ -167,6 +167,7 @@ export class IamClient {
     options: gax.CallOptions,
     callback: {}
   ) {
+    console.warn('calling getIamPolicy');
     if (options instanceof Function && callback === undefined) {
       callback = options;
       options = {};
