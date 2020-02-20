@@ -28,6 +28,8 @@ const execSync = cmd => cp.execSync(cmd, {encoding: 'utf-8'});
 const keyRingName = `test-ring-${uuidv4()}`;
 const keyNameOne = `test-key-${uuidv4()}`;
 const projectId = process.env.GCLOUD_PROJECT;
+const member = 'user:dev@example.com';
+const role = 'roles/viewer';
 const plaintext = path.join(__dirname, `../resources/plaintext.txt`);
 const ciphertext = path.join(__dirname, `../resources/plaintext.txt.encrypted`);
 const decrypted = path.join(__dirname, `../resources/plaintext.txt.decrypted`);

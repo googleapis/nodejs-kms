@@ -36,13 +36,16 @@ async function addMemberToCryptoKeyPolicy(
     keyRingId,
     cryptoKeyId
   );
-
+  console.warn('resource: ', resource);
   // Gets the IAM policy of a crypto key
   const [result] = await client.getIamPolicy({resource});
+  console.warn('result: ', result);
   let policy = Object.assign({bindings: []}, result);
+  console.warn('policy: ', policy);
   const index = policy.bindings.findIndex(binding => binding.role === role);
-
+  console.warn('index:', index)
   // Add the role/member combo to the policy
+  console.warn('adding role/member to the policy');
   const members = [];
   const binding = Object.assign({role, members}, policy.bindings[index]);
   if (index === -1) {
@@ -54,6 +57,7 @@ async function addMemberToCryptoKeyPolicy(
 
   // Adds the member/role combo to the policy of the crypto key
   [policy] = await client.setIamPolicy({resource, policy});
+  console.warn('policy after adding member/role to crypto key: ', policy);
   console.log(
     `${member}/${role} combo added to policy for crypto key ${cryptoKeyId}.`
   );
@@ -73,4 +77,5 @@ async function addMemberToCryptoKeyPolicy(
 // [END kms_add_member_to_cryptokey_policy]
 
 const args = process.argv.slice(2);
+console.warn('args: ', args);
 addMemberToCryptoKeyPolicy(...args).catch(console.error);
