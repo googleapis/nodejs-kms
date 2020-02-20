@@ -17,20 +17,21 @@
 import * as gax from 'google-gax';
 import {Descriptors, ClientOptions} from 'google-gax';
 import * as path from 'path';
-import * as gapicConfig from './v1/key_management_service_proto_list.json';
+import * as gapicConfig from './iam_policy_service_client_config.json';
 import * as packagejson from '../package.json';
 import {ProjectIdCallback} from 'google-auth-library';
 const version = packagejson.version;
 
-export class ImprovedKMSClient {
-  private _descriptors1: Descriptors = {page: {}, stream: {}, longrunning: {}};
-  private _innerApiCalls1: {[name: string]: Function};
-  private _terminated1 = false;
-  auth: gax.GoogleAuth;
+export class IamClient {
+  private _descriptors: Descriptors = {page: {}, stream: {}, longrunning: {}};
+  private _innerApiCalls: {[name: string]: Function} = {};
+  private _terminated = false;
+  // tslint:disable-next-line no-any
+  auth: any;
 
-  constructor(opts?: ClientOptions) {
+  setupIamClient(opts?: ClientOptions) {
     // Ensure that options include the service address and port.
-    const staticMembers = this.constructor as typeof ImprovedKMSClient;
+    const staticMembers = this.constructor as typeof IamClient;
     const servicePath =
       opts && opts.servicePath
         ? opts.servicePath
@@ -54,7 +55,7 @@ export class ImprovedKMSClient {
 
     // Create a `gaxGrpc` object, with any grpc-specific options
     // sent to the client.
-    opts.scopes = (this.constructor as typeof ImprovedKMSClient).scopes;
+    opts.scopes = (this.constructor as typeof IamClient).scopes;
     const gaxGrpc = new gaxModule.GrpcClient(opts);
 
     // Save the auth object to the client, for use by other methods.
@@ -78,7 +79,7 @@ export class ImprovedKMSClient {
     );
     // Put together the default options sent with requests.
     const defaults = gaxGrpc.constructSettings(
-      'google.cloud.kms.v1.KeyManagementService',
+      'google.iam.v1.IAMPolicy',
       gapicConfig as gax.ClientConfig,
       opts!.clientConfig || {},
       {'x-goog-api-client': clientHeader.join(' ')}
@@ -92,19 +93,20 @@ export class ImprovedKMSClient {
           (protos as any).google.iam.v1.IAMPolicy,
       opts
     ) as Promise<{[method: string]: Function}>;
-    this._innerApiCalls1 = {};
+    this._innerApiCalls = {};
     // Iterate over each of the methods that the service provides
     // and create an API call method for each.
     const iamPolicyStubMethods = [
-      'setIamPolicy',
       'getIamPolicy',
+      'setIamPolicy',
       'testIamPermissions',
     ];
 
     for (const methodName of iamPolicyStubMethods) {
+      // const test = iamPolicyStub.then(stub => {console.warn('testing stub', stub)})
       const innerCallPromise = iamPolicyStub.then(
         stub => (...args: Array<{}>) => {
-          if (this._terminated1) {
+          if (this._terminated) {
             return Promise.reject('The client has already been closed.');
           }
           return stub[methodName].apply(stub, args);
@@ -113,10 +115,10 @@ export class ImprovedKMSClient {
           throw err;
         }
       );
-      this._innerApiCalls1[methodName] = gaxModule.createApiCall(
+      this._innerApiCalls[methodName] = gaxModule.createApiCall(
         innerCallPromise,
         defaults[methodName],
-        this._descriptors1.page[methodName]
+        this._descriptors.page[methodName]
       );
     }
   }
@@ -180,7 +182,7 @@ export class ImprovedKMSClient {
       resource: request.resource,
     });
 
-    return this._innerApiCalls1.getIamPolicy(request, options, callback);
+    return this._innerApiCalls.getIamPolicy(request, options, callback);
   }
 
   setIamPolicy(
@@ -202,7 +204,7 @@ export class ImprovedKMSClient {
       resource: request.resource,
     });
 
-    return this._innerApiCalls1.setIamPolicy(request, options, callback);
+    return this._innerApiCalls.setIamPolicy(request, options, callback);
   }
   testIamPermissions(
     request: {resource: string},
@@ -223,6 +225,6 @@ export class ImprovedKMSClient {
       resource: request.resource,
     });
 
-    return this._innerApiCalls1.testIamPermissions(request, options, callback);
+    return this._innerApiCalls.testIamPermissions(request, options, callback);
   }
 }

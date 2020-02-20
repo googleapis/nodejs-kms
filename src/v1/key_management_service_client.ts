@@ -31,6 +31,7 @@ import * as path from 'path';
 import {Transform} from 'stream';
 import * as protosTypes from '../../protos/protos';
 import * as gapicConfig from './key_management_service_client_config.json';
+import {IamClient} from '../helper';
 
 const version = require('../../../package.json').version;
 
@@ -55,6 +56,8 @@ export class KeyManagementServiceClient {
   private _innerApiCalls: {[name: string]: Function};
   private _pathTemplates: {[name: string]: gax.PathTemplate};
   private _terminated = false;
+  // tslint:disable-next-line no-any
+  private _iamClient: any;
   auth: gax.GoogleAuth;
   keyManagementServiceStub: Promise<{[name: string]: Function}>;
 
@@ -121,7 +124,8 @@ export class KeyManagementServiceClient {
 
     // Save the auth object to the client, for use by other methods.
     this.auth = gaxGrpc.auth as gax.GoogleAuth;
-
+    this._iamClient = new IamClient();
+    this._iamClient.setupIamClient(opts);
     // Determine the client header string.
     const clientHeader = [`gax/${gaxModule.version}`, `gapic/${version}`];
     if (typeof process !== 'undefined' && 'versions' in process) {
@@ -253,6 +257,7 @@ export class KeyManagementServiceClient {
     for (const methodName of keyManagementServiceStubMethods) {
       const innerCallPromise = this.keyManagementServiceStub.then(
         stub => (...args: Array<{}>) => {
+          console.warn('applying args to stub: ', args);
           if (this._terminated) {
             return Promise.reject('The client has already been closed.');
           }
@@ -2925,7 +2930,26 @@ export class KeyManagementServiceClient {
     }
     return Promise.resolve();
   }
-}
 
-import {ImprovedKMSClient} from '../helper';
-export interface KeyManagementServiceClient extends ImprovedKMSClient {}
+  getIamPolicy(
+    request: {resource: string},
+    options: gax.CallOptions,
+    callback: {}
+  ) {
+    this._iamClient.getIamPolicy(request, options, callback);
+  }
+  setIamPolicy(
+    request: {resource: string},
+    options: gax.CallOptions,
+    callback: {}
+  ) {
+    this._iamClient.setIamPolicy(request, options, callback);
+  }
+  testIamPermissions(
+    request: {resource: string},
+    options: gax.CallOptions,
+    callback: {}
+  ) {
+    this._iamClient.testIamPermissions(request, options, callback);
+  }
+}

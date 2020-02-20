@@ -17,12 +17,6 @@
 // ** All changes to this file may be overwritten. **
 
 import * as v1 from './v1';
-import {ImprovedKMSClient} from './helper';
-Object.assign(
-  v1.KeyManagementServiceClient.prototype,
-  ImprovedKMSClient.prototype
-);
-
 const KeyManagementServiceClient = v1.KeyManagementServiceClient;
 export {v1, KeyManagementServiceClient};
 // For compatibility with JavaScript libraries we need to provide this default export:
