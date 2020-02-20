@@ -32,7 +32,7 @@
     "test": "c8 mocha build/test",
     "samples-test": "cd samples/ && npm link ../ && npm install && npm test && cd ../",
     "system-test": "mocha build/system-test",
-    "lint": "gts fix && eslint --fix samples/*.js",
+    "lint": "gts fix && cd samples/ && npm install && cd .. && eslint --fix samples/*.js",
     "fix": "gts fix",
     "docs": "jsdoc -c .jsdoc.js",
     "docs-test": "linkinator docs",
