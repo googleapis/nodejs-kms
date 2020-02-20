@@ -257,7 +257,6 @@ export class KeyManagementServiceClient {
     for (const methodName of keyManagementServiceStubMethods) {
       const innerCallPromise = this.keyManagementServiceStub.then(
         stub => (...args: Array<{}>) => {
-          console.warn('applying args to stub: ', args);
           if (this._terminated) {
             return Promise.reject('The client has already been closed.');
           }

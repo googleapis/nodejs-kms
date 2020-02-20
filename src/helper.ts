@@ -103,7 +103,6 @@ export class IamClient {
     ];
 
     for (const methodName of iamPolicyStubMethods) {
-      // const test = iamPolicyStub.then(stub => {console.warn('testing stub', stub)})
       const innerCallPromise = iamPolicyStub.then(
         stub => (...args: Array<{}>) => {
           if (this._terminated) {
