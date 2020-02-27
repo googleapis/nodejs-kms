@@ -170,6 +170,7 @@ export class IamClient {
     callback?: protosTypes.google.iam.v1.IAMPolicy.GetIamPolicyCallback
   ): Promise<protosTypes.google.iam.v1.Policy> {
     console.warn('calling getIamPolicy');
+    console.warn('request: ', request)
     if (options instanceof Function && callback === undefined) {
       callback = (options as unknown) as protosTypes.google.iam.v1.IAMPolicy.GetIamPolicyCallback;
       options = {};
@@ -183,7 +184,13 @@ export class IamClient {
     ] = gax.routingHeader.fromParams({
       resource: request.resource,
     });
-
+    if(options){
+      console.warn('options: ', options);
+    }
+    if(callback){
+      console.warn('callback: ', callback);
+    }
+    console.warn('calling inner api call....');
     return this._innerApiCalls.getIamPolicy(request, options, callback);
   }
   setIamPolicy(request: protosTypes.google.iam.v1.SetIamPolicyRequest): void;
