@@ -20,6 +20,7 @@ import * as path from 'path';
 import * as gapicConfig from './iam_policy_service_client_config.json';
 import * as packagejson from '../package.json';
 import {ProjectIdCallback} from 'google-auth-library';
+import * as protosTypes from '../protos/protos';
 const version = packagejson.version;
 
 export class IamClient {
@@ -162,14 +163,15 @@ export class IamClient {
     return this.auth.getProjectId(callback);
   }
 
+  getIamPolicy(request: protosTypes.google.iam.v1.GetIamPolicyRequest): void;
   getIamPolicy(
-    request: {resource: string},
-    options: gax.CallOptions,
-    callback: {}
-  ) {
+    request: protosTypes.google.iam.v1.GetIamPolicyRequest,
+    options?: gax.CallOptions,
+    callback?: protosTypes.google.iam.v1.IAMPolicy.GetIamPolicyCallback
+  ): Promise<protosTypes.google.iam.v1.Policy> {
     console.warn('calling getIamPolicy');
     if (options instanceof Function && callback === undefined) {
-      callback = options;
+      callback = (options as unknown) as protosTypes.google.iam.v1.IAMPolicy.GetIamPolicyCallback;
       options = {};
     }
     request = request || {};
@@ -184,14 +186,14 @@ export class IamClient {
 
     return this._innerApiCalls.getIamPolicy(request, options, callback);
   }
-
+  setIamPolicy(request: protosTypes.google.iam.v1.SetIamPolicyRequest): void;
   setIamPolicy(
-    request: {resource: string},
-    options: gax.CallOptions,
-    callback: {}
-  ) {
+    request: protosTypes.google.iam.v1.SetIamPolicyRequest,
+    options?: gax.CallOptions,
+    callback?: protosTypes.google.iam.v1.IAMPolicy.SetIamPolicyCallback
+  ): Promise<protosTypes.google.iam.v1.Policy> {
     if (options instanceof Function && callback === undefined) {
-      callback = options;
+      callback = (options as unknown) as protosTypes.google.iam.v1.IAMPolicy.SetIamPolicyCallback;
       options = {};
     }
     request = request || {};
@@ -207,12 +209,15 @@ export class IamClient {
     return this._innerApiCalls.setIamPolicy(request, options, callback);
   }
   testIamPermissions(
-    request: {resource: string},
-    options: gax.CallOptions,
-    callback: {}
+    request: protosTypes.google.iam.v1.TestIamPermissionsRequest
+  ): void;
+  testIamPermissions(
+    request: protosTypes.google.iam.v1.TestIamPermissionsRequest,
+    options?: gax.CallOptions,
+    callback?: protosTypes.google.iam.v1.IAMPolicy.TestIamPermissionsCallback
   ) {
     if (options instanceof Function && callback === undefined) {
-      callback = options;
+      callback = (options as unknown) as protosTypes.google.iam.v1.IAMPolicy.TestIamPermissionsCallback;
       options = {};
     }
     request = request || {};
