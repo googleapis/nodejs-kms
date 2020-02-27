@@ -2935,20 +2935,20 @@ export class KeyManagementServiceClient {
     options: gax.CallOptions,
     callback: {}
   ) {
-    this._iamClient.getIamPolicy(request, options, callback);
+    return this._iamClient.getIamPolicy(request, options, callback);
   }
   setIamPolicy(
     request: {resource: string},
     options: gax.CallOptions,
     callback: {}
   ) {
-    this._iamClient.setIamPolicy(request, options, callback);
+    return this._iamClient.setIamPolicy(request, options, callback);
   }
   testIamPermissions(
     request: {resource: string},
     options: gax.CallOptions,
     callback: {}
   ) {
-    this._iamClient.testIamPermissions(request, options, callback);
+    return this._iamClient.testIamPermissions(request, options, callback);
   }
 }
