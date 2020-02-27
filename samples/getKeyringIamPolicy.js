@@ -31,7 +31,6 @@ async function getKeyRingIamPolicy(
 
   // Gets the IAM policy of a key ring
   const [policy] = await client.getIamPolicy({resource});
-  console.warn('policy: ', policy);
   if (policy.bindings && policy.bindings.length > 0) {
     policy.bindings.forEach(binding => {
       if (binding.members && binding.members.length) {
