@@ -27,9 +27,9 @@ const execSync = cmd => cp.execSync(cmd, {encoding: 'utf-8'});
 
 const keyRingName = `test-ring-${uuidv4()}`;
 const keyNameOne = `test-key-${uuidv4()}`;
+const member = `allAuthenticatedUsers`;
+const role = `roles/viewer`;
 const projectId = process.env.GCLOUD_PROJECT;
-const member = 'user:dev@example.com';
-const role = 'roles/viewer';
 const plaintext = path.join(__dirname, `../resources/plaintext.txt`);
 const ciphertext = path.join(__dirname, `../resources/plaintext.txt.encrypted`);
 const decrypted = path.join(__dirname, `../resources/plaintext.txt.decrypted`);
@@ -301,7 +301,7 @@ describe('kms sample tests', () => {
   });
 
   describe('asymmetric keys', () => {
-    const kms = require('@google-cloud/kms');
+    const kms = require('../../src');
     const client = new kms.KeyManagementServiceClient();
 
     const locationId = `global`;
