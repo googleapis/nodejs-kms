@@ -124,6 +124,7 @@ export class KeyManagementServiceClient {
 
     // Save the auth object to the client, for use by other methods.
     this.auth = gaxGrpc.auth as gax.GoogleAuth;
+
     this._iamClient = new IamClient();
     this._iamClient.setupIamClient(opts);
     // Determine the client header string.

@@ -19,6 +19,7 @@ import synthtool.gcp as gcp
 import logging
 import subprocess
 import json
+import os
 
 logging.basicConfig(level=logging.DEBUG)
 
@@ -56,11 +57,21 @@ with open(list_json, 'w') as f:
 
 # surgery in client.ts file
 client_file='src/v1/key_management_service_client.ts'
-s.replace(client_file, r'\Z', '\n' + 
-"import {ImprovedKMSClient} from '../helper';\n" +
-'export interface KeyManagementServiceClient extends ImprovedKMSClient {}\n'
-)
+s.replace(client_file, 
+'import \* as gapicConfig from \'\.\/key_management_service_client_config\.json\';',
+'import * as gapicConfig from \'./key_management_service_client_config.json\'; import {IamClient} from \'../helper\';')
 
+s.replace(client_file, 
+'private \_terminated = false;', 
+'private _terminated = false; \n   // tslint:disable-next-line no-any \n private _iamClient: any;')
+
+s.replace(client_file,
+'\/\/ Determine the client header string.', 
+'this._iamClient = new IamClient(); \n this._iamClient.setupIamClient(opts); \n // Determine the client header string.')
+
+with open('helperMethods.txt', 'r') as helper_file:
+    content = helper_file.read()
+s.replace(client_file, '^}', content)
 # Node.js specific cleanup
 subprocess.run(['npm', 'install'])
 subprocess.run(['npm', 'run', 'fix'])
