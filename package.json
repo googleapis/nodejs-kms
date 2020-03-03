@@ -9,7 +9,7 @@
   },
   "repository": "googleapis/nodejs-kms",
   "main": "build/src/index.js",
-  "zzfiles": [
+  "files": [
     "build/protos",
     "build/src",
     "AUTHORS",

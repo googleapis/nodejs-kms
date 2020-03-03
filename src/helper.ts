@@ -18,10 +18,9 @@ import * as gax from 'google-gax';
 import {Descriptors, ClientOptions} from 'google-gax';
 import * as path from 'path';
 import * as gapicConfig from './iam_policy_service_client_config.json';
-import * as packagejson from '../package.json';
 import {ProjectIdCallback} from 'google-auth-library';
 import * as protosTypes from '../protos/protos';
-const version = packagejson.version;
+const version = require('../../package.json').version;
 
 export class IamClient {
   private _descriptors: Descriptors = {page: {}, stream: {}, longrunning: {}};
