@@ -69,7 +69,7 @@ s.replace(client_file,
 '\/\/ Determine the client header string.', 
 'this._iamClient = new IamClient(); \n this._iamClient.setupIamClient(opts); \n // Determine the client header string.')
 
-with open('helperMethods.txt', 'r') as helper_file:
+with open('helperMethods.tmpl', 'r') as helper_file:
     content = helper_file.read()
 s.replace(client_file, '^}', content)
 # Node.js specific cleanup
