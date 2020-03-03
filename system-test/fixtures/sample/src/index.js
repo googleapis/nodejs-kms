@@ -21,7 +21,7 @@
 const kms = require('@google-cloud/kms');
 
 function main() {
-  const keyManagementServiceClient = new kms.KeyManagementServiceClient();
+  const keyManagementServiceClient = new kms.v1.KeyManagementServiceClient();
 }
 
 main();

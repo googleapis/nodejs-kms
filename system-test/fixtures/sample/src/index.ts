@@ -16,10 +16,9 @@
 // ** https://github.com/googleapis/gapic-generator-typescript **
 // ** All changes to this file may be overwritten. **
 
-import {KeyManagementServiceClient} from '@google-cloud/kms';
-
+import * as kms from '@google-cloud/kms';
 function main() {
-  const keyManagementServiceClient = new KeyManagementServiceClient();
+  const keyManagementServiceClient = new kms.v1.KeyManagementServiceClient();
 }
 
 main();
