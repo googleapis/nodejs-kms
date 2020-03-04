@@ -1,13 +1,12 @@
 {
-  "updateTime": "2020-03-04T18:17:00.361517Z",
+  "updateTime": "2020-03-04T18:21:48.200877Z",
   "sources": [
     {
       "git": {
         "name": "googleapis",
         "remote": "https://github.com/googleapis/googleapis.git",
         "sha": "fd5b3b8238d783b04692a113ffe07c0363f5de0f",
-        "internalRef": "298847934",
-        "log": "fd5b3b8238d783b04692a113ffe07c0363f5de0f\ngenerate webrisk v1 proto\n\nPiperOrigin-RevId: 298847934\n\n"
+        "internalRef": "298847934"
       }
     },
     {

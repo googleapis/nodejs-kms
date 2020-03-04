@@ -70,7 +70,7 @@ s.replace(client_file,
 
 s.replace(client_file,
 '\/\/ Determine the client header string.', 
-'this._iamClient = new IamClient(); \n this._iamClient.setupIamClient(opts); \n // Determine the client header string.')
+'this._iamClient = new IamClient(opts); \n // Determine the client header string.')
 
 with open('helperMethods.ts.tmpl', 'r') as helper_file:
     content = helper_file.read()

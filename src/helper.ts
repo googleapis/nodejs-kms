@@ -32,10 +32,9 @@ export class IamClient {
   private _descriptors: Descriptors = {page: {}, stream: {}, longrunning: {}};
   private _innerApiCalls: {[name: string]: Function} = {};
   private _terminated = false;
-  // tslint:disable-next-line no-any
-  auth: any;
+  auth: gax.GoogleAuth;
 
-  setupIamClient(opts?: ClientOptions) {
+  constructor(opts?: ClientOptions) {
     // Ensure that options include the service address and port.
     const staticMembers = this.constructor as typeof IamClient;
     const servicePath =
