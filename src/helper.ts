@@ -22,7 +22,7 @@ import * as path from 'path';
 import * as gapicConfig from './iam_policy_service_client_config.json';
 import {ProjectIdCallback} from 'google-auth-library';
 import * as protosTypes from '../protos/protos';
-const version = require('../../package.json').version;
+const {version} = require('../../package.json');
 /**
  *  Google Cloud IAM Client.
  *  This is manually written for providing methods [setIamPolicy, getIamPolicy, testIamPerssion] to the KMS client.
