@@ -66,7 +66,7 @@ s.replace(client_file,
 
 s.replace(client_file, 
 'private \_terminated = false;', 
-'private _terminated = false; \n   // tslint:disable-next-line no-any \n private _iamClient: any;')
+'private _terminated = false; \n private _iamClient: IamClient;')
 
 s.replace(client_file,
 '\/\/ Determine the client header string.', 
