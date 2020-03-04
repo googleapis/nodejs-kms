@@ -1,12 +1,13 @@
 {
-  "updateTime": "2020-03-04T18:21:48.200877Z",
+  "updateTime": "2020-03-04T18:39:31.865109Z",
   "sources": [
     {
       "git": {
         "name": "googleapis",
         "remote": "https://github.com/googleapis/googleapis.git",
-        "sha": "fd5b3b8238d783b04692a113ffe07c0363f5de0f",
-        "internalRef": "298847934"
+        "sha": "c9f5e9c4bfed54bbd09227e990e7bded5f90f31c",
+        "internalRef": "298883309",
+        "log": "c9f5e9c4bfed54bbd09227e990e7bded5f90f31c\nRemove out of date documentation for predicate support on the Storage API\n\nPiperOrigin-RevId: 298883309\n\n"
       }
     },
     {
