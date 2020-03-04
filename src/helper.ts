@@ -26,7 +26,7 @@ const version = require('../../package.json').version;
 /**
  *  Google Cloud IAM Client.
  *  This is manually written for providing methods [setIamPolicy, getIamPolicy, testIamPerssion] to the KMS client.
- *  We don't support it now in micro-generators. 
+ *  We don't support it now in micro-generators.
  *  New feature request link: [https://github.com/googleapis/gapic-generator-typescript/issues/315]
  */
 export class IamClient {

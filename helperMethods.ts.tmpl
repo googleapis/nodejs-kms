@@ -1,11 +1,13 @@
-// This part will be added into src/v1/key_management_service_client.ts by synth.py.
-// KMS service requires IAM client for [setIamPolicy, getIamPolicy, testIamPerssion] methods.
-// But we don't support it now in micro-generators for rerouting one service to another and mix them in. 
-// New feature request link: [https://github.com/googleapis/gapic-generator-typescript/issues/315]
-// 
-// So this is manually written for providing methods to the KMS client.
-// IamClient is created for KMS client in the constructor using src/helper.ts.
-// [setIamPolicy, getIamPolicy, testIamPerssion] methods are created which is calling the corresponding methods from IamClient in `helper.ts` 
+  /**
+   * This part will be added into src/v1/key_management_service_client.ts by synth.py.
+   * KMS service requires IAM client for [setIamPolicy, getIamPolicy, testIamPerssion] methods.
+   * But we don't support it now in micro-generators for rerouting one service to another and mix them in.
+   * New feature request link: [https://github.com/googleapis/gapic-generator-typescript/issues/315]
+   *
+   * So this is manually written for providing methods to the KMS client.
+   * IamClient is created for KMS client in the constructor using src/helper.ts.
+   * [setIamPolicy, getIamPolicy, testIamPerssion] methods are created which is calling the corresponding methods from IamClient in `helper.ts`.
+   */
 
   getIamPolicy(
     request: {resource: string},
