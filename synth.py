@@ -45,7 +45,10 @@ for version in versions:
 common_templates = gcp.CommonTemplates()
 templates = common_templates.node_library(source_location='build/src')
 s.copy(templates)
-# remove unneeded protos in proto_list.json
+# Remove unneeded protos in proto_list.json
+# In micro-generators, we do have default multiple common protos set as dependencies.
+# But if the proto is also specified in protoc command (used to generating client libraries), 
+# protoc command will fail becasue of the repetition and force us to remove the duplicate protos reference
 list_json='src/v1/key_management_service_proto_list.json'
 remove_proto_keywords=['/google/api', '/google/protobuf', 'google/type']
 with open(list_json, 'r') as f:

@@ -23,7 +23,11 @@ import * as gapicConfig from './iam_policy_service_client_config.json';
 import {ProjectIdCallback} from 'google-auth-library';
 import * as protosTypes from '../protos/protos';
 const version = require('../../package.json').version;
-
+/**
+ *  Google Cloud IAM Client.
+ *  This is manually written for providing methods [setIamPolicy, getIamPolicy, testIamPerssion] to the KMS client.
+ *  We don't support it now in micro-generators.
+ */
 export class IamClient {
   private _descriptors: Descriptors = {page: {}, stream: {}, longrunning: {}};
   private _innerApiCalls: {[name: string]: Function} = {};
