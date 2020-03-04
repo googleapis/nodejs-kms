@@ -1,13 +1,13 @@
 {
-  "updateTime": "2020-03-04T01:04:24.109428Z",
+  "updateTime": "2020-03-04T18:17:00.361517Z",
   "sources": [
     {
       "git": {
         "name": "googleapis",
         "remote": "https://github.com/googleapis/googleapis.git",
-        "sha": "541b1ded4abadcc38e8178680b0677f65594ea6f",
-        "internalRef": "298686266",
-        "log": "541b1ded4abadcc38e8178680b0677f65594ea6f\nUpdate cloud asset api v1p4beta1.\n\nPiperOrigin-RevId: 298686266\n\n"
+        "sha": "fd5b3b8238d783b04692a113ffe07c0363f5de0f",
+        "internalRef": "298847934",
+        "log": "fd5b3b8238d783b04692a113ffe07c0363f5de0f\ngenerate webrisk v1 proto\n\nPiperOrigin-RevId: 298847934\n\n"
       }
     },
     {
