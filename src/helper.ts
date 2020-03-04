@@ -218,7 +218,7 @@ export class IamClient {
     request: protosTypes.google.iam.v1.TestIamPermissionsRequest,
     options?: gax.CallOptions,
     callback?: protosTypes.google.iam.v1.IAMPolicy.TestIamPermissionsCallback
-  ) {
+  ): Promise<protosTypes.google.iam.v1.TestIamPermissionsResponse> {
     if (options instanceof Function && callback === undefined) {
       callback = (options as unknown) as protosTypes.google.iam.v1.IAMPolicy.TestIamPermissionsCallback;
       options = {};
@@ -235,4 +235,26 @@ export class IamClient {
 
     return this._innerApiCalls.testIamPermissions(request, options, callback);
   }
+}
+export interface IamClient {
+  getIamPolicy(request: protosTypes.google.iam.v1.GetIamPolicyRequest): void;
+  getIamPolicy(
+    request: protosTypes.google.iam.v1.GetIamPolicyRequest,
+    options?: gax.CallOptions,
+    callback?: protosTypes.google.iam.v1.IAMPolicy.GetIamPolicyCallback
+  ): Promise<protosTypes.google.iam.v1.Policy>;
+  setIamPolicy(request: protosTypes.google.iam.v1.SetIamPolicyRequest): void;
+  setIamPolicy(
+    request: protosTypes.google.iam.v1.SetIamPolicyRequest,
+    options?: gax.CallOptions,
+    callback?: protosTypes.google.iam.v1.IAMPolicy.SetIamPolicyCallback
+  ): Promise<protosTypes.google.iam.v1.Policy>;
+  testIamPermissions(
+    request: protosTypes.google.iam.v1.TestIamPermissionsRequest
+  ): void;
+  testIamPermissions(
+    request: protosTypes.google.iam.v1.TestIamPermissionsRequest,
+    options?: gax.CallOptions,
+    callback?: protosTypes.google.iam.v1.IAMPolicy.TestIamPermissionsCallback
+  ): Promise<protosTypes.google.iam.v1.TestIamPermissionsResponse>;
 }

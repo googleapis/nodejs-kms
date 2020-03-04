@@ -56,8 +56,7 @@ export class KeyManagementServiceClient {
   private _innerApiCalls: {[name: string]: Function};
   private _pathTemplates: {[name: string]: gax.PathTemplate};
   private _terminated = false;
-  // tslint:disable-next-line no-any
-  private _iamClient: any;
+  private _iamClient: IamClient;
   auth: gax.GoogleAuth;
   keyManagementServiceStub: Promise<{[name: string]: Function}>;
 
@@ -2941,23 +2940,23 @@ export class KeyManagementServiceClient {
    */
 
   getIamPolicy(
-    request: {resource: string},
+    request: protosTypes.google.iam.v1.GetIamPolicyRequest,
     options: gax.CallOptions,
-    callback: {}
+    callback: protosTypes.google.iam.v1.IAMPolicy.GetIamPolicyCallback
   ) {
     return this._iamClient.getIamPolicy(request, options, callback);
   }
   setIamPolicy(
-    request: {resource: string},
+    request: protosTypes.google.iam.v1.SetIamPolicyRequest,
     options: gax.CallOptions,
-    callback: {}
+    callback: protosTypes.google.iam.v1.IAMPolicy.SetIamPolicyCallback
   ) {
     return this._iamClient.setIamPolicy(request, options, callback);
   }
   testIamPermissions(
-    request: {resource: string},
+    request: protosTypes.google.iam.v1.TestIamPermissionsRequest,
     options: gax.CallOptions,
-    callback: {}
+    callback?: protosTypes.google.iam.v1.IAMPolicy.TestIamPermissionsCallback
   ) {
     return this._iamClient.testIamPermissions(request, options, callback);
   }
