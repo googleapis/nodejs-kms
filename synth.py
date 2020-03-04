@@ -38,7 +38,7 @@ for version in versions:
     # skip index, package.json, and README.md
     s.copy(
         library,
-        excludes=['package.json', 'README.md', 'src/index.ts', 'src/helper.ts', 'tslint.json'],
+        excludes=['package.json', 'README.md', 'src/index.ts'],
     )
 
 # Copy common templates
