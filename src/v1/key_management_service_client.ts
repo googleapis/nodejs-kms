@@ -24,6 +24,8 @@ import {
   ClientOptions,
   PaginationCallback,
   GaxCall,
+  IamProtos,
+  IamClient,
 } from 'google-gax';
 import * as path from 'path';
 
@@ -31,7 +33,6 @@ import {Transform} from 'stream';
 import {RequestType} from 'google-gax/build/src/apitypes';
 import * as protos from '../../protos/protos';
 import * as gapicConfig from './key_management_service_client_config.json';
-import {IamClient} from '../helper';
 
 const version = require('../../../package.json').version;
 
@@ -135,7 +136,7 @@ export class KeyManagementServiceClient {
     // Save the auth object to the client, for use by other methods.
     this.auth = this._gaxGrpc.auth as gax.GoogleAuth;
 
-    this._iamClient = new IamClient(opts);
+    this._iamClient = new IamClient(this._gaxGrpc, opts);
     // Determine the client header string.
     const clientHeader = [`gax/${this._gaxModule.version}`, `gapic/${version}`];
     if (typeof process !== 'undefined' && 'versions' in process) {
@@ -3415,23 +3416,23 @@ export class KeyManagementServiceClient {
    */
 
   getIamPolicy(
-    request: protos.google.iam.v1.GetIamPolicyRequest,
+    request: IamProtos.google.iam.v1.GetIamPolicyRequest,
     options: gax.CallOptions,
-    callback: protos.google.iam.v1.IAMPolicy.GetIamPolicyCallback
+    callback: IamProtos.google.iam.v1.IAMPolicy.GetIamPolicyCallback
   ) {
     return this._iamClient.getIamPolicy(request, options, callback);
   }
   setIamPolicy(
-    request: protos.google.iam.v1.SetIamPolicyRequest,
+    request: IamProtos.google.iam.v1.SetIamPolicyRequest,
     options: gax.CallOptions,
-    callback: protos.google.iam.v1.IAMPolicy.SetIamPolicyCallback
+    callback: IamProtos.google.iam.v1.IAMPolicy.SetIamPolicyCallback
   ) {
     return this._iamClient.setIamPolicy(request, options, callback);
   }
   testIamPermissions(
-    request: protos.google.iam.v1.TestIamPermissionsRequest,
+    request: IamProtos.google.iam.v1.TestIamPermissionsRequest,
     options: gax.CallOptions,
-    callback?: protos.google.iam.v1.IAMPolicy.TestIamPermissionsCallback
+    callback?: IamProtos.google.iam.v1.IAMPolicy.TestIamPermissionsCallback
   ) {
     return this._iamClient.testIamPermissions(request, options, callback);
   }

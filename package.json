@@ -42,7 +42,7 @@
     "prepare": "npm run compile"
   },
   "dependencies": {
-    "google-gax": "^2.0.1"
+    "google-gax": "git://github.com:googleapis/gax-nodejs.git#Iam_service"
   },
   "devDependencies": {
     "@types/mocha": "^7.0.2",
