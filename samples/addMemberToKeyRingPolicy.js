@@ -32,7 +32,7 @@ async function addMemberToKeyRingPolicy(
   const resource = client.keyRingPath(projectId, locationId, keyRingId);
 
   // Gets the IAM policy of a key ring
-  let [policy] = await client.iamClient.getIamPolicy({resource});
+  let [policy] = await client.getIamPolicy({resource});
   policy.bindings = policy.bindings || [];
 
   // find the index of the binding matching the requested role

@@ -35,7 +35,7 @@ async function getCryptoKeyIamPolicy(
   );
 
   // Gets the IAM policy of a crypto key
-  const [policy] = await client.iamClient.getIamPolicy({resource});
+  const [policy] = await client.getIamPolicy({resource});
   if (policy.bindings && policy.bindings.length > 0) {
     policy.bindings.forEach(binding => {
       if (binding.members && binding.members.length) {
