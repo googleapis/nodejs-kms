@@ -4108,5 +4108,95 @@ describe('v1.KeyManagementServiceClient', () => {
         );
       });
     });
+
+    describe('publicKey', () => {
+      const fakePath = '/rendered/path/publicKey';
+      const expectedParameters = {
+        project: 'projectValue',
+        location: 'locationValue',
+        key_ring: 'keyRingValue',
+        crypto_key: 'cryptoKeyValue',
+        crypto_key_version: 'cryptoKeyVersionValue',
+      };
+      const client = new keymanagementserviceModule.v1.KeyManagementServiceClient(
+        {
+          credentials: {client_email: 'bogus', private_key: 'bogus'},
+          projectId: 'bogus',
+        }
+      );
+      client.initialize();
+      client.pathTemplates.publicKeyPathTemplate.render = sinon
+        .stub()
+        .returns(fakePath);
+      client.pathTemplates.publicKeyPathTemplate.match = sinon
+        .stub()
+        .returns(expectedParameters);
+
+      it('publicKeyPath', () => {
+        const result = client.publicKeyPath(
+          'projectValue',
+          'locationValue',
+          'keyRingValue',
+          'cryptoKeyValue',
+          'cryptoKeyVersionValue'
+        );
+        assert.strictEqual(result, fakePath);
+        assert(
+          (client.pathTemplates.publicKeyPathTemplate.render as SinonStub)
+            .getCall(-1)
+            .calledWith(expectedParameters)
+        );
+      });
+
+      it('matchProjectFromPublicKeyName', () => {
+        const result = client.matchProjectFromPublicKeyName(fakePath);
+        assert.strictEqual(result, 'projectValue');
+        assert(
+          (client.pathTemplates.publicKeyPathTemplate.match as SinonStub)
+            .getCall(-1)
+            .calledWith(fakePath)
+        );
+      });
+
+      it('matchLocationFromPublicKeyName', () => {
+        const result = client.matchLocationFromPublicKeyName(fakePath);
+        assert.strictEqual(result, 'locationValue');
+        assert(
+          (client.pathTemplates.publicKeyPathTemplate.match as SinonStub)
+            .getCall(-1)
+            .calledWith(fakePath)
+        );
+      });
+
+      it('matchKeyRingFromPublicKeyName', () => {
+        const result = client.matchKeyRingFromPublicKeyName(fakePath);
+        assert.strictEqual(result, 'keyRingValue');
+        assert(
+          (client.pathTemplates.publicKeyPathTemplate.match as SinonStub)
+            .getCall(-1)
+            .calledWith(fakePath)
+        );
+      });
+
+      it('matchCryptoKeyFromPublicKeyName', () => {
+        const result = client.matchCryptoKeyFromPublicKeyName(fakePath);
+        assert.strictEqual(result, 'cryptoKeyValue');
+        assert(
+          (client.pathTemplates.publicKeyPathTemplate.match as SinonStub)
+            .getCall(-1)
+            .calledWith(fakePath)
+        );
+      });
+
+      it('matchCryptoKeyVersionFromPublicKeyName', () => {
+        const result = client.matchCryptoKeyVersionFromPublicKeyName(fakePath);
+        assert.strictEqual(result, 'cryptoKeyVersionValue');
+        assert(
+          (client.pathTemplates.publicKeyPathTemplate.match as SinonStub)
+            .getCall(-1)
+            .calledWith(fakePath)
+        );
+      });
+    });
   });
 });
