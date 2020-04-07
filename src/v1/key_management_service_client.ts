@@ -54,7 +54,7 @@ const version = require('../../../package.json').version;
  */
 export class KeyManagementServiceClient {
   private _terminated = false;
-  private _iamClient: IamClient;
+  iamClient: IamClient;
   private _opts: ClientOptions;
   private _gaxModule: typeof gax | typeof gax.fallback;
   private _gaxGrpc: gax.GrpcClient | gax.fallback.GrpcClient;
@@ -136,7 +136,7 @@ export class KeyManagementServiceClient {
     // Save the auth object to the client, for use by other methods.
     this.auth = this._gaxGrpc.auth as gax.GoogleAuth;
 
-    this._iamClient = new IamClient(this._gaxGrpc, opts);
+    this.iamClient = new IamClient(this._gaxGrpc, opts);
     // Determine the client header string.
     const clientHeader = [`gax/${this._gaxModule.version}`, `gapic/${version}`];
     if (typeof process !== 'undefined' && 'versions' in process) {
@@ -3420,20 +3420,20 @@ export class KeyManagementServiceClient {
     options: gax.CallOptions,
     callback: IamProtos.google.iam.v1.IAMPolicy.GetIamPolicyCallback
   ) {
-    return this._iamClient.getIamPolicy(request, options, callback);
+    return this.iamClient.getIamPolicy(request, options, callback);
   }
   setIamPolicy(
     request: IamProtos.google.iam.v1.SetIamPolicyRequest,
     options: gax.CallOptions,
     callback: IamProtos.google.iam.v1.IAMPolicy.SetIamPolicyCallback
   ) {
-    return this._iamClient.setIamPolicy(request, options, callback);
+    return this.iamClient.setIamPolicy(request, options, callback);
   }
   testIamPermissions(
     request: IamProtos.google.iam.v1.TestIamPermissionsRequest,
     options: gax.CallOptions,
     callback?: IamProtos.google.iam.v1.IAMPolicy.TestIamPermissionsCallback
   ) {
-    return this._iamClient.testIamPermissions(request, options, callback);
+    return this.iamClient.testIamPermissions(request, options, callback);
   }
 }

@@ -32,7 +32,7 @@ async function removeMemberFromKeyRingPolicy(
   const resource = client.keyRingPath(projectId, locationId, keyRingId);
 
   // Gets the IAM policy of a key ring
-  const [result] = await client.getIamPolicy({resource});
+  const [result] = await client.iamClient.getIamPolicy({resource});
   let policy = Object.assign({bindings: []}, result);
   const index = policy.bindings.findIndex(binding => binding.role === role);
   const members = [];
