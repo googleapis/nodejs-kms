@@ -6132,20 +6132,8 @@ export namespace google {
             /** EnumDescriptorProto name. */
             public name: string;
 
-<<<<<<< HEAD
             /** EnumDescriptorProto value. */
             public value: google.protobuf.IEnumValueDescriptorProto[];
-=======
-                    /** CryptoKeyVersion externalProtectionLevelOptions. */
-                    public externalProtectionLevelOptions?: (google.cloud.kms.v1.IExternalProtectionLevelOptions|null);
-
-                    /**
-                     * Creates a new CryptoKeyVersion instance using the specified properties.
-                     * @param [properties] Properties to set
-                     * @returns CryptoKeyVersion instance
-                     */
-                    public static create(properties?: google.cloud.kms.v1.ICryptoKeyVersion): google.cloud.kms.v1.CryptoKeyVersion;
->>>>>>> 56ef4ec1b4660ae0e9f3b5f76d821d1e24e31d50
 
             /** EnumDescriptorProto options. */
             public options?: (google.protobuf.IEnumOptions|null);
