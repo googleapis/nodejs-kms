@@ -185,7 +185,8 @@
                             "RSA_DECRYPT_OAEP_4096_SHA256": 10,
                             "RSA_DECRYPT_OAEP_4096_SHA512": 17,
                             "EC_SIGN_P256_SHA256": 12,
-                            "EC_SIGN_P384_SHA384": 13
+                            "EC_SIGN_P384_SHA384": 13,
+                            "EXTERNAL_SYMMETRIC_ENCRYPTION": 18
                           }
                         },
                         "CryptoKeyVersionState": {
@@ -209,6 +210,10 @@
                       }
                     },
                     "PublicKey": {
+                      "options": {
+                        "(google.api.resource).type": "cloudkms.googleapis.com/PublicKey",
+                        "(google.api.resource).pattern": "projects/{project}/locations/{location}/keyRings/{key_ring}/cryptoKeys/{crypto_key}/cryptoKeyVersions/{crypto_key_version}/publicKey"
+                      },
                       "fields": {
                         "pem": {
                           "type": "string",

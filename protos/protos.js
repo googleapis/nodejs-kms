@@ -9476,6 +9476,9 @@
                                 case 3:
                                     message.ciphertext = reader.bytes();
                                     break;
+                                case 17:
+                                    message.externalProtectionLevelOptions = $root.google.cloud.kms.v1.ExternalProtectionLevelOptions.decode(reader, reader.uint32());
+                                    break;
                                 default:
                                     reader.skipType(tag & 7);
                                     break;
