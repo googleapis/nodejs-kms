@@ -3391,7 +3391,6 @@ export class KeyManagementServiceClient {
   matchLocationFromLocationName(locationName: string) {
     return this.pathTemplates.locationPathTemplate.match(locationName).location;
   }
-
   /**
    * Return a fully-qualified publicKey resource name string.
    *
@@ -3507,21 +3506,33 @@ export class KeyManagementServiceClient {
   getIamPolicy(
     request: IamProtos.google.iam.v1.GetIamPolicyRequest,
     options: gax.CallOptions,
-    callback: IamProtos.google.iam.v1.IAMPolicy.GetIamPolicyCallback
+    callback: Callback<
+      IamProtos.google.iam.v1.Policy,
+      IamProtos.google.iam.v1.GetIamPolicyRequest | null | undefined,
+      {} | null | undefined
+    >
   ) {
     return this._iamClient.getIamPolicy(request, options, callback);
   }
   setIamPolicy(
     request: IamProtos.google.iam.v1.SetIamPolicyRequest,
     options: gax.CallOptions,
-    callback: IamProtos.google.iam.v1.IAMPolicy.SetIamPolicyCallback
+    callback: Callback<
+      IamProtos.google.iam.v1.Policy,
+      IamProtos.google.iam.v1.SetIamPolicyRequest | null | undefined,
+      {} | null | undefined
+    >
   ) {
     return this._iamClient.setIamPolicy(request, options, callback);
   }
   testIamPermissions(
     request: IamProtos.google.iam.v1.TestIamPermissionsRequest,
     options: gax.CallOptions,
-    callback?: IamProtos.google.iam.v1.IAMPolicy.TestIamPermissionsCallback
+    callback?: Callback<
+      IamProtos.google.iam.v1.TestIamPermissionsResponse,
+      IamProtos.google.iam.v1.TestIamPermissionsRequest | null | undefined,
+      {} | null | undefined
+    >
   ) {
     return this._iamClient.testIamPermissions(request, options, callback);
   }
