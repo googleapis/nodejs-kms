@@ -4,6 +4,13 @@
 
 [1]: https://www.npmjs.com/package/@google-cloud/kms?activeTab=versions
 
+### [2.0.1](https://www.github.com/googleapis/nodejs-kms/compare/v2.0.0...v2.0.1) (2020-04-13)
+
+
+### Bug Fixes
+
+* remove eslint, update gax, fix generated protos, run the generator ([#309](https://www.github.com/googleapis/nodejs-kms/issues/309)) ([54fccb6](https://www.github.com/googleapis/nodejs-kms/commit/54fccb61a01d31fc1e5bec3b73a300fd8fed502e))
+
 ## [2.0.0](https://www.github.com/googleapis/nodejs-kms/compare/v1.6.3...v2.0.0) (2020-04-07)
 
 
