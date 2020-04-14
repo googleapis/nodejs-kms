@@ -1,10 +1,11 @@
 {
+  "updateTime": "2020-04-14T16:54:15.707159Z",
   "sources": [
     {
       "git": {
         "name": ".",
-        "remote": "git@github.com:googleapis/nodejs-kms.git",
-        "sha": "bd78ee7a392827fcecd1bbfc572fbdffe3eb06dd"
+        "remote": "https://github.com/googleapis/nodejs-kms.git",
+        "sha": "797ee5581a60b66f841951a90bbd2ba3995da58d"
       }
     },
     {
