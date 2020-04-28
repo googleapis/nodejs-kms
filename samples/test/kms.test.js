@@ -14,6 +14,7 @@
 
 'use strict';
 
+const {describe, it, before, after, beforeEach, afterEach} = require('mocha');
 const {assert} = require('chai');
 const crypto = require('crypto');
 const uuidv4 = require('uuid/v4');
