@@ -34,7 +34,9 @@ for version in versions:
         generator_args={
             "grpc-service-config": f"google/cloud/kms/{version}/cloudkms_grpc_service_config.json",
             "package-name": "@google-cloud/kms",
-            "iam-service": "true"
+            "iam-service": "true",
+            # TODO: proto validation check fail now, it should remove or set true after API producer correct proto syntax
+            "validation": "false",
         },
         proto_path=f'/google/cloud/kms/{version}',
         extra_proto_files=['google/cloud/common_resources.proto']
