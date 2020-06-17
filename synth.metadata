@@ -4,15 +4,15 @@
       "git": {
         "name": ".",
         "remote": "https://github.com/googleapis/nodejs-kms.git",
-        "sha": "6d0c833dc53e8b361500415513a3900d90c24a79"
+        "sha": "cd3dde4a199883527e4221cf014874e93cd48d2c"
       }
     },
     {
       "git": {
         "name": "googleapis",
         "remote": "https://github.com/googleapis/googleapis.git",
-        "sha": "c1fae183ddeef0c59538863eac611fd679d1b7fb",
-        "internalRef": "314634470"
+        "sha": "ef180e07d360d86ce0f71c448edffbf6b7ceb8c9",
+        "internalRef": "314805551"
       }
     },
     {
