@@ -32,6 +32,11 @@ import * as path from 'path';
 import {Transform} from 'stream';
 import {RequestType} from 'google-gax/build/src/apitypes';
 import * as protos from '../../protos/protos';
+/**
+ * Client JSON configuration object, loaded from
+ * `src/v1/key_management_service_client_config.json`.
+ * This file defines retry strategy and timeouts for all API methods in this library.
+ */
 import * as gapicConfig from './key_management_service_client_config.json';
 
 const version = require('../../../package.json').version;
@@ -97,9 +102,9 @@ export class KeyManagementServiceClient {
    *     your project ID will be detected automatically.
    * @param {string} [options.apiEndpoint] - The domain name of the
    *     API remote host.
-   * @param {gax.ClientConfig} [options.clientConfig] - client configuration override.
-   *     Follows the structure of `key_management_service_client_config.json`.
-   * @param {boolean} fallback - Use HTTP fallback mode.
+   * @param {gax.ClientConfig} [options.clientConfig] - Client configuration override.
+   *     Follows the structure of {@link gapicConfig}.
+   * @param {boolean} [options.fallback] - Use HTTP fallback mode.
    *     In fallback mode, a special browser-compatible transport implementation is used
    *     instead of gRPC transport. In browser context (if the `window` object is defined)
    *     the fallback mode is enabled automatically; set `options.fallback` to `false`
@@ -112,6 +117,7 @@ export class KeyManagementServiceClient {
       opts?.servicePath || opts?.apiEndpoint || staticMembers.servicePath;
     const port = opts?.port || staticMembers.port;
     const clientConfig = opts?.clientConfig ?? {};
+    // eslint-disable-next-line no-undef
     const fallback =
       opts?.fallback ??
       (typeof window !== 'undefined' && typeof window.fetch !== 'undefined');
@@ -376,7 +382,7 @@ export class KeyManagementServiceClient {
   // -------------------
   getKeyRing(
     request: protos.google.cloud.kms.v1.IGetKeyRingRequest,
-    options?: gax.CallOptions
+    options?: CallOptions
   ): Promise<
     [
       protos.google.cloud.kms.v1.IKeyRing,
@@ -386,7 +392,7 @@ export class KeyManagementServiceClient {
   >;
   getKeyRing(
     request: protos.google.cloud.kms.v1.IGetKeyRingRequest,
-    options: gax.CallOptions,
+    options: CallOptions,
     callback: Callback<
       protos.google.cloud.kms.v1.IKeyRing,
       protos.google.cloud.kms.v1.IGetKeyRingRequest | null | undefined,
@@ -421,7 +427,7 @@ export class KeyManagementServiceClient {
   getKeyRing(
     request: protos.google.cloud.kms.v1.IGetKeyRingRequest,
     optionsOrCallback?:
-      | gax.CallOptions
+      | CallOptions
       | Callback<
           protos.google.cloud.kms.v1.IKeyRing,
           protos.google.cloud.kms.v1.IGetKeyRingRequest | null | undefined,
@@ -440,12 +446,12 @@ export class KeyManagementServiceClient {
     ]
   > | void {
     request = request || {};
-    let options: gax.CallOptions;
+    let options: CallOptions;
     if (typeof optionsOrCallback === 'function' && callback === undefined) {
       callback = optionsOrCallback;
       options = {};
     } else {
-      options = optionsOrCallback as gax.CallOptions;
+      options = optionsOrCallback as CallOptions;
     }
     options = options || {};
     options.otherArgs = options.otherArgs || {};
@@ -460,7 +466,7 @@ export class KeyManagementServiceClient {
   }
   getCryptoKey(
     request: protos.google.cloud.kms.v1.IGetCryptoKeyRequest,
-    options?: gax.CallOptions
+    options?: CallOptions
   ): Promise<
     [
       protos.google.cloud.kms.v1.ICryptoKey,
@@ -470,7 +476,7 @@ export class KeyManagementServiceClient {
   >;
   getCryptoKey(
     request: protos.google.cloud.kms.v1.IGetCryptoKeyRequest,
-    options: gax.CallOptions,
+    options: CallOptions,
     callback: Callback<
       protos.google.cloud.kms.v1.ICryptoKey,
       protos.google.cloud.kms.v1.IGetCryptoKeyRequest | null | undefined,
@@ -506,7 +512,7 @@ export class KeyManagementServiceClient {
   getCryptoKey(
     request: protos.google.cloud.kms.v1.IGetCryptoKeyRequest,
     optionsOrCallback?:
-      | gax.CallOptions
+      | CallOptions
       | Callback<
           protos.google.cloud.kms.v1.ICryptoKey,
           protos.google.cloud.kms.v1.IGetCryptoKeyRequest | null | undefined,
@@ -525,12 +531,12 @@ export class KeyManagementServiceClient {
     ]
   > | void {
     request = request || {};
-    let options: gax.CallOptions;
+    let options: CallOptions;
     if (typeof optionsOrCallback === 'function' && callback === undefined) {
       callback = optionsOrCallback;
       options = {};
     } else {
-      options = optionsOrCallback as gax.CallOptions;
+      options = optionsOrCallback as CallOptions;
     }
     options = options || {};
     options.otherArgs = options.otherArgs || {};
@@ -545,7 +551,7 @@ export class KeyManagementServiceClient {
   }
   getCryptoKeyVersion(
     request: protos.google.cloud.kms.v1.IGetCryptoKeyVersionRequest,
-    options?: gax.CallOptions
+    options?: CallOptions
   ): Promise<
     [
       protos.google.cloud.kms.v1.ICryptoKeyVersion,
@@ -555,7 +561,7 @@ export class KeyManagementServiceClient {
   >;
   getCryptoKeyVersion(
     request: protos.google.cloud.kms.v1.IGetCryptoKeyVersionRequest,
-    options: gax.CallOptions,
+    options: CallOptions,
     callback: Callback<
       protos.google.cloud.kms.v1.ICryptoKeyVersion,
       protos.google.cloud.kms.v1.IGetCryptoKeyVersionRequest | null | undefined,
@@ -590,7 +596,7 @@ export class KeyManagementServiceClient {
   getCryptoKeyVersion(
     request: protos.google.cloud.kms.v1.IGetCryptoKeyVersionRequest,
     optionsOrCallback?:
-      | gax.CallOptions
+      | CallOptions
       | Callback<
           protos.google.cloud.kms.v1.ICryptoKeyVersion,
           | protos.google.cloud.kms.v1.IGetCryptoKeyVersionRequest
@@ -611,12 +617,12 @@ export class KeyManagementServiceClient {
     ]
   > | void {
     request = request || {};
-    let options: gax.CallOptions;
+    let options: CallOptions;
     if (typeof optionsOrCallback === 'function' && callback === undefined) {
       callback = optionsOrCallback;
       options = {};
     } else {
-      options = optionsOrCallback as gax.CallOptions;
+      options = optionsOrCallback as CallOptions;
     }
     options = options || {};
     options.otherArgs = options.otherArgs || {};
@@ -631,7 +637,7 @@ export class KeyManagementServiceClient {
   }
   getPublicKey(
     request: protos.google.cloud.kms.v1.IGetPublicKeyRequest,
-    options?: gax.CallOptions
+    options?: CallOptions
   ): Promise<
     [
       protos.google.cloud.kms.v1.IPublicKey,
@@ -641,7 +647,7 @@ export class KeyManagementServiceClient {
   >;
   getPublicKey(
     request: protos.google.cloud.kms.v1.IGetPublicKeyRequest,
-    options: gax.CallOptions,
+    options: CallOptions,
     callback: Callback<
       protos.google.cloud.kms.v1.IPublicKey,
       protos.google.cloud.kms.v1.IGetPublicKeyRequest | null | undefined,
@@ -680,7 +686,7 @@ export class KeyManagementServiceClient {
   getPublicKey(
     request: protos.google.cloud.kms.v1.IGetPublicKeyRequest,
     optionsOrCallback?:
-      | gax.CallOptions
+      | CallOptions
       | Callback<
           protos.google.cloud.kms.v1.IPublicKey,
           protos.google.cloud.kms.v1.IGetPublicKeyRequest | null | undefined,
@@ -699,12 +705,12 @@ export class KeyManagementServiceClient {
     ]
   > | void {
     request = request || {};
-    let options: gax.CallOptions;
+    let options: CallOptions;
     if (typeof optionsOrCallback === 'function' && callback === undefined) {
       callback = optionsOrCallback;
       options = {};
     } else {
-      options = optionsOrCallback as gax.CallOptions;
+      options = optionsOrCallback as CallOptions;
     }
     options = options || {};
     options.otherArgs = options.otherArgs || {};
@@ -719,7 +725,7 @@ export class KeyManagementServiceClient {
   }
   getImportJob(
     request: protos.google.cloud.kms.v1.IGetImportJobRequest,
-    options?: gax.CallOptions
+    options?: CallOptions
   ): Promise<
     [
       protos.google.cloud.kms.v1.IImportJob,
@@ -729,7 +735,7 @@ export class KeyManagementServiceClient {
   >;
   getImportJob(
     request: protos.google.cloud.kms.v1.IGetImportJobRequest,
-    options: gax.CallOptions,
+    options: CallOptions,
     callback: Callback<
       protos.google.cloud.kms.v1.IImportJob,
       protos.google.cloud.kms.v1.IGetImportJobRequest | null | undefined,
@@ -764,7 +770,7 @@ export class KeyManagementServiceClient {
   getImportJob(
     request: protos.google.cloud.kms.v1.IGetImportJobRequest,
     optionsOrCallback?:
-      | gax.CallOptions
+      | CallOptions
       | Callback<
           protos.google.cloud.kms.v1.IImportJob,
           protos.google.cloud.kms.v1.IGetImportJobRequest | null | undefined,
@@ -783,12 +789,12 @@ export class KeyManagementServiceClient {
     ]
   > | void {
     request = request || {};
-    let options: gax.CallOptions;
+    let options: CallOptions;
     if (typeof optionsOrCallback === 'function' && callback === undefined) {
       callback = optionsOrCallback;
       options = {};
     } else {
-      options = optionsOrCallback as gax.CallOptions;
+      options = optionsOrCallback as CallOptions;
     }
     options = options || {};
     options.otherArgs = options.otherArgs || {};
@@ -803,7 +809,7 @@ export class KeyManagementServiceClient {
   }
   createKeyRing(
     request: protos.google.cloud.kms.v1.ICreateKeyRingRequest,
-    options?: gax.CallOptions
+    options?: CallOptions
   ): Promise<
     [
       protos.google.cloud.kms.v1.IKeyRing,
@@ -813,7 +819,7 @@ export class KeyManagementServiceClient {
   >;
   createKeyRing(
     request: protos.google.cloud.kms.v1.ICreateKeyRingRequest,
-    options: gax.CallOptions,
+    options: CallOptions,
     callback: Callback<
       protos.google.cloud.kms.v1.IKeyRing,
       protos.google.cloud.kms.v1.ICreateKeyRingRequest | null | undefined,
@@ -854,7 +860,7 @@ export class KeyManagementServiceClient {
   createKeyRing(
     request: protos.google.cloud.kms.v1.ICreateKeyRingRequest,
     optionsOrCallback?:
-      | gax.CallOptions
+      | CallOptions
       | Callback<
           protos.google.cloud.kms.v1.IKeyRing,
           protos.google.cloud.kms.v1.ICreateKeyRingRequest | null | undefined,
@@ -873,12 +879,12 @@ export class KeyManagementServiceClient {
     ]
   > | void {
     request = request || {};
-    let options: gax.CallOptions;
+    let options: CallOptions;
     if (typeof optionsOrCallback === 'function' && callback === undefined) {
       callback = optionsOrCallback;
       options = {};
     } else {
-      options = optionsOrCallback as gax.CallOptions;
+      options = optionsOrCallback as CallOptions;
     }
     options = options || {};
     options.otherArgs = options.otherArgs || {};
@@ -893,7 +899,7 @@ export class KeyManagementServiceClient {
   }
   createCryptoKey(
     request: protos.google.cloud.kms.v1.ICreateCryptoKeyRequest,
-    options?: gax.CallOptions
+    options?: CallOptions
   ): Promise<
     [
       protos.google.cloud.kms.v1.ICryptoKey,
@@ -903,7 +909,7 @@ export class KeyManagementServiceClient {
   >;
   createCryptoKey(
     request: protos.google.cloud.kms.v1.ICreateCryptoKeyRequest,
-    options: gax.CallOptions,
+    options: CallOptions,
     callback: Callback<
       protos.google.cloud.kms.v1.ICryptoKey,
       protos.google.cloud.kms.v1.ICreateCryptoKeyRequest | null | undefined,
@@ -954,7 +960,7 @@ export class KeyManagementServiceClient {
   createCryptoKey(
     request: protos.google.cloud.kms.v1.ICreateCryptoKeyRequest,
     optionsOrCallback?:
-      | gax.CallOptions
+      | CallOptions
       | Callback<
           protos.google.cloud.kms.v1.ICryptoKey,
           protos.google.cloud.kms.v1.ICreateCryptoKeyRequest | null | undefined,
@@ -973,12 +979,12 @@ export class KeyManagementServiceClient {
     ]
   > | void {
     request = request || {};
-    let options: gax.CallOptions;
+    let options: CallOptions;
     if (typeof optionsOrCallback === 'function' && callback === undefined) {
       callback = optionsOrCallback;
       options = {};
     } else {
-      options = optionsOrCallback as gax.CallOptions;
+      options = optionsOrCallback as CallOptions;
     }
     options = options || {};
     options.otherArgs = options.otherArgs || {};
@@ -993,7 +999,7 @@ export class KeyManagementServiceClient {
   }
   createCryptoKeyVersion(
     request: protos.google.cloud.kms.v1.ICreateCryptoKeyVersionRequest,
-    options?: gax.CallOptions
+    options?: CallOptions
   ): Promise<
     [
       protos.google.cloud.kms.v1.ICryptoKeyVersion,
@@ -1003,7 +1009,7 @@ export class KeyManagementServiceClient {
   >;
   createCryptoKeyVersion(
     request: protos.google.cloud.kms.v1.ICreateCryptoKeyVersionRequest,
-    options: gax.CallOptions,
+    options: CallOptions,
     callback: Callback<
       protos.google.cloud.kms.v1.ICryptoKeyVersion,
       | protos.google.cloud.kms.v1.ICreateCryptoKeyVersionRequest
@@ -1049,7 +1055,7 @@ export class KeyManagementServiceClient {
   createCryptoKeyVersion(
     request: protos.google.cloud.kms.v1.ICreateCryptoKeyVersionRequest,
     optionsOrCallback?:
-      | gax.CallOptions
+      | CallOptions
       | Callback<
           protos.google.cloud.kms.v1.ICryptoKeyVersion,
           | protos.google.cloud.kms.v1.ICreateCryptoKeyVersionRequest
@@ -1072,12 +1078,12 @@ export class KeyManagementServiceClient {
     ]
   > | void {
     request = request || {};
-    let options: gax.CallOptions;
+    let options: CallOptions;
     if (typeof optionsOrCallback === 'function' && callback === undefined) {
       callback = optionsOrCallback;
       options = {};
     } else {
-      options = optionsOrCallback as gax.CallOptions;
+      options = optionsOrCallback as CallOptions;
     }
     options = options || {};
     options.otherArgs = options.otherArgs || {};
@@ -1096,7 +1102,7 @@ export class KeyManagementServiceClient {
   }
   importCryptoKeyVersion(
     request: protos.google.cloud.kms.v1.IImportCryptoKeyVersionRequest,
-    options?: gax.CallOptions
+    options?: CallOptions
   ): Promise<
     [
       protos.google.cloud.kms.v1.ICryptoKeyVersion,
@@ -1106,7 +1112,7 @@ export class KeyManagementServiceClient {
   >;
   importCryptoKeyVersion(
     request: protos.google.cloud.kms.v1.IImportCryptoKeyVersionRequest,
-    options: gax.CallOptions,
+    options: CallOptions,
     callback: Callback<
       protos.google.cloud.kms.v1.ICryptoKeyVersion,
       | protos.google.cloud.kms.v1.IImportCryptoKeyVersionRequest
@@ -1182,7 +1188,7 @@ export class KeyManagementServiceClient {
   importCryptoKeyVersion(
     request: protos.google.cloud.kms.v1.IImportCryptoKeyVersionRequest,
     optionsOrCallback?:
-      | gax.CallOptions
+      | CallOptions
       | Callback<
           protos.google.cloud.kms.v1.ICryptoKeyVersion,
           | protos.google.cloud.kms.v1.IImportCryptoKeyVersionRequest
@@ -1205,12 +1211,12 @@ export class KeyManagementServiceClient {
     ]
   > | void {
     request = request || {};
-    let options: gax.CallOptions;
+    let options: CallOptions;
     if (typeof optionsOrCallback === 'function' && callback === undefined) {
       callback = optionsOrCallback;
       options = {};
     } else {
-      options = optionsOrCallback as gax.CallOptions;
+      options = optionsOrCallback as CallOptions;
     }
     options = options || {};
     options.otherArgs = options.otherArgs || {};
@@ -1229,7 +1235,7 @@ export class KeyManagementServiceClient {
   }
   createImportJob(
     request: protos.google.cloud.kms.v1.ICreateImportJobRequest,
-    options?: gax.CallOptions
+    options?: CallOptions
   ): Promise<
     [
       protos.google.cloud.kms.v1.IImportJob,
@@ -1239,7 +1245,7 @@ export class KeyManagementServiceClient {
   >;
   createImportJob(
     request: protos.google.cloud.kms.v1.ICreateImportJobRequest,
-    options: gax.CallOptions,
+    options: CallOptions,
     callback: Callback<
       protos.google.cloud.kms.v1.IImportJob,
       protos.google.cloud.kms.v1.ICreateImportJobRequest | null | undefined,
@@ -1282,7 +1288,7 @@ export class KeyManagementServiceClient {
   createImportJob(
     request: protos.google.cloud.kms.v1.ICreateImportJobRequest,
     optionsOrCallback?:
-      | gax.CallOptions
+      | CallOptions
       | Callback<
           protos.google.cloud.kms.v1.IImportJob,
           protos.google.cloud.kms.v1.ICreateImportJobRequest | null | undefined,
@@ -1301,12 +1307,12 @@ export class KeyManagementServiceClient {
     ]
   > | void {
     request = request || {};
-    let options: gax.CallOptions;
+    let options: CallOptions;
     if (typeof optionsOrCallback === 'function' && callback === undefined) {
       callback = optionsOrCallback;
       options = {};
     } else {
-      options = optionsOrCallback as gax.CallOptions;
+      options = optionsOrCallback as CallOptions;
     }
     options = options || {};
     options.otherArgs = options.otherArgs || {};
@@ -1321,7 +1327,7 @@ export class KeyManagementServiceClient {
   }
   updateCryptoKey(
     request: protos.google.cloud.kms.v1.IUpdateCryptoKeyRequest,
-    options?: gax.CallOptions
+    options?: CallOptions
   ): Promise<
     [
       protos.google.cloud.kms.v1.ICryptoKey,
@@ -1331,7 +1337,7 @@ export class KeyManagementServiceClient {
   >;
   updateCryptoKey(
     request: protos.google.cloud.kms.v1.IUpdateCryptoKeyRequest,
-    options: gax.CallOptions,
+    options: CallOptions,
     callback: Callback<
       protos.google.cloud.kms.v1.ICryptoKey,
       protos.google.cloud.kms.v1.IUpdateCryptoKeyRequest | null | undefined,
@@ -1368,7 +1374,7 @@ export class KeyManagementServiceClient {
   updateCryptoKey(
     request: protos.google.cloud.kms.v1.IUpdateCryptoKeyRequest,
     optionsOrCallback?:
-      | gax.CallOptions
+      | CallOptions
       | Callback<
           protos.google.cloud.kms.v1.ICryptoKey,
           protos.google.cloud.kms.v1.IUpdateCryptoKeyRequest | null | undefined,
@@ -1387,12 +1393,12 @@ export class KeyManagementServiceClient {
     ]
   > | void {
     request = request || {};
-    let options: gax.CallOptions;
+    let options: CallOptions;
     if (typeof optionsOrCallback === 'function' && callback === undefined) {
       callback = optionsOrCallback;
       options = {};
     } else {
-      options = optionsOrCallback as gax.CallOptions;
+      options = optionsOrCallback as CallOptions;
     }
     options = options || {};
     options.otherArgs = options.otherArgs || {};
@@ -1407,7 +1413,7 @@ export class KeyManagementServiceClient {
   }
   updateCryptoKeyVersion(
     request: protos.google.cloud.kms.v1.IUpdateCryptoKeyVersionRequest,
-    options?: gax.CallOptions
+    options?: CallOptions
   ): Promise<
     [
       protos.google.cloud.kms.v1.ICryptoKeyVersion,
@@ -1417,7 +1423,7 @@ export class KeyManagementServiceClient {
   >;
   updateCryptoKeyVersion(
     request: protos.google.cloud.kms.v1.IUpdateCryptoKeyVersionRequest,
-    options: gax.CallOptions,
+    options: CallOptions,
     callback: Callback<
       protos.google.cloud.kms.v1.ICryptoKeyVersion,
       | protos.google.cloud.kms.v1.IUpdateCryptoKeyVersionRequest
@@ -1464,7 +1470,7 @@ export class KeyManagementServiceClient {
   updateCryptoKeyVersion(
     request: protos.google.cloud.kms.v1.IUpdateCryptoKeyVersionRequest,
     optionsOrCallback?:
-      | gax.CallOptions
+      | CallOptions
       | Callback<
           protos.google.cloud.kms.v1.ICryptoKeyVersion,
           | protos.google.cloud.kms.v1.IUpdateCryptoKeyVersionRequest
@@ -1487,12 +1493,12 @@ export class KeyManagementServiceClient {
     ]
   > | void {
     request = request || {};
-    let options: gax.CallOptions;
+    let options: CallOptions;
     if (typeof optionsOrCallback === 'function' && callback === undefined) {
       callback = optionsOrCallback;
       options = {};
     } else {
-      options = optionsOrCallback as gax.CallOptions;
+      options = optionsOrCallback as CallOptions;
     }
     options = options || {};
     options.otherArgs = options.otherArgs || {};
@@ -1511,7 +1517,7 @@ export class KeyManagementServiceClient {
   }
   encrypt(
     request: protos.google.cloud.kms.v1.IEncryptRequest,
-    options?: gax.CallOptions
+    options?: CallOptions
   ): Promise<
     [
       protos.google.cloud.kms.v1.IEncryptResponse,
@@ -1521,7 +1527,7 @@ export class KeyManagementServiceClient {
   >;
   encrypt(
     request: protos.google.cloud.kms.v1.IEncryptRequest,
-    options: gax.CallOptions,
+    options: CallOptions,
     callback: Callback<
       protos.google.cloud.kms.v1.IEncryptResponse,
       protos.google.cloud.kms.v1.IEncryptRequest | null | undefined,
@@ -1614,7 +1620,7 @@ export class KeyManagementServiceClient {
   encrypt(
     request: protos.google.cloud.kms.v1.IEncryptRequest,
     optionsOrCallback?:
-      | gax.CallOptions
+      | CallOptions
       | Callback<
           protos.google.cloud.kms.v1.IEncryptResponse,
           protos.google.cloud.kms.v1.IEncryptRequest | null | undefined,
@@ -1633,12 +1639,12 @@ export class KeyManagementServiceClient {
     ]
   > | void {
     request = request || {};
-    let options: gax.CallOptions;
+    let options: CallOptions;
     if (typeof optionsOrCallback === 'function' && callback === undefined) {
       callback = optionsOrCallback;
       options = {};
     } else {
-      options = optionsOrCallback as gax.CallOptions;
+      options = optionsOrCallback as CallOptions;
     }
     options = options || {};
     options.otherArgs = options.otherArgs || {};
@@ -1653,7 +1659,7 @@ export class KeyManagementServiceClient {
   }
   decrypt(
     request: protos.google.cloud.kms.v1.IDecryptRequest,
-    options?: gax.CallOptions
+    options?: CallOptions
   ): Promise<
     [
       protos.google.cloud.kms.v1.IDecryptResponse,
@@ -1663,7 +1669,7 @@ export class KeyManagementServiceClient {
   >;
   decrypt(
     request: protos.google.cloud.kms.v1.IDecryptRequest,
-    options: gax.CallOptions,
+    options: CallOptions,
     callback: Callback<
       protos.google.cloud.kms.v1.IDecryptResponse,
       protos.google.cloud.kms.v1.IDecryptRequest | null | undefined,
@@ -1739,7 +1745,7 @@ export class KeyManagementServiceClient {
   decrypt(
     request: protos.google.cloud.kms.v1.IDecryptRequest,
     optionsOrCallback?:
-      | gax.CallOptions
+      | CallOptions
       | Callback<
           protos.google.cloud.kms.v1.IDecryptResponse,
           protos.google.cloud.kms.v1.IDecryptRequest | null | undefined,
@@ -1758,12 +1764,12 @@ export class KeyManagementServiceClient {
     ]
   > | void {
     request = request || {};
-    let options: gax.CallOptions;
+    let options: CallOptions;
     if (typeof optionsOrCallback === 'function' && callback === undefined) {
       callback = optionsOrCallback;
       options = {};
     } else {
-      options = optionsOrCallback as gax.CallOptions;
+      options = optionsOrCallback as CallOptions;
     }
     options = options || {};
     options.otherArgs = options.otherArgs || {};
@@ -1778,7 +1784,7 @@ export class KeyManagementServiceClient {
   }
   asymmetricSign(
     request: protos.google.cloud.kms.v1.IAsymmetricSignRequest,
-    options?: gax.CallOptions
+    options?: CallOptions
   ): Promise<
     [
       protos.google.cloud.kms.v1.IAsymmetricSignResponse,
@@ -1788,7 +1794,7 @@ export class KeyManagementServiceClient {
   >;
   asymmetricSign(
     request: protos.google.cloud.kms.v1.IAsymmetricSignRequest,
-    options: gax.CallOptions,
+    options: CallOptions,
     callback: Callback<
       protos.google.cloud.kms.v1.IAsymmetricSignResponse,
       protos.google.cloud.kms.v1.IAsymmetricSignRequest | null | undefined,
@@ -1845,7 +1851,7 @@ export class KeyManagementServiceClient {
   asymmetricSign(
     request: protos.google.cloud.kms.v1.IAsymmetricSignRequest,
     optionsOrCallback?:
-      | gax.CallOptions
+      | CallOptions
       | Callback<
           protos.google.cloud.kms.v1.IAsymmetricSignResponse,
           protos.google.cloud.kms.v1.IAsymmetricSignRequest | null | undefined,
@@ -1864,12 +1870,12 @@ export class KeyManagementServiceClient {
     ]
   > | void {
     request = request || {};
-    let options: gax.CallOptions;
+    let options: CallOptions;
     if (typeof optionsOrCallback === 'function' && callback === undefined) {
       callback = optionsOrCallback;
       options = {};
     } else {
-      options = optionsOrCallback as gax.CallOptions;
+      options = optionsOrCallback as CallOptions;
     }
     options = options || {};
     options.otherArgs = options.otherArgs || {};
@@ -1884,7 +1890,7 @@ export class KeyManagementServiceClient {
   }
   asymmetricDecrypt(
     request: protos.google.cloud.kms.v1.IAsymmetricDecryptRequest,
-    options?: gax.CallOptions
+    options?: CallOptions
   ): Promise<
     [
       protos.google.cloud.kms.v1.IAsymmetricDecryptResponse,
@@ -1894,7 +1900,7 @@ export class KeyManagementServiceClient {
   >;
   asymmetricDecrypt(
     request: protos.google.cloud.kms.v1.IAsymmetricDecryptRequest,
-    options: gax.CallOptions,
+    options: CallOptions,
     callback: Callback<
       protos.google.cloud.kms.v1.IAsymmetricDecryptResponse,
       protos.google.cloud.kms.v1.IAsymmetricDecryptRequest | null | undefined,
@@ -1951,7 +1957,7 @@ export class KeyManagementServiceClient {
   asymmetricDecrypt(
     request: protos.google.cloud.kms.v1.IAsymmetricDecryptRequest,
     optionsOrCallback?:
-      | gax.CallOptions
+      | CallOptions
       | Callback<
           protos.google.cloud.kms.v1.IAsymmetricDecryptResponse,
           | protos.google.cloud.kms.v1.IAsymmetricDecryptRequest
@@ -1972,12 +1978,12 @@ export class KeyManagementServiceClient {
     ]
   > | void {
     request = request || {};
-    let options: gax.CallOptions;
+    let options: CallOptions;
     if (typeof optionsOrCallback === 'function' && callback === undefined) {
       callback = optionsOrCallback;
       options = {};
     } else {
-      options = optionsOrCallback as gax.CallOptions;
+      options = optionsOrCallback as CallOptions;
     }
     options = options || {};
     options.otherArgs = options.otherArgs || {};
@@ -1992,7 +1998,7 @@ export class KeyManagementServiceClient {
   }
   updateCryptoKeyPrimaryVersion(
     request: protos.google.cloud.kms.v1.IUpdateCryptoKeyPrimaryVersionRequest,
-    options?: gax.CallOptions
+    options?: CallOptions
   ): Promise<
     [
       protos.google.cloud.kms.v1.ICryptoKey,
@@ -2005,7 +2011,7 @@ export class KeyManagementServiceClient {
   >;
   updateCryptoKeyPrimaryVersion(
     request: protos.google.cloud.kms.v1.IUpdateCryptoKeyPrimaryVersionRequest,
-    options: gax.CallOptions,
+    options: CallOptions,
     callback: Callback<
       protos.google.cloud.kms.v1.ICryptoKey,
       | protos.google.cloud.kms.v1.IUpdateCryptoKeyPrimaryVersionRequest
@@ -2048,7 +2054,7 @@ export class KeyManagementServiceClient {
   updateCryptoKeyPrimaryVersion(
     request: protos.google.cloud.kms.v1.IUpdateCryptoKeyPrimaryVersionRequest,
     optionsOrCallback?:
-      | gax.CallOptions
+      | CallOptions
       | Callback<
           protos.google.cloud.kms.v1.ICryptoKey,
           | protos.google.cloud.kms.v1.IUpdateCryptoKeyPrimaryVersionRequest
@@ -2074,12 +2080,12 @@ export class KeyManagementServiceClient {
     ]
   > | void {
     request = request || {};
-    let options: gax.CallOptions;
+    let options: CallOptions;
     if (typeof optionsOrCallback === 'function' && callback === undefined) {
       callback = optionsOrCallback;
       options = {};
     } else {
-      options = optionsOrCallback as gax.CallOptions;
+      options = optionsOrCallback as CallOptions;
     }
     options = options || {};
     options.otherArgs = options.otherArgs || {};
@@ -2098,7 +2104,7 @@ export class KeyManagementServiceClient {
   }
   destroyCryptoKeyVersion(
     request: protos.google.cloud.kms.v1.IDestroyCryptoKeyVersionRequest,
-    options?: gax.CallOptions
+    options?: CallOptions
   ): Promise<
     [
       protos.google.cloud.kms.v1.ICryptoKeyVersion,
@@ -2108,7 +2114,7 @@ export class KeyManagementServiceClient {
   >;
   destroyCryptoKeyVersion(
     request: protos.google.cloud.kms.v1.IDestroyCryptoKeyVersionRequest,
-    options: gax.CallOptions,
+    options: CallOptions,
     callback: Callback<
       protos.google.cloud.kms.v1.ICryptoKeyVersion,
       | protos.google.cloud.kms.v1.IDestroyCryptoKeyVersionRequest
@@ -2158,7 +2164,7 @@ export class KeyManagementServiceClient {
   destroyCryptoKeyVersion(
     request: protos.google.cloud.kms.v1.IDestroyCryptoKeyVersionRequest,
     optionsOrCallback?:
-      | gax.CallOptions
+      | CallOptions
       | Callback<
           protos.google.cloud.kms.v1.ICryptoKeyVersion,
           | protos.google.cloud.kms.v1.IDestroyCryptoKeyVersionRequest
@@ -2181,12 +2187,12 @@ export class KeyManagementServiceClient {
     ]
   > | void {
     request = request || {};
-    let options: gax.CallOptions;
+    let options: CallOptions;
     if (typeof optionsOrCallback === 'function' && callback === undefined) {
       callback = optionsOrCallback;
       options = {};
     } else {
-      options = optionsOrCallback as gax.CallOptions;
+      options = optionsOrCallback as CallOptions;
     }
     options = options || {};
     options.otherArgs = options.otherArgs || {};
@@ -2205,7 +2211,7 @@ export class KeyManagementServiceClient {
   }
   restoreCryptoKeyVersion(
     request: protos.google.cloud.kms.v1.IRestoreCryptoKeyVersionRequest,
-    options?: gax.CallOptions
+    options?: CallOptions
   ): Promise<
     [
       protos.google.cloud.kms.v1.ICryptoKeyVersion,
@@ -2215,7 +2221,7 @@ export class KeyManagementServiceClient {
   >;
   restoreCryptoKeyVersion(
     request: protos.google.cloud.kms.v1.IRestoreCryptoKeyVersionRequest,
-    options: gax.CallOptions,
+    options: CallOptions,
     callback: Callback<
       protos.google.cloud.kms.v1.ICryptoKeyVersion,
       | protos.google.cloud.kms.v1.IRestoreCryptoKeyVersionRequest
@@ -2260,7 +2266,7 @@ export class KeyManagementServiceClient {
   restoreCryptoKeyVersion(
     request: protos.google.cloud.kms.v1.IRestoreCryptoKeyVersionRequest,
     optionsOrCallback?:
-      | gax.CallOptions
+      | CallOptions
       | Callback<
           protos.google.cloud.kms.v1.ICryptoKeyVersion,
           | protos.google.cloud.kms.v1.IRestoreCryptoKeyVersionRequest
@@ -2283,12 +2289,12 @@ export class KeyManagementServiceClient {
     ]
   > | void {
     request = request || {};
-    let options: gax.CallOptions;
+    let options: CallOptions;
     if (typeof optionsOrCallback === 'function' && callback === undefined) {
       callback = optionsOrCallback;
       options = {};
     } else {
-      options = optionsOrCallback as gax.CallOptions;
+      options = optionsOrCallback as CallOptions;
     }
     options = options || {};
     options.otherArgs = options.otherArgs || {};
@@ -2308,7 +2314,7 @@ export class KeyManagementServiceClient {
 
   listKeyRings(
     request: protos.google.cloud.kms.v1.IListKeyRingsRequest,
-    options?: gax.CallOptions
+    options?: CallOptions
   ): Promise<
     [
       protos.google.cloud.kms.v1.IKeyRing[],
@@ -2318,7 +2324,7 @@ export class KeyManagementServiceClient {
   >;
   listKeyRings(
     request: protos.google.cloud.kms.v1.IListKeyRingsRequest,
-    options: gax.CallOptions,
+    options: CallOptions,
     callback: PaginationCallback<
       protos.google.cloud.kms.v1.IListKeyRingsRequest,
       protos.google.cloud.kms.v1.IListKeyRingsResponse | null | undefined,
@@ -2375,7 +2381,7 @@ export class KeyManagementServiceClient {
   listKeyRings(
     request: protos.google.cloud.kms.v1.IListKeyRingsRequest,
     optionsOrCallback?:
-      | gax.CallOptions
+      | CallOptions
       | PaginationCallback<
           protos.google.cloud.kms.v1.IListKeyRingsRequest,
           protos.google.cloud.kms.v1.IListKeyRingsResponse | null | undefined,
@@ -2394,12 +2400,12 @@ export class KeyManagementServiceClient {
     ]
   > | void {
     request = request || {};
-    let options: gax.CallOptions;
+    let options: CallOptions;
     if (typeof optionsOrCallback === 'function' && callback === undefined) {
       callback = optionsOrCallback;
       options = {};
     } else {
-      options = optionsOrCallback as gax.CallOptions;
+      options = optionsOrCallback as CallOptions;
     }
     options = options || {};
     options.otherArgs = options.otherArgs || {};
@@ -2452,7 +2458,7 @@ export class KeyManagementServiceClient {
    */
   listKeyRingsStream(
     request?: protos.google.cloud.kms.v1.IListKeyRingsRequest,
-    options?: gax.CallOptions
+    options?: CallOptions
   ): Transform {
     request = request || {};
     options = options || {};
@@ -2517,7 +2523,7 @@ export class KeyManagementServiceClient {
    */
   listKeyRingsAsync(
     request?: protos.google.cloud.kms.v1.IListKeyRingsRequest,
-    options?: gax.CallOptions
+    options?: CallOptions
   ): AsyncIterable<protos.google.cloud.kms.v1.IKeyRing> {
     request = request || {};
     options = options || {};
@@ -2539,7 +2545,7 @@ export class KeyManagementServiceClient {
   }
   listCryptoKeys(
     request: protos.google.cloud.kms.v1.IListCryptoKeysRequest,
-    options?: gax.CallOptions
+    options?: CallOptions
   ): Promise<
     [
       protos.google.cloud.kms.v1.ICryptoKey[],
@@ -2549,7 +2555,7 @@ export class KeyManagementServiceClient {
   >;
   listCryptoKeys(
     request: protos.google.cloud.kms.v1.IListCryptoKeysRequest,
-    options: gax.CallOptions,
+    options: CallOptions,
     callback: PaginationCallback<
       protos.google.cloud.kms.v1.IListCryptoKeysRequest,
       protos.google.cloud.kms.v1.IListCryptoKeysResponse | null | undefined,
@@ -2608,7 +2614,7 @@ export class KeyManagementServiceClient {
   listCryptoKeys(
     request: protos.google.cloud.kms.v1.IListCryptoKeysRequest,
     optionsOrCallback?:
-      | gax.CallOptions
+      | CallOptions
       | PaginationCallback<
           protos.google.cloud.kms.v1.IListCryptoKeysRequest,
           protos.google.cloud.kms.v1.IListCryptoKeysResponse | null | undefined,
@@ -2627,12 +2633,12 @@ export class KeyManagementServiceClient {
     ]
   > | void {
     request = request || {};
-    let options: gax.CallOptions;
+    let options: CallOptions;
     if (typeof optionsOrCallback === 'function' && callback === undefined) {
       callback = optionsOrCallback;
       options = {};
     } else {
-      options = optionsOrCallback as gax.CallOptions;
+      options = optionsOrCallback as CallOptions;
     }
     options = options || {};
     options.otherArgs = options.otherArgs || {};
@@ -2687,7 +2693,7 @@ export class KeyManagementServiceClient {
    */
   listCryptoKeysStream(
     request?: protos.google.cloud.kms.v1.IListCryptoKeysRequest,
-    options?: gax.CallOptions
+    options?: CallOptions
   ): Transform {
     request = request || {};
     options = options || {};
@@ -2754,7 +2760,7 @@ export class KeyManagementServiceClient {
    */
   listCryptoKeysAsync(
     request?: protos.google.cloud.kms.v1.IListCryptoKeysRequest,
-    options?: gax.CallOptions
+    options?: CallOptions
   ): AsyncIterable<protos.google.cloud.kms.v1.ICryptoKey> {
     request = request || {};
     options = options || {};
@@ -2776,7 +2782,7 @@ export class KeyManagementServiceClient {
   }
   listCryptoKeyVersions(
     request: protos.google.cloud.kms.v1.IListCryptoKeyVersionsRequest,
-    options?: gax.CallOptions
+    options?: CallOptions
   ): Promise<
     [
       protos.google.cloud.kms.v1.ICryptoKeyVersion[],
@@ -2786,7 +2792,7 @@ export class KeyManagementServiceClient {
   >;
   listCryptoKeyVersions(
     request: protos.google.cloud.kms.v1.IListCryptoKeyVersionsRequest,
-    options: gax.CallOptions,
+    options: CallOptions,
     callback: PaginationCallback<
       protos.google.cloud.kms.v1.IListCryptoKeyVersionsRequest,
       | protos.google.cloud.kms.v1.IListCryptoKeyVersionsResponse
@@ -2850,7 +2856,7 @@ export class KeyManagementServiceClient {
   listCryptoKeyVersions(
     request: protos.google.cloud.kms.v1.IListCryptoKeyVersionsRequest,
     optionsOrCallback?:
-      | gax.CallOptions
+      | CallOptions
       | PaginationCallback<
           protos.google.cloud.kms.v1.IListCryptoKeyVersionsRequest,
           | protos.google.cloud.kms.v1.IListCryptoKeyVersionsResponse
@@ -2873,12 +2879,12 @@ export class KeyManagementServiceClient {
     ]
   > | void {
     request = request || {};
-    let options: gax.CallOptions;
+    let options: CallOptions;
     if (typeof optionsOrCallback === 'function' && callback === undefined) {
       callback = optionsOrCallback;
       options = {};
     } else {
-      options = optionsOrCallback as gax.CallOptions;
+      options = optionsOrCallback as CallOptions;
     }
     options = options || {};
     options.otherArgs = options.otherArgs || {};
@@ -2934,7 +2940,7 @@ export class KeyManagementServiceClient {
    */
   listCryptoKeyVersionsStream(
     request?: protos.google.cloud.kms.v1.IListCryptoKeyVersionsRequest,
-    options?: gax.CallOptions
+    options?: CallOptions
   ): Transform {
     request = request || {};
     options = options || {};
@@ -3002,7 +3008,7 @@ export class KeyManagementServiceClient {
    */
   listCryptoKeyVersionsAsync(
     request?: protos.google.cloud.kms.v1.IListCryptoKeyVersionsRequest,
-    options?: gax.CallOptions
+    options?: CallOptions
   ): AsyncIterable<protos.google.cloud.kms.v1.ICryptoKeyVersion> {
     request = request || {};
     options = options || {};
@@ -3024,7 +3030,7 @@ export class KeyManagementServiceClient {
   }
   listImportJobs(
     request: protos.google.cloud.kms.v1.IListImportJobsRequest,
-    options?: gax.CallOptions
+    options?: CallOptions
   ): Promise<
     [
       protos.google.cloud.kms.v1.IImportJob[],
@@ -3034,7 +3040,7 @@ export class KeyManagementServiceClient {
   >;
   listImportJobs(
     request: protos.google.cloud.kms.v1.IListImportJobsRequest,
-    options: gax.CallOptions,
+    options: CallOptions,
     callback: PaginationCallback<
       protos.google.cloud.kms.v1.IListImportJobsRequest,
       protos.google.cloud.kms.v1.IListImportJobsResponse | null | undefined,
@@ -3091,7 +3097,7 @@ export class KeyManagementServiceClient {
   listImportJobs(
     request: protos.google.cloud.kms.v1.IListImportJobsRequest,
     optionsOrCallback?:
-      | gax.CallOptions
+      | CallOptions
       | PaginationCallback<
           protos.google.cloud.kms.v1.IListImportJobsRequest,
           protos.google.cloud.kms.v1.IListImportJobsResponse | null | undefined,
@@ -3110,12 +3116,12 @@ export class KeyManagementServiceClient {
     ]
   > | void {
     request = request || {};
-    let options: gax.CallOptions;
+    let options: CallOptions;
     if (typeof optionsOrCallback === 'function' && callback === undefined) {
       callback = optionsOrCallback;
       options = {};
     } else {
-      options = optionsOrCallback as gax.CallOptions;
+      options = optionsOrCallback as CallOptions;
     }
     options = options || {};
     options.otherArgs = options.otherArgs || {};
@@ -3168,7 +3174,7 @@ export class KeyManagementServiceClient {
    */
   listImportJobsStream(
     request?: protos.google.cloud.kms.v1.IListImportJobsRequest,
-    options?: gax.CallOptions
+    options?: CallOptions
   ): Transform {
     request = request || {};
     options = options || {};
@@ -3233,7 +3239,7 @@ export class KeyManagementServiceClient {
    */
   listImportJobsAsync(
     request?: protos.google.cloud.kms.v1.IListImportJobsRequest,
-    options?: gax.CallOptions
+    options?: CallOptions
   ): AsyncIterable<protos.google.cloud.kms.v1.IImportJob> {
     request = request || {};
     options = options || {};
