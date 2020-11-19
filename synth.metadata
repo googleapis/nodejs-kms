@@ -4,7 +4,7 @@
       "git": {
         "name": ".",
         "remote": "https://github.com/googleapis/nodejs-kms.git",
-        "sha": "0cdbc6c58991388b5db54f5052ef6d1b30828953"
+        "sha": "e4ab824bd4fead19f9d028479ec2b3059a381601"
       }
     },
     {
@@ -87,7 +87,6 @@
     "README.md",
     "api-extractor.json",
     "linkinator.config.json",
-    "package-lock.json.53012812",
     "protos/google/cloud/kms/v1/resources.proto",
     "protos/google/cloud/kms/v1/service.proto",
     "protos/protos.d.ts",
@@ -95,7 +94,6 @@
     "protos/protos.json",
     "renovate.json",
     "samples/README.md",
-    "samples/package-lock.json.1007522485",
     "src/index.ts",
     "src/v1/index.ts",
     "src/v1/key_management_service_client.ts",
