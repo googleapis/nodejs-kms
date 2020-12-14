@@ -40,13 +40,22 @@ async function main(
   // Build the key name
   const keyName = client.cryptoKeyPath(projectId, locationId, keyRingId, keyId);
 
+  // Optional, but recommended: compute the CRC32C checksum of plaintext.
+  var crc32c = require('fast-crc32c');
+  const plaintextCrc32c = crc32c.calculate(plaintextBuffer);
+
+  // TAMJAM: remove this
+  // console.log( { checksum: plaintextCrc32c.toString("16") })
+
+
   async function encryptSymmetric() {
     const [encryptResponse] = await client.encrypt({
       name: keyName,
       plaintext: plaintextBuffer,
     });
 
-    // Optional, bu recommended: perform integrity verification on encryptResponse.
+    // Optional, but recommended: perform integrity verification on encryptResponse.
+    // TODO(TAMJAM) Add verification.
 
     const ciphertext = encryptResponse.ciphertext;
 
