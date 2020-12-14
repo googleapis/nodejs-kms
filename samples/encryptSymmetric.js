@@ -46,6 +46,8 @@ async function main(
       plaintext: plaintextBuffer,
     });
 
+    // Optional, bu recommended: perform integrity verification on encryptResponse.
+
     const ciphertext = encryptResponse.ciphertext;
 
     console.log(`Ciphertext: ${ciphertext.toString('base64')}`);
