@@ -44,15 +44,12 @@ async function main(
   const crc32c = require('fast-crc32c');
   const plaintextCrc32c = crc32c.calculate(plaintextBuffer);
 
-  // TAMJAM: remove this
-  // console.log( { checksum: plaintextCrc32c.toString("16") })
-
   async function encryptSymmetric() {
     const [encryptResponse] = await client.encrypt({
       name: keyName,
       plaintext: plaintextBuffer,
       plaintextCrc32c: {
-	value: plaintextCrc32c,
+        value: plaintextCrc32c,
       },
     });
 
@@ -64,7 +61,7 @@ async function main(
     if (!encryptResponse.verifiedPlaintextCrc32c) {
       throw new Error('Encrypt: request corrupted in-transit');
     }
-    if (crc32c.calculate(ciphertext) !=  encryptResponse.ciphertextCrc32c.value) {
+    if (crc32c.calculate(ciphertext) !== encryptResponse.ciphertextCrc32c.value) {
       throw new Error('Encrypt: response corrupted in-transit');
     }
 
