@@ -52,6 +52,7 @@ async function main(
     const [encryptResponse] = await client.encrypt({
       name: keyName,
       plaintext: plaintextBuffer,
+      plaintextCrc32c: plaintextCrc32c
     });
 
     // Optional, but recommended: perform integrity verification on encryptResponse.
