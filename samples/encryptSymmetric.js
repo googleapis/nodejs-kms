@@ -40,8 +40,8 @@ async function main(
   // Build the key name
   const keyName = client.cryptoKeyPath(projectId, locationId, keyRingId, keyId);
 
-  // Optional, but recommended: compute the CRC32C checksum of plaintext.
-  var crc32c = require('fast-crc32c');
+  // Optional, but recommended: compute plaintext's.
+  const crc32c = require('fast-crc32c');
   const plaintextCrc32c = crc32c.calculate(plaintextBuffer);
 
   // TAMJAM: remove this
@@ -55,10 +55,17 @@ async function main(
       plaintextCrc32c: plaintextCrc32c
     });
 
-    // Optional, but recommended: perform integrity verification on encryptResponse.
-    // TODO(TAMJAM) Add verification.
-
     const ciphertext = encryptResponse.ciphertext;
+
+    // Optional, but recommended: perform integrity verification on encryptResponse.
+    // For more details on ensuring E2E in-transit integrity to and from Cloud KMS visit:
+    // https://cloud.google.com/kms/docs/data-integrity-guidelines
+    if (! encryptResponse.verifiedPlaintextCrc32c) {
+      throw new Error('Encrypt: request corrupted in-transit');
+    }
+    if (crc32c.calculate(ciphertext) !=  encryptResponse.ciphertextCrc32c) {
+      throw new Error('Encrypt: response corrupted in-transit');
+    }
 
     console.log(`Ciphertext: ${ciphertext.toString('base64')}`);
     return ciphertext;
