@@ -58,11 +58,17 @@ async function main(
     // Optional, but recommended: perform integrity verification on encryptResponse.
     // For more details on ensuring E2E in-transit integrity to and from Cloud KMS visit:
     // https://cloud.google.com/kms/docs/data-integrity-guidelines
+    if (encryptResponse.name !== keyName) {
+      throw new Error('Encrypt: request corrupted in-transit');
+    }
     if (!encryptResponse.verifiedPlaintextCrc32c) {
       throw new Error('Encrypt: request corrupted in-transit');
     }
     if (crc32c.calculate(ciphertext) !== encryptResponse.ciphertextCrc32c.value) {
-      throw new Error('Encrypt: response corrupted in-transit');
+      const ciphertextCrc32c = crc32c.calculate(ciphertext);
+      const responseCiphertextCrc32c = encryptResponse.ciphertextCrc32c.value;
+      throw new Error(
+	  `Encrypt: response corrupted in-transit. ciphertextCrc32c=${ciphertextCrc32c}, responseCiphertextCrc32c=${responseCiphertextCrc32c}`);
     }
 
     console.log(`Ciphertext: ${ciphertext.toString('base64')}`);
