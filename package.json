@@ -52,7 +52,7 @@
     "node/no-extraneous-require": ["error", {
       "allowModules": ["fast-crc32c"]
     }]
-  }
+  },
   "devDependencies": {
     "@microsoft/api-documenter": "^7.8.10",
     "@microsoft/api-extractor": "^7.8.10",
