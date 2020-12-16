@@ -40,7 +40,7 @@ async function main(
   // Build the key name
   const keyName = client.cryptoKeyPath(projectId, locationId, keyRingId, keyId);
 
-  // Optional, but recommended: compute plaintext's.
+  // Optional, but recommended: compute plaintext's CRC32C.
   const crc32c = require('fast-crc32c');
   const plaintextCrc32c = crc32c.calculate(plaintextBuffer);
 

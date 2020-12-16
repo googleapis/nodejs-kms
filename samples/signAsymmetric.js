@@ -14,7 +14,6 @@
 
 'use strict';
 
-// [START kms_sign_asymmetric]
 async function main(
   projectId = 'your-project-id',
   locationId = 'us-east1',
