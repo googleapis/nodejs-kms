@@ -61,14 +61,8 @@ async function main(
     if (!encryptResponse.verifiedPlaintextCrc32c) {
       throw new Error('Encrypt: request corrupted in-transit');
     }
-    if (crc32c.calculate(ciphertext) !== encryptResponse.ciphertextCrc32c.value) {
-      const ciphertextCrc32c = crc32c.calculate(ciphertext);
-      const type1 = typeof ciphertextCrc32c;
-      const responseCiphertextCrc32c = encryptResponse.ciphertextCrc32c.value;
-      const type2 = typeof responseCiphertextCrc32c;
-      throw new Error(
-	  `Encrypt: response corrupted in-transit. ciphertextCrc32c=${ciphertextCrc32c}, type=${type1}; responseCiphertextCrc32c=${responseCiphertextCrc32c}, type=${type2}`);
-      // throw new Error('Encrypt: response corrupted in-transit');
+    if (crc32c.calculate(ciphertext) !== Number(encryptResponse.ciphertextCrc32c.value)) {
+      throw new Error('Encrypt: response corrupted in-transit');
     }
 
     console.log(`Ciphertext: ${ciphertext.toString('base64')}`);
