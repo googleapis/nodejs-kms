@@ -53,7 +53,7 @@ async function main(
       },
     });
 
-    // Optional, but recommended: perform integrity verification on encryptResponse.
+    // Optional, but recommended: perform integrity verification on decryptResponse.
     // For more details on ensuring E2E in-transit integrity to and from Cloud KMS visit:
     // https://cloud.google.com/kms/docs/data-integrity-guidelines
     if (

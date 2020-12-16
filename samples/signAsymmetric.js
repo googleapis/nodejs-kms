@@ -75,9 +75,7 @@ async function main(
     // For more details on ensuring E2E in-transit integrity to and from Cloud KMS visit:
     // https://cloud.google.com/kms/docs/data-integrity-guidelines
     if (signResponse.name !== versionName) {
-      // throw new Error('AsymmetricSign: request corrupted in-transit');
-      // TAMJAM: remove
-      throw new Error(`AsymmetricSign: signResponse.name=${signResponse.name}, versionName=${versionName}`);
+      throw new Error('AsymmetricSign: request corrupted in-transit');
     }
     if (!signResponse.verifiedDigestCrc32c) {
       throw new Error('AsymmetricSign: request corrupted in-transit');
