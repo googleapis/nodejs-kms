@@ -57,10 +57,7 @@ async function main(
     if (publicKey.name !== versionName) {
       throw new Error('GetPublicKey: request corrupted in-transit');
     }
-    if (
-      crc32c.calculate(publicKey.pem) !==
-      Number(publicKey.pemCrc32c.value)
-    ) {
+    if (crc32c.calculate(publicKey.pem) !== Number(publicKey.pemCrc32c.value)) {
       throw new Error('GetPublicKey: response corrupted in-transit');
     }
 
