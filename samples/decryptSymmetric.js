@@ -56,8 +56,10 @@ async function main(
     // Optional, but recommended: perform integrity verification on encryptResponse.
     // For more details on ensuring E2E in-transit integrity to and from Cloud KMS visit:
     // https://cloud.google.com/kms/docs/data-integrity-guidelines
-    if (crc32c.calculate(decryptResponse.plaintext) !==
-        Number(decryptResponse.plaintextCrc32c.value)) {
+    if (
+      crc32c.calculate(decryptResponse.plaintext) !==
+      Number(decryptResponse.plaintextCrc32c.value)
+    ) {
       throw new Error('Decrypt: response corrupted in-transit');
     }
 

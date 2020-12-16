@@ -54,7 +54,7 @@ async function main(
     const crypto = require('crypto');
     const hash = crypto.createHash('sha256');
     hash.update(message);
-    const digest = digest.digest();
+    const digest = hash.digest();
 
     // Optional but recommended: Compute digest's CRC32C.
     const crc32c = require('fast-crc32c');

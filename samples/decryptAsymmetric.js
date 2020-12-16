@@ -50,7 +50,7 @@ async function main(
 
   // Optional, but recommended: compute plaintext's CRC32C.
   const crc32c = require('fast-crc32c');
-  const ciphertextCrc32c = crc32c.calculate(ciphertextBuffer);
+  const ciphertextCrc32c = crc32c.calculate(ciphertext);
 
   async function decryptAsymmetric() {
     const [decryptResponse] = await client.asymmetricDecrypt({

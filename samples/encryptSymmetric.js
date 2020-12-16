@@ -61,8 +61,10 @@ async function main(
     if (!encryptResponse.verifiedPlaintextCrc32c) {
       throw new Error('Encrypt: request corrupted in-transit');
     }
-    if (crc32c.calculate(ciphertext) !==
-        Number(encryptResponse.ciphertextCrc32c.value)) {
+    if (
+      crc32c.calculate(ciphertext) !==
+      Number(encryptResponse.ciphertextCrc32c.value)
+    ) {
       throw new Error('Encrypt: response corrupted in-transit');
     }
 
