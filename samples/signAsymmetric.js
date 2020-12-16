@@ -52,18 +52,19 @@ async function main(
     // Create a digest of the message. The digest needs to match the digest
     // configured for the Cloud KMS key.
     const crypto = require('crypto');
-    const digest = crypto.createHash('sha256');
-    digest.update(message);
+    const hash = crypto.createHash('sha256');
+    hash.update(message);
+    const digest = digest.digest();
 
     // Optional but recommended: Compute digest's CRC32C.
     const crc32c = require('fast-crc32c');
-    const digestCrc32c = crc32c.calculate(digest.digest());
+    const digestCrc32c = crc32c.calculate(digest);
 
     // Sign the message with Cloud KMS
     const [signResponse] = await client.asymmetricSign({
       name: versionName,
       digest: {
-        sha256: digest.digest(),
+        sha256: digest,
       },
       digestCrc32c: {
         value: digestCrc32c,
@@ -76,13 +77,15 @@ async function main(
     if (signResponse.name !== versionName) {
       // throw new Error('AsymmetricSign: request corrupted in-transit');
       // TAMJAM: remove
-      throw new Error(`AsymmetricSign: encryptResponse.name=${encryptResponse.name}, keyName=${keyName}`);
+      throw new Error(`AsymmetricSign: signResponse.name=${signResponse.name}, versionName=${versionName}`);
     }
-    if (!encryptResponse.verifiedDigestCrc32c) {
+    if (!signResponse.verifiedDigestCrc32c) {
       throw new Error('AsymmetricSign: request corrupted in-transit');
     }
-    if (crc32c.calculate(signResponse.signature) !==
-	Number(signResponse.signatureCrc32c.value)) {
+    if (
+      crc32c.calculate(signResponse.signature) !==
+      Number(signResponse.signatureCrc32c.value)
+    ) {
       throw new Error('AsymmetricSign: response corrupted in-transit');
     }
 
