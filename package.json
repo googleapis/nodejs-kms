@@ -45,13 +45,7 @@
     "api-documenter": "api-documenter yaml --input-folder=temp"
   },
   "dependencies": {
-    "fast-crc32c": "^2.0.0",
     "google-gax": "^2.9.2"
-  },
-  "rules": {
-    "node/no-extraneous-require": ["error", {
-      "allowModules": ["fast-crc32c"]
-    }]
   },
   "devDependencies": {
     "@microsoft/api-documenter": "^7.8.10",
