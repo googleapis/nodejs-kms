@@ -63,7 +63,7 @@ async function main(
       throw new Error('Decrypt: response corrupted in-transit');
     }
 
-    const plaintext = decryptResponse.plaintext.toString('utf8');
+    const plaintext = decryptResponse.plaintext.toString();
 
     console.log(`Plaintext: ${plaintext}`);
     return plaintext;
