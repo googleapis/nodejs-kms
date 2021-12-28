@@ -13,5 +13,5 @@
   "issue_tracker": "https://issuetracker.google.com/savedsearches/5264932",
   "codeowner_team": "@googleapis/api-kms",
   "api_shortname": "kms",
-  "library_type": ""
+  "library_type": "GAPIC_AUTO"
 }
