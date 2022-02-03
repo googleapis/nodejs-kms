@@ -21,15 +21,18 @@ function main(parent) {
    * TODO(developer): Uncomment these variables before running the sample.
    */
   /**
-   *  Required. The resource name of the KeyRing google.cloud.kms.v1.KeyRing  to list, in the format
-   *  `projects/* /locations/* /keyRings/*`.
+   *  Required. The resource name of the KeyRing google.cloud.kms.v1.KeyRing 
+   *  to list, in the format `projects/* /locations/* /keyRings/*`.
    */
   // const parent = 'abc123'
   /**
-   *  Optional. Optional limit on the number of ImportJobs google.cloud.kms.v1.ImportJob  to include in the
-   *  response. Further ImportJobs google.cloud.kms.v1.ImportJob  can subsequently be obtained by
-   *  including the ListImportJobsResponse.next_page_token google.cloud.kms.v1.ListImportJobsResponse.next_page_token  in a subsequent
-   *  request. If unspecified, the server will pick an appropriate default.
+   *  Optional. Optional limit on the number of
+   *  ImportJobs google.cloud.kms.v1.ImportJob  to include in the response.
+   *  Further ImportJobs google.cloud.kms.v1.ImportJob  can subsequently be
+   *  obtained by including the
+   *  ListImportJobsResponse.next_page_token google.cloud.kms.v1.ListImportJobsResponse.next_page_token 
+   *  in a subsequent request. If unspecified, the server will pick an
+   *  appropriate default.
    */
   // const pageSize = 1234
   /**
