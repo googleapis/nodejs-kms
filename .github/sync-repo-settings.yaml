@@ -1,7 +1,17 @@
-# https://github.com/googleapis/repo-automation-bots/tree/master/packages/sync-repo-settings
-
-permissionRules:
-    # Team slug to add to repository permissions
-  - team: api-kms
-    # Access level required, one of push|pull|admin
-    permission: push
+branchProtectionRules:
+  - pattern: main
+    isAdminEnforced: true
+    requiredApprovingReviewCount: 1
+    requiresCodeOwnerReviews: true
+    requiresStrictStatusChecks: false
+    requiredStatusCheckContexts:
+      - "ci/kokoro: Samples test"
+      - "ci/kokoro: System test"
+      - docs
+      - lint
+      - test (10)
+      - test (12)
+      - test (14)
+      - cla/google
+      - windows
+      - OwlBot Post Processor
