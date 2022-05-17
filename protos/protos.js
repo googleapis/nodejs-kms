@@ -99,7 +99,7 @@
                         };
     
                         /**
-                         * Callback as used by {@link google.cloud.kms.v1.EkmService|listEkmConnections}.
+                         * Callback as used by {@link google.cloud.kms.v1.EkmService#listEkmConnections}.
                          * @memberof google.cloud.kms.v1.EkmService
                          * @typedef ListEkmConnectionsCallback
                          * @type {function}
@@ -132,7 +132,7 @@
                          */
     
                         /**
-                         * Callback as used by {@link google.cloud.kms.v1.EkmService|getEkmConnection}.
+                         * Callback as used by {@link google.cloud.kms.v1.EkmService#getEkmConnection}.
                          * @memberof google.cloud.kms.v1.EkmService
                          * @typedef GetEkmConnectionCallback
                          * @type {function}
@@ -165,7 +165,7 @@
                          */
     
                         /**
-                         * Callback as used by {@link google.cloud.kms.v1.EkmService|createEkmConnection}.
+                         * Callback as used by {@link google.cloud.kms.v1.EkmService#createEkmConnection}.
                          * @memberof google.cloud.kms.v1.EkmService
                          * @typedef CreateEkmConnectionCallback
                          * @type {function}
@@ -198,7 +198,7 @@
                          */
     
                         /**
-                         * Callback as used by {@link google.cloud.kms.v1.EkmService|updateEkmConnection}.
+                         * Callback as used by {@link google.cloud.kms.v1.EkmService#updateEkmConnection}.
                          * @memberof google.cloud.kms.v1.EkmService
                          * @typedef UpdateEkmConnectionCallback
                          * @type {function}
@@ -6261,7 +6261,7 @@
                         };
     
                         /**
-                         * Callback as used by {@link google.cloud.kms.v1.KeyManagementService|listKeyRings}.
+                         * Callback as used by {@link google.cloud.kms.v1.KeyManagementService#listKeyRings}.
                          * @memberof google.cloud.kms.v1.KeyManagementService
                          * @typedef ListKeyRingsCallback
                          * @type {function}
@@ -6294,7 +6294,7 @@
                          */
     
                         /**
-                         * Callback as used by {@link google.cloud.kms.v1.KeyManagementService|listCryptoKeys}.
+                         * Callback as used by {@link google.cloud.kms.v1.KeyManagementService#listCryptoKeys}.
                          * @memberof google.cloud.kms.v1.KeyManagementService
                          * @typedef ListCryptoKeysCallback
                          * @type {function}
@@ -6327,7 +6327,7 @@
                          */
     
                         /**
-                         * Callback as used by {@link google.cloud.kms.v1.KeyManagementService|listCryptoKeyVersions}.
+                         * Callback as used by {@link google.cloud.kms.v1.KeyManagementService#listCryptoKeyVersions}.
                          * @memberof google.cloud.kms.v1.KeyManagementService
                          * @typedef ListCryptoKeyVersionsCallback
                          * @type {function}
@@ -6360,7 +6360,7 @@
                          */
     
                         /**
-                         * Callback as used by {@link google.cloud.kms.v1.KeyManagementService|listImportJobs}.
+                         * Callback as used by {@link google.cloud.kms.v1.KeyManagementService#listImportJobs}.
                          * @memberof google.cloud.kms.v1.KeyManagementService
                          * @typedef ListImportJobsCallback
                          * @type {function}
@@ -6393,7 +6393,7 @@
                          */
     
                         /**
-                         * Callback as used by {@link google.cloud.kms.v1.KeyManagementService|getKeyRing}.
+                         * Callback as used by {@link google.cloud.kms.v1.KeyManagementService#getKeyRing}.
                          * @memberof google.cloud.kms.v1.KeyManagementService
                          * @typedef GetKeyRingCallback
                          * @type {function}
@@ -6426,7 +6426,7 @@
                          */
     
                         /**
-                         * Callback as used by {@link google.cloud.kms.v1.KeyManagementService|getCryptoKey}.
+                         * Callback as used by {@link google.cloud.kms.v1.KeyManagementService#getCryptoKey}.
                          * @memberof google.cloud.kms.v1.KeyManagementService
                          * @typedef GetCryptoKeyCallback
                          * @type {function}
@@ -6459,7 +6459,7 @@
                          */
     
                         /**
-                         * Callback as used by {@link google.cloud.kms.v1.KeyManagementService|getCryptoKeyVersion}.
+                         * Callback as used by {@link google.cloud.kms.v1.KeyManagementService#getCryptoKeyVersion}.
                          * @memberof google.cloud.kms.v1.KeyManagementService
                          * @typedef GetCryptoKeyVersionCallback
                          * @type {function}
@@ -6492,7 +6492,7 @@
                          */
     
                         /**
-                         * Callback as used by {@link google.cloud.kms.v1.KeyManagementService|getPublicKey}.
+                         * Callback as used by {@link google.cloud.kms.v1.KeyManagementService#getPublicKey}.
                          * @memberof google.cloud.kms.v1.KeyManagementService
                          * @typedef GetPublicKeyCallback
                          * @type {function}
@@ -6525,7 +6525,7 @@
                          */
     
                         /**
-                         * Callback as used by {@link google.cloud.kms.v1.KeyManagementService|getImportJob}.
+                         * Callback as used by {@link google.cloud.kms.v1.KeyManagementService#getImportJob}.
                          * @memberof google.cloud.kms.v1.KeyManagementService
                          * @typedef GetImportJobCallback
                          * @type {function}
@@ -6558,7 +6558,7 @@
                          */
     
                         /**
-                         * Callback as used by {@link google.cloud.kms.v1.KeyManagementService|createKeyRing}.
+                         * Callback as used by {@link google.cloud.kms.v1.KeyManagementService#createKeyRing}.
                          * @memberof google.cloud.kms.v1.KeyManagementService
                          * @typedef CreateKeyRingCallback
                          * @type {function}
@@ -6591,7 +6591,7 @@
                          */
     
                         /**
-                         * Callback as used by {@link google.cloud.kms.v1.KeyManagementService|createCryptoKey}.
+                         * Callback as used by {@link google.cloud.kms.v1.KeyManagementService#createCryptoKey}.
                          * @memberof google.cloud.kms.v1.KeyManagementService
                          * @typedef CreateCryptoKeyCallback
                          * @type {function}
@@ -6624,7 +6624,7 @@
                          */
     
                         /**
-                         * Callback as used by {@link google.cloud.kms.v1.KeyManagementService|createCryptoKeyVersion}.
+                         * Callback as used by {@link google.cloud.kms.v1.KeyManagementService#createCryptoKeyVersion}.
                          * @memberof google.cloud.kms.v1.KeyManagementService
                          * @typedef CreateCryptoKeyVersionCallback
                          * @type {function}
@@ -6657,7 +6657,7 @@
                          */
     
                         /**
-                         * Callback as used by {@link google.cloud.kms.v1.KeyManagementService|importCryptoKeyVersion}.
+                         * Callback as used by {@link google.cloud.kms.v1.KeyManagementService#importCryptoKeyVersion}.
                          * @memberof google.cloud.kms.v1.KeyManagementService
                          * @typedef ImportCryptoKeyVersionCallback
                          * @type {function}
@@ -6690,7 +6690,7 @@
                          */
     
                         /**
-                         * Callback as used by {@link google.cloud.kms.v1.KeyManagementService|createImportJob}.
+                         * Callback as used by {@link google.cloud.kms.v1.KeyManagementService#createImportJob}.
                          * @memberof google.cloud.kms.v1.KeyManagementService
                          * @typedef CreateImportJobCallback
                          * @type {function}
@@ -6723,7 +6723,7 @@
                          */
     
                         /**
-                         * Callback as used by {@link google.cloud.kms.v1.KeyManagementService|updateCryptoKey}.
+                         * Callback as used by {@link google.cloud.kms.v1.KeyManagementService#updateCryptoKey}.
                          * @memberof google.cloud.kms.v1.KeyManagementService
                          * @typedef UpdateCryptoKeyCallback
                          * @type {function}
@@ -6756,7 +6756,7 @@
                          */
     
                         /**
-                         * Callback as used by {@link google.cloud.kms.v1.KeyManagementService|updateCryptoKeyVersion}.
+                         * Callback as used by {@link google.cloud.kms.v1.KeyManagementService#updateCryptoKeyVersion}.
                          * @memberof google.cloud.kms.v1.KeyManagementService
                          * @typedef UpdateCryptoKeyVersionCallback
                          * @type {function}
@@ -6789,7 +6789,7 @@
                          */
     
                         /**
-                         * Callback as used by {@link google.cloud.kms.v1.KeyManagementService|updateCryptoKeyPrimaryVersion}.
+                         * Callback as used by {@link google.cloud.kms.v1.KeyManagementService#updateCryptoKeyPrimaryVersion}.
                          * @memberof google.cloud.kms.v1.KeyManagementService
                          * @typedef UpdateCryptoKeyPrimaryVersionCallback
                          * @type {function}
@@ -6822,7 +6822,7 @@
                          */
     
                         /**
-                         * Callback as used by {@link google.cloud.kms.v1.KeyManagementService|destroyCryptoKeyVersion}.
+                         * Callback as used by {@link google.cloud.kms.v1.KeyManagementService#destroyCryptoKeyVersion}.
                          * @memberof google.cloud.kms.v1.KeyManagementService
                          * @typedef DestroyCryptoKeyVersionCallback
                          * @type {function}
@@ -6855,7 +6855,7 @@
                          */
     
                         /**
-                         * Callback as used by {@link google.cloud.kms.v1.KeyManagementService|restoreCryptoKeyVersion}.
+                         * Callback as used by {@link google.cloud.kms.v1.KeyManagementService#restoreCryptoKeyVersion}.
                          * @memberof google.cloud.kms.v1.KeyManagementService
                          * @typedef RestoreCryptoKeyVersionCallback
                          * @type {function}
@@ -6888,7 +6888,7 @@
                          */
     
                         /**
-                         * Callback as used by {@link google.cloud.kms.v1.KeyManagementService|encrypt}.
+                         * Callback as used by {@link google.cloud.kms.v1.KeyManagementService#encrypt}.
                          * @memberof google.cloud.kms.v1.KeyManagementService
                          * @typedef EncryptCallback
                          * @type {function}
@@ -6921,7 +6921,7 @@
                          */
     
                         /**
-                         * Callback as used by {@link google.cloud.kms.v1.KeyManagementService|decrypt}.
+                         * Callback as used by {@link google.cloud.kms.v1.KeyManagementService#decrypt}.
                          * @memberof google.cloud.kms.v1.KeyManagementService
                          * @typedef DecryptCallback
                          * @type {function}
@@ -6954,7 +6954,7 @@
                          */
     
                         /**
-                         * Callback as used by {@link google.cloud.kms.v1.KeyManagementService|asymmetricSign}.
+                         * Callback as used by {@link google.cloud.kms.v1.KeyManagementService#asymmetricSign}.
                          * @memberof google.cloud.kms.v1.KeyManagementService
                          * @typedef AsymmetricSignCallback
                          * @type {function}
@@ -6987,7 +6987,7 @@
                          */
     
                         /**
-                         * Callback as used by {@link google.cloud.kms.v1.KeyManagementService|asymmetricDecrypt}.
+                         * Callback as used by {@link google.cloud.kms.v1.KeyManagementService#asymmetricDecrypt}.
                          * @memberof google.cloud.kms.v1.KeyManagementService
                          * @typedef AsymmetricDecryptCallback
                          * @type {function}
@@ -7020,7 +7020,7 @@
                          */
     
                         /**
-                         * Callback as used by {@link google.cloud.kms.v1.KeyManagementService|macSign}.
+                         * Callback as used by {@link google.cloud.kms.v1.KeyManagementService#macSign}.
                          * @memberof google.cloud.kms.v1.KeyManagementService
                          * @typedef MacSignCallback
                          * @type {function}
@@ -7053,7 +7053,7 @@
                          */
     
                         /**
-                         * Callback as used by {@link google.cloud.kms.v1.KeyManagementService|macVerify}.
+                         * Callback as used by {@link google.cloud.kms.v1.KeyManagementService#macVerify}.
                          * @memberof google.cloud.kms.v1.KeyManagementService
                          * @typedef MacVerifyCallback
                          * @type {function}
@@ -7086,7 +7086,7 @@
                          */
     
                         /**
-                         * Callback as used by {@link google.cloud.kms.v1.KeyManagementService|generateRandomBytes}.
+                         * Callback as used by {@link google.cloud.kms.v1.KeyManagementService#generateRandomBytes}.
                          * @memberof google.cloud.kms.v1.KeyManagementService
                          * @typedef GenerateRandomBytesCallback
                          * @type {function}
@@ -24040,7 +24040,6 @@
                  * @property {boolean|null} [packed] FieldOptions packed
                  * @property {google.protobuf.FieldOptions.JSType|null} [jstype] FieldOptions jstype
                  * @property {boolean|null} [lazy] FieldOptions lazy
-                 * @property {boolean|null} [unverifiedLazy] FieldOptions unverifiedLazy
                  * @property {boolean|null} [deprecated] FieldOptions deprecated
                  * @property {boolean|null} [weak] FieldOptions weak
                  * @property {Array.<google.protobuf.IUninterpretedOption>|null} [uninterpretedOption] FieldOptions uninterpretedOption
@@ -24096,14 +24095,6 @@
                  * @instance
                  */
                 FieldOptions.prototype.lazy = false;
-    
-                /**
-                 * FieldOptions unverifiedLazy.
-                 * @member {boolean} unverifiedLazy
-                 * @memberof google.protobuf.FieldOptions
-                 * @instance
-                 */
-                FieldOptions.prototype.unverifiedLazy = false;
     
                 /**
                  * FieldOptions deprecated.
@@ -24181,8 +24172,6 @@
                         writer.uint32(/* id 6, wireType 0 =*/48).int32(message.jstype);
                     if (message.weak != null && Object.hasOwnProperty.call(message, "weak"))
                         writer.uint32(/* id 10, wireType 0 =*/80).bool(message.weak);
-                    if (message.unverifiedLazy != null && Object.hasOwnProperty.call(message, "unverifiedLazy"))
-                        writer.uint32(/* id 15, wireType 0 =*/120).bool(message.unverifiedLazy);
                     if (message.uninterpretedOption != null && message.uninterpretedOption.length)
                         for (var i = 0; i < message.uninterpretedOption.length; ++i)
                             $root.google.protobuf.UninterpretedOption.encode(message.uninterpretedOption[i], writer.uint32(/* id 999, wireType 2 =*/7994).fork()).ldelim();
@@ -24239,9 +24228,6 @@
                             break;
                         case 5:
                             message.lazy = reader.bool();
-                            break;
-                        case 15:
-                            message.unverifiedLazy = reader.bool();
                             break;
                         case 3:
                             message.deprecated = reader.bool();
@@ -24326,9 +24312,6 @@
                     if (message.lazy != null && message.hasOwnProperty("lazy"))
                         if (typeof message.lazy !== "boolean")
                             return "lazy: boolean expected";
-                    if (message.unverifiedLazy != null && message.hasOwnProperty("unverifiedLazy"))
-                        if (typeof message.unverifiedLazy !== "boolean")
-                            return "unverifiedLazy: boolean expected";
                     if (message.deprecated != null && message.hasOwnProperty("deprecated"))
                         if (typeof message.deprecated !== "boolean")
                             return "deprecated: boolean expected";
@@ -24414,8 +24397,6 @@
                     }
                     if (object.lazy != null)
                         message.lazy = Boolean(object.lazy);
-                    if (object.unverifiedLazy != null)
-                        message.unverifiedLazy = Boolean(object.unverifiedLazy);
                     if (object.deprecated != null)
                         message.deprecated = Boolean(object.deprecated);
                     if (object.weak != null)
@@ -24503,7 +24484,6 @@
                         object.lazy = false;
                         object.jstype = options.enums === String ? "JS_NORMAL" : 0;
                         object.weak = false;
-                        object.unverifiedLazy = false;
                         object[".google.api.resourceReference"] = null;
                     }
                     if (message.ctype != null && message.hasOwnProperty("ctype"))
@@ -24518,8 +24498,6 @@
                         object.jstype = options.enums === String ? $root.google.protobuf.FieldOptions.JSType[message.jstype] : message.jstype;
                     if (message.weak != null && message.hasOwnProperty("weak"))
                         object.weak = message.weak;
-                    if (message.unverifiedLazy != null && message.hasOwnProperty("unverifiedLazy"))
-                        object.unverifiedLazy = message.unverifiedLazy;
                     if (message.uninterpretedOption && message.uninterpretedOption.length) {
                         object.uninterpretedOption = [];
                         for (var j = 0; j < message.uninterpretedOption.length; ++j)
