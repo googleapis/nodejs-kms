@@ -106,28 +106,28 @@ export namespace google {
                 namespace EkmService {
 
                     /**
-                     * Callback as used by {@link google.cloud.kms.v1.EkmService#listEkmConnections}.
+                     * Callback as used by {@link google.cloud.kms.v1.EkmService|listEkmConnections}.
                      * @param error Error, if any
                      * @param [response] ListEkmConnectionsResponse
                      */
                     type ListEkmConnectionsCallback = (error: (Error|null), response?: google.cloud.kms.v1.ListEkmConnectionsResponse) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.kms.v1.EkmService#getEkmConnection}.
+                     * Callback as used by {@link google.cloud.kms.v1.EkmService|getEkmConnection}.
                      * @param error Error, if any
                      * @param [response] EkmConnection
                      */
                     type GetEkmConnectionCallback = (error: (Error|null), response?: google.cloud.kms.v1.EkmConnection) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.kms.v1.EkmService#createEkmConnection}.
+                     * Callback as used by {@link google.cloud.kms.v1.EkmService|createEkmConnection}.
                      * @param error Error, if any
                      * @param [response] EkmConnection
                      */
                     type CreateEkmConnectionCallback = (error: (Error|null), response?: google.cloud.kms.v1.EkmConnection) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.kms.v1.EkmService#updateEkmConnection}.
+                     * Callback as used by {@link google.cloud.kms.v1.EkmService|updateEkmConnection}.
                      * @param error Error, if any
                      * @param [response] EkmConnection
                      */
@@ -2643,182 +2643,182 @@ export namespace google {
                 namespace KeyManagementService {
 
                     /**
-                     * Callback as used by {@link google.cloud.kms.v1.KeyManagementService#listKeyRings}.
+                     * Callback as used by {@link google.cloud.kms.v1.KeyManagementService|listKeyRings}.
                      * @param error Error, if any
                      * @param [response] ListKeyRingsResponse
                      */
                     type ListKeyRingsCallback = (error: (Error|null), response?: google.cloud.kms.v1.ListKeyRingsResponse) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.kms.v1.KeyManagementService#listCryptoKeys}.
+                     * Callback as used by {@link google.cloud.kms.v1.KeyManagementService|listCryptoKeys}.
                      * @param error Error, if any
                      * @param [response] ListCryptoKeysResponse
                      */
                     type ListCryptoKeysCallback = (error: (Error|null), response?: google.cloud.kms.v1.ListCryptoKeysResponse) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.kms.v1.KeyManagementService#listCryptoKeyVersions}.
+                     * Callback as used by {@link google.cloud.kms.v1.KeyManagementService|listCryptoKeyVersions}.
                      * @param error Error, if any
                      * @param [response] ListCryptoKeyVersionsResponse
                      */
                     type ListCryptoKeyVersionsCallback = (error: (Error|null), response?: google.cloud.kms.v1.ListCryptoKeyVersionsResponse) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.kms.v1.KeyManagementService#listImportJobs}.
+                     * Callback as used by {@link google.cloud.kms.v1.KeyManagementService|listImportJobs}.
                      * @param error Error, if any
                      * @param [response] ListImportJobsResponse
                      */
                     type ListImportJobsCallback = (error: (Error|null), response?: google.cloud.kms.v1.ListImportJobsResponse) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.kms.v1.KeyManagementService#getKeyRing}.
+                     * Callback as used by {@link google.cloud.kms.v1.KeyManagementService|getKeyRing}.
                      * @param error Error, if any
                      * @param [response] KeyRing
                      */
                     type GetKeyRingCallback = (error: (Error|null), response?: google.cloud.kms.v1.KeyRing) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.kms.v1.KeyManagementService#getCryptoKey}.
+                     * Callback as used by {@link google.cloud.kms.v1.KeyManagementService|getCryptoKey}.
                      * @param error Error, if any
                      * @param [response] CryptoKey
                      */
                     type GetCryptoKeyCallback = (error: (Error|null), response?: google.cloud.kms.v1.CryptoKey) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.kms.v1.KeyManagementService#getCryptoKeyVersion}.
+                     * Callback as used by {@link google.cloud.kms.v1.KeyManagementService|getCryptoKeyVersion}.
                      * @param error Error, if any
                      * @param [response] CryptoKeyVersion
                      */
                     type GetCryptoKeyVersionCallback = (error: (Error|null), response?: google.cloud.kms.v1.CryptoKeyVersion) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.kms.v1.KeyManagementService#getPublicKey}.
+                     * Callback as used by {@link google.cloud.kms.v1.KeyManagementService|getPublicKey}.
                      * @param error Error, if any
                      * @param [response] PublicKey
                      */
                     type GetPublicKeyCallback = (error: (Error|null), response?: google.cloud.kms.v1.PublicKey) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.kms.v1.KeyManagementService#getImportJob}.
+                     * Callback as used by {@link google.cloud.kms.v1.KeyManagementService|getImportJob}.
                      * @param error Error, if any
                      * @param [response] ImportJob
                      */
                     type GetImportJobCallback = (error: (Error|null), response?: google.cloud.kms.v1.ImportJob) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.kms.v1.KeyManagementService#createKeyRing}.
+                     * Callback as used by {@link google.cloud.kms.v1.KeyManagementService|createKeyRing}.
                      * @param error Error, if any
                      * @param [response] KeyRing
                      */
                     type CreateKeyRingCallback = (error: (Error|null), response?: google.cloud.kms.v1.KeyRing) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.kms.v1.KeyManagementService#createCryptoKey}.
+                     * Callback as used by {@link google.cloud.kms.v1.KeyManagementService|createCryptoKey}.
                      * @param error Error, if any
                      * @param [response] CryptoKey
                      */
                     type CreateCryptoKeyCallback = (error: (Error|null), response?: google.cloud.kms.v1.CryptoKey) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.kms.v1.KeyManagementService#createCryptoKeyVersion}.
+                     * Callback as used by {@link google.cloud.kms.v1.KeyManagementService|createCryptoKeyVersion}.
                      * @param error Error, if any
                      * @param [response] CryptoKeyVersion
                      */
                     type CreateCryptoKeyVersionCallback = (error: (Error|null), response?: google.cloud.kms.v1.CryptoKeyVersion) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.kms.v1.KeyManagementService#importCryptoKeyVersion}.
+                     * Callback as used by {@link google.cloud.kms.v1.KeyManagementService|importCryptoKeyVersion}.
                      * @param error Error, if any
                      * @param [response] CryptoKeyVersion
                      */
                     type ImportCryptoKeyVersionCallback = (error: (Error|null), response?: google.cloud.kms.v1.CryptoKeyVersion) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.kms.v1.KeyManagementService#createImportJob}.
+                     * Callback as used by {@link google.cloud.kms.v1.KeyManagementService|createImportJob}.
                      * @param error Error, if any
                      * @param [response] ImportJob
                      */
                     type CreateImportJobCallback = (error: (Error|null), response?: google.cloud.kms.v1.ImportJob) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.kms.v1.KeyManagementService#updateCryptoKey}.
+                     * Callback as used by {@link google.cloud.kms.v1.KeyManagementService|updateCryptoKey}.
                      * @param error Error, if any
                      * @param [response] CryptoKey
                      */
                     type UpdateCryptoKeyCallback = (error: (Error|null), response?: google.cloud.kms.v1.CryptoKey) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.kms.v1.KeyManagementService#updateCryptoKeyVersion}.
+                     * Callback as used by {@link google.cloud.kms.v1.KeyManagementService|updateCryptoKeyVersion}.
                      * @param error Error, if any
                      * @param [response] CryptoKeyVersion
                      */
                     type UpdateCryptoKeyVersionCallback = (error: (Error|null), response?: google.cloud.kms.v1.CryptoKeyVersion) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.kms.v1.KeyManagementService#updateCryptoKeyPrimaryVersion}.
+                     * Callback as used by {@link google.cloud.kms.v1.KeyManagementService|updateCryptoKeyPrimaryVersion}.
                      * @param error Error, if any
                      * @param [response] CryptoKey
                      */
                     type UpdateCryptoKeyPrimaryVersionCallback = (error: (Error|null), response?: google.cloud.kms.v1.CryptoKey) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.kms.v1.KeyManagementService#destroyCryptoKeyVersion}.
+                     * Callback as used by {@link google.cloud.kms.v1.KeyManagementService|destroyCryptoKeyVersion}.
                      * @param error Error, if any
                      * @param [response] CryptoKeyVersion
                      */
                     type DestroyCryptoKeyVersionCallback = (error: (Error|null), response?: google.cloud.kms.v1.CryptoKeyVersion) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.kms.v1.KeyManagementService#restoreCryptoKeyVersion}.
+                     * Callback as used by {@link google.cloud.kms.v1.KeyManagementService|restoreCryptoKeyVersion}.
                      * @param error Error, if any
                      * @param [response] CryptoKeyVersion
                      */
                     type RestoreCryptoKeyVersionCallback = (error: (Error|null), response?: google.cloud.kms.v1.CryptoKeyVersion) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.kms.v1.KeyManagementService#encrypt}.
+                     * Callback as used by {@link google.cloud.kms.v1.KeyManagementService|encrypt}.
                      * @param error Error, if any
                      * @param [response] EncryptResponse
                      */
                     type EncryptCallback = (error: (Error|null), response?: google.cloud.kms.v1.EncryptResponse) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.kms.v1.KeyManagementService#decrypt}.
+                     * Callback as used by {@link google.cloud.kms.v1.KeyManagementService|decrypt}.
                      * @param error Error, if any
                      * @param [response] DecryptResponse
                      */
                     type DecryptCallback = (error: (Error|null), response?: google.cloud.kms.v1.DecryptResponse) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.kms.v1.KeyManagementService#asymmetricSign}.
+                     * Callback as used by {@link google.cloud.kms.v1.KeyManagementService|asymmetricSign}.
                      * @param error Error, if any
                      * @param [response] AsymmetricSignResponse
                      */
                     type AsymmetricSignCallback = (error: (Error|null), response?: google.cloud.kms.v1.AsymmetricSignResponse) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.kms.v1.KeyManagementService#asymmetricDecrypt}.
+                     * Callback as used by {@link google.cloud.kms.v1.KeyManagementService|asymmetricDecrypt}.
                      * @param error Error, if any
                      * @param [response] AsymmetricDecryptResponse
                      */
                     type AsymmetricDecryptCallback = (error: (Error|null), response?: google.cloud.kms.v1.AsymmetricDecryptResponse) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.kms.v1.KeyManagementService#macSign}.
+                     * Callback as used by {@link google.cloud.kms.v1.KeyManagementService|macSign}.
                      * @param error Error, if any
                      * @param [response] MacSignResponse
                      */
                     type MacSignCallback = (error: (Error|null), response?: google.cloud.kms.v1.MacSignResponse) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.kms.v1.KeyManagementService#macVerify}.
+                     * Callback as used by {@link google.cloud.kms.v1.KeyManagementService|macVerify}.
                      * @param error Error, if any
                      * @param [response] MacVerifyResponse
                      */
                     type MacVerifyCallback = (error: (Error|null), response?: google.cloud.kms.v1.MacVerifyResponse) => void;
 
                     /**
-                     * Callback as used by {@link google.cloud.kms.v1.KeyManagementService#generateRandomBytes}.
+                     * Callback as used by {@link google.cloud.kms.v1.KeyManagementService|generateRandomBytes}.
                      * @param error Error, if any
                      * @param [response] GenerateRandomBytesResponse
                      */
@@ -9343,6 +9343,9 @@ export namespace google {
             /** FieldOptions lazy */
             lazy?: (boolean|null);
 
+            /** FieldOptions unverifiedLazy */
+            unverifiedLazy?: (boolean|null);
+
             /** FieldOptions deprecated */
             deprecated?: (boolean|null);
 
@@ -9379,6 +9382,9 @@ export namespace google {
 
             /** FieldOptions lazy. */
             public lazy: boolean;
+
+            /** FieldOptions unverifiedLazy. */
+            public unverifiedLazy: boolean;
 
             /** FieldOptions deprecated. */
             public deprecated: boolean;
