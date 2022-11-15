@@ -3506,6 +3506,10 @@
                                 case 13:
                                 case 31:
                                 case 32:
+                                case 33:
+                                case 34:
+                                case 35:
+                                case 36:
                                 case 18:
                                     break;
                                 }
@@ -3654,6 +3658,22 @@
                             case "HMAC_SHA256":
                             case 32:
                                 message.algorithm = 32;
+                                break;
+                            case "HMAC_SHA1":
+                            case 33:
+                                message.algorithm = 33;
+                                break;
+                            case "HMAC_SHA384":
+                            case 34:
+                                message.algorithm = 34;
+                                break;
+                            case "HMAC_SHA512":
+                            case 35:
+                                message.algorithm = 35;
+                                break;
+                            case "HMAC_SHA224":
+                            case 36:
+                                message.algorithm = 36;
                                 break;
                             case "EXTERNAL_SYMMETRIC_ENCRYPTION":
                             case 18:
@@ -4700,6 +4720,10 @@
                                 case 13:
                                 case 31:
                                 case 32:
+                                case 33:
+                                case 34:
+                                case 35:
+                                case 36:
                                 case 18:
                                     break;
                                 }
@@ -4935,6 +4959,22 @@
                             case 32:
                                 message.algorithm = 32;
                                 break;
+                            case "HMAC_SHA1":
+                            case 33:
+                                message.algorithm = 33;
+                                break;
+                            case "HMAC_SHA384":
+                            case 34:
+                                message.algorithm = 34;
+                                break;
+                            case "HMAC_SHA512":
+                            case 35:
+                                message.algorithm = 35;
+                                break;
+                            case "HMAC_SHA224":
+                            case 36:
+                                message.algorithm = 36;
+                                break;
                             case "EXTERNAL_SYMMETRIC_ENCRYPTION":
                             case 18:
                                 message.algorithm = 18;
@@ -5098,6 +5138,10 @@
                          * @property {number} EC_SIGN_P384_SHA384=13 EC_SIGN_P384_SHA384 value
                          * @property {number} EC_SIGN_SECP256K1_SHA256=31 EC_SIGN_SECP256K1_SHA256 value
                          * @property {number} HMAC_SHA256=32 HMAC_SHA256 value
+                         * @property {number} HMAC_SHA1=33 HMAC_SHA1 value
+                         * @property {number} HMAC_SHA384=34 HMAC_SHA384 value
+                         * @property {number} HMAC_SHA512=35 HMAC_SHA512 value
+                         * @property {number} HMAC_SHA224=36 HMAC_SHA224 value
                          * @property {number} EXTERNAL_SYMMETRIC_ENCRYPTION=18 EXTERNAL_SYMMETRIC_ENCRYPTION value
                          */
                         CryptoKeyVersion.CryptoKeyVersionAlgorithm = (function() {
@@ -5126,6 +5170,10 @@
                             values[valuesById[13] = "EC_SIGN_P384_SHA384"] = 13;
                             values[valuesById[31] = "EC_SIGN_SECP256K1_SHA256"] = 31;
                             values[valuesById[32] = "HMAC_SHA256"] = 32;
+                            values[valuesById[33] = "HMAC_SHA1"] = 33;
+                            values[valuesById[34] = "HMAC_SHA384"] = 34;
+                            values[valuesById[35] = "HMAC_SHA512"] = 35;
+                            values[valuesById[36] = "HMAC_SHA224"] = 36;
                             values[valuesById[18] = "EXTERNAL_SYMMETRIC_ENCRYPTION"] = 18;
                             return values;
                         })();
@@ -5395,6 +5443,10 @@
                                 case 13:
                                 case 31:
                                 case 32:
+                                case 33:
+                                case 34:
+                                case 35:
+                                case 36:
                                 case 18:
                                     break;
                                 }
@@ -5536,6 +5588,22 @@
                             case "HMAC_SHA256":
                             case 32:
                                 message.algorithm = 32;
+                                break;
+                            case "HMAC_SHA1":
+                            case 33:
+                                message.algorithm = 33;
+                                break;
+                            case "HMAC_SHA384":
+                            case 34:
+                                message.algorithm = 34;
+                                break;
+                            case "HMAC_SHA512":
+                            case 35:
+                                message.algorithm = 35;
+                                break;
+                            case "HMAC_SHA224":
+                            case 36:
+                                message.algorithm = 36;
                                 break;
                             case "EXTERNAL_SYMMETRIC_ENCRYPTION":
                             case 18:
@@ -11923,6 +11991,10 @@
                                 case 13:
                                 case 31:
                                 case 32:
+                                case 33:
+                                case 34:
+                                case 35:
+                                case 36:
                                 case 18:
                                     break;
                                 }
@@ -12055,6 +12127,22 @@
                             case "HMAC_SHA256":
                             case 32:
                                 message.algorithm = 32;
+                                break;
+                            case "HMAC_SHA1":
+                            case 33:
+                                message.algorithm = 33;
+                                break;
+                            case "HMAC_SHA384":
+                            case 34:
+                                message.algorithm = 34;
+                                break;
+                            case "HMAC_SHA512":
+                            case 35:
+                                message.algorithm = 35;
+                                break;
+                            case "HMAC_SHA224":
+                            case 36:
+                                message.algorithm = 36;
                                 break;
                             case "EXTERNAL_SYMMETRIC_ENCRYPTION":
                             case 18:
